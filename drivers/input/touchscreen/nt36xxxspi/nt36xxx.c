@@ -2875,6 +2875,14 @@ return:
 static int32_t __init nvt_driver_init(void)
 {
 	int32_t ret = 0;
+	//+OAK-8,shenwenbin.wt,ADD,20211208,improve TP compatility and add LCD mipi clk node
+	NVT_LOG("start %s\n",__func__);
+	// TODO check cmdline as a module
+	// if(!strstr(saved_command_line,"qcom,mdss_dsi_nt36523w_boe_2k_video")){
+	// 	NVT_LOG("It is not nt36523w panel,NOT init nvt TP\n");
+	// 	return 0;
+	// }
+	//-OAK-8,shenwenbin.wt,ADD,20211208,improve TP compatility and add LCD mipi clk node
 
 	//---add spi driver---
 	ret = spi_register_driver(&nvt_spi_driver);
