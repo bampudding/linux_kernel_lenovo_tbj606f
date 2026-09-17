@@ -3051,6 +3051,9 @@ static int check_port_resume_type(struct usb_device *udev,
 		if (portchange & USB_PORT_STAT_C_ENABLE)
 			usb_clear_port_feature(hub->hdev, port1,
 					USB_PORT_FEAT_C_ENABLE);
+
+		/* A successful reset-resume consumes the pending change. */
+		clear_bit(port1, hub->change_bits);
 	}
 
 	return status;
