@@ -1279,6 +1279,32 @@ static u32 resolve_rel_crc(const s32 *crc)
 	return *(u32 *)((void *)crc + *crc);
 }
 
+/*
+ * ZUI 12.0.519 ships rouleur_dlkm with two power-supply symbol CRCs from
+ * Lenovos private kernel headers. Julians public TB-J606F source has the
+ * same runtime ABI used by this module (CAPACITY == 42, power_supply->desc
+ * and desc->name both at offset 0), but genksyms produces different CRCs.
+ * Keep the exception intentionally narrow: one stock module, two symbols,
+ * and only the exact known kernel/module CRC pairs.
+ */
+static bool lenovo_zui12_rouleur_crc_compatible(const struct load_info *info,
+					 const char *symname, u32 kernel_crc,
+					 unsigned long module_crc)
+{
+	if (strcmp(info->name, "rouleur_dlkm"))
+		return false;
+
+	if (!strcmp(symname, "power_supply_get_by_name"))
+		return kernel_crc == 0xc1af7c21 &&
+		       module_crc == 0xe19b2c36;
+
+	if (!strcmp(symname, "power_supply_get_property"))
+		return kernel_crc == 0x11867ee2 &&
+		       module_crc == 0x173afe5e;
+
+	return false;
+}
+
 static int check_version(const struct load_info *info,
 			 const char *symname,
 			 struct module *mod,
@@ -1313,6 +1339,12 @@ static int check_version(const struct load_info *info,
 			crcval = *crc;
 		if (versions[i].crc == crcval)
 			return 1;
+		if (lenovo_zui12_rouleur_crc_compatible(info, symname, crcval,
+						 versions[i].crc)) {
+			pr_info("%s: accepting ZUI12 stock CRC for %s\n",
+				info->name, symname);
+			return 1;
+		}
 		pr_debug("Found checksum %X vs module %lX\n",
 			 crcval, versions[i].crc);
 		goto bad_version;
