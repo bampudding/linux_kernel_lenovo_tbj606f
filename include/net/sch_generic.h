@@ -273,8 +273,12 @@ struct tcf_proto_ops {
 	int			(*reoffload)(struct tcf_proto *tp, bool add,
 					     tc_setup_cb_t *cb, void *cb_priv,
 					     struct netlink_ext_ack *extack);
+#ifdef __GENKSYMS__
+	void			(*bind_class)(void *, u32, unsigned long);
+#else
 	void			(*bind_class)(void *, u32, unsigned long,
 					      void *, unsigned long);
+#endif
 	void *			(*tmplt_create)(struct net *net,
 						struct tcf_chain *chain,
 						struct nlattr **tca,
