@@ -556,7 +556,7 @@ static int mmc_devfreq_set_target(struct device *dev,
 /* huaqin add for SD card bringup by liufurong at 20190201 end */
 
 	spin_lock_irqsave(&clk_scaling->lock, flags);
-	if (clk_scaling->target_freq == *freq ||
+	if (clk_scaling->curr_freq == *freq ||
 		clk_scaling->skip_clk_scale_freq_update) {
 		spin_unlock_irqrestore(&clk_scaling->lock, flags);
 		goto out;
