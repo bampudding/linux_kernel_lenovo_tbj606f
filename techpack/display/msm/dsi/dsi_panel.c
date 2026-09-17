@@ -3834,6 +3834,27 @@ int dsi_panel_get_mode(struct dsi_panel *panel,
 			goto parse_fail;
 		}
 
+		/*
+		 * TB-J606F ZUI12 ships two 1200x2000 BOE panel variants.
+		 * Keep the first display-OC probe deliberately narrow so that
+		 * all other panels/modes retain their stock timing. The video-mode
+		 * pixel and DSI bit clocks are calculated after this point from the
+		 * updated refresh rate, so this is a real 65 Hz timing change rather
+		 * than a userspace mode label.
+		 */
+		if (mode->timing.refresh_rate == 60 &&
+		    mode->timing.h_active == 1200 &&
+		    mode->timing.v_active == 2000 &&
+		    panel->name &&
+		    (!strcmp(panel->name,
+			    "himax83102p video mode dsi boe panel") ||
+		     !strcmp(panel->name,
+			    "Novatek36523W video mode dsi boe panel"))) {
+			DSI_INFO("[%s] TB-J606F display timing 60 -> 65 Hz\n",
+				 panel->name);
+			mode->timing.refresh_rate = 65;
+		}
+
 		rc = dsi_panel_parse_dsc_params(mode, utils);
 		if (rc) {
 			DSI_ERR("failed to parse dsc params, rc=%d\n", rc);
