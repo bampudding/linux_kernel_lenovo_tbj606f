@@ -1511,6 +1511,11 @@ static int __dwc3_gadget_kick_transfer(struct dwc3_ep *dep)
 	if (!dwc3_calc_trbs_left(dep))
 		return 0;
 
+	if (dep->flags & DWC3_EP_END_TRANSFER_PENDING) {
+		dbg_event(dep->number, "ENDXFER Pending", dep->flags);
+		return -EBUSY;
+	}
+
 	starting = !(dep->flags & DWC3_EP_TRANSFER_STARTED);
 
 	dwc3_prepare_trbs(dep);
@@ -1623,6 +1628,12 @@ static int __dwc3_gadget_ep_queue(struct dwc3_ep *dep, struct dwc3_request *req)
 		return -ESHUTDOWN;
 	}
 
+	if (dep->flags & DWC3_EP_END_TRANSFER_PENDING) {
+		dev_err_ratelimited(dwc->dev, "%s: can't queue while ENDXFER Pending\n",
+				dep->name);
+		return -ESHUTDOWN;
+	}
+
 	if (WARN(req->dep != dep, "request %pK belongs to '%s'\n",
 				&req->request, req->dep->name))
 		return -EINVAL;
@@ -1662,7 +1673,9 @@ static int __dwc3_gadget_ep_queue(struct dwc3_ep *dep, struct dwc3_request *req)
 		}
 	}
 
-	return __dwc3_gadget_kick_transfer(dep);
+	__dwc3_gadget_kick_transfer(dep);
+
+	return 0;
 }
 
 static int dwc3_gadget_wakeup(struct usb_gadget *g)
@@ -1756,6 +1769,11 @@ static int dwc3_gadget_ep_dequeue(struct usb_ep *ep,
 
 	spin_lock_irqsave(&dwc->lock, flags);
 
+	list_for_each_entry(r, &dep->cancelled_list, list) {
+		if (r == req)
+			goto out0;
+	}
+
 	list_for_each_entry(r, &dep->pending_list, list) {
 		if (r == req)
 			break;
@@ -1767,25 +1785,34 @@ static int dwc3_gadget_ep_dequeue(struct usb_ep *ep,
 				break;
 		}
 		if (r == req) {
+			struct dwc3_request *t;
+
 			/* wait until it is processed */
 			dwc3_stop_active_transfer(dwc, dep->number, true);
 
 			if (!r->trb)
 				goto out0;
 
-			dwc3_gadget_move_cancelled_request(req);
-			if (dep->flags & DWC3_EP_TRANSFER_STARTED)
-				goto out0;
-			else
-				goto out1;
+			/*
+			 * Remove any started request if the transfer is
+			 * cancelled.
+			 */
+			list_for_each_entry_safe(r, t, &dep->started_list, list)
+				dwc3_gadget_move_cancelled_request(r);
+
+			if (!(dep->flags & DWC3_EP_END_TRANSFER_PENDING)) {
+				dbg_log_string("%s:giveback all request\n", __func__);
+				dwc3_gadget_ep_cleanup_cancelled_requests(dep);
+			}
+
+			goto out0;
 		}
-		dev_err(dwc->dev, "request %pK was not queued to %s\n",
+		dev_err_ratelimited(dwc->dev, "request %pK was not queued to %s\n",
 				request, ep->name);
 		ret = -EINVAL;
 		goto out0;
 	}
 
-out1:
 	dbg_ep_dequeue(dep->number, req);
 	dwc3_gadget_giveback(dep, req, -ECONNRESET);
 
@@ -3196,7 +3223,8 @@ static void dwc3_endpoint_interrupt(struct dwc3 *dwc,
 		dep->dbg_ep_events.epcmdcomplete++;
 		cmd = DEPEVT_PARAMETER_CMD(event->parameters);
 
-		if (cmd == DWC3_DEPCMD_ENDTRANSFER) {
+		if (cmd == DWC3_DEPCMD_ENDTRANSFER &&
+			(dep->flags & DWC3_EP_END_TRANSFER_PENDING)) {
 			dep->flags &= ~(DWC3_EP_END_TRANSFER_PENDING |
 					DWC3_EP_TRANSFER_STARTED);
 			dwc3_gadget_ep_cleanup_cancelled_requests(dep);
