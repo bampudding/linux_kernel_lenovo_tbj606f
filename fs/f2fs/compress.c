@@ -773,7 +773,8 @@ static int f2fs_write_compressed_pages(struct compress_ctx *cc,
 		.need_lock = LOCK_RETRY,
 		.io_type = io_type,
 		.io_wbc = wbc,
-		.encrypted = f2fs_encrypted_file(cc->inode),
+		.encrypted = f2fs_encrypted_file(cc->inode) &&
+				!fscrypt_using_hardware_encryption(cc->inode),
 	};
 	struct dnode_of_data dn;
 	struct node_info ni;
