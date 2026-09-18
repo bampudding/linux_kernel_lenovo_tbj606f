@@ -412,13 +412,19 @@ struct phy_device {
 	unsigned is_pseudo_fixed_link:1;
 	unsigned has_fixups:1;
 	unsigned suspended:1;
-	unsigned suspended_by_mdio_bus:1;
 	unsigned sysfs_links:1;
 	unsigned loopback_enabled:1;
 
 	unsigned autoneg:1;
 	/* The most recently read link state */
 	unsigned link:1;
+#ifndef __GENKSYMS__
+	/*
+	 * Added by the 4.19 stable MDIO PM fix.  Keep it after the
+	 * pre-existing ZUI12 bitfields so their bit positions stay stable.
+	 */
+	unsigned suspended_by_mdio_bus:1;
+#endif
 
 	enum phy_state state;
 
