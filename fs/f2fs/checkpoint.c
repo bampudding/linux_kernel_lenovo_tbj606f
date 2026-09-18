@@ -1269,6 +1269,10 @@ void f2fs_wait_on_all_pages_writeback(struct f2fs_sb_info *sbi)
 		if (unlikely(f2fs_cp_error(sbi)))
 			break;
 
+		/* Flush merged checkpoint data before sleeping so quota/checkpoint
+		 * waiters cannot deadlock behind an unsubmitted bio.
+		 */
+		f2fs_submit_merged_write(sbi, DATA);
 		io_schedule_timeout(5*HZ);
 	}
 	finish_wait(&sbi->cp_wait, &wait);
