@@ -2041,10 +2041,10 @@ static __latent_entropy struct task_struct *copy_process(
 	/* CLONE_PARENT re-uses the old parent */
 	if (clone_flags & (CLONE_PARENT|CLONE_THREAD)) {
 		p->real_parent = current->real_parent;
-		p->parent_exec_id = current->parent_exec_id;
+		task_set_parent_exec_id(p, task_parent_exec_id(current));
 	} else {
 		p->real_parent = current;
-		p->parent_exec_id = current->self_exec_id;
+		task_set_parent_exec_id(p, task_self_exec_id(current));
 	}
 
 	klp_copy_process(p);

@@ -1071,6 +1071,13 @@ struct task_struct {
 	unsigned long			sas_ss_sp;
 	size_t				sas_ss_size;
 	unsigned int			sas_ss_flags;
+#ifndef __GENKSYMS__
+	/*
+	 * Runtime-only consistency sequence.  On the stock ZUI12 arm64
+	 * layout this consumes the existing 4-byte hole after sas_ss_flags.
+	 */
+	u32				exec_id_seq;
+#endif
 
 	struct callback_head		*task_works;
 
@@ -1081,9 +1088,14 @@ struct task_struct {
 #endif
 	struct seccomp			seccomp;
 
-	/* Thread group tracking: */
-	u64				parent_exec_id;
-	u64				self_exec_id;
+	/* Thread group tracking:
+	 *
+	 * Keep the original ZUI12 low halves in-place so every pre-existing
+	 * task_struct field keeps its binary offset.  The 4.19.125 stable
+	 * 64-bit extension lives in pre-existing arm64 padding below.
+	 */
+	u32				parent_exec_id;
+	u32				self_exec_id;
 
 	/* Protection against (de-)allocation: mm, files, fs, tty, keyrings, mems_allowed, mempolicy: */
 	spinlock_t			alloc_lock;
@@ -1402,6 +1414,15 @@ struct task_struct {
 	/* Used by LSM modules for access restriction: */
 	void				*security;
 #endif
+#ifndef __GENKSYMS__
+	/*
+	 * High halves for the stable 64-bit exec IDs.  These consume the
+	 * existing 8-byte arm64 hole immediately before thread_struct, so
+	 * no stock ZUI12 task_struct member changes offset.
+	 */
+	u32				parent_exec_id_hi;
+	u32				self_exec_id_hi;
+#endif
 
 	/*
 	 * New fields for task_struct should be added above here, so that
@@ -1419,6 +1440,75 @@ struct task_struct {
 	 * Do not put anything below here!
 	 */
 };
+
+#ifndef __GENKSYMS__
+static inline u64 __task_exec_id_read(const struct task_struct *task,
+				      bool self)
+{
+	u32 seq, low, high;
+
+	do {
+		seq = READ_ONCE(task->exec_id_seq);
+		if (unlikely(seq & 1)) {
+			cpu_relax();
+			continue;
+		}
+
+		smp_rmb();
+		if (self) {
+			low = READ_ONCE(task->self_exec_id);
+			high = READ_ONCE(task->self_exec_id_hi);
+		} else {
+			low = READ_ONCE(task->parent_exec_id);
+			high = READ_ONCE(task->parent_exec_id_hi);
+		}
+		smp_rmb();
+	} while (unlikely(seq != READ_ONCE(task->exec_id_seq)));
+
+	return ((u64)high << 32) | low;
+}
+
+static inline void __task_exec_id_write(struct task_struct *task, bool self,
+					u64 value)
+{
+	u32 seq = READ_ONCE(task->exec_id_seq);
+
+	WRITE_ONCE(task->exec_id_seq, seq + 1);
+	smp_wmb();
+
+	if (self) {
+		WRITE_ONCE(task->self_exec_id, lower_32_bits(value));
+		WRITE_ONCE(task->self_exec_id_hi, upper_32_bits(value));
+	} else {
+		WRITE_ONCE(task->parent_exec_id, lower_32_bits(value));
+		WRITE_ONCE(task->parent_exec_id_hi, upper_32_bits(value));
+	}
+
+	smp_wmb();
+	WRITE_ONCE(task->exec_id_seq, seq + 2);
+}
+
+static inline u64 task_self_exec_id(const struct task_struct *task)
+{
+	return __task_exec_id_read(task, true);
+}
+
+static inline u64 task_parent_exec_id(const struct task_struct *task)
+{
+	return __task_exec_id_read(task, false);
+}
+
+static inline void task_set_self_exec_id(struct task_struct *task, u64 value)
+{
+	__task_exec_id_write(task, true, value);
+}
+
+static inline void task_set_parent_exec_id(struct task_struct *task, u64 value)
+{
+	__task_exec_id_write(task, false, value);
+}
+#endif
+
 
 static inline struct pid *task_pid(struct task_struct *task)
 {
