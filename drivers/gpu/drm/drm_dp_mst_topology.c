@@ -2070,7 +2070,6 @@ int drm_dp_update_payload_part2(struct drm_dp_mst_topology_mgr *mgr)
 	struct drm_dp_mst_port *port;
 	int i;
 	int ret = 0;
-	int i = 0;
 	mutex_lock(&mgr->payload_lock);
 	for (i = 0; i < mgr->max_payloads; i++) {
 
@@ -2275,7 +2274,7 @@ static bool drm_dp_get_vc_payload_bw(int dp_link_bw,
 int drm_dp_mst_topology_mgr_set_mst(struct drm_dp_mst_topology_mgr *mgr, bool mst_state)
 {
 	int ret = 0;
-	int i = 0;
+	int i;
 	struct drm_dp_mst_branch *mstb = NULL;
 	u8 buf;
 	u32 offset = DP_DPCD_REV;
@@ -2408,7 +2407,6 @@ EXPORT_SYMBOL(drm_dp_mst_topology_mgr_suspend);
 int drm_dp_mst_topology_mgr_resume(struct drm_dp_mst_topology_mgr *mgr)
 {
 	int ret = 0;
-	int i = 0;
 
 	mutex_lock(&mgr->lock);
 
@@ -2502,7 +2500,6 @@ static bool drm_dp_get_one_sb_msg(struct drm_dp_mst_topology_mgr *mgr, bool up)
 static int drm_dp_mst_handle_down_rep(struct drm_dp_mst_topology_mgr *mgr)
 {
 	int ret = 0;
-	int i = 0;
 
 	if (!drm_dp_get_one_sb_msg(mgr, false)) {
 		memset(&mgr->down_rep_recv, 0,
@@ -2564,7 +2561,6 @@ static int drm_dp_mst_handle_down_rep(struct drm_dp_mst_topology_mgr *mgr)
 static int drm_dp_mst_handle_up_req(struct drm_dp_mst_topology_mgr *mgr)
 {
 	int ret = 0;
-	int i = 0;
 
 	if (!drm_dp_get_one_sb_msg(mgr, true)) {
 		memset(&mgr->up_req_recv, 0,
@@ -2642,7 +2638,6 @@ static int drm_dp_mst_handle_up_req(struct drm_dp_mst_topology_mgr *mgr)
 int drm_dp_mst_hpd_irq(struct drm_dp_mst_topology_mgr *mgr, u8 *esi, bool *handled)
 {
 	int ret = 0;
-	int i = 0;
 	int sc;
 	*handled = false;
 	sc = esi[0] & 0x3f;
