@@ -663,7 +663,6 @@ struct inode {
 		struct rcu_head		i_rcu;
 	};
 	atomic64_t		i_version;
-	atomic64_t		i_sequence; /* see futex */
 	atomic_t		i_count;
 	atomic_t		i_dio_count;
 	atomic_t		i_writecount;
@@ -694,6 +693,13 @@ struct inode {
 #endif
 
 	void			*i_private; /* fs or device private pointer */
+#ifndef __GENKSYMS__
+	/*
+	 * Keep this futex sequence at the tail so the ZUI12 vendor-module
+	 * layout of every pre-existing inode field remains unchanged.
+	 */
+	atomic64_t		i_sequence; /* see futex */
+#endif
 } __randomize_layout;
 
 static inline unsigned int i_blocksize(const struct inode *node)
