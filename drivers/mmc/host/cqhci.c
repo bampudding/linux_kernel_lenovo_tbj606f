@@ -394,8 +394,7 @@ static void cqhci_off(struct mmc_host *mmc)
 	int err;
 
 	if (!cq_host->enabled || !mmc->cqe_on || cq_host->recovery_halt) {
-		pr_debug("%s: %s: CQE is already %s
-", mmc_hostname(mmc),
+		pr_debug("%s: %s: CQE is already %s\n", mmc_hostname(mmc),
 				__func__, mmc->cqe_on ? "off" : "on");
 		return;
 	}
@@ -408,13 +407,10 @@ static void cqhci_off(struct mmc_host *mmc)
 	err = readx_poll_timeout(cqhci_read_ctl, cq_host, reg,
 				 reg & CQHCI_HALT, 0, CQHCI_OFF_TIMEOUT);
 	if (err < 0)
-		pr_err("%s: cqhci: CQE stuck on
-", mmc_hostname(mmc));
+		pr_err("%s: cqhci: CQE stuck on\n", mmc_hostname(mmc));
 	else {
-		pr_debug("%s: cqhci: CQE off
-", mmc_hostname(mmc));
-		mmc_log_string(mmc, "cqhci: CQE off
-");
+		pr_debug("%s: cqhci: CQE off\n", mmc_hostname(mmc));
+		mmc_log_string(mmc, "cqhci: CQE off\n");
 	}
 	mmc->cqe_on = false;
 }
