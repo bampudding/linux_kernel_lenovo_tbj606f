@@ -906,7 +906,7 @@ out_destroy_crypt:
 	kfree(cic->rpages);
 
 	for (--i; i >= 0; i--)
-		fscrypt_finalize_bounce_page(&cc->cpages[i]);
+		fscrypt_pullback_bio_page(&cc->cpages[i], true);
 	for (i = 0; i < cc->nr_cpages; i++) {
 		if (!cc->cpages[i])
 			continue;
