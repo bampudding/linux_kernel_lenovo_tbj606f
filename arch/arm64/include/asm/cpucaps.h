@@ -56,6 +56,11 @@
 #define ARM64_WORKAROUND_1188873		35
 #define ARM64_WORKAROUND_1542418		36
 #define ARM64_WORKAROUND_1542419		37
+#ifdef __GENKSYMS__
+/* Keep exported capability-array CRCs compatible with stock ZUI12. */
+#define ARM64_NCAPS				37
+#else
 #define ARM64_NCAPS				38
+#endif
 
 #endif /* __ASM_CPUCAPS_H */

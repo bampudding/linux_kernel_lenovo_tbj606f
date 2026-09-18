@@ -66,7 +66,12 @@ struct tty_buffer {
 	int read;
 	int flags;
 	/* Data points here */
+#ifdef __GENKSYMS__
+	/* Preserve the stock ZUI12 type signature; runtime layout is identical. */
+	unsigned long data[0];
+#else
 	unsigned long data[];
+#endif
 };
 
 /* Values for .flags field of tty_buffer */
