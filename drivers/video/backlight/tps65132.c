@@ -128,6 +128,9 @@ int tps65132_read_bytes(unsigned char reg, unsigned char *val)
 }
 
 extern int Himax_gesture_status(void);
+#if IS_ENABLED(CONFIG_TOUCHSCREEN_NT36XXXSPI)
+extern int Nova_gesture_status(void);
+#endif
 
 #if defined(CONFIG_LCD_BIAS_TPS65132)
 void tps65132_enable(void)
@@ -148,7 +151,11 @@ void tps65132_disable(void)
 
 	LCM_LOGD("tps65132_disable\n");
 
+#if IS_ENABLED(CONFIG_TOUCHSCREEN_NT36XXXSPI)
+	ret = Nova_gesture_status();
+#else
 	ret = Himax_gesture_status();
+#endif
 	if (ret != 1) {
 		gpio_set_value(GPIO_LCD_BIAS_ENN, 0);
 		msleep(2);

@@ -19,6 +19,7 @@
 #define		_LINUX_NVT_TOUCH_H
 
 #include <linux/delay.h>
+#include <linux/completion.h>
 #include <linux/input.h>
 #include <linux/of.h>
 #include <linux/spi/spi.h>
@@ -92,6 +93,7 @@ extern const uint16_t touch_key_array[TOUCH_KEY_NUM];
 //-OAK1911,shenwenbin.wt,ADD,20211228,add penraw node for customer
 #define NVT_TOUCH_MP 1
 #define MT_PROTOCOL_B 1
+#define WAKEUP_GESTURE 1
 #if WAKEUP_GESTURE
 extern const uint16_t gesture_key_array[];
 #endif
@@ -149,6 +151,11 @@ struct nvt_ts_data {
 	uint8_t *xbuf;
 	struct mutex xbuf_lock;
 	bool irq_enabled;
+#if WAKEUP_GESTURE
+	bool irq_wake_enabled;
+	bool dev_pm_suspend;
+	struct completion dev_pm_suspend_completion;
+#endif
 	bool pen_support;
 	bool stylus_resol_double;
 	uint8_t x_gang_num;

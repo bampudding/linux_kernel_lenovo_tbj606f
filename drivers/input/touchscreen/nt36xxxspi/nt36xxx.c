@@ -82,6 +82,105 @@ extern void nvt_mp_proc_deinit(void);
 #endif
 
 struct nvt_ts_data *ts;
+static uint8_t bTouchIsAwake = 0;
+
+#if WAKEUP_GESTURE
+static bool nvt_gesture_enabled = true;
+static struct class *nvt_gesture_class;
+static struct device *nvt_gesture_dev;
+
+static ssize_t gesture_on_show(struct device *dev,
+		struct device_attribute *attr, char *buf)
+{
+	return scnprintf(buf, PAGE_SIZE, "%u\n",
+			READ_ONCE(nvt_gesture_enabled) ? 1 : 0);
+}
+
+static ssize_t gesture_on_store(struct device *dev,
+		struct device_attribute *attr, const char *buf, size_t count)
+{
+	bool enabled;
+	int ret;
+
+	ret = kstrtobool(buf, &enabled);
+	if (ret)
+		return ret;
+
+	if (!ts)
+		return -ENODEV;
+
+	mutex_lock(&ts->lock);
+	if (!bTouchIsAwake) {
+		mutex_unlock(&ts->lock);
+		return -EBUSY;
+	}
+
+	WRITE_ONCE(nvt_gesture_enabled, enabled);
+	mutex_unlock(&ts->lock);
+
+	NVT_LOG("DT2W gesture_on=%u\n", enabled ? 1 : 0);
+
+	return count;
+}
+static DEVICE_ATTR(gesture_on, 0664, gesture_on_show, gesture_on_store);
+
+static void nvt_gesture_sysfs_init(void)
+{
+	int ret;
+
+	nvt_gesture_class = class_create(THIS_MODULE, "touch");
+	if (IS_ERR(nvt_gesture_class)) {
+		NVT_ERR("failed to create touch class: %ld\n",
+				PTR_ERR(nvt_gesture_class));
+		nvt_gesture_class = NULL;
+		return;
+	}
+
+	nvt_gesture_dev = device_create(nvt_gesture_class, NULL, 0, NULL,
+			"tp_dev");
+	if (IS_ERR(nvt_gesture_dev)) {
+		NVT_ERR("failed to create tp_dev: %ld\n",
+				PTR_ERR(nvt_gesture_dev));
+		nvt_gesture_dev = NULL;
+		class_destroy(nvt_gesture_class);
+		nvt_gesture_class = NULL;
+		return;
+	}
+
+	ret = device_create_file(nvt_gesture_dev, &dev_attr_gesture_on);
+	if (ret) {
+		NVT_ERR("failed to create gesture_on: %d\n", ret);
+		device_destroy(nvt_gesture_class, 0);
+		nvt_gesture_dev = NULL;
+		class_destroy(nvt_gesture_class);
+		nvt_gesture_class = NULL;
+		return;
+	}
+
+	NVT_LOG("DT2W enabled by default; gesture control ready\n");
+}
+
+static void nvt_gesture_sysfs_deinit(void)
+{
+	if (nvt_gesture_dev) {
+		device_remove_file(nvt_gesture_dev, &dev_attr_gesture_on);
+		device_destroy(nvt_gesture_class, 0);
+		nvt_gesture_dev = NULL;
+	}
+
+	if (nvt_gesture_class) {
+		class_destroy(nvt_gesture_class);
+		nvt_gesture_class = NULL;
+	}
+}
+int Nova_gesture_status(void)
+{
+	if (!ts)
+		return 0;
+
+	return READ_ONCE(nvt_gesture_enabled) ? 1 : 0;
+}
+#endif
 
 #if BOOT_UPDATE_FIRMWARE
 static struct workqueue_struct *nvt_fwu_wq;
@@ -182,7 +281,6 @@ const struct mtk_chip_config spi_ctrdata = {
 };
 #endif
 
-static uint8_t bTouchIsAwake = 0;
 uint8_t NVTTouchProbe = false;
 
 /*******************************************************
@@ -997,6 +1095,10 @@ void nvt_ts_wakeup_gesture_report(uint8_t gesture_id, uint8_t *data)
 
 	NVT_LOG("gesture_id = %d\n", gesture_id);
 
+	/* GSI DT2W: only double-tap is allowed to synthesize KEY_POWER. */
+	if (gesture_id != GESTURE_DOUBLE_CLICK)
+		return;
+
 	switch (gesture_id) {
 		case GESTURE_WORD_C:
 			NVT_LOG("Gesture : Word-C.\n");
@@ -1480,26 +1582,16 @@ static irqreturn_t nvt_ts_work_func(int irq, void *data)
 //-OAK1911,shenwenbin.wt,ADD,20211228,add penraw node for customer
 
 #if WAKEUP_GESTURE
-	//+OAK78,shenwenbin.wt,MOD,20211130,double wakeup sometime SPI not wake
-	if (bTouchIsAwake == 0) {
-		if(!pm_runtime_enabled(&ts->client->dev)){
-			pm_wakeup_event(&ts->input_dev->dev, 5000);
-			for(i = 0; i < 100;i++){
-				if(pm_runtime_enabled(&ts->client->dev)){
-					NVT_LOG("CTP_SPI ready!waiting for %dms\n", i*10);
-					break;
-				}
-
-				msleep(10);
-			}
-
-			if(i >= 100)
-				NVT_ERR("Waiting for CTP_SPI ready Time out!(1000ms)\n");
-
-	}else
-		NVT_LOG("CTP_SPI ready!\n");
+	if (READ_ONCE(ts->dev_pm_suspend)) {
+		if (!wait_for_completion_timeout(&ts->dev_pm_suspend_completion,
+				msecs_to_jiffies(700))) {
+			NVT_ERR("Timed out waiting for SPI resume\n");
+			return IRQ_HANDLED;
+		}
 	}
-	//-OAK78,shenwenbin.wt,MOD,20211130,double wakeup sometime SPI not wake
+
+	if (!bTouchIsAwake)
+		pm_wakeup_event(&ts->input_dev->dev, 5000);
 #endif
 
 	mutex_lock(&ts->lock);
@@ -1998,6 +2090,11 @@ static int32_t nvt_ts_probe(struct spi_device *client)
 
 	mutex_init(&ts->lock);
 	mutex_init(&ts->xbuf_lock);
+#if WAKEUP_GESTURE
+	ts->irq_wake_enabled = false;
+	ts->dev_pm_suspend = false;
+	init_completion(&ts->dev_pm_suspend_completion);
+#endif
 
 	//---eng reset before TP_RESX high
 	nvt_eng_reset();
@@ -2148,8 +2245,6 @@ static int32_t nvt_ts_probe(struct spi_device *client)
 	}
 
 #if WAKEUP_GESTURE
-	irq_set_irq_wake(ts->client ->irq, 1);	//OAK78,shenwenbin.wt,MOD,20211130,double wakeup sometime SPI not wake
-        pm_runtime_enable(&ts->client ->dev);	//OAK78,shenwenbin.wt,MOD,20211130,double wakeup sometime SPI not wake
 	device_init_wakeup(&ts->input_dev->dev, 1);
 #endif
 
@@ -2275,6 +2370,10 @@ static int32_t nvt_ts_probe(struct spi_device *client)
 	}
 #endif
 
+#if WAKEUP_GESTURE
+	nvt_gesture_sysfs_init();
+#endif
+
 	bTouchIsAwake = 1;
 	ts->edge_reject_state = 0;	//OAK700,shenwenbin.wt,add,20211204,add charge mode
     ts->game_mode_state = 0;	//OAK4146,shenwenbin.wt,ADD,20220125,add TP game mode
@@ -2345,7 +2444,6 @@ err_create_nvt_charger_wq_failed:
 err_create_nvt_fwu_wq_failed:
 #endif
 #if WAKEUP_GESTURE
-	irq_set_irq_wake(ts->client ->irq, 0);	//OAK78,shenwenbin.wt,MOD,20211130,double wakeup sometime SPI not wake
 	device_init_wakeup(&ts->input_dev->dev, 0);
 #endif
 	free_irq(client->irq, ts);
@@ -2467,7 +2565,11 @@ static int32_t nvt_ts_remove(struct spi_device *client)
 #endif
 
 #if WAKEUP_GESTURE
-	irq_set_irq_wake(ts->client->irq, 0);	//OAK78,shenwenbin.wt,MOD,20211130,double wakeup sometime SPI not wake
+	nvt_gesture_sysfs_deinit();
+	if (ts->irq_wake_enabled) {
+		disable_irq_wake(ts->client->irq);
+		ts->irq_wake_enabled = false;
+	}
 	device_init_wakeup(&ts->input_dev->dev, 0);
 #endif
 
@@ -2574,7 +2676,11 @@ static void nvt_ts_shutdown(struct spi_device *client)
 #endif
 
 #if WAKEUP_GESTURE
-	irq_set_irq_wake(ts->client->irq, 0);	//OAK78,shenwenbin.wt,MOD,20211130,double wakeup sometime SPI not wake
+	nvt_gesture_sysfs_deinit();
+	if (ts->irq_wake_enabled) {
+		disable_irq_wake(ts->client->irq);
+		ts->irq_wake_enabled = false;
+	}
 	device_init_wakeup(&ts->input_dev->dev, 0);
 #endif
 }
@@ -2589,6 +2695,9 @@ return:
 static int32_t nvt_ts_suspend(struct device *dev)
 {
 	uint8_t buf[4] = {0};
+#if WAKEUP_GESTURE
+	bool gesture_enabled;
+#endif
 #if MT_PROTOCOL_B
 	uint32_t i = 0;
 #endif
@@ -2619,15 +2728,33 @@ static int32_t nvt_ts_suspend(struct device *dev)
 
 	bTouchIsAwake = 0;
 
-	//+OAK78,shenwenbin.wt,MOD,20211130,double wakeup sometime SPI not wake
+#if WAKEUP_GESTURE
+	gesture_enabled = READ_ONCE(nvt_gesture_enabled);
+	if (!gesture_enabled)
+		nvt_irq_enable(false);
+
+	if (gesture_enabled) {
+		/* Keep the controller and IRQ alive for double-tap wake. */
+		NVT_LOG("Enabled wakeup gesture mode\n");
+		buf[0] = EVENT_MAP_HOST_CMD;
+		buf[1] = 0x13;
+		CTP_SPI_WRITE(ts->client, buf, 2);
+
+		if (!ts->irq_wake_enabled) {
+			if (!enable_irq_wake(ts->client->irq))
+				ts->irq_wake_enabled = true;
+			else
+				NVT_ERR("Failed to arm touch IRQ as wake source\n");
+		}
+	} else
+#endif
 	{
-		//---write command to enter "deep sleep mode"---
+		/* No wake gesture requested: enter the original deep sleep mode. */
 		NVT_LOG("Enabled deep sleep mode\n");
 		buf[0] = EVENT_MAP_HOST_CMD;
 		buf[1] = 0x11;
 		CTP_SPI_WRITE(ts->client, buf, 2);
 	}
-	//-OAK78,shenwenbin.wt,MOD,20211130,double wakeup sometime SPI not wake
 
 	mutex_unlock(&ts->lock);
 
@@ -2698,11 +2825,13 @@ static int32_t nvt_ts_resume(struct device *dev)
 		nvt_check_fw_reset_state(RESET_STATE_REK);
 	}
 
-//+OAK78,shenwenbin.wt,MOD,20211130,double wakeup sometime SPI not wake
 #if WAKEUP_GESTURE
+	if (ts->irq_wake_enabled) {
+		disable_irq_wake(ts->client->irq);
+		ts->irq_wake_enabled = false;
+	}
 	nvt_irq_enable(true);
 #endif
-//-OAK78,shenwenbin.wt,MOD,20211130,double wakeup sometime SPI not wake
 
 #if NVT_TOUCH_ESD_PROTECT
 	nvt_esd_check_enable(false);
@@ -2839,6 +2968,37 @@ static void nvt_ts_late_resume(struct early_suspend *h)
 }
 #endif
 
+#if WAKEUP_GESTURE
+static int nvt_ts_pm_suspend(struct device *dev)
+{
+	struct nvt_ts_data *data = dev_get_drvdata(dev);
+
+	if (!data)
+		return 0;
+
+	WRITE_ONCE(data->dev_pm_suspend, true);
+	reinit_completion(&data->dev_pm_suspend_completion);
+	return 0;
+}
+
+static int nvt_ts_pm_resume(struct device *dev)
+{
+	struct nvt_ts_data *data = dev_get_drvdata(dev);
+
+	if (!data)
+		return 0;
+
+	WRITE_ONCE(data->dev_pm_suspend, false);
+	complete(&data->dev_pm_suspend_completion);
+	return 0;
+}
+
+static const struct dev_pm_ops nvt_ts_dev_pm_ops = {
+	.suspend = nvt_ts_pm_suspend,
+	.resume = nvt_ts_pm_resume,
+};
+#endif
+
 static const struct spi_device_id nvt_ts_id[] = {
 	{ NVT_SPI_NAME, 0 },
 	{ }
@@ -2859,6 +3019,9 @@ static struct spi_driver nvt_spi_driver = {
 	.driver = {
 		.name	= NVT_SPI_NAME,
 		.owner	= THIS_MODULE,
+#if WAKEUP_GESTURE
+		.pm = &nvt_ts_dev_pm_ops,
+#endif
 #ifdef CONFIG_OF
 		.of_match_table = nvt_match_table,
 #endif
