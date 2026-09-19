@@ -49,9 +49,21 @@ static struct work_struct input_boost_work;
 
 static bool input_boost_enabled;
 
+#define MAX_INPUT_BOOST_MS 80
+
 static unsigned int input_boost_ms = 40;
 show_one(input_boost_ms);
-store_one(input_boost_ms);
+static ssize_t store_input_boost_ms(struct kobject *kobj,
+		struct kobj_attribute *attr, const char *buf, size_t count)
+{
+	unsigned int val;
+
+	if (sscanf(buf, "%u", &val) != 1)
+		return -EINVAL;
+
+	input_boost_ms = min(val, (unsigned int)MAX_INPUT_BOOST_MS);
+	return count;
+}
 cpu_boost_attr_rw(input_boost_ms);
 
 static unsigned int sched_boost_on_input;
