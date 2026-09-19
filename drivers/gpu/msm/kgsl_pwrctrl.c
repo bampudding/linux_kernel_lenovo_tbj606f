@@ -264,6 +264,10 @@ int kgsl_clk_set_rate(struct kgsl_device *device,
 	if (ret)
 		dev_err(device->dev, "GPU clk freq set failure: %d\n",
 			     ret);
+	else if (pl->gpu_freq >= 980000000)
+		dev_info_once(device->dev,
+			"p11tune: GPU clk request %u Hz applied, clk_get_rate=%lu\n",
+			pl->gpu_freq, clk_get_rate(pwr->grp_clks[0]));
 
 	return ret;
 }
@@ -2288,6 +2292,9 @@ int kgsl_pwrctrl_init(struct kgsl_device *device)
 	pwr->min_pwrlevel = pwr->num_pwrlevels - 2;
 	pwr->thermal_pwrlevel = 0;
 	pwr->thermal_pwrlevel_floor = pwr->min_pwrlevel;
+
+	/* Fastboot-only OC validation: keep top level unless thermal clamps it. */
+	pwr->min_pwrlevel = 0;
 
 	pwr->wakeup_maxpwrlevel = 0;
 
