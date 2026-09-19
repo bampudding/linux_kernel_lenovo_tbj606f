@@ -123,6 +123,9 @@ struct nvt_ts_data {
 #if defined(CONFIG_FB)
 #if defined(CONFIG_DRM_PANEL)
 	struct notifier_block drm_panel_notif;
+	struct workqueue_struct *drm_notify_wq;
+	struct work_struct drm_notify_work;
+	bool drm_suspended;
 #elif defined(_MSM_DRM_NOTIFY_H_)
 	struct notifier_block drm_notif;
 #else

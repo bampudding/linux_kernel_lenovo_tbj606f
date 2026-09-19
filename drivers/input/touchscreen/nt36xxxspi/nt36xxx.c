@@ -200,6 +200,7 @@ extern int32_t nvt_edge_grid_zone_set(void);
 #if defined(CONFIG_FB)
 #if defined(CONFIG_DRM_PANEL)
 static struct drm_panel *active_panel;
+static void nvt_drm_notify_work(struct work_struct *work);
 static int nvt_drm_panel_notifier_callback(struct notifier_block *self, unsigned long event, void *data);
 #elif defined(_MSM_DRM_NOTIFY_H_)
 static int nvt_drm_notifier_callback(struct notifier_block *self, unsigned long event, void *data);
@@ -2336,6 +2337,16 @@ static int32_t nvt_ts_probe(struct spi_device *client)
 
 #if defined(CONFIG_FB)
 #if defined(CONFIG_DRM_PANEL)
+	ts->drm_suspended = false;
+	INIT_WORK(&ts->drm_notify_work, nvt_drm_notify_work);
+	ts->drm_notify_wq = alloc_workqueue("nvt_drm_notify_wq",
+			WQ_UNBOUND | WQ_HIGHPRI | WQ_MEM_RECLAIM, 1);
+	if (!ts->drm_notify_wq) {
+		NVT_ERR("allocate nvt_drm_notify_wq failed\n");
+		ret = -ENOMEM;
+		goto err_register_drm_panel_notif_failed;
+	}
+
 	ts->drm_panel_notif.notifier_call = nvt_drm_panel_notifier_callback;
 	if (active_panel) {
 		ret = drm_panel_notifier_register(active_panel, &ts->drm_panel_notif);
@@ -2389,6 +2400,11 @@ static int32_t nvt_ts_probe(struct spi_device *client)
 #if defined(CONFIG_FB)
 #if defined(CONFIG_DRM_PANEL)
 err_register_drm_panel_notif_failed:
+	if (ts->drm_notify_wq) {
+		cancel_work_sync(&ts->drm_notify_work);
+		destroy_workqueue(ts->drm_notify_wq);
+		ts->drm_notify_wq = NULL;
+	}
 #elif defined(_MSM_DRM_NOTIFY_H_)
 err_register_drm_notif_failed:
 #else
@@ -2519,6 +2535,11 @@ static int32_t nvt_ts_remove(struct spi_device *client)
 		if (drm_panel_notifier_unregister(active_panel, &ts->drm_panel_notif))
 			NVT_ERR("Error occurred while unregistering drm_panel_notifier.\n");
 	}
+	if (ts->drm_notify_wq) {
+		cancel_work_sync(&ts->drm_notify_work);
+		destroy_workqueue(ts->drm_notify_wq);
+		ts->drm_notify_wq = NULL;
+	}
 #elif defined(_MSM_DRM_NOTIFY_H_)
 	if (msm_drm_unregister_client(&ts->drm_notif))
 		NVT_ERR("Error occurred while unregistering drm_notifier.\n");
@@ -2629,6 +2650,11 @@ static void nvt_ts_shutdown(struct spi_device *client)
 	if (active_panel) {
 		if (drm_panel_notifier_unregister(active_panel, &ts->drm_panel_notif))
 			NVT_ERR("Error occurred while unregistering drm_panel_notifier.\n");
+	}
+	if (ts->drm_notify_wq) {
+		cancel_work_sync(&ts->drm_notify_work);
+		destroy_workqueue(ts->drm_notify_wq);
+		ts->drm_notify_wq = NULL;
 	}
 #elif defined(_MSM_DRM_NOTIFY_H_)
 	if (msm_drm_unregister_client(&ts->drm_notif))
@@ -2856,6 +2882,17 @@ static int32_t nvt_ts_resume(struct device *dev)
 
 #if defined(CONFIG_FB)
 #if defined(CONFIG_DRM_PANEL)
+static void nvt_drm_notify_work(struct work_struct *work)
+{
+	struct nvt_ts_data *data =
+		container_of(work, struct nvt_ts_data, drm_notify_work);
+
+	if (READ_ONCE(data->drm_suspended))
+		nvt_ts_suspend(&data->client->dev);
+	else
+		nvt_ts_resume(&data->client->dev);
+}
+
 static int nvt_drm_panel_notifier_callback(struct notifier_block *self, unsigned long event, void *data)
 {
 	struct drm_panel_notifier *evdata = data;
@@ -2877,12 +2914,18 @@ static int nvt_drm_panel_notifier_callback(struct notifier_block *self, unsigned
 		if (event == DRM_PANEL_EARLY_EVENT_BLANK) {
 			if (*blank == DRM_PANEL_BLANK_POWERDOWN) {
 				NVT_LOG("event=%lu, *blank=%d\n", event, *blank);
-				nvt_ts_suspend(&ts->client->dev);
+				WRITE_ONCE(ts->drm_suspended, true);
+				if (ts->drm_notify_wq)
+					queue_work(ts->drm_notify_wq,
+						&ts->drm_notify_work);
 			}
 		} else if (event == DRM_PANEL_EVENT_BLANK) {
 			if (*blank == DRM_PANEL_BLANK_UNBLANK) {
 				NVT_LOG("event=%lu, *blank=%d\n", event, *blank);
-				nvt_ts_resume(&ts->client->dev);
+				WRITE_ONCE(ts->drm_suspended, false);
+				if (ts->drm_notify_wq)
+					queue_work(ts->drm_notify_wq,
+						&ts->drm_notify_work);
 			}
 		}
 	}
