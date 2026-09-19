@@ -21,6 +21,8 @@ struct f2fs_compress_ops {
 	int (*init_compress_ctx)(struct compress_ctx *cc);
 	void (*destroy_compress_ctx)(struct compress_ctx *cc);
 	int (*compress_pages)(struct compress_ctx *cc);
+	int (*init_decompress_ctx)(struct decompress_io_ctx *dic);
+	void (*destroy_decompress_ctx)(struct decompress_io_ctx *dic);
 	int (*decompress_pages)(struct decompress_io_ctx *dic);
 };
 
@@ -357,9 +359,11 @@ static int f2fs_compress_pages(struct compress_ctx *cc)
 	trace_f2fs_compress_pages_start(cc->inode, cc->cluster_idx,
 				cc->cluster_size, fi->i_compress_algorithm);
 
-	ret = cops->init_compress_ctx(cc);
-	if (ret)
-		goto out;
+	if (cops->init_compress_ctx) {
+		ret = cops->init_compress_ctx(cc);
+		if (ret)
+			goto out;
+	}
 
 	max_len = COMPRESS_HEADER_SIZE + cc->clen;
 	cc->nr_cpages = DIV_ROUND_UP(max_len, PAGE_SIZE);
@@ -421,7 +425,8 @@ static int f2fs_compress_pages(struct compress_ctx *cc)
 		cc->cpages[i] = NULL;
 	}
 
-	cops->destroy_compress_ctx(cc);
+	if (cops->destroy_compress_ctx)
+		cops->destroy_compress_ctx(cc);
 
 	cc->nr_cpages = nr_cpages;
 
@@ -441,7 +446,8 @@ out_free_cpages:
 	kfree(cc->cpages);
 	cc->cpages = NULL;
 destroy_compress_ctx:
-	cops->destroy_compress_ctx(cc);
+	if (cops->destroy_compress_ctx)
+		cops->destroy_compress_ctx(cc);
 out:
 	trace_f2fs_compress_pages_end(cc->inode, cc->cluster_idx,
 							cc->clen, ret);
@@ -476,10 +482,16 @@ void f2fs_decompress_pages(struct bio *bio, struct page *page, bool verity)
 		goto out_free_dic;
 	}
 
+	if (cops->init_decompress_ctx) {
+		ret = cops->init_decompress_ctx(dic);
+		if (ret)
+			goto out_free_dic;
+	}
+
 	dic->rbuf = vmap(dic->tpages, dic->cluster_size, VM_MAP, PAGE_KERNEL);
 	if (!dic->rbuf) {
 		ret = -ENOMEM;
-		goto out_free_dic;
+		goto destroy_decompress_ctx;
 	}
 
 	dic->cbuf = vmap(dic->cpages, dic->nr_cpages, VM_MAP, PAGE_KERNEL_RO);
@@ -502,6 +514,9 @@ out_vunmap_cbuf:
 	vunmap(dic->cbuf);
 out_vunmap_rbuf:
 	vunmap(dic->rbuf);
+destroy_decompress_ctx:
+	if (cops->destroy_decompress_ctx)
+		cops->destroy_decompress_ctx(dic);
 out_free_dic:
 	f2fs_decompress_end_io(dic->rpages, dic->cluster_size, ret, false);
 
@@ -1134,7 +1149,8 @@ int f2fs_write_multi_pages(struct compress_ctx *cc,
 
 		err = f2fs_write_compressed_pages(cc, submitted,
 							wbc, io_type);
-		cops->destroy_compress_ctx(cc);
+		if (cops->destroy_compress_ctx)
+			cops->destroy_compress_ctx(cc);
 		if (!err)
 			return 0;
 		f2fs_bug_on(F2FS_I_SB(cc->inode), err != -EAGAIN);
