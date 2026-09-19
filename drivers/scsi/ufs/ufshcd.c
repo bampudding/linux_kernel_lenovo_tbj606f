@@ -38,6 +38,7 @@
  */
 
 #include <linux/async.h>
+#include <linux/init.h>
 #include <scsi/ufs/ioctl.h>
 #include <linux/nls.h>
 #include <linux/of.h>
@@ -258,6 +259,31 @@ static void ufshcd_update_uic_error_cnt(struct ufs_hba *hba, u32 reg, int type)
 
 #define UFSHCD_CLK_GATING_DELAY_MS_PWR_SAVE	10
 #define UFSHCD_CLK_GATING_DELAY_MS_PERF		50
+
+static int p11_ufs_clkgate_perf_ms = -1;
+static int p11_ufs_clkgate_pwr_ms = -1;
+
+static int __init p11_ufs_clkgate_perf_setup(char *str)
+{
+	int val;
+
+	if (kstrtoint(str, 0, &val) || val < 1 || val > 1000)
+		return 0;
+	p11_ufs_clkgate_perf_ms = val;
+	return 1;
+}
+__setup("p11tune.ufs_clkgate_perf_ms=", p11_ufs_clkgate_perf_setup);
+
+static int __init p11_ufs_clkgate_pwr_setup(char *str)
+{
+	int val;
+
+	if (kstrtoint(str, 0, &val) || val < 1 || val > 1000)
+		return 0;
+	p11_ufs_clkgate_pwr_ms = val;
+	return 1;
+}
+__setup("p11tune.ufs_clkgate_pwr_ms=", p11_ufs_clkgate_pwr_setup);
 
 /* IOCTL opcode for command - ufs set device read only */
 #define UFS_IOCTL_BLKROSET      BLKROSET
@@ -2579,6 +2605,15 @@ static void ufshcd_init_clk_gating(struct ufs_hba *hba)
 
 	gating->delay_ms_pwr_save = UFSHCD_CLK_GATING_DELAY_MS_PWR_SAVE;
 	gating->delay_ms_perf = UFSHCD_CLK_GATING_DELAY_MS_PERF;
+
+	if (p11_ufs_clkgate_pwr_ms >= 0)
+		gating->delay_ms_pwr_save = p11_ufs_clkgate_pwr_ms;
+	if (p11_ufs_clkgate_perf_ms >= 0)
+		gating->delay_ms_perf = p11_ufs_clkgate_perf_ms;
+
+	if (p11_ufs_clkgate_pwr_ms >= 0 || p11_ufs_clkgate_perf_ms >= 0)
+		dev_info(hba->dev, "p11tune: UFS clock gate perf=%lu ms pwr=%lu ms\n",
+			 gating->delay_ms_perf, gating->delay_ms_pwr_save);
 
 	/* start with performance mode */
 	gating->delay_ms = gating->delay_ms_perf;

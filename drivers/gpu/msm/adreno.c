@@ -3,6 +3,7 @@
  * Copyright (c) 2002,2007-2020, The Linux Foundation. All rights reserved.
  */
 #include <linux/delay.h>
+#include <linux/init.h>
 #include <linux/input.h>
 #include <linux/io.h>
 #include <linux/of.h>
@@ -41,6 +42,19 @@ static struct devfreq_msm_adreno_tz_data adreno_tz_data = {
 };
 
 static const struct kgsl_functable adreno_functable;
+
+static int p11_kgsl_idle_timeout_ms = -1;
+
+static int __init p11_kgsl_idle_timeout_setup(char *str)
+{
+	int val;
+
+	if (kstrtoint(str, 0, &val) || val < 1 || val > 5000)
+		return 0;
+	p11_kgsl_idle_timeout_ms = val;
+	return 1;
+}
+__setup("p11tune.kgsl_idle_ms=", p11_kgsl_idle_timeout_setup);
 
 static struct adreno_device device_3d0 = {
 	.dev = {
@@ -1188,6 +1202,12 @@ static int adreno_of_get_power(struct adreno_device *adreno_dev,
 
 	if (of_property_read_u32(node, "qcom,idle-timeout", &timeout))
 		timeout = 80;
+
+	if (p11_kgsl_idle_timeout_ms >= 0) {
+		timeout = p11_kgsl_idle_timeout_ms;
+		dev_info(device->dev, "p11tune: KGSL idle timeout=%u ms\n",
+			 timeout);
+	}
 
 	device->pwrctrl.interval_timeout = msecs_to_jiffies(timeout);
 
