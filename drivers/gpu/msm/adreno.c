@@ -3,6 +3,7 @@
  * Copyright (c) 2002,2007-2020, The Linux Foundation. All rights reserved.
  */
 #include <linux/delay.h>
+#include <linux/init.h>
 #include <linux/input.h>
 #include <linux/io.h>
 #include <linux/of.h>
@@ -41,6 +42,20 @@ static struct devfreq_msm_adreno_tz_data adreno_tz_data = {
 };
 
 static const struct kgsl_functable adreno_functable;
+
+static int p11_gpu_speed_bin = -1;
+
+static int __init p11_gpu_speed_bin_setup(char *str)
+{
+	int val;
+
+	if (kstrtoint(str, 0, &val) || val < 0 || val > 255)
+		return 0;
+
+	p11_gpu_speed_bin = val;
+	return 1;
+}
+__setup("p11tune.gpu_speed_bin=", p11_gpu_speed_bin_setup);
 
 static struct adreno_device device_3d0 = {
 	.dev = {
@@ -1371,6 +1386,12 @@ static int adreno_probe_efuse(struct platform_device *pdev,
 	ret = adreno_read_speed_bin(pdev, adreno_dev);
 	if (ret)
 		return ret;
+
+	if (p11_gpu_speed_bin >= 0) {
+		dev_info(&pdev->dev, "p11tune: GPU speed bin %u -> %d\n",
+			 adreno_dev->speed_bin, p11_gpu_speed_bin);
+		adreno_dev->speed_bin = p11_gpu_speed_bin;
+	}
 
 	ret = nvmem_cell_read_u32(&pdev->dev, "isense_slope",
 					&adreno_dev->lm_slope);
