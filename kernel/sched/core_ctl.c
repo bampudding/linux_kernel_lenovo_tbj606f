@@ -73,6 +73,20 @@ static void apply_need(struct cluster_data *state);
 static void wake_up_core_ctl_thread(struct cluster_data *state);
 static bool initialized;
 
+static int p11_big_offline_delay_ms = -1;
+
+static int __init p11_big_offline_delay_setup(char *str)
+{
+	unsigned int val;
+
+	if (kstrtouint(str, 0, &val) || val > 5000)
+		return 0;
+
+	p11_big_offline_delay_ms = val;
+	return 1;
+}
+__setup("p11tune.core_ctl_big_offline_delay_ms=", p11_big_offline_delay_setup);
+
 ATOMIC_NOTIFIER_HEAD(core_ctl_notifier);
 static unsigned int last_nr_big;
 
@@ -130,6 +144,9 @@ static ssize_t store_offline_delay_ms(struct cluster_data *state,
 
 	if (sscanf(buf, "%u\n", &val) != 1)
 		return -EINVAL;
+
+	if (state->first_cpu == 4 && p11_big_offline_delay_ms >= 0)
+		val = p11_big_offline_delay_ms;
 
 	state->offline_delay_ms = val;
 	apply_need(state);
@@ -1303,7 +1320,9 @@ static int cluster_init(const struct cpumask *mask)
 	cluster->min_cpus = 1;
 	cluster->max_cpus = cluster->num_cpus;
 	cluster->need_cpus = cluster->num_cpus;
-	cluster->offline_delay_ms = 100;
+	cluster->offline_delay_ms =
+		(first_cpu == 4 && p11_big_offline_delay_ms >= 0) ?
+		(unsigned int)p11_big_offline_delay_ms : 100;
 	cluster->task_thres = UINT_MAX;
 	cluster->nr_prev_assist_thresh = UINT_MAX;
 	cluster->nrrun = cluster->num_cpus;
