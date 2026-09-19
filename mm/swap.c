@@ -44,6 +44,20 @@
 /* How many pages do we try to swap or page in/out together? */
 int page_cluster;
 
+static int p11_page_cluster = -1;
+
+static int __init p11_page_cluster_setup(char *str)
+{
+	int val;
+
+	if (kstrtoint(str, 0, &val) || val < 0 || val > 31)
+		return 0;
+
+	p11_page_cluster = val;
+	return 1;
+}
+__setup("p11tune.page_cluster=", p11_page_cluster_setup);
+
 static DEFINE_PER_CPU(struct pagevec, lru_add_pvec);
 static DEFINE_PER_CPU(struct pagevec, lru_rotate_pvecs);
 static DEFINE_PER_CPU(struct pagevec, lru_deactivate_file_pvecs);
@@ -1039,6 +1053,9 @@ void __init swap_setup(void)
 		page_cluster = 2;
 	else
 		page_cluster = 3;
+
+	if (p11_page_cluster >= 0)
+		page_cluster = p11_page_cluster;
 	/*
 	 * Right now other parts of the system means that we
 	 * _really_ don't want to cluster much more
