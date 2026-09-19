@@ -2386,6 +2386,18 @@ static inline block_t datablock_addr(struct inode *inode,
 	return le32_to_cpu(addr_array[base + offset]);
 }
 
+/* Modern F2FS naming used by compression/block-management backports. */
+static inline block_t data_blkaddr(struct inode *inode,
+			struct page *node_page, unsigned int offset)
+{
+	return datablock_addr(inode, node_page, offset);
+}
+
+static inline block_t f2fs_data_blkaddr(struct dnode_of_data *dn)
+{
+	return datablock_addr(dn->inode, dn->node_page, dn->ofs_in_node);
+}
+
 static inline int f2fs_test_bit(unsigned int nr, char *addr)
 {
 	int mask;
