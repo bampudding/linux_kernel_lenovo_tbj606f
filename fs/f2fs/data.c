@@ -114,7 +114,8 @@ static enum count_type __read_io_type(struct page *page)
 /* postprocessing steps for read bios */
 enum bio_post_read_step {
 	STEP_DECRYPT,
-	STEP_DECOMPRESS,
+	STEP_DECOMPRESS_NOWQ,		/* normal cluster data: no decompression work */
+	STEP_DECOMPRESS,		/* compressed cluster data: handle in workqueue */
 };
 
 struct bio_post_read_ctx {
@@ -816,7 +817,7 @@ static struct bio *f2fs_grab_read_bio(struct inode *inode, block_t blkaddr,
 		!fscrypt_using_hardware_encryption(inode))
 		post_read_steps |= 1 << STEP_DECRYPT;
 	if (f2fs_compressed_file(inode))
-		post_read_steps |= 1 << STEP_DECOMPRESS;
+		post_read_steps |= 1 << STEP_DECOMPRESS_NOWQ;
 	if (post_read_steps) {
 		ctx = mempool_alloc(bio_post_read_ctx_pool, GFP_NOFS);
 		if (!ctx) {
@@ -2008,6 +2009,13 @@ submit_and_realloc:
 
 		if (bio_add_page(bio, page, blocksize, 0) < blocksize)
 			goto submit_and_realloc;
+
+		/* Only compressed cluster pages need decompression in post-read wq. */
+		if (bio->bi_private) {
+			struct bio_post_read_ctx *ctx = bio->bi_private;
+
+			ctx->enabled_steps |= 1 << STEP_DECOMPRESS;
+		}
 
 		inc_page_count(sbi, F2FS_RD_DATA);
 		ClearPageError(page);
