@@ -1174,6 +1174,12 @@ static int block_operations(struct f2fs_sb_info *sbi)
 
 	blk_start_plug(&plug);
 
+	/*
+	 * Flush inline_data before taking cp_rwsem. f2fs_sync_node_pages()
+	 * may otherwise reach iput() while checkpoint already owns cp_rwsem.
+	 */
+	f2fs_flush_inline_data(sbi);
+
 retry_flush_quotas:
 	f2fs_lock_all(sbi);
 	if (__need_flush_quota(sbi)) {
