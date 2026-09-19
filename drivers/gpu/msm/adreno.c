@@ -43,7 +43,7 @@ static struct devfreq_msm_adreno_tz_data adreno_tz_data = {
 
 static const struct kgsl_functable adreno_functable;
 
-static int p11_gpu_speed_bin = -1;
+static int p11_gpu_speed_bin = 0;
 
 static int __init p11_gpu_speed_bin_setup(char *str)
 {
