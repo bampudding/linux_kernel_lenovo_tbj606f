@@ -211,6 +211,21 @@ static struct attribute_group cpu_isolated_attr_group = {
 
 #endif
 
+#define P11_SCHED_LOAD_BOOST_UNSET 1001
+static int p11_sched_load_boost = P11_SCHED_LOAD_BOOST_UNSET;
+
+static int __init p11_sched_load_boost_setup(char *str)
+{
+	int val;
+
+	if (kstrtoint(str, 0, &val) || val < -100 || val > 1000)
+		return 0;
+
+	p11_sched_load_boost = val;
+	return 1;
+}
+__setup("p11tune.sched_load_boost=", p11_sched_load_boost_setup);
+
 static ssize_t show_sched_load_boost(struct device *dev,
 				struct device_attribute *attr, char *buf)
 {
@@ -245,6 +260,9 @@ static ssize_t __ref store_sched_load_boost(struct device *dev,
 	 */
 	if (boost < -100 || boost > 1000)
 		return -EINVAL;
+
+	if (p11_sched_load_boost != P11_SCHED_LOAD_BOOST_UNSET)
+		boost = p11_sched_load_boost;
 
 	per_cpu(sched_load_boost, cpuid) = boost;
 

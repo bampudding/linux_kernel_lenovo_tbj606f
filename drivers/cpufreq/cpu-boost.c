@@ -50,8 +50,34 @@ static struct work_struct input_boost_work;
 static bool input_boost_enabled;
 
 static unsigned int input_boost_ms = 40;
+static int input_boost_ms_override = -1;
+
+static int __init p11_input_boost_ms_setup(char *str)
+{
+	unsigned int val;
+
+	if (kstrtouint(str, 0, &val))
+		return 0;
+
+	input_boost_ms_override = val;
+	input_boost_ms = val;
+	return 1;
+}
+__setup("p11tune.input_boost_ms=", p11_input_boost_ms_setup);
+
 show_one(input_boost_ms);
-store_one(input_boost_ms);
+static ssize_t store_input_boost_ms(struct kobject *kobj,
+		struct kobj_attribute *attr, const char *buf, size_t count)
+{
+	unsigned int val;
+
+	if (kstrtouint(buf, 0, &val))
+		return -EINVAL;
+
+	input_boost_ms = input_boost_ms_override >= 0 ?
+		(unsigned int)input_boost_ms_override : val;
+	return count;
+}
 cpu_boost_attr_rw(input_boost_ms);
 
 static unsigned int sched_boost_on_input;

@@ -849,6 +849,31 @@ static inline struct sugov_tunables *to_sugov_tunables(struct gov_attr_set *attr
 	return container_of(attr_set, struct sugov_tunables, attr_set);
 }
 
+static int p11_sugov_pl = -1;
+static int p11_sugov_hispeed_load = -1;
+
+static int __init p11_sugov_pl_setup(char *str)
+{
+	int val;
+
+	if (kstrtoint(str, 0, &val) || (val != 0 && val != 1))
+		return 0;
+	p11_sugov_pl = val;
+	return 1;
+}
+__setup("p11tune.sugov_pl=", p11_sugov_pl_setup);
+
+static int __init p11_sugov_hispeed_load_setup(char *str)
+{
+	int val;
+
+	if (kstrtoint(str, 0, &val) || val < 0 || val > 100)
+		return 0;
+	p11_sugov_hispeed_load = val;
+	return 1;
+}
+__setup("p11tune.hispeed_load=", p11_sugov_hispeed_load_setup);
+
 static DEFINE_MUTEX(min_rate_lock);
 
 static void update_min_rate_limit_ns(struct sugov_policy *sg_policy)
@@ -932,6 +957,8 @@ static ssize_t hispeed_load_store(struct gov_attr_set *attr_set,
 		return -EINVAL;
 
 	tunables->hispeed_load = min(100U, tunables->hispeed_load);
+	if (p11_sugov_hispeed_load >= 0)
+		tunables->hispeed_load = p11_sugov_hispeed_load;
 
 	return count;
 }
@@ -1012,6 +1039,9 @@ static ssize_t pl_store(struct gov_attr_set *attr_set, const char *buf,
 
 	if (kstrtobool(buf, &tunables->pl))
 		return -EINVAL;
+
+	if (p11_sugov_pl >= 0)
+		tunables->pl = p11_sugov_pl;
 
 	return count;
 }
@@ -1241,6 +1271,11 @@ static int sugov_init(struct cpufreq_policy *policy)
 	stale_ns = sched_ravg_window + (sched_ravg_window >> 3);
 
 	sugov_tunables_restore(policy);
+
+	if (p11_sugov_pl >= 0)
+		tunables->pl = p11_sugov_pl;
+	if (p11_sugov_hispeed_load >= 0)
+		tunables->hispeed_load = p11_sugov_hispeed_load;
 
 	ret = kobject_init_and_add(&tunables->attr_set.kobj, &sugov_tunables_ktype,
 				   get_governor_parent_kobj(policy), "%s",
