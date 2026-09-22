@@ -42,6 +42,24 @@ static struct devfreq_msm_adreno_tz_data adreno_tz_data = {
 
 static const struct kgsl_functable adreno_functable;
 
+static unsigned int p11_gpu_top_freq;
+
+#define P11_GPU_NATIVE_SPEED_BIN 0xc8
+#define P11_GPU_NATIVE_TOP_FREQ 950000000U
+#define P11_GPU_TEST_TOP_FREQ 960000000U
+
+static int __init p11_gpu_top_freq_setup(char *str)
+{
+	unsigned int val;
+
+	if (kstrtouint(str, 0, &val) || val != P11_GPU_TEST_TOP_FREQ)
+		return 0;
+
+	p11_gpu_top_freq = val;
+	return 1;
+}
+__setup("p11tune.gpu_top_freq=", p11_gpu_top_freq_setup);
+
 static struct adreno_device device_3d0 = {
 	.dev = {
 		KGSL_DEVICE_COMMON_INIT(device_3d0.dev),
@@ -1054,6 +1072,54 @@ static int adreno_of_get_legacy_pwrlevels(struct adreno_device *adreno_dev,
 	return 0;
 }
 
+static int p11_gpu_apply_top_freq(struct adreno_device *adreno_dev)
+{
+	struct kgsl_device *device = KGSL_DEVICE(adreno_dev);
+	struct kgsl_pwrctrl *pwr = &device->pwrctrl;
+	struct dev_pm_opp *opp;
+	unsigned long voltage;
+	int ret;
+
+	if (!p11_gpu_top_freq)
+		return 0;
+
+	/*
+	 * This is deliberately limited to the observed TB-J606F hardware bin.
+	 * Never substitute another speed-bin to reach a higher vendor table.
+	 */
+	if (adreno_dev->speed_bin != P11_GPU_NATIVE_SPEED_BIN ||
+		pwr->num_pwrlevels < 2 ||
+		pwr->pwrlevels[0].gpu_freq != P11_GPU_NATIVE_TOP_FREQ) {
+		dev_err(device->dev,
+			"p11tune: refusing GPU top freq %u on bin %u/top %u\n",
+			p11_gpu_top_freq, adreno_dev->speed_bin,
+			pwr->num_pwrlevels ? pwr->pwrlevels[0].gpu_freq : 0);
+		return -EINVAL;
+	}
+
+	opp = dev_pm_opp_find_freq_exact(&device->pdev->dev,
+		P11_GPU_NATIVE_TOP_FREQ, true);
+	if (IS_ERR(opp))
+		return PTR_ERR(opp);
+
+	voltage = dev_pm_opp_get_voltage(opp);
+	dev_pm_opp_put(opp);
+	if (!voltage)
+		return -EINVAL;
+
+	ret = dev_pm_opp_add(&device->pdev->dev, p11_gpu_top_freq, voltage);
+	if (ret && ret != -EEXIST)
+		return ret;
+
+	pwr->pwrlevels[0].gpu_freq = p11_gpu_top_freq;
+	dev_info(device->dev,
+		"p11tune: bin %u GPU top %u -> %u using native-top OPP voltage %lu\n",
+		adreno_dev->speed_bin, P11_GPU_NATIVE_TOP_FREQ,
+		p11_gpu_top_freq, voltage);
+
+	return 0;
+}
+
 static int adreno_of_get_pwrlevels(struct adreno_device *adreno_dev,
 		struct device_node *parent)
 {
@@ -1073,6 +1139,10 @@ static int adreno_of_get_pwrlevels(struct adreno_device *adreno_dev,
 			int ret;
 
 			ret = adreno_of_parse_pwrlevels(adreno_dev, child);
+			if (ret)
+				return ret;
+
+			ret = p11_gpu_apply_top_freq(adreno_dev);
 			if (ret)
 				return ret;
 
