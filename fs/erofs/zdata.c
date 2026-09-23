@@ -273,17 +273,14 @@ int erofs_try_to_free_cached_page(struct address_space *mapping,
 	return ret;
 }
 
-/* page_type must be Z_EROFS_PAGE_TYPE_EXCLUSIVE */
+/*
+ * Keep compressed input on dedicated staging pages on this 4.19 backport.
+ * Reusing file output pages for compressed input can corrupt a later pcluster
+ * before it reaches the LZ4 decoder under the Android first-stage workload.
+ */
 static inline bool z_erofs_try_inplace_io(struct z_erofs_collector *clt,
 					  struct page *page)
 {
-	struct z_erofs_pcluster *const pcl = clt->pcl;
-	const unsigned int clusterpages = BIT(pcl->clusterbits);
-
-	while (clt->compressedpages < pcl->compressed_pages + clusterpages) {
-		if (!cmpxchg(clt->compressedpages++, NULL, page))
-			return true;
-	}
 	return false;
 }
 
