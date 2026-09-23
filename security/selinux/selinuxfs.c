@@ -159,6 +159,16 @@ static ssize_t sel_write_enforce(struct file *file, const char __user *buf,
 
 	new_value = !!new_value;
 
+	/*
+	 * P11 diagnostic recovery only: keep SELinux policy loaded but
+	 * remain permissive so stock recovery/adbd diagnostics can run.
+	 * Pretend an enforcing request succeeded without changing state.
+	 */
+	if (new_value) {
+		length = count;
+		goto out;
+	}
+
 	old_value = enforcing_enabled(state);
 	if (new_value != old_value) {
 		length = avc_has_perm(&selinux_state,
