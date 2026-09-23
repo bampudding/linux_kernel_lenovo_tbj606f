@@ -4025,7 +4025,9 @@ static inline void fastrpc_register_wakeup_source(struct device *dev,
 {
 	struct wakeup_source *wake_source = NULL;
 
-	wake_source = wakeup_source_register(dev, client_name);
+	/* ZUI12 4.19 uses the pre-device wakeup_source API. */
+	(void)dev;
+	wake_source = wakeup_source_register(client_name);
 	if (IS_ERR_OR_NULL(wake_source)) {
 		pr_err("adsprpc: Error: %s: %s: wakeup_source_register failed for dev %s, client %s with err %ld\n",
 		       __func__, current->comm, dev_name(dev),
