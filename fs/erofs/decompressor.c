@@ -114,8 +114,8 @@ static int z_erofs_lz4_decompress(struct z_erofs_decompress_req *rq, u8 *out)
 {
 	unsigned int inputmargin, inlen;
 	u8 *src;
-	bool copied, support_0padding;
-	int ret;
+	bool support_0padding;
+	int ret, src_maptype;
 
 	if (rq->inputsize > PAGE_SIZE)
 		return -EOPNOTSUPP;
@@ -139,7 +139,7 @@ static int z_erofs_lz4_decompress(struct z_erofs_decompress_req *rq, u8 *out)
 		}
 	}
 
-	copied = false;
+	src_maptype = 0; /* 0: kmap input, 1: pcpubuf copy, 2: output mapping */
 	inlen = rq->inputsize - inputmargin;
 	if (rq->inplace_io) {
 		const uint oend = (rq->pageofs_out +
@@ -153,7 +153,17 @@ static int z_erofs_lz4_decompress(struct z_erofs_decompress_req *rq, u8 *out)
 		      LZ4_DECOMPRESS_INPLACE_MARGIN(inlen)) {
 			src = generic_copy_inplace_data(rq, src, inputmargin);
 			inputmargin = 0;
-			copied = true;
+			src_maptype = 1;
+		} else {
+			/*
+			 * LZ4 in-place decoding requires compressed input to be
+			 * virtually ordered inside the decompressed output buffer.
+			 * A separate kmap() of the same physical page does not
+			 * preserve that ordering (upstream fix 3c12466b6b7b).
+			 */
+			kunmap_atomic(src);
+			src = out - rq->pageofs_out + ((nr - 1) << PAGE_SHIFT);
+			src_maptype = 2;
 		}
 	}
 
@@ -171,9 +181,9 @@ static int z_erofs_lz4_decompress(struct z_erofs_decompress_req *rq, u8 *out)
 		ret = -EIO;
 	}
 
-	if (copied)
+	if (src_maptype == 1)
 		erofs_put_pcpubuf(src);
-	else
+	else if (src_maptype == 0)
 		kunmap_atomic(src);
 	return ret;
 }
