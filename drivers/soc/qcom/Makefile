@@ -102,3 +102,6 @@ obj-$(CONFIG_QTI_L2_REUSE) += l2_reuse.o
 obj-$(CONFIG_ICNSS2) += icnss2/
 obj-$(CONFIG_QTI_HW_KEY_MANAGER) += hwkm_qti.o
 hwkm_qti-y += hwkm.o
+
+# Lenovo P11 ZUI14 userspace ADSP loader compatibility
+obj-y += p11_adsp_loader.o
