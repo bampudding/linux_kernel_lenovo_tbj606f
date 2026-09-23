@@ -260,7 +260,8 @@ static FORCE_INLINE int LZ4_decompress_generic(
 				}
 			}
 
-			memcpy(op, ip, length);
+			/* Final literals may overlap during in-place decompression. */
+			memmove(op, ip, length);
 			ip += length;
 			op += length;
 
