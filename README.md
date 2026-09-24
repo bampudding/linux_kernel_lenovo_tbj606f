@@ -1,71 +1,99 @@
-# Linux kernel for Lenovo Tab P11 (TB-J606F)
+# Kernel for Lenovo Tab P11 (TB-J606F)
 
-This project continues the TB-J606F kernel work originally published at
-https://github.com/JulianDroske/linux_kernel_lenovo_tbj606f.
+Linux 4.19 kernel development for the Lenovo Tab P11 TB-J606F (`bengal` /
+`m11_prc_wifi`), continuing the original work by
+[JulianDroske](https://github.com/JulianDroske/linux_kernel_lenovo_tbj606f).
 
-The Git history is intentionally preserved from the Lenovo source import and
-the original 2024 device bring-up. The current development target is a stable
-Linux 4.19.157 kernel for Android 16 EROFS GSIs while retaining Lenovo hardware
-compatibility and selectively supporting newer ZUI14 vendor userspace.
+This repository preserves the original Git history and continues it with the
+device bring-up, Linux 4.19 stable uplift, Android 16 EROFS support, runtime
+fixes, and ZUI14 vendor compatibility work used on the TB-J606F.
 
 ## Current tested baseline
 
-- Device: Lenovo Tab P11 TB-J606F Wi-Fi
-- SoC / fastboot product: Qualcomm Bengal
-- Kernel: Linux 4.19.157-perf+
-- Stable kernel-code checkpoint: 7124b9c09
-- Android: LineageOS 23.2 Android 16 EROFS GSI
-- Vendor userspace: Lenovo ZUI 14.0.147 hybrid
-- Persistent normal boot: verified
-- Sensors / automatic rotation: working
-- Wi-Fi 5 GHz / 802.11ac: working
-- Audio primary speaker path: working
-- Bluetooth: ON and enumerated
-- Cameras: two devices enumerated
+The current public baseline is tested with:
 
-See [STATUS.md](./STATUS.md) for the validation matrix.
+- Lenovo Tab P11 TB-J606F Wi-Fi
+- Linux `4.19.157-perf+`
+- LineageOS 23.2 Android 16 EROFS GSI
+- ZUI14 `14.0.147` vendor userspace
+- ZUI12-compatible Wi-Fi and audio DLKMs where the newer ZUI14 modules do not
+  match the preserved kernel ABI
 
-## Documentation
+Verified on the current stable checkpoint:
 
-- [Android 16 / ZUI14 bring-up](Documentation/tbj606f/android16-zui14-bringup.md)
-- [Development history and provenance](Documentation/tbj606f/development-history.md)
-- [Optional Rouleur audio compatibility module](tools/tbj606f/audio-compat/README.md)
+- Android boot completion
+- EROFS root filesystem
+- touchscreen
+- Wi-Fi, including 5 GHz / 802.11ac
+- Bluetooth
+- cameras
+- charging/battery reporting
+- Qualcomm sensor DSP / FastRPC path
+- 34 hardware sensors
+- automatic rotation
+- primary speaker audio path
 
-## Reproduction helpers
+The stable kernel checkpoint is `7124b9c09` plus the public userspace/vendor
+reproduction helpers on branch `opensource/tbj606f-a16-zui14`.
 
-The repository includes source-only helpers for the complete tested workflow:
+## Reproducing the Android 16 / ZUI14 hybrid
 
-- tools/tbj606f/build-kernel.sh
-- tools/tbj606f/repack-boot.sh
-- tools/tbj606f/make-hybrid-vendor.sh
-- tools/tbj606f/verify-runtime.sh
-- tools/tbj606f/audio-compat/
+No Lenovo firmware image, proprietary vendor image, modem/DSP image, or signed
+vendor module is distributed in this repository.
 
-The boot repacker preserves the known-good ramdisk and DTB while replacing only
-the compressed kernel. The hybrid-vendor builder consumes firmware extracted
-by the device owner and regenerates module dependency metadata for the mixed
-ZUI14/ZUI12 module set.
+The scripts under [`tools/tbj606f`](tools/tbj606f) reproduce the tested setup
+from firmware supplied by the device owner:
 
-## Proprietary firmware boundary
+- `build-kernel.sh` - build the kernel in a separate output directory.
+- `repack-boot.sh` - repack a known-good boot template with the new kernel.
+- `audio-compat/` - build the optional Rouleur link compatibility shim needed
+  by the ZUI12 Bengal machine driver on this WCD937x/Bolero device.
+- `make-hybrid-vendor.sh` - construct the ZUI14/ZUI12 hybrid vendor image from
+  locally supplied firmware files.
+- `verify-runtime.sh` - collect scoped runtime validation from one explicitly
+  selected Android serial.
 
-Lenovo vendor images, signed vendor DLKMs, modem/DSP images, OTAs, Google apps,
-and other proprietary binaries are not added to this repository. The public
-tree contains only source, patches already represented by Git commits, and
-reproduction/verification tooling.
+See:
 
-## Upstream and history
+- [`Documentation/tbj606f/development-history.md`](Documentation/tbj606f/development-history.md)
+- [`Documentation/tbj606f/android16-zui14-bringup.md`](Documentation/tbj606f/android16-zui14-bringup.md)
+- [`STATUS.md`](STATUS.md)
 
-The original branches remain meaningful:
+for provenance, milestones, failed experiment branches, and the current
+hardware status.
 
-- official-kernel: Lenovo source import
-- dev: original touchscreen/Wi-Fi device bring-up
-- opensource/tbj606f-a16-zui14: current public continuation
+## Original project background
 
-Research branches for failed or superseded FastRPC, KABI, GLINK, GPU and EROFS
-experiments are deliberately preserved rather than rewritten out of history.
+The original project imported Lenovo source from the
+[Lenovo Open Source Portal](https://support.lenovo.com/us/en/solutions/ht511330-lenovo-open-source-portal)
+and brought up the NT36523W touchscreen and Qualcomm WLAN support for AOSP and
+Linux Mobile use.
+
+The original repository is retained as the upstream remote and its commits are
+kept intact rather than squashed.
+
+## Build notes
+
+The Lenovo-era baseline used Android clang based on `r353983c` and the
+aarch64 Android 4.9 binutils toolchain. The public helper scripts intentionally
+take toolchain paths through environment variables instead of embedding local
+machine paths.
+
+Example:
+
+```sh
+export KERNEL_OUT=/path/to/ssd/kernel-out
+export CLANG_DIR=/path/to/clang/bin
+export CROSS_DIR=/path/to/aarch64-linux-android/bin
+./tools/tbj606f/build-kernel.sh
+```
+
+The Android 16 / ZUI14 hybrid has been validated only on TB-J606F. Do not
+assume compatibility with other TB-J606 variants without verifying their DTB,
+vendor modules, firmware, and kernel ABI first.
 
 ## License
 
-The kernel remains licensed under GPL-2.0 with the Linux syscall exception as
-described by [COPYING](COPYING). Individual files may carry additional
-SPDX-compatible licenses.
+The kernel follows the license terms already present in the source tree. See
+[`COPYING`](COPYING). New helper code added by this continuation carries its
+own SPDX identifier where applicable.
