@@ -36,6 +36,19 @@ Verified on the current stable checkpoint:
 The stable kernel checkpoint is `7124b9c09` plus the public userspace/vendor
 reproduction helpers on branch `opensource/tbj606f-a16-zui14`.
 
+## Binary release
+
+The first public kernel bundle is available from the GitHub release:
+
+- [TB-J606F Android 16 / ZUI14 hybrid public v1](https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/tbj606f-a16-zui14-public-v1)
+
+The release provides `Image`, `Image.gz`, the exact kernel config,
+`Module.symvers`, `System.map`, and `p11_audio_compat.ko`, plus checksums.
+
+Prebuilt Lenovo/ZUI `vendor.img` and stock-derived `boot.img` are not
+redistributed. Their validated SHA256 values are published with the release,
+and the repository provides reproducible boot/vendor construction scripts.
+
 ## Reproducing the Android 16 / ZUI14 hybrid
 
 No Lenovo firmware image, proprietary vendor image, modem/DSP image, or signed
