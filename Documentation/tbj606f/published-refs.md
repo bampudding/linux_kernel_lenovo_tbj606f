@@ -14,7 +14,7 @@ failed experiments are intentionally preserved instead of squashed.
 | Branch | Commit | Subject |
 |---|---|---|
 | official-kernel | c0ac0ddae | Upload source code for TB-J606F from official website |
-| opensource/tbj606f-a16-zui14 | 01b8bb822 | build: capture Android 16 TB-J606F kernel config |
+| opensource/tbj606f-a16-zui14 | branch head | current public continuation; intentionally not self-pinned |
 | p11/diag-recovery-permissive | be502c662 | lib: backport LZ4 v1.8.3 decompressor for EROFS |
 | p11/zui12-65hz | 398465020 | display: tb-j606f: add conservative 65 Hz panel probe |
 | p11/zui12-audiofix | 12dbd275a | tb-j606f: restore ZUI12 touch and audio compatibility |
