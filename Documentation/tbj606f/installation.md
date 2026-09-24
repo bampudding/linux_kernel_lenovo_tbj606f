@@ -2,10 +2,14 @@
 
 This page defines the supported, tested starting point for the Android
 16/ZUI14 hybrid and the inputs needed by `tools/tbj606f/install.sh`.
-The installer on this branch downloads the tested kernel `Image` and
-`p11_audio_compat.ko` from the published `tbj606f-a16-zui14-public-v1`
-release. The hybrid-vendor source workflow was added in the public-v2 lineage;
-the installation helper itself is supplied by this branch.
+For end users, download the single `tbj606f-a16-zui14-public-v4-flash-kit.zip`
+from the public-v4 GitHub Release, extract it, then follow `README-START-HERE.md`.
+The extracted installer uses the bundled tested kernel `Image` and
+`p11_audio_compat.ko` directly (no second download); in a source-only checkout
+it can download exactly those two pinned binaries from public v1. The hybrid
+vendor builder was added in the public-v2 lineage; public v4 is the unified
+non-proprietary flashing kit. Historical source-only releases are documented
+separately in `archive/release-reproducibility-audit.md`.
 
 ## Supported device
 
@@ -49,8 +53,18 @@ dtbo.img
 SHA256 b96a76f4ad1f80bfd9419433115a138d9e1e6fcd75384f2ffbd5aabaa15fd6b7
 ```
 
-The ZUI14 `boot.img` is used only as the ramdisk/DTB/container template. The
-kernel payload is replaced by the released kernel.
+The stock ZUI14 `boot.img` is a recorded provenance input but **must not** be
+passed directly as the validated boot template: its DTB and ramdisk differ from
+the stable ZUI12-DTB/EROFS-ramdisk hybrid. The installer requires the user's
+owner-provided validated boot backup (SHA256
+`93f9e9518fc9a20691ab0b3579b0c628e23522674e827fc57b8867945aedd635`)
+and replaces only its kernel. Repacking the exact stable backup with the
+published Image was independently reproduced byte-for-byte. The validated
+boot contains Lenovo content and is not distributed in the ZIP. No general
+original-stock-to-stable boot reconstruction recipe has yet been proven;
+therefore a first-time installer without the validated boot backup cannot
+claim to reproduce the tested boot from stock ZUI14 alone. `--allow-other-boot`
+is an unvalidated research override, not a supported installation method.
 
 ### ZUI12 compatibility input
 
@@ -140,25 +154,29 @@ resize or shrink other logical partitions to create space.
 With a prepared hybrid vendor:
 
 ```sh
-./tools/tbj606f/install.sh \
-  --serial YOUR_SERIAL \
+./install.sh --offline \
+  --serial HA1E02DA \
   --gsi /path/to/LineageOS-23.2-20260524-GAPPS-EROFS-GSI.img \
-  --stock-boot /path/to/zui14-14.0.147/boot.img \
+  --stock-boot /path/to/your-validated-boot-template.img \
   --vendor-image /path/to/vendor-hybrid.img
 ```
 
 Or, on Linux, build the hybrid vendor during the same run:
 
 ```sh
-./tools/tbj606f/install.sh \
-  --serial YOUR_SERIAL \
+./install.sh --offline \
+  --serial HA1E02DA \
   --gsi /path/to/LineageOS-23.2-20260524-GAPPS-EROFS-GSI.img \
-  --stock-boot /path/to/zui14-14.0.147/boot.img \
+  --stock-boot /path/to/your-validated-boot-template.img \
   --zui14-vendor /path/to/zui14-14.0.147/vendor.img \
   --zui12-modules /path/to/zui12-12.0.519/vendor/lib/modules
 ```
 
-Use `--dry-run` first to validate local inputs and the connected device.
+When using the ZIP, run these commands from its extracted folder; in a source
+checkout use `./tools/tbj606f/install.sh` instead. Use `python3
+verify-package.py` in the extracted ZIP to verify all 16 bundled files, then
+add `--dry-run` to the installation command to validate inputs and the
+connected device.
 It checks hashes, constructs the hybrid vendor when requested, repacks the boot
 image, and checks the connected Android device identity and vendor fingerprint.
 It does not reboot the device or check bootloader unlock status, fastboot product,
@@ -188,8 +206,9 @@ and/or `vendor_a` may already have changed and the device may require recovery.
 Have known-good firmware and a restore path available before installation.
 The script does not wipe userdata or perform logical partition resizing.
 
-The published `public-v1` Image/compatibility-module release is pinned by
-SHA256, along with the known-good GSI, boot template and hybrid vendor.
+The published `public-v1` Image/compatibility-module release used by the
+`public-v4` flash ZIP is pinned by
+SHA256, along with the known-good GSI, validated boot template and hybrid vendor.
 `--allow-other-gsi`, `--allow-other-boot` and `--allow-other-vendor` bypass
 specific tested-image comparisons and make that combination unverified;
 `--release-tag` does not bypass the released Image/module hash checks.

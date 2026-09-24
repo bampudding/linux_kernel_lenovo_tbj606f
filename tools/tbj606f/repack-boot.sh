@@ -32,9 +32,13 @@ eval "set -- $args"
 python3 "$MKBOOTIMG_DIR/mkbootimg.py" "$@" --output "$OUTPUT"
 
 test -s "$OUTPUT"
-echo "raw Image:"
-sha256sum "$IMAGE"
-echo "compressed kernel:"
-sha256sum "$tmp/kernel"
-echo "boot image:"
-sha256sum "$OUTPUT"
+python3 - "$IMAGE" "$tmp/kernel" "$OUTPUT" <<'PYHASH'
+import hashlib
+import sys
+for label, path in zip(('raw Image', 'compressed kernel', 'boot image'), sys.argv[1:]):
+    digest = hashlib.sha256()
+    with open(path, 'rb') as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b''):
+            digest.update(block)
+    print(f'{label}: {digest.hexdigest()}  {path}')
+PYHASH

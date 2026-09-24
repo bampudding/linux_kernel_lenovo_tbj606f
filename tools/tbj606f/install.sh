@@ -9,7 +9,7 @@ BASE_URL="https://github.com/${REPO}/releases/download/${RELEASE_TAG}"
 EXPECTED_IMAGE_SHA256="af0b7b6b81c4f6ba3c5c2fbb044972a1bf502453ec19effa6d3664c094fdb2f8"
 EXPECTED_COMPAT_SHA256="af7e14a238437b5fc7e29dc5fdf8453630d3981f0c4b7218f588ccf6aab08f40"
 EXPECTED_GSI_SHA256="26cde4242d9b92fb917b8235c4908e88c5fa6b60db1c56e0c53561db61d333bd"
-EXPECTED_ZUI14_BOOT_SHA256="7356b6ac6a791c9508778aa76fe0fe381ca73eb225c7f10831799ed64f0e67d4"
+EXPECTED_TEMPLATE_BOOT_SHA256="93f9e9518fc9a20691ab0b3579b0c628e23522674e827fc57b8867945aedd635"
 EXPECTED_ZUI14_VENDOR_SHA256="7a73b5886e130cfeb1870e7f5855e1b6bf0010ff694783d2b0d0de553ba6758d"
 EXPECTED_HYBRID_VENDOR_SHA256="b0cca3012109d045122dccdbd22f2505327ec7550576daa37d4bde643a39d3dd"
 EXPECTED_TESTED_BOOT_SHA256="93f9e9518fc9a20691ab0b3579b0c628e23522674e827fc57b8867945aedd635"
@@ -32,11 +32,12 @@ SKIP_VENDOR=0
 ALLOW_OTHER_GSI=0
 ALLOW_OTHER_BOOT=0
 ALLOW_OTHER_VENDOR=0
+OFFLINE=0
 
 usage() {
   cat <<'USAGE'
 Usage:
-  install.sh --serial SERIAL --stock-boot zui14-boot.img \
+  install.sh --serial SERIAL --stock-boot validated-boot-template.img \
     [--gsi system.img | --skip-system] \
     [--vendor-image hybrid-vendor.img |
      --zui14-vendor zui14-vendor.img --zui12-modules DIR | --skip-vendor] [options]
@@ -51,6 +52,7 @@ Options:
   --allow-other-boot
   --allow-other-vendor
   --release-tag TAG
+  --offline          Require bundled Image and p11_audio_compat.ko (no network)
 
 The script never wipes userdata. Every adb/fastboot command is scoped with
 -s SERIAL and non-TB-J606F/bengal devices are rejected.
@@ -77,6 +79,7 @@ while [ "$#" -gt 0 ]; do
     --allow-other-boot) ALLOW_OTHER_BOOT=1; shift ;;
     --allow-other-vendor) ALLOW_OTHER_VENDOR=1; shift ;;
     --release-tag) RELEASE_TAG=${2:?}; BASE_URL="https://github.com/${REPO}/releases/download/${2:?}"; shift 2 ;;
+    --offline) OFFLINE=1; shift ;;
     -h|--help) usage; exit 0 ;;
     *) die "unknown argument: $1" ;;
   esac
@@ -143,11 +146,17 @@ note "validating local inputs"
 if [ "$SKIP_SYSTEM" -eq 0 ]; then
   check_hash "$GSI" "$EXPECTED_GSI_SHA256" "GSI" "$ALLOW_OTHER_GSI"
 fi
-check_hash "$STOCK_BOOT" "$EXPECTED_ZUI14_BOOT_SHA256" "ZUI14 boot template" "$ALLOW_OTHER_BOOT"
+check_hash "$STOCK_BOOT" "$EXPECTED_TEMPLATE_BOOT_SHA256" "validated ZUI12-DTB/EROFS boot template" "$ALLOW_OTHER_BOOT"
 
 download_asset() {
   name=$1 dest=$2
-  if [ ! -s "$dest" ]; then
+  if [ -s "$SELF_DIR/$name" ]; then
+    note "using bundled $name"
+    if [ "$SELF_DIR/$name" != "$dest" ]; then
+      cp "$SELF_DIR/$name" "$dest"
+    fi
+  elif [ ! -s "$dest" ]; then
+    [ "$OFFLINE" -eq 0 ] || die "bundled $name missing (--offline requested)"
     note "downloading $name from $RELEASE_TAG"
     curl -fL --retry 3 -o "$dest" "$BASE_URL/$name"
   fi
@@ -168,7 +177,7 @@ if [ "$SKIP_VENDOR" -eq 0 ] && [ -z "$VENDOR_IMAGE" ]; then
   done
   VENDOR_IMAGE="$WORKDIR/vendor-hybrid.img"
   note "constructing hybrid vendor"
-  "$SELF_DIR/make-hybrid-vendor.sh" "$ZUI14_VENDOR" "$ZUI12_MODULES" "$COMPAT" "$VENDOR_IMAGE"
+  bash "$SELF_DIR/make-hybrid-vendor.sh" "$ZUI14_VENDOR" "$ZUI12_MODULES" "$COMPAT" "$VENDOR_IMAGE"
 fi
 
 if [ "$SKIP_VENDOR" -eq 0 ]; then
@@ -177,7 +186,7 @@ fi
 
 BOOT_IMAGE="$WORKDIR/boot-tbj606f-a16-zui14.img"
 note "repacking boot image"
-"$SELF_DIR/repack-boot.sh" "$STOCK_BOOT" "$KERNEL_IMAGE" "$BOOT_IMAGE" "$MKBOOTIMG_DIR"
+sh "$SELF_DIR/repack-boot.sh" "$STOCK_BOOT" "$KERNEL_IMAGE" "$BOOT_IMAGE" "$MKBOOTIMG_DIR"
 BOOT_SHA=$(sha256_file "$BOOT_IMAGE")
 echo "$BOOT_SHA  $BOOT_IMAGE"
 if [ "$ALLOW_OTHER_BOOT" -eq 0 ] && [ "$BOOT_SHA" != "$EXPECTED_TESTED_BOOT_SHA256" ]; then
