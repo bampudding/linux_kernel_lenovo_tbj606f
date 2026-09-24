@@ -11,7 +11,7 @@ Builds the TB-J606F Android 16/ZUI14 hybrid vendor image used by this tree.
 No Lenovo binary is distributed by this repository. Supply modules extracted
 from your own ZUI12/ZUI14 firmware images.
 
-Requirements: debugfs, e2fsck, modinfo, modprobe, python3, sha256sum
+Requirements: debugfs, e2fsck, resize2fs, modinfo, modprobe, python3, sha256sum
 EOF
 }
 
@@ -21,7 +21,7 @@ Z12=$2
 COMPAT=$3
 OUT=$4
 
-for tool in debugfs e2fsck modinfo modprobe python3 sha256sum; do
+for tool in debugfs e2fsck resize2fs modinfo modprobe python3 sha256sum; do
 	command -v "$tool" >/dev/null || { echo "missing tool: $tool" >&2; exit 1; }
 done
 [ -f "$BASE" ] || { echo "missing base vendor: $BASE" >&2; exit 1; }
@@ -82,6 +82,57 @@ done
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 cp --reflink=auto "$BASE" "$OUT"
+
+
+# Start from the raw ZUI14 14.0.147 vendor image. Break Android shared-block
+# references before editing, then expand to the validated 760 MiB image size.
+set +e
+e2fsck -E unshare_blocks -fy "$OUT"
+fsck_rc=$?
+set -e
+if [ "$fsck_rc" -gt 1 ]; then
+	exit "$fsck_rc"
+fi
+resize2fs "$OUT" 194560
+
+# Adapt ZUI14 vendor fstab entries for the tested single-system GSI layout.
+for fstab in fstab.default fstab.qcom; do
+	debugfs -R "dump /etc/$fstab $tmp/$fstab" "$OUT" >/dev/null 2>&1
+done
+python3 - "$tmp/fstab.default" "$tmp/fstab.qcom" <<'PYFSTAB'
+from pathlib import Path
+import sys
+
+for arg in sys.argv[1:]:
+    path = Path(arg)
+    text = path.read_bytes().rstrip(b"\0").decode()
+    lines = []
+    for line in text.splitlines():
+        if line.startswith("system_ext "):
+            continue
+        if line.startswith("/dev/block/bootdevice/by-name/lenovocust "):
+            continue
+        if line.startswith("/dev/block/by-name/metadata "):
+            line = line.replace("wait,check,formattable", "wait,formattable")
+        if line.startswith("/dev/block/bootdevice/by-name/userdata "):
+            line = line.replace(",inlinecrypt  latemount", "  latemount")
+            line = line.replace(
+                "formattable,quota,reservedsize=128M,fileencryption=ice,",
+                "formattable,fileencryption=ice,quota,reservedsize=128M,",
+            )
+        lines.append(line)
+    path.write_text("\n".join(lines).rstrip() + "\n")
+PYFSTAB
+
+cat >"$tmp/debugfs-fstab.cmd" <<EOF
+rm /etc/fstab.default
+write $tmp/fstab.default /etc/fstab.default
+ea_set /etc/fstab.default security.selinux u:object_r:vendor_configs_file:s0
+rm /etc/fstab.qcom
+write $tmp/fstab.qcom /etc/fstab.qcom
+ea_set /etc/fstab.qcom security.selinux u:object_r:vendor_configs_file:s0
+EOF
+debugfs -w -f "$tmp/debugfs-fstab.cmd" "$OUT" >/dev/null
 
 cmdfile="$tmp/debugfs-replace.cmd"
 : >"$cmdfile"
