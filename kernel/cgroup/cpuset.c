@@ -70,19 +70,21 @@ DEFINE_STATIC_KEY_FALSE(cpusets_enabled_key);
 /*
  * TB-J606F temporary-boot diagnostic only. The Android 16 GSI's stock
  * SFMainPolicy and SFRenderEnginePolicy put these threads in the little-core
- * system-background cpuset. With p11tune.sf_bigcpus=1, test whether access
- * to the full online CPU mask improves composition deadlines, without
- * changing the installed system or vendor image. Disabled by default.
+ * system-background cpuset. p11tune.sf_bigcpus=1 covers the main and
+ * RenderEngine threads; mode 2 additionally covers all SF helper threads.
+ * This is a boot-only experiment, disabled by default.
  */
-static bool p11_sf_bigcpus __read_mostly;
+static unsigned int p11_sf_bigcpus __read_mostly;
 
 static int __init p11_sf_bigcpus_setup(char *value)
 {
-	if (kstrtobool(value, &p11_sf_bigcpus))
+	unsigned int mode;
+
+	if (kstrtouint(value, 0, &mode) || !mode || mode > 2)
 		return 0;
 
-	pr_info("P11 cpuset experiment: SF big cores %s\n",
-		p11_sf_bigcpus ? "enabled" : "disabled");
+	p11_sf_bigcpus = mode;
+	pr_info("P11 cpuset experiment: SF big cores mode %u\n", mode);
 	return 1;
 }
 __setup("p11tune.sf_bigcpus=", p11_sf_bigcpus_setup);
@@ -895,7 +897,8 @@ static bool p11_sf_cpuset_override(struct cpuset *cs, struct task_struct *p)
 
 	if (!p11_sf_bigcpus || cs == &top_cpuset ||
 	    strcmp(p->group_leader->comm, "surfaceflinger") ||
-	    (p != p->group_leader && strcmp(p->comm, "RenderEngine")))
+	    (p11_sf_bigcpus == 1 && p != p->group_leader &&
+	     strcmp(p->comm, "RenderEngine")))
 		return false;
 
 	return cgroup_name(cs->css.cgroup, group_name,

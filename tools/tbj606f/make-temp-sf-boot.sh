@@ -3,8 +3,8 @@
 # Temporary-boot-only diagnostic image for the Lenovo TB-J606F.
 set -euo pipefail
 
-if (( $# != 3 )); then
-  echo 'Usage: make-temp-sf-boot.sh STABLE_BOOT.img EXPERIMENTAL_RAW_Image OUTPUT_BOOT.img' >&2
+if (( $# != 3 && $# != 4 )); then
+  echo 'Usage: make-temp-sf-boot.sh STABLE_BOOT.img EXPERIMENTAL_RAW_Image OUTPUT_BOOT.img [--all-sf]' >&2
   exit 2
 fi
 
@@ -12,6 +12,11 @@ stable=$1
 kernel=$2
 output=$3
 self_dir=$(cd "$(dirname -- "$0")" && pwd)
+mode=1
+if (( $# == 4 )); then
+  [[ $4 == --all-sf ]] || { echo 'unknown experiment mode' >&2; exit 2; }
+  mode=2
+fi
 [[ -f $stable && -s $kernel ]] || { echo 'boot template/kernel missing' >&2; exit 1; }
 [[ ! -e $output ]] || { echo 'output already exists' >&2; exit 1; }
 
@@ -42,7 +47,7 @@ for (( i=0; i<${#options[@]}; i++ )); do
       echo 'boot template already carries the experimental flag' >&2
       exit 1
     }
-    options[i+1]="${options[i+1]} p11tune.sf_bigcpus=1"
+    options[i+1]="${options[i+1]} p11tune.sf_bigcpus=$mode"
     found=1
   fi
 done
@@ -59,7 +64,7 @@ python3 "$self_dir/unpack_bootimg.py" \
 cmp "$tmp/base/ramdisk" "$tmp/verify/ramdisk"
 cmp "$tmp/base/dtb" "$tmp/verify/dtb"
 cmp "$tmp/base/kernel" "$tmp/verify/kernel"
-grep -q 'p11tune.sf_bigcpus=1' "$tmp/verify-args.txt"
+grep -q "p11tune.sf_bigcpus=$mode" "$tmp/verify-args.txt"
 
 mv "$partial" "$output"
 echo "stable boot: $base_hash"
