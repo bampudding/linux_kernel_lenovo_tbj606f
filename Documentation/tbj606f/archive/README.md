@@ -44,6 +44,16 @@ SHA256 is `26cde4242d9b92fb917b8235c4908e88c5fa6b60db1c56e0c53561db61d333bd`
 and its byte size is `2255372288`. A hash does not authorize redistribution
 of OEM boot/vendor images, DSP/modem firmware or extracted proprietary modules.
 
+## Post-v5 cleanup readiness observation
+
+The new [2026-09-24 read-only cleanup readiness report](cleanup-readiness-20260924.md)
+with [full JSON digest-duplicate groups](cleanup-readiness-20260924.json)
+records why the old HDD project was **not deleted**: live scroll-performance
+experiments postdate the older manifest; large build and firmware trees remain
+outside that manifest; the HDD is RAID0 (not a redundant backup). Re-run the
+read-only scanner with `python3 tools/tbj606f/cleanup-readiness.py`.
+The public v5 Git tag is unchanged by this later cleanup audit.
+
 ## Cleanup gate
 
 No deletion of `experiments/` or `releases/` is authorized by these inventories.
