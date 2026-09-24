@@ -54,6 +54,14 @@ outside that manifest; the HDD is RAID0 (not a redundant backup). Re-run the
 read-only scanner with `python3 tools/tbj606f/cleanup-readiness.py`.
 The public v5 Git tag is unchanged by this later cleanup audit.
 
+## Public-v1 duplicate extraction cleanup (2026-09-24)
+
+The [actual cleanup ledger](public-v1-duplicate-prune-20260924.md) records
+nine individually SHA-verified duplicate files removed from the extracted
+public-v1 bundle; direct-parent copies and GitHub's published tar remain.
+The earlier inventories remain historical pre-cleanup snapshots.
+Current scroll-performance work and all other old material were untouched.
+
 ## Cleanup gate
 
 No deletion of `experiments/` or `releases/` is authorized by these inventories.

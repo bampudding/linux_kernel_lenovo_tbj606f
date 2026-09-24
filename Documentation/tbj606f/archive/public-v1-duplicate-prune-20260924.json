@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-24T12:22:22.090646+00:00",
+  "user_authorized_scope": "Only demonstrably redundant historical files; latest scroll-performance work excluded",
+  "status": "completed_and_rechecked",
+  "hdd_root": "/root/HDD/user0/P11",
+  "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/tbj606f-a16-zui14-public-v1",
+  "github_tar_sha256": "sha256:5305ccde11e4050a4f2e832208eca1143c82257b429b28637c740ff94dc7fdac",
+  "preserve_original_manifest": "Documentation/tbj606f/archive/hdd-artifact-manifest.json is frozen historical snapshot; removed paths recorded in this ledger",
+  "candidate_count": 9,
+  "candidate_logical_bytes": 49102114,
+  "candidate_allocated_bytes": 49045504,
+  "removed_files": [
+    {
+      "removed_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/bundle/Image",
+      "preserved_hdd_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/Image",
+      "published_tar_member": "Image",
+      "sha256": "af0b7b6b81c4f6ba3c5c2fbb044972a1bf502453ec19effa6d3664c094fdb2f8",
+      "logical_bytes": 31267328,
+      "allocated_bytes": 31195136,
+      "inode": 33851449,
+      "nlink": 1,
+      "status": "deleted_duplicate_retained_parent_and_github"
+    },
+    {
+      "removed_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/bundle/Image.gz",
+      "preserved_hdd_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/Image.gz",
+      "published_tar_member": "Image.gz",
+      "sha256": "2bd1d7f1e5a7042809396aa60ece9a6eb2dfaffa463c7f0b13f98df06bf54a7a",
+      "logical_bytes": 11963798,
+      "allocated_bytes": 11964416,
+      "inode": 33851450,
+      "nlink": 1,
+      "status": "deleted_duplicate_retained_parent_and_github"
+    },
+    {
+      "removed_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/bundle/Module.symvers",
+      "preserved_hdd_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/Module.symvers",
+      "published_tar_member": "Module.symvers",
+      "sha256": "dc7acfa28137adf12a3d7fae68ed0c9fe80a71a675abeada5653cb6344b37b13",
+      "logical_bytes": 638869,
+      "allocated_bytes": 638976,
+      "inode": 33851452,
+      "nlink": 1,
+      "status": "deleted_duplicate_retained_parent_and_github"
+    },
+    {
+      "removed_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/bundle/README.txt",
+      "preserved_hdd_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/README.txt",
+      "published_tar_member": "README.txt",
+      "sha256": "1122c1c3e7d9b2d801a8a3f392d8589130129916984d004b521d539644a624d0",
+      "logical_bytes": 1259,
+      "allocated_bytes": 4096,
+      "inode": 33851455,
+      "nlink": 1,
+      "status": "deleted_duplicate_retained_parent_and_github"
+    },
+    {
+      "removed_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/bundle/SHA256SUMS",
+      "preserved_hdd_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/SHA256SUMS",
+      "published_tar_member": "SHA256SUMS",
+      "sha256": "f47b0865434c30352a10e5857c9e40df24851db79c49d4483e2a18d4713cc316",
+      "logical_bytes": 638,
+      "allocated_bytes": 4096,
+      "inode": 33851457,
+      "nlink": 1,
+      "status": "deleted_duplicate_retained_parent_and_github"
+    },
+    {
+      "removed_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/bundle/System.map",
+      "preserved_hdd_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/System.map",
+      "published_tar_member": "System.map",
+      "sha256": "12f1ea3155f76d562d529b7de723b03bb4d58020b0e07b4518610d2c440eeb34",
+      "logical_bytes": 5050072,
+      "allocated_bytes": 5050368,
+      "inode": 33851453,
+      "nlink": 1,
+      "status": "deleted_duplicate_retained_parent_and_github"
+    },
+    {
+      "removed_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/bundle/TESTED-IMAGE-HASHES.txt",
+      "preserved_hdd_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/TESTED-IMAGE-HASHES.txt",
+      "published_tar_member": "TESTED-IMAGE-HASHES.txt",
+      "sha256": "b89f4eb2262498bedfee8bfc16542736c875390c0597ade28a8d3f59459fc25e",
+      "logical_bytes": 606,
+      "allocated_bytes": 4096,
+      "inode": 33851456,
+      "nlink": 1,
+      "status": "deleted_duplicate_retained_parent_and_github"
+    },
+    {
+      "removed_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/bundle/kernel.config",
+      "preserved_hdd_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/kernel.config",
+      "published_tar_member": "kernel.config",
+      "sha256": "36270e3c45eb9e663e71eef8579617f09ad25d7732d009d5d4c1ea96f55bf734",
+      "logical_bytes": 148904,
+      "allocated_bytes": 151552,
+      "inode": 33851451,
+      "nlink": 1,
+      "status": "deleted_duplicate_retained_parent_and_github"
+    },
+    {
+      "removed_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/bundle/p11_audio_compat.ko",
+      "preserved_hdd_path": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/p11_audio_compat.ko",
+      "published_tar_member": "p11_audio_compat.ko",
+      "sha256": "af7e14a238437b5fc7e29dc5fdf8453630d3981f0c4b7218f588ccf6aab08f40",
+      "logical_bytes": 30640,
+      "allocated_bytes": 32768,
+      "inode": 33851454,
+      "nlink": 1,
+      "status": "deleted_duplicate_retained_parent_and_github"
+    }
+  ],
+  "released_bytes": 49045504,
+  "active_perf_touched": false,
+  "device_commands_executed": false,
+  "completed_utc": "2026-09-24T12:22:22.480438+00:00",
+  "removed_empty_directory": "/root/HDD/user0/P11/releases/github/tbj606f-a16-zui14-public-v1/bundle"
+}
