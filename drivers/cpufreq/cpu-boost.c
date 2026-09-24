@@ -49,9 +49,38 @@ static struct work_struct input_boost_work;
 
 static bool input_boost_enabled;
 
+/*
+ * TB-J606F boot-only experiment.  No change without the explicit boot arg.
+ * The stock Bengal post-boot script writes 80 ms and a 1017600 kHz little
+ * cluster input floor.  Override its writes rather than racing init with a
+ * one-time setup, and optionally vote stock-bin hispeed CPU frequencies.
+ */
+static unsigned int p11_scroll_boost __read_mostly;
+
+static int __init p11_scroll_boost_setup(char *value)
+{
+	unsigned int mode;
+
+	if (kstrtouint(value, 0, &mode) || mode < 1 || mode > 2)
+		return 0;
+	p11_scroll_boost = mode;
+	pr_info("P11 input boost experiment: mode %u\n", mode);
+	return 1;
+}
+/* Stock Lenovo bootloader truncates the extended header cmdline at 512 B. */
+__setup("p11.b=", p11_scroll_boost_setup);
+
 static unsigned int input_boost_ms = 40;
 show_one(input_boost_ms);
-store_one(input_boost_ms);
+static ssize_t store_input_boost_ms(struct kobject *kobj,
+				    struct kobj_attribute *attr,
+				    const char *buf, size_t count)
+{
+	sscanf(buf, "%u", &input_boost_ms);
+	if (p11_scroll_boost)
+		input_boost_ms = 180;
+	return count;
+}
 cpu_boost_attr_rw(input_boost_ms);
 
 static unsigned int sched_boost_on_input;
@@ -103,6 +132,16 @@ static ssize_t store_input_boost_freq(struct kobject *kobj,
 	}
 
 check_enable:
+	/*
+	 * Mode 1 only extends the stock vendor floor to 180 ms; mode 2 also
+	 * requests native available hispeed bins during the same input interval.
+	 * cpu_boost still honours each thermal cpufreq policy's maximum.
+	 */
+	if (p11_scroll_boost == 2 && num_possible_cpus() == 8) {
+		per_cpu(sync_info, 0).input_boost_freq = 1305600;
+		per_cpu(sync_info, 4).input_boost_freq = 1401600;
+	}
+
 	for_each_possible_cpu(i) {
 		if (per_cpu(sync_info, i).input_boost_freq) {
 			enabled = true;

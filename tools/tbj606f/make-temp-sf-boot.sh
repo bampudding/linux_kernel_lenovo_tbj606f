@@ -3,8 +3,8 @@
 # Temporary-boot-only diagnostic image for the Lenovo TB-J606F.
 set -euo pipefail
 
-if (( $# != 3 && $# != 4 )); then
-  echo 'Usage: make-temp-sf-boot.sh STABLE_BOOT.img EXPERIMENTAL_RAW_Image OUTPUT_BOOT.img [--all-sf|--sf-and-composer]' >&2
+if (( $# < 3 || $# > 5 )); then
+  echo 'Usage: make-temp-sf-boot.sh STABLE_BOOT.img EXPERIMENTAL_RAW_Image OUTPUT_BOOT.img [--all-sf|--sf-and-composer] [--scroll-boost=1|--scroll-boost=2]' >&2
   exit 2
 fi
 
@@ -13,13 +13,16 @@ kernel=$2
 output=$3
 self_dir=$(cd "$(dirname -- "$0")" && pwd)
 mode=1
-if (( $# == 4 )); then
-  case $4 in
+scroll_boost=
+for arg in "${@:4}"; do
+  case $arg in
     --all-sf) mode=2 ;;
     --sf-and-composer) mode=3 ;;
+    --scroll-boost=1) scroll_boost=1 ;;
+    --scroll-boost=2) scroll_boost=2 ;;
     *) echo 'unknown experiment mode' >&2; exit 2 ;;
   esac
-fi
+done
 [[ -f $stable && -s $kernel ]] || { echo 'boot template/kernel missing' >&2; exit 1; }
 [[ ! -e $output ]] || { echo 'output already exists' >&2; exit 1; }
 
@@ -51,6 +54,9 @@ for (( i=0; i<${#options[@]}; i++ )); do
       exit 1
     }
     options[i+1]="${options[i+1]} p11tune.sf_bigcpus=$mode"
+    if [[ -n $scroll_boost ]]; then
+      options[i+1]="${options[i+1]} p11.b=$scroll_boost"
+    fi
     found=1
   fi
 done
@@ -68,6 +74,9 @@ cmp "$tmp/base/ramdisk" "$tmp/verify/ramdisk"
 cmp "$tmp/base/dtb" "$tmp/verify/dtb"
 cmp "$tmp/base/kernel" "$tmp/verify/kernel"
 grep -q "p11tune.sf_bigcpus=$mode" "$tmp/verify-args.txt"
+if [[ -n $scroll_boost ]]; then
+  grep -q "p11.b=$scroll_boost" "$tmp/verify-args.txt"
+fi
 
 mv "$partial" "$output"
 echo "stable boot: $base_hash"
