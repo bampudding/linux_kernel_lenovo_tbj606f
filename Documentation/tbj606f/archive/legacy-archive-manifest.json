@@ -1,0 +1,143 @@
+{
+  "device": "Lenovo P11 TB-J606F",
+  "repository": "bampudding/linux_kernel_lenovo_tbj606f",
+  "generated_utc": "2026-09-24T09:07:13.564684+00:00",
+  "purpose": "Archive metadata before legacy workspace cleanup",
+  "notes": [
+    "This manifest covers tracked repository archive metadata. External firmware, GSI, boot images, and HDD experiment artifacts require separate inventory records."
+  ],
+  "files": [
+    {
+      "path": "Documentation/tbj606f/android16-zui14-bringup.md",
+      "sha256": "aaf4dc7f5af208a93fb7e3434cc91a608cc838bb8930066ef77d4aa0636dee70",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "Documentation/tbj606f/archive/artifact-inventory.txt",
+      "sha256": "8e08e43b8f62fb2edc34da271a65b3dff2c41dad1921213f1a177679f96fa2c6",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "Documentation/tbj606f/archive/legacy-cleanup-manifest.md",
+      "sha256": "c6e51bbb3112653fdf71ef34cb27efe3d1964ccbcd228018e33aa571236edbf1",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "Documentation/tbj606f/archive/release-matrix.md",
+      "sha256": "e264c6c3d60678faf91918a6ef968a214a144e8d4905936ff09fc9c6105990c7",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "Documentation/tbj606f/development-history.md",
+      "sha256": "762c99807efcd92cbc3e4c7cca1e90950fe9d6f5c9e5090c69d7a528daab6b3e",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "Documentation/tbj606f/installation.md",
+      "sha256": "f04c8d1cfa4da3d0bd284258cf05a138b0fa22b7500ceb5197ce78a69a3110c2",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "Documentation/tbj606f/published-refs.md",
+      "sha256": "d941d7ec0c6c7948af4c1a2d8b7d3c009fbfae60d4b57ad73ac5ba3394934049",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/audio-compat/.gitignore",
+      "sha256": "17c28bd0fcae6d2223d4f5236bf87e02eeac46ce4d294040d45736493de6d37f",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/audio-compat/Makefile",
+      "sha256": "0600e05ad2fa55bfd95fd61e3c21758243ebc5c88ea4ca93f4b7dbf959e88b72",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/audio-compat/README.md",
+      "sha256": "94a6a47c460a69d47c3f2fe4914568f94bd89cbc09db522bea6cf806c4288a71",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/audio-compat/build.sh",
+      "sha256": "7fae7635e72baa440e341693e43ed8060f917edfe2c5565f383ac99d4a229f35",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/audio-compat/p11_audio_compat.c",
+      "sha256": "467c4be78fcd14cebbeb420707521281acae381966dc6f6d8c821caffbecbfba",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/build-kernel.sh",
+      "sha256": "0f2da72ce5dd5aa3acedc5b6e5b7c4c02a6bb24a3449675b0cb52ae43cd46bfd",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/configs/android16-zui14.config",
+      "sha256": "93024bc11b6bcabe2e459fb67eebe8f761ca859dfd60765d44a4387320f8098b",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/gki/generate_gki_certificate.py",
+      "sha256": "1bb1feec68a13da18d581aa2c631798f86f6bc10b55d587b2dd31446a0f8a203",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/install.sh",
+      "sha256": "cffa783995eabaebb884b9a3dced76b101eeb90fe5663ea72fb64ed498000d93",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/make-android16-boot.sh",
+      "sha256": "ef7b1bf2245a7431bd23dab32e8cdf5700e10c03da5264759292413b4661b9d9",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/make-hybrid-vendor.sh",
+      "sha256": "ac4f3bc0782cd53cec6b56e3f17ec795a073c99f3ed11975fbb6c78550a78d13",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/mkbootimg.py",
+      "sha256": "37d84b3d162e0bc62e36c1f4e1c63c85ea0caa9f29be023eb2f8efe006ad948c",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/repack-boot.sh",
+      "sha256": "d2b9b50650dc49a400b0fbf8dc1ca917de8568d92ef51b4e98478ada1439215f",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/unpack_bootimg.py",
+      "sha256": "a9d260978a63bd06a24b6347e7dee8a28ff96639793caea15dff6aa491316308",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/verify-runtime.sh",
+      "sha256": "e642ffc8abad94908a5b1a6e9acd50957c52dd3feb601edbdef82f0a60cd1d70",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    }
+  ]
+}
