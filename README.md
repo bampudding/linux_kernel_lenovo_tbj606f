@@ -1,46 +1,71 @@
-# Kernel for Lenovo Tab P11 (TB-J606F)
+# Linux kernel for Lenovo Tab P11 (TB-J606F)
 
-This is a bootable kernel for Lenovo TB-J606F, adapted from
-[Lenovo Opensource Portal](https://support.lenovo.com/us/en/solutions/ht511330-lenovo-open-source-portal)
-.
+This project continues the TB-J606F kernel work originally published at
+https://github.com/JulianDroske/linux_kernel_lenovo_tbj606f.
 
-For current status, see [STATUS.md](./STATUS.md).
+The Git history is intentionally preserved from the Lenovo source import and
+the original 2024 device bring-up. The current development target is a stable
+Linux 4.19.157 kernel for Android 16 EROFS GSIs while retaining Lenovo hardware
+compatibility and selectively supporting newer ZUI14 vendor userspace.
 
+## Current tested baseline
 
-## Testing Environment
+- Device: Lenovo Tab P11 TB-J606F Wi-Fi
+- SoC / fastboot product: Qualcomm Bengal
+- Kernel: Linux 4.19.157-perf+
+- Stable kernel-code checkpoint: 7124b9c09
+- Android: LineageOS 23.2 Android 16 EROFS GSI
+- Vendor userspace: Lenovo ZUI 14.0.147 hybrid
+- Persistent normal boot: verified
+- Sensors / automatic rotation: working
+- Wi-Fi 5 GHz / 802.11ac: working
+- Audio primary speaker path: working
+- Bluetooth: ON and enumerated
+- Cameras: two devices enumerated
 
-- Device
-	- Name: Lenovo Tab P11
-	- Model: TB-J606F
-	- Bootloader
-		- Product: bengal
-	- Vendor Info
-		- Version: Android 10
-		- Board: bengal
-		- Platform: bengal
-		- Name: m11_prc_wifi
-	- Device Tree/compatible
-		- qcom,bengalp-idp
-		- qcom,bengalp
-		- qcom,idp
-- Compiling
-	- Compiler
-		- `Compiler: Android (5484270 based on r353983c) clang version 9.0.3 (https://android.googlesource.com/toolchain/clang 745b335211bb9eadfa6aa6301f84715cee4b37c5) (https://android.googlesource.com/toolchain/llvm 60cf23e54e46c807513f7a36d0a7b777920b5881) (based on LLVM 9.0.3svn)`
-		- Provided by Lenovo Opensource Portal
-	- Host OS: Ubuntu 16.04.6 LTS
+See [STATUS.md](./STATUS.md) for the validation matrix.
 
+## Documentation
 
-The whole ufs flash has been rewritten with other unbrick stock ROMs (source lost),
-so some of the information above may differ from any stock devices.
+- [Android 16 / ZUI14 bring-up](Documentation/tbj606f/android16-zui14-bringup.md)
+- [Development history and provenance](Documentation/tbj606f/development-history.md)
+- [Optional Rouleur audio compatibility module](tools/tbj606f/audio-compat/README.md)
 
+## Reproduction helpers
 
-## Additional Notes
+The repository includes source-only helpers for the complete tested workflow:
 
-There's [another kernel source](https://github.com/adazem009/kernel_lenovo_tbj606)
-that should work
-([source](https://github.com/lenovo/gplcc/issues/1#issuecomment-2285915620)),
-however it failed to boot on my device.
+- tools/tbj606f/build-kernel.sh
+- tools/tbj606f/repack-boot.sh
+- tools/tbj606f/make-hybrid-vendor.sh
+- tools/tbj606f/verify-runtime.sh
+- tools/tbj606f/audio-compat/
 
-This kernel is not intended to run on all TB-J606* devices.
-The goal is to support both AOSP and Linux Mobile (libhybris) operating systems,
-while being ready for daily use.
+The boot repacker preserves the known-good ramdisk and DTB while replacing only
+the compressed kernel. The hybrid-vendor builder consumes firmware extracted
+by the device owner and regenerates module dependency metadata for the mixed
+ZUI14/ZUI12 module set.
+
+## Proprietary firmware boundary
+
+Lenovo vendor images, signed vendor DLKMs, modem/DSP images, OTAs, Google apps,
+and other proprietary binaries are not added to this repository. The public
+tree contains only source, patches already represented by Git commits, and
+reproduction/verification tooling.
+
+## Upstream and history
+
+The original branches remain meaningful:
+
+- official-kernel: Lenovo source import
+- dev: original touchscreen/Wi-Fi device bring-up
+- opensource/tbj606f-a16-zui14: current public continuation
+
+Research branches for failed or superseded FastRPC, KABI, GLINK, GPU and EROFS
+experiments are deliberately preserved rather than rewritten out of history.
+
+## License
+
+The kernel remains licensed under GPL-2.0 with the Linux syscall exception as
+described by [COPYING](COPYING). Individual files may carry additional
+SPDX-compatible licenses.
