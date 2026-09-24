@@ -2,6 +2,10 @@
 
 This page defines the supported, tested starting point for the Android
 16/ZUI14 hybrid and the inputs needed by `tools/tbj606f/install.sh`.
+The installer on this branch downloads the tested kernel `Image` and
+`p11_audio_compat.ko` from the published `tbj606f-a16-zui14-public-v1`
+release. The hybrid-vendor source workflow was added in the public-v2 lineage;
+the installation helper itself is supplied by this branch.
 
 ## Supported device
 
@@ -85,6 +89,14 @@ Final layout:
 - regenerated `modules.dep`
 - GPL `p11_audio_compat.ko` loaded before `audio_machine_bengal`
 
+When building this image locally, `make-hybrid-vendor.sh` requires the ZUI12
+Wi-Fi module and all 25 expected ZUI12 audio modules, and checks their
+`module_layout` CRC against the released compatibility module. A supplied
+prebuilt hybrid vendor is verified against the tested SHA256 instead. The
+installer later checks that `p11_audio_compat` and `machine_dlkm` actually
+loaded during its temporary boot; this is not a complete Wi-Fi/audio playback
+test.
+
 Exact device-validated hybrid vendor:
 
 ```text
@@ -119,8 +131,9 @@ system_a >= 2255372288 bytes
 vendor_a >= 796917760 bytes
 ```
 
-The installer checks capacities in fastbootd. It does not silently delete or
-shrink other logical partitions to create space.
+The installer checks **both** required capacities in fastbootd before it
+changes the active slot or flashes either partition. It does not delete,
+resize or shrink other logical partitions to create space.
 
 ## One-command installation
 
@@ -146,21 +159,40 @@ Or, on Linux, build the hybrid vendor during the same run:
 ```
 
 Use `--dry-run` first to validate local inputs and the connected device.
-Use `--yes` for unattended flashing after verifying the command.
+It checks hashes, constructs the hybrid vendor when requested, repacks the boot
+image, and checks the connected Android device identity and vendor fingerprint.
+It does not reboot the device or check bootloader unlock status, fastboot product,
+or partition capacities; these require entering fastboot/fastbootd in the normal
+installation flow. `--skip-system` omits the GSI argument, and `--skip-vendor`
+omits the hybrid vendor argument when a compatible hybrid vendor is already
+installed. Use `--yes` for unattended flashing after verifying the command.
 
 The sequence is:
 
-1. validate firmware/GSI/release hashes;
-2. validate exact TB-J606F and ZUI14 14.0.147 vendor fingerprint;
-3. verify unlocked `bengal` bootloader and select slot A;
-4. enter fastbootd and verify logical partition sizes;
-5. flash `system_a` and `vendor_a`;
-6. temporarily boot the newly repacked kernel;
-7. require Android boot completion, 34 sensors and AudioPolicyManager;
+1. validate firmware/GSI/release hashes and repack the tested boot image;
+2. validate exact TB-J606F and ZUI14 14.0.147 vendor fingerprint over ADB;
+3. verify unlocked `bengal` bootloader;
+4. enter fastbootd and verify **both** logical partition sizes before any flash;
+5. select and confirm slot A, then flash `system_a` and `vendor_a` unless skipped;
+6. temporarily boot the newly repacked kernel using those flashed partitions;
+7. require Android boot completion on slot A, 34 sensors, AudioPolicyManager,
+   and both the compatibility and machine audio modules loaded;
 8. only then flash the same image to `boot_a`;
 9. reboot without wiping userdata.
 
-If temporary boot validation fails, `boot_a` is not modified.
+**The temporary boot protects `boot_a` from being persistently flashed before
+runtime validation.** Full Android 16/hybrid-vendor validation needs the new
+system and vendor partitions, so those partitions are flashed *before* the
+runtime test. If that test fails, `boot_a` remains unchanged, but `system_a`
+and/or `vendor_a` may already have changed and the device may require recovery.
+Have known-good firmware and a restore path available before installation.
+The script does not wipe userdata or perform logical partition resizing.
+
+The published `public-v1` Image/compatibility-module release is pinned by
+SHA256, along with the known-good GSI, boot template and hybrid vendor.
+`--allow-other-gsi`, `--allow-other-boot` and `--allow-other-vendor` bypass
+specific tested-image comparisons and make that combination unverified;
+`--release-tag` does not bypass the released Image/module hash checks.
 
 ## What must survive deletion of the old development workspace
 

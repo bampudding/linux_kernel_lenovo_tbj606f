@@ -3,7 +3,7 @@
 set -euo pipefail
 
 REPO="bampudding/linux_kernel_lenovo_tbj606f"
-RELEASE_TAG="${TBJ606F_RELEASE_TAG:-tbj606f-a16-zui14-public-v3}"
+RELEASE_TAG="${TBJ606F_RELEASE_TAG:-tbj606f-a16-zui14-public-v1}"
 BASE_URL="https://github.com/${REPO}/releases/download/${RELEASE_TAG}"
 
 EXPECTED_IMAGE_SHA256="af0b7b6b81c4f6ba3c5c2fbb044972a1bf502453ec19effa6d3664c094fdb2f8"
@@ -36,9 +36,10 @@ ALLOW_OTHER_VENDOR=0
 usage() {
   cat <<'USAGE'
 Usage:
-  install.sh --serial SERIAL --gsi system.img --stock-boot zui14-boot.img \
+  install.sh --serial SERIAL --stock-boot zui14-boot.img \
+    [--gsi system.img | --skip-system] \
     [--vendor-image hybrid-vendor.img |
-     --zui14-vendor zui14-vendor.img --zui12-modules DIR] [options]
+     --zui14-vendor zui14-vendor.img --zui12-modules DIR | --skip-vendor] [options]
 
 Options:
   --yes
@@ -82,7 +83,9 @@ while [ "$#" -gt 0 ]; do
 done
 
 [ -n "$SERIAL" ] || die "--serial is required"
-[ -f "$GSI" ] || die "--gsi file not found"
+if [ "$SKIP_SYSTEM" -eq 0 ]; then
+  [ -f "$GSI" ] || die "--gsi file not found"
+fi
 [ -f "$STOCK_BOOT" ] || die "--stock-boot file not found"
 if [ "$SKIP_VENDOR" -eq 0 ]; then
   if [ -n "$VENDOR_IMAGE" ]; then
@@ -137,7 +140,9 @@ cleanup() {
 trap cleanup EXIT
 
 note "validating local inputs"
-check_hash "$GSI" "$EXPECTED_GSI_SHA256" "GSI" "$ALLOW_OTHER_GSI"
+if [ "$SKIP_SYSTEM" -eq 0 ]; then
+  check_hash "$GSI" "$EXPECTED_GSI_SHA256" "GSI" "$ALLOW_OTHER_GSI"
+fi
 check_hash "$STOCK_BOOT" "$EXPECTED_ZUI14_BOOT_SHA256" "ZUI14 boot template" "$ALLOW_OTHER_BOOT"
 
 download_asset() {
@@ -181,14 +186,15 @@ fi
 
 note "checking Android device $SERIAL"
 adb -s "$SERIAL" get-state >/dev/null
-device=$(adb -s "$SERIAL" shell getprop ro.product.vendor.device 2>/dev/null | tr -d '')
+device=$(adb -s "$SERIAL" shell getprop ro.product.vendor.device 2>/dev/null | tr -d '\r')
 [ "$device" = "J606F" ] || [ "$device" = "j606f" ] || die "device '$device' is not J606F"
-fingerprint=$(adb -s "$SERIAL" shell getprop ro.vendor.build.fingerprint 2>/dev/null | tr -d '')
+fingerprint=$(adb -s "$SERIAL" shell getprop ro.vendor.build.fingerprint 2>/dev/null | tr -d '\r')
 echo "vendor fingerprint: $fingerprint"
 [ "$fingerprint" = "$EXPECTED_VENDOR_FINGERPRINT" ] || die "starting vendor is not tested ZUI14 14.0.147"
 
 if [ "$DRY_RUN" -eq 1 ]; then
-  note "dry-run complete; no partitions modified"
+  note "dry-run complete; no device reboots or partitions modified"
+  note "fastboot product, unlock state and partition capacities are checked before flashing in a normal run"
   exit 0
 fi
 
@@ -218,11 +224,10 @@ wait_fastboot() {
 note "entering bootloader"
 adb -s "$SERIAL" reboot bootloader
 wait_fastboot || die "device did not enter fastboot"
-product=$(fastboot -s "$SERIAL" getvar product 2>&1 | sed -n 's/.*product: *//p' | tail -1 | tr -d '')
+product=$(fastboot -s "$SERIAL" getvar product 2>&1 | sed -n 's/.*product: *//p' | tail -1 | tr -d '\r')
 [ "$product" = bengal ] || die "fastboot product '$product' is not bengal"
-unlocked=$(fastboot -s "$SERIAL" getvar unlocked 2>&1 | sed -n 's/.*unlocked: *//p' | tail -1 | tr -d '')
+unlocked=$(fastboot -s "$SERIAL" getvar unlocked 2>&1 | sed -n 's/.*unlocked: *//p' | tail -1 | tr -d '\r')
 [ "$unlocked" = yes ] || die "bootloader is not unlocked"
-fastboot -s "$SERIAL" --set-active=a
 
 note "entering fastbootd"
 fastboot -s "$SERIAL" reboot fastboot
@@ -234,7 +239,7 @@ fastboot -s "$SERIAL" getvar is-userspace 2>&1 | grep -q 'is-userspace: yes' || 
 
 partition_bytes() {
   var=$1
-  raw=$(fastboot -s "$SERIAL" getvar "partition-size:$var" 2>&1 | sed -n "s/.*partition-size:$var: *//p" | tail -1 | tr -d '')
+  raw=$(fastboot -s "$SERIAL" getvar "partition-size:$var" 2>&1 | sed -n "s/.*partition-size:$var: *//p" | tail -1 | tr -d '\r')
   python3 - "$raw" <<'PY'
 import sys
 s=sys.argv[1].strip()
@@ -242,16 +247,26 @@ print(int(s,0) if s else 0)
 PY
 }
 
+note "checking partition capacities before flashing"
 if [ "$SKIP_SYSTEM" -eq 0 ]; then
-  need=$(size_file "$GSI"); have=$(partition_bytes system_a)
-  [ "$have" -ge "$need" ] || die "system_a=$have, GSI needs $need bytes; resize it first"
+  system_need=$(size_file "$GSI"); system_have=$(partition_bytes system_a)
+  [ "$system_have" -ge "$system_need" ] || die "system_a=$system_have, GSI needs $system_need bytes; no partitions flashed"
+fi
+if [ "$SKIP_VENDOR" -eq 0 ]; then
+  vendor_need=$(size_file "$VENDOR_IMAGE"); vendor_have=$(partition_bytes vendor_a)
+  [ "$vendor_have" -ge "$vendor_need" ] || die "vendor_a=$vendor_have, vendor image needs $vendor_need bytes; no partitions flashed"
+fi
+
+note "selecting slot A"
+fastboot -s "$SERIAL" --set-active=a
+current_slot=$(fastboot -s "$SERIAL" getvar current-slot 2>&1 | sed -n 's/.*current-slot: *//p' | tail -1 | tr -d '\r')
+[ "$current_slot" = a ] || die "fastboot active slot '$current_slot' is not A; no partitions flashed"
+
+if [ "$SKIP_SYSTEM" -eq 0 ]; then
   note "flashing system_a"
   fastboot -s "$SERIAL" flash system_a "$GSI"
 fi
-
 if [ "$SKIP_VENDOR" -eq 0 ]; then
-  need=$(size_file "$VENDOR_IMAGE"); have=$(partition_bytes vendor_a)
-  [ "$have" -ge "$need" ] || die "vendor_a=$have, vendor image needs $need bytes"
   note "flashing vendor_a"
   fastboot -s "$SERIAL" flash vendor_a "$VENDOR_IMAGE"
 fi
@@ -264,18 +279,25 @@ fastboot -s "$SERIAL" boot "$BOOT_IMAGE"
 boot_ok=0
 for _ in $(seq 1 180); do
   if adb -s "$SERIAL" get-state >/dev/null 2>&1; then
-    bc=$(adb -s "$SERIAL" shell getprop sys.boot_completed 2>/dev/null | tr -d '')
+    bc=$(adb -s "$SERIAL" shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')
     if [ "$bc" = 1 ]; then boot_ok=1; break; fi
   fi
   sleep 1
 done
 [ "$boot_ok" -eq 1 ] || die "temporary boot did not complete; boot_a was NOT flashed"
+boot_slot=$(adb -s "$SERIAL" shell getprop ro.boot.slot_suffix 2>/dev/null | tr -d '\r')
+[ "$boot_slot" = _a ] || die "temporary boot reached slot '$boot_slot', expected A; boot_a was NOT flashed"
 
 sensor_line=$(adb -s "$SERIAL" shell dumpsys sensorservice 2>/dev/null | grep -m1 'Total .* h/w sensors' || true)
 echo "sensor check: ${sensor_line:-missing}"
 echo "$sensor_line" | grep -q 'Total 34 h/w sensors' || die "34-sensor validation failed; boot_a was NOT flashed"
 audio_line=$(adb -s "$SERIAL" shell dumpsys media.audio_policy 2>/dev/null | grep -m1 'AudioPolicyManager Dump' || true)
 [ -n "$audio_line" ] || die "audio validation failed; boot_a was NOT flashed"
+module_lines=$(adb -s "$SERIAL" shell cat /proc/modules 2>/dev/null | tr -d '\r')
+for module in p11_audio_compat machine_dlkm; do
+  grep -q "^$module " <<< "$module_lines" || die "$module not loaded; boot_a was NOT flashed"
+done
+note "audio module check: p11_audio_compat and machine_dlkm loaded"
 
 note "temporary boot validated; flashing boot_a"
 adb -s "$SERIAL" reboot bootloader

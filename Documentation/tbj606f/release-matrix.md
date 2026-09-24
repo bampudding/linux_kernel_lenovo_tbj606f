@@ -2,20 +2,25 @@
 
 This file is the deletion checklist for legacy workspace cleanup.
 
-## Current supported release
+## Public packages and source checkpoints
 
-| Release | Status | Purpose |
+| Release | Source and artifact status | Purpose |
 |---|---|---|
-| tbj606f-a16-zui14-public-v2 | stable | Android 16 EROFS + ZUI14 vendor hybrid kernel release |
+| `tbj606f-a16-zui14-public-v1` | Tested kernel binary bundle; kernel source checkpoint `7124b9c09a` | Android 16 EROFS + ZUI14 hybrid kernel, config and audio compatibility module |
+| `tbj606f-a16-zui14-public-v2` | Installer/documents attached to release; the v2 **tag predates `install.sh`** | Historical deployment-package checkpoint; use the later tagged source for a reproducible script checkout |
+| `tbj606f-a16-zui14-public-v3` | Source-matched installer, tested v1 kernel bytes and archive metadata | Reproducible installation and preservation package |
 
 ## Development lineage
 
 | Stage | Git reference | Preserved items |
 |---|---|---|
 | Original Lenovo/ZUI12 kernel baseline | upstream history | original GPL kernel history |
-| EROFS bring-up | `tbj606f-a16-zui14-public-v1` lineage | EROFS backports, LZ4 changes, configs |
-| Android 16 runtime validation | `tbj606f-a16-zui14-public-v1` | Image, config, Module.symvers, hashes |
-| ZUI14 vendor compatibility | `tbj606f-a16-zui14-public-v2` | hybrid vendor scripts, installation docs |
+| EROFS compressed-image groundwork | `zui12-post157-erofs-lineage23.2-built-20260922` | EROFS backports and build milestone |
+| LZ4 v1.8.3 decoder backport | `tbj606f-erofs-lz4-v183-20260924` | Historical source snapshot, diff metadata and hashes; not itself a complete boot-success claim |
+| Android 16 runtime validation | `zui12-post157-erofs-lineage23.2-runtime-tested-20260922` | EROFS boot milestone source snapshot, logs indexed on HDD |
+| ADSP/ZUI14 compatibility | `tbj606f-a16-zui14-kernel-stable-20260924` | Native ADSP loader and stable hybrid kernel checkpoint |
+| Published tested binary | `tbj606f-a16-zui14-public-v1` | Image, config, Module.symvers, hashes |
+| Installer publication | `tbj606f-a16-zui14-public-v3` | Tagged installer source, instructions, verified binary inputs and preservation metadata |
 
 ## Artifact retention policy
 
@@ -49,3 +54,8 @@ A local legacy directory may be removed only after:
 2. its tag exists;
 3. its release manifest exists;
 4. required binary/debug artifacts are attached or reproducible.
+
+The exact existing bytes must also be present in an independently retained copy
+whose SHA256 matches `archive/hdd-artifact-manifest.json`. A GitHub tag or a
+checksum alone is insufficient to justify deleting local proprietary images
+or unreleased diagnostics. See `archive/README.md`.

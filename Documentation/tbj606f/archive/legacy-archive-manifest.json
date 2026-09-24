@@ -1,140 +1,228 @@
 {
+  "schema_version": 2,
   "device": "Lenovo P11 TB-J606F",
   "repository": "bampudding/linux_kernel_lenovo_tbj606f",
-  "generated_utc": "2026-09-24T09:07:13.564684+00:00",
-  "purpose": "Archive metadata before legacy workspace cleanup",
+  "generated_utc": "2026-09-24T10:57:21.710455+00:00",
+  "purpose": "Source documentation and helper checksums before legacy cleanup",
   "notes": [
-    "This manifest covers tracked repository archive metadata. External firmware, GSI, boot images, and HDD experiment artifacts require separate inventory records."
+    "This manifest excludes itself to avoid a cyclic checksum.",
+    "The full kernel source is preserved by Git commits and tags, not duplicated here as per-file hashes.",
+    "See hdd-artifact-manifest.json for HDD artifact/firmware checksums and github-release-catalog.json for published assets."
   ],
   "files": [
     {
       "path": "Documentation/tbj606f/android16-zui14-bringup.md",
+      "size_bytes": 6429,
       "sha256": "aaf4dc7f5af208a93fb7e3434cc91a608cc838bb8930066ef77d4aa0636dee70",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
+      "path": "Documentation/tbj606f/archive/README.md",
+      "size_bytes": 3717,
+      "sha256": "3ef0cf96d1bc104be8083e909f0c822a0dcc3cee6bbf82e59bfec721f395d5c3",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
       "path": "Documentation/tbj606f/archive/artifact-inventory.txt",
+      "size_bytes": 178455,
       "sha256": "8e08e43b8f62fb2edc34da271a65b3dff2c41dad1921213f1a177679f96fa2c6",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
+      "path": "Documentation/tbj606f/archive/github-release-catalog.json",
+      "size_bytes": 124928,
+      "sha256": "a2cb4e05ee0b96f856f8e93fc77a05d511fe4b5127a7d12634a666a8c3194955",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "Documentation/tbj606f/archive/hdd-artifact-manifest.json",
+      "size_bytes": 831234,
+      "sha256": "fca3d6a7a931f3a6e3b2dbef36932b3d78a3190b7ec2462908fc23c73a5a1665",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
       "path": "Documentation/tbj606f/archive/legacy-cleanup-manifest.md",
-      "sha256": "c6e51bbb3112653fdf71ef34cb27efe3d1964ccbcd228018e33aa571236edbf1",
+      "size_bytes": 815,
+      "sha256": "7d200d6eea3db6696aa92d28ad695f3e4830034cb4c4525bd2cac2fc6b04d367",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
       "path": "Documentation/tbj606f/archive/release-matrix.md",
-      "sha256": "e264c6c3d60678faf91918a6ef968a214a144e8d4905936ff09fc9c6105990c7",
+      "size_bytes": 6613,
+      "sha256": "8a331895a2967f12896cfce6d9920e8a3024514efbb5781943d1a56cad759263",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
       "path": "Documentation/tbj606f/development-history.md",
+      "size_bytes": 10497,
       "sha256": "762c99807efcd92cbc3e4c7cca1e90950fe9d6f5c9e5090c69d7a528daab6b3e",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
       "path": "Documentation/tbj606f/installation.md",
-      "sha256": "f04c8d1cfa4da3d0bd284258cf05a138b0fa22b7500ceb5197ce78a69a3110c2",
+      "size_bytes": 7705,
+      "sha256": "64ee61014bbc7ad22e85579ed69a71f647d00fa0455d1d895f28656c0187b00d",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
       "path": "Documentation/tbj606f/published-refs.md",
+      "size_bytes": 11931,
       "sha256": "d941d7ec0c6c7948af4c1a2d8b7d3c009fbfae60d4b57ad73ac5ba3394934049",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
+      "path": "Documentation/tbj606f/release-matrix.md",
+      "size_bytes": 2901,
+      "sha256": "73ff3f22b63c1c59b6886d45eee53eba56c408568629403f7e1e1ebdae6400f5",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "Documentation/tbj606f/tag-inventory.md",
+      "size_bytes": 6228,
+      "sha256": "d30baee4c8c58e70c702776273f568cdd95f60f7de968947a1f30c27d48145d8",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/.gitignore",
+      "size_bytes": 19,
+      "sha256": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
+      "path": "tools/tbj606f/archive-inventory.py",
+      "size_bytes": 5891,
+      "sha256": "23c0aaf581f84a864ad6daeaf978fcd1cd903e4701a153c3664bb7ec0fdcbb00",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
       "path": "tools/tbj606f/audio-compat/.gitignore",
+      "size_bytes": 67,
       "sha256": "17c28bd0fcae6d2223d4f5236bf87e02eeac46ce4d294040d45736493de6d37f",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
       "path": "tools/tbj606f/audio-compat/Makefile",
+      "size_bytes": 28,
       "sha256": "0600e05ad2fa55bfd95fd61e3c21758243ebc5c88ea4ca93f4b7dbf959e88b72",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
       "path": "tools/tbj606f/audio-compat/README.md",
+      "size_bytes": 1009,
       "sha256": "94a6a47c460a69d47c3f2fe4914568f94bd89cbc09db522bea6cf806c4288a71",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
       "path": "tools/tbj606f/audio-compat/build.sh",
+      "size_bytes": 843,
       "sha256": "7fae7635e72baa440e341693e43ed8060f917edfe2c5565f383ac99d4a229f35",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
       "path": "tools/tbj606f/audio-compat/p11_audio_compat.c",
+      "size_bytes": 1032,
       "sha256": "467c4be78fcd14cebbeb420707521281acae381966dc6f6d8c821caffbecbfba",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
       "path": "tools/tbj606f/build-kernel.sh",
+      "size_bytes": 1581,
       "sha256": "0f2da72ce5dd5aa3acedc5b6e5b7c4c02a6bb24a3449675b0cb52ae43cd46bfd",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
       "path": "tools/tbj606f/configs/android16-zui14.config",
+      "size_bytes": 813,
       "sha256": "93024bc11b6bcabe2e459fb67eebe8f761ca859dfd60765d44a4387320f8098b",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
       "path": "tools/tbj606f/gki/generate_gki_certificate.py",
+      "size_bytes": 2991,
       "sha256": "1bb1feec68a13da18d581aa2c631798f86f6bc10b55d587b2dd31446a0f8a203",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
       "path": "tools/tbj606f/install.sh",
-      "sha256": "cffa783995eabaebb884b9a3dced76b101eeb90fe5663ea72fb64ed498000d93",
+      "size_bytes": 11118,
+      "sha256": "1a90b272769ab0d414a400cd27c646ea9628dcc0938feb0fcdb36511d993a32f",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
       "path": "tools/tbj606f/make-android16-boot.sh",
+      "size_bytes": 2266,
       "sha256": "ef7b1bf2245a7431bd23dab32e8cdf5700e10c03da5264759292413b4661b9d9",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
       "path": "tools/tbj606f/make-hybrid-vendor.sh",
+      "size_bytes": 8308,
       "sha256": "ac4f3bc0782cd53cec6b56e3f17ec795a073c99f3ed11975fbb6c78550a78d13",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
       "path": "tools/tbj606f/mkbootimg.py",
+      "size_bytes": 26667,
       "sha256": "37d84b3d162e0bc62e36c1f4e1c63c85ea0caa9f29be023eb2f8efe006ad948c",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
+      "path": "tools/tbj606f/release-catalog.py",
+      "size_bytes": 4949,
+      "sha256": "c75a54f56d44b333042f17dde9958cac1514816d9091cc5494bd761e7a4db7ee",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
       "path": "tools/tbj606f/repack-boot.sh",
+      "size_bytes": 1130,
       "sha256": "d2b9b50650dc49a400b0fbf8dc1ca917de8568d92ef51b4e98478ada1439215f",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
+      "path": "tools/tbj606f/source-inventory.py",
+      "size_bytes": 2617,
+      "sha256": "319fad24dce23ecaeb9381b8bd43350e89018d64f83db32ec6c1fd132a049f2c",
+      "release_association": "repository source history",
+      "recommendation": "keep"
+    },
+    {
       "path": "tools/tbj606f/unpack_bootimg.py",
+      "size_bytes": 23223,
       "sha256": "a9d260978a63bd06a24b6347e7dee8a28ff96639793caea15dff6aa491316308",
       "release_association": "repository source history",
       "recommendation": "keep"
     },
     {
       "path": "tools/tbj606f/verify-runtime.sh",
+      "size_bytes": 666,
       "sha256": "e642ffc8abad94908a5b1a6e9acd50957c52dd3feb601edbdef82f0a60cd1d70",
       "release_association": "repository source history",
       "recommendation": "keep"

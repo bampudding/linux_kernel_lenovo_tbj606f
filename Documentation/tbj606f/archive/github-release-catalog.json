@@ -1,0 +1,2118 @@
+{
+  "schema_version": 1,
+  "repository": "bampudding/linux_kernel_lenovo_tbj606f",
+  "generated_utc": "2026-09-24T10:57:21.628046+00:00",
+  "release_count": 56,
+  "asset_count": 229,
+  "notes": [
+    "The GitHub asset digest provides the published SHA256; source_commit resolves the actual tag, even if GitHub target_commitish refers to a branch.",
+    "single_commit_range denotes only the final commit and its first parent, not the complete milestone development interval.",
+    "Release notes are available at release_url and identified by release_notes_sha256.",
+    "GitHub assets and this metadata do not independently archive local proprietary, test, and diagnostic files."
+  ],
+  "missing_sha256_digests": [],
+  "releases": [
+    {
+      "tag": "tbj606f-a16-zui14-public-v1",
+      "source_commit": "3a5bd05145cdafb844c51aa4021186e87b8700f1",
+      "first_parent": "01b8bb822ef5fa2dc442b4c93767cff8eca0be80",
+      "single_commit_range": "01b8bb822ef5fa2dc442b4c93767cff8eca0be80..3a5bd05145cdafb844c51aa4021186e87b8700f1",
+      "source_subject": "docs: fix published TB-J606F ref index",
+      "release_name": "TB-J606F Android 16 / ZUI14 hybrid public v1",
+      "published_at": "2026-09-24T02:11:20Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/tbj606f-a16-zui14-public-v1",
+      "release_notes_sha256": "2d63749386e13caf34dee15c867b0e6318d1afcb331123735c8e0f72d0a29a25",
+      "assets": [
+        {
+          "name": "Image",
+          "size_bytes": 31267328,
+          "sha256": "af0b7b6b81c4f6ba3c5c2fbb044972a1bf502453ec19effa6d3664c094fdb2f8",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-public-v1/Image"
+        },
+        {
+          "name": "Image.gz",
+          "size_bytes": 11963798,
+          "sha256": "2bd1d7f1e5a7042809396aa60ece9a6eb2dfaffa463c7f0b13f98df06bf54a7a",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-public-v1/Image.gz"
+        },
+        {
+          "name": "Module.symvers",
+          "size_bytes": 638869,
+          "sha256": "dc7acfa28137adf12a3d7fae68ed0c9fe80a71a675abeada5653cb6344b37b13",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-public-v1/Module.symvers"
+        },
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 638,
+          "sha256": "f47b0865434c30352a10e5857c9e40df24851db79c49d4483e2a18d4713cc316",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-public-v1/SHA256SUMS"
+        },
+        {
+          "name": "System.map",
+          "size_bytes": 5050072,
+          "sha256": "12f1ea3155f76d562d529b7de723b03bb4d58020b0e07b4518610d2c440eeb34",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-public-v1/System.map"
+        },
+        {
+          "name": "TESTED-IMAGE-HASHES.txt",
+          "size_bytes": 606,
+          "sha256": "b89f4eb2262498bedfee8bfc16542736c875390c0597ade28a8d3f59459fc25e",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-public-v1/TESTED-IMAGE-HASHES.txt"
+        },
+        {
+          "name": "kernel.config",
+          "size_bytes": 148904,
+          "sha256": "36270e3c45eb9e663e71eef8579617f09ad25d7732d009d5d4c1ea96f55bf734",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-public-v1/kernel.config"
+        },
+        {
+          "name": "p11_audio_compat.ko",
+          "size_bytes": 30640,
+          "sha256": "af7e14a238437b5fc7e29dc5fdf8453630d3981f0c4b7218f588ccf6aab08f40",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-public-v1/p11_audio_compat.ko"
+        },
+        {
+          "name": "tbj606f-kernel-4.19.157-a16-zui14-public-v1.tar.gz",
+          "size_bytes": 25170215,
+          "sha256": "5305ccde11e4050a4f2e832208eca1143c82257b429b28637c740ff94dc7fdac",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-public-v1/tbj606f-kernel-4.19.157-a16-zui14-public-v1.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "tbj606f-a16-zui14-public-v2",
+      "source_commit": "c067a36017daf5cdfc0bf0f531e22f1fa2dde274",
+      "first_parent": "87d6482b03a21813190e56f25df1ccaab953a0de",
+      "single_commit_range": "87d6482b03a21813190e56f25df1ccaab953a0de..c067a36017daf5cdfc0bf0f531e22f1fa2dde274",
+      "source_subject": "docs: avoid self-pinning the published branch head",
+      "release_name": "TB-J606F Android 16 / ZUI14 hybrid public v2",
+      "published_at": "2026-09-24T08:09:38Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/tbj606f-a16-zui14-public-v2",
+      "release_notes_sha256": "9e8c04ad558ca56bc74332d24ab2abbde55169d1508dfcd67ecadee9ea4252b1",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 330,
+          "sha256": "d0f645e7ff035744c02f5817cdc354dcf876c118a0ce6ddbb0ae055d5ce28cc3",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-public-v2/SHA256SUMS"
+        },
+        {
+          "name": "install.sh",
+          "size_bytes": 9886,
+          "sha256": "cffa783995eabaebb884b9a3dced76b101eeb90fe5663ea72fb64ed498000d93",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-public-v2/install.sh"
+        },
+        {
+          "name": "installation.md",
+          "size_bytes": 5364,
+          "sha256": "f04c8d1cfa4da3d0bd284258cf05a138b0fa22b7500ceb5197ce78a69a3110c2",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-public-v2/installation.md"
+        },
+        {
+          "name": "tbj6066f-installer-v2.tar.gz",
+          "size_bytes": 7644,
+          "sha256": "55e914be1b18dc7a2906d7d5c4a5c1f724a9509f311bc56f6e87ed1d26815a96",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-public-v2/tbj6066f-installer-v2.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-audiofix-baseline-20260917",
+      "source_commit": "12dbd275a7bc3c0d2d80ed95a036ad2035e2f9a6",
+      "first_parent": "88b3ba552eae9f322e1c0fcbf14ea3de5d5976e8",
+      "single_commit_range": "88b3ba552eae9f322e1c0fcbf14ea3de5d5976e8..12dbd275a7bc3c0d2d80ed95a036ad2035e2f9a6",
+      "source_subject": "tb-j606f: restore ZUI12 touch and audio compatibility",
+      "release_name": "zui12-audiofix-baseline-20260917",
+      "published_at": "2026-09-24T09:22:51Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-audiofix-baseline-20260917",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 273,
+          "sha256": "bcdedcedeabc77857ef2a36109df8316b7d12da2731aee1ba0b1652de158b6ab",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-audiofix-baseline-20260917/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 147,
+          "sha256": "571e2bdd93d891ecaf59a4ffa600811fbc9b7d5f7b463d43d5fd9361b6c11d97",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-audiofix-baseline-20260917/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 232,
+          "sha256": "be9d956eae81623c95a6f11d8ff12097b41a59d7aeca0a1a03b89e26957d99f3",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-audiofix-baseline-20260917/commit-stat.txt"
+        },
+        {
+          "name": "zui12-audiofix-baseline-20260917-source.tar.gz",
+          "size_bytes": 183649154,
+          "sha256": "35bbca2eafb763f6948b117e41d1046a19a96363e3c0cad20771ddeacf31d489",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-audiofix-baseline-20260917/zui12-audiofix-baseline-20260917-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-65hz-probe-20260917",
+      "source_commit": "398465020ddc3c8e3065b4e45f696b411237469d",
+      "first_parent": "12dbd275a7bc3c0d2d80ed95a036ad2035e2f9a6",
+      "single_commit_range": "12dbd275a7bc3c0d2d80ed95a036ad2035e2f9a6..398465020ddc3c8e3065b4e45f696b411237469d",
+      "source_subject": "display: tb-j606f: add conservative 65 Hz panel probe",
+      "release_name": "zui12-65hz-probe-20260917",
+      "published_at": "2026-09-24T09:23:27Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-65hz-probe-20260917",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 266,
+          "sha256": "5c1d88059a7d4c6a8a1c499569dc29aac5f8e01a79d913eea862a2a754feef7c",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-65hz-probe-20260917/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 140,
+          "sha256": "ddd37b3eebbfdbb7f8a41e7b6795d304e842bd519ac088602067dd4c1aa42a52",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-65hz-probe-20260917/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 163,
+          "sha256": "9c72c76227f46e5fff982569cc7c1ff8172a742c9221bd8399aa76d06fafcdfa",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-65hz-probe-20260917/commit-stat.txt"
+        },
+        {
+          "name": "zui12-65hz-probe-20260917-source.tar.gz",
+          "size_bytes": 183604766,
+          "sha256": "6c6b86a053735a738b25a41c1dd0135e070fad14f8d7f2015ea6dbd6467b0d45",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-65hz-probe-20260917/zui12-65hz-probe-20260917-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-backport2-tested-20260917",
+      "source_commit": "8898aeffe6199b2f645cd27d30be1be7c6a553d6",
+      "first_parent": "ffd3a3cfa2fa7756bfaef5cb21d5ea442ed05d2f",
+      "single_commit_range": "ffd3a3cfa2fa7756bfaef5cb21d5ea442ed05d2f..8898aeffe6199b2f645cd27d30be1be7c6a553d6",
+      "source_subject": "mmc: core: retry clock scaling after prior failure",
+      "release_name": "zui12-backport2-tested-20260917",
+      "published_at": "2026-09-24T09:24:03Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-backport2-tested-20260917",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 272,
+          "sha256": "d63cc47be1f61f602c8d10beb6ca65a5cb5a67ea95023898c9f56472929a553f",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-backport2-tested-20260917/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 143,
+          "sha256": "c5d20fe61b47f7a6b0e369f9fc40be868f8bed72cd8f93f3bd07705e07619179",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-backport2-tested-20260917/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 140,
+          "sha256": "c5b63426a1a1467874be88b2359f7da34c7ea3ed42ecf27335b746c513eeadeb",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-backport2-tested-20260917/commit-stat.txt"
+        },
+        {
+          "name": "zui12-backport2-tested-20260917-source.tar.gz",
+          "size_bytes": 183625940,
+          "sha256": "e6b254438f44d4e5254a4e98ca4a0c0d1493a220ef9a529c01c6c41785301c71",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-backport2-tested-20260917/zui12-backport2-tested-20260917-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-next-tested-20260917",
+      "source_commit": "f60b10e1fe21b1c1f240f5f94a4cce89d158eb19",
+      "first_parent": "8898aeffe6199b2f645cd27d30be1be7c6a553d6",
+      "single_commit_range": "8898aeffe6199b2f645cd27d30be1be7c6a553d6..f60b10e1fe21b1c1f240f5f94a4cce89d158eb19",
+      "source_subject": "display: tb-j606f: add conservative 65 Hz panel probe",
+      "release_name": "zui12-next-tested-20260917",
+      "published_at": "2026-09-24T09:24:39Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-next-tested-20260917",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 267,
+          "sha256": "1a868da9227e6c07862c509a67eeb305fc5df103ed235e6987050e4e2294c16a",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-next-tested-20260917/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 141,
+          "sha256": "90edb59909c7060d9e05f61708e706aa7c08dba07812839dc3c878f7516da69b",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-next-tested-20260917/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 163,
+          "sha256": "dec8a9be1dc4ad9374ff926a547cd857a797857ce78fb56f3f5601cacbf677e4",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-next-tested-20260917/commit-stat.txt"
+        },
+        {
+          "name": "zui12-next-tested-20260917-source.tar.gz",
+          "size_bytes": 183609752,
+          "sha256": "752631c2ba3f315b48f9824e0302088ad4820817d6a6ce798c3e39d2808b0c77",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-next-tested-20260917/zui12-next-tested-20260917-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-4.19.96-60hz-tested-20260917",
+      "source_commit": "14549a61ace84b751acbdb8009194b369368e3ce",
+      "first_parent": "363ea846bf1d1bbc2f5b3129e62dbace23f5f698",
+      "single_commit_range": "363ea846bf1d1bbc2f5b3129e62dbace23f5f698..14549a61ace84b751acbdb8009194b369368e3ce",
+      "source_subject": "Revert \"display: tb-j606f: add conservative 65 Hz panel probe\"",
+      "release_name": "zui12-4.19.96-60hz-tested-20260917",
+      "published_at": "2026-09-24T09:25:15Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.96-60hz-tested-20260917",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 275,
+          "sha256": "7ca266aa3ace730c3e104933fc678f5186a1c392dd8a6f7549d7ae1a94aef29b",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.96-60hz-tested-20260917/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 158,
+          "sha256": "5fae6463fc464b51d0097ecf80745009e287711b96178c269191b7e79aa6acfe",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.96-60hz-tested-20260917/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 171,
+          "sha256": "25013ce4c541a32e2b7089be4b47b49f8886673a7b1d3eb8e84b407b15974fde",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.96-60hz-tested-20260917/commit-stat.txt"
+        },
+        {
+          "name": "zui12-4.19.96-60hz-tested-20260917-source.tar.gz",
+          "size_bytes": 183673012,
+          "sha256": "8528699fe020c108096f3e0028108ee3357ea31257b63b1859d21fd3e81290fd",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.96-60hz-tested-20260917/zui12-4.19.96-60hz-tested-20260917-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-4.19.97-60hz-tested-20260917",
+      "source_commit": "de0feabe14d023ff8aa2e55d908b586b5f189f12",
+      "first_parent": "14549a61ace84b751acbdb8009194b369368e3ce",
+      "single_commit_range": "14549a61ace84b751acbdb8009194b369368e3ce..de0feabe14d023ff8aa2e55d908b586b5f189f12",
+      "source_subject": "stable: uplift Linux 4.19.96 to 4.19.97",
+      "release_name": "zui12-4.19.97-60hz-tested-20260917",
+      "published_at": "2026-09-24T09:25:54Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.97-60hz-tested-20260917",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 275,
+          "sha256": "8a63ac7b4fe9b2c7e0909a5cedb6ffeb5a566c0726335445b20250552c2d2a89",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.97-60hz-tested-20260917/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 135,
+          "sha256": "7a3484778dd7e2e99e198cbec55bd9be667c31e0818278244f053298dbd50376",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.97-60hz-tested-20260917/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 5081,
+          "sha256": "2eb308535f8c15e24aeb11f007a11fce48c59e08bfc8665620ee02099357cb61",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.97-60hz-tested-20260917/commit-stat.txt"
+        },
+        {
+          "name": "zui12-4.19.97-60hz-tested-20260917-source.tar.gz",
+          "size_bytes": 183674957,
+          "sha256": "87127424339ce2050e95daec33b5d807d844638fd69d6f2f1aad3f8c6b39f2ba",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.97-60hz-tested-20260917/zui12-4.19.97-60hz-tested-20260917-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-4.19.98-60hz-tested-20260918",
+      "source_commit": "bd81c2a9c117b6a7874ffe1209cde1a030a19e5a",
+      "first_parent": "4b1c61ac2925f956fcac71e105340417ba2c236a",
+      "single_commit_range": "4b1c61ac2925f956fcac71e105340417ba2c236a..bd81c2a9c117b6a7874ffe1209cde1a030a19e5a",
+      "source_subject": "kabi: preserve ZUI12 queue_limits layout on 4.19.98",
+      "release_name": "zui12-4.19.98-60hz-tested-20260918",
+      "published_at": "2026-09-24T09:26:28Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.98-60hz-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 275,
+          "sha256": "334316f37ec1fbcb2db9d707ff77a4d7c806e0243e942971e96a310d5fc82166",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.98-60hz-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 147,
+          "sha256": "61d28e60303a86790d7a0b9b9a4f5ffaeff87fe0bf527be43bd6334a7c3ceec4",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.98-60hz-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 278,
+          "sha256": "88a8d39107e6bfd96d18d6695ef924e0f51bd4f09538e288f8ce6c435ac92ec3",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.98-60hz-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-4.19.98-60hz-tested-20260918-source.tar.gz",
+          "size_bytes": 183672402,
+          "sha256": "a1186bf73d887988357b78134b8358e767978c804f9c83160643771ea7d4c8a2",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.98-60hz-tested-20260918/zui12-4.19.98-60hz-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-4.19.99-60hz-tested-20260918",
+      "source_commit": "d8ef0fccc767ff012069c4aa06a48b4ad853a773",
+      "first_parent": "bd81c2a9c117b6a7874ffe1209cde1a030a19e5a",
+      "single_commit_range": "bd81c2a9c117b6a7874ffe1209cde1a030a19e5a..d8ef0fccc767ff012069c4aa06a48b4ad853a773",
+      "source_subject": "stable: uplift Linux 4.19.98 to 4.19.99 with ZUI12 kABI preservation",
+      "release_name": "zui12-4.19.99-60hz-tested-20260918",
+      "published_at": "2026-09-24T09:27:05Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.99-60hz-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 275,
+          "sha256": "ec9e22af1406c08dbebd7753eb6b7cfd4dc1a1cf0647706314d5e213f75b87ab",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.99-60hz-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 164,
+          "sha256": "f603a027e1b19d4fbb5bb341a0d8211dd3e63430d5ab63a87a700fcb748f2777",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.99-60hz-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 38120,
+          "sha256": "279f6e951f43237fa8534137caf5e81e43feb48f7fca9b0bb17abd47702de37c",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.99-60hz-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-4.19.99-60hz-tested-20260918-source.tar.gz",
+          "size_bytes": 183678957,
+          "sha256": "67ebbbd944343bb66e5274c316eabcb9aff3d758901d6c2e99caa5bd1437d23e",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.99-60hz-tested-20260918/zui12-4.19.99-60hz-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-4.19.110-60hz-tested-20260918",
+      "source_commit": "b326cd634ecebef98e55613a84599d256cb780fb",
+      "first_parent": "32679a7e35756b1130b066ba1d5e95130d216242",
+      "single_commit_range": "32679a7e35756b1130b066ba1d5e95130d216242..b326cd634ecebef98e55613a84599d256cb780fb",
+      "source_subject": "Revert \"cfg80211: Fix radar event during another phy CAC\"",
+      "release_name": "zui12-4.19.110-60hz-tested-20260918",
+      "published_at": "2026-09-24T09:27:41Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.110-60hz-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 276,
+          "sha256": "b44089ac5ef8fb819e03d4fcf753387ec20a2ced971cb5c093fd95b589a8a7d3",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.110-60hz-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 154,
+          "sha256": "8dc5aa42af5b3564bea711370f76d0763ac918af90bfdd8f4e1f0bb1d99fefb2",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.110-60hz-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 339,
+          "sha256": "0f09f62d053a1b37f51479f832e2e79d87f11315528ed9a69c94e11f0f8b4a67",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.110-60hz-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-4.19.110-60hz-tested-20260918-source.tar.gz",
+          "size_bytes": 183711077,
+          "sha256": "3770f9d68fa503d6debea4256d33e7c45c012ebc854e1284c926bab4e1e4ee48",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.110-60hz-tested-20260918/zui12-4.19.110-60hz-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-4.19.113-60hz-tested-20260918",
+      "source_commit": "0e89886e70b419d0fa0355ff62cc0c50efbf0e8c",
+      "first_parent": "2c9d5fb28a0f32c21833d3a407f6f69fc6b65a5c",
+      "single_commit_range": "2c9d5fb28a0f32c21833d3a407f6f69fc6b65a5c..0e89886e70b419d0fa0355ff62cc0c50efbf0e8c",
+      "source_subject": "tb-j606f: preserve ZUI12 phy_device kABI",
+      "release_name": "zui12-4.19.113-60hz-tested-20260918",
+      "published_at": "2026-09-24T09:28:17Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.113-60hz-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 276,
+          "sha256": "230185f9567e5f24cad7703aa7c938fcf20feeb9340956a3b9920ab82fecef03",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.113-60hz-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 137,
+          "sha256": "9272bedf809bc3a4a79a7d22b2af08feb5bba8af06865cdc6204b1c55a5cf6ab",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.113-60hz-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 133,
+          "sha256": "c8db2ad0f5ce557645195d39c52bb674f8f88e7fa6028d3941f6d983d7a91656",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.113-60hz-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-4.19.113-60hz-tested-20260918-source.tar.gz",
+          "size_bytes": 183726799,
+          "sha256": "b71e9a23e6b566a1486a39b86ad94a16833b374c78bc76bff7863f222a1c8fe6",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.113-60hz-tested-20260918/zui12-4.19.113-60hz-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-4.19.125-60hz-tested-20260918",
+      "source_commit": "e5deb7416032b68cb0c1a9cd6b3279985c53d128",
+      "first_parent": "048f1d81f0b8b987fdc15416feb97f9367bb90e0",
+      "single_commit_range": "048f1d81f0b8b987fdc15416feb97f9367bb90e0..e5deb7416032b68cb0c1a9cd6b3279985c53d128",
+      "source_subject": "tb-j606f: preserve ZUI12 tty and arm64 capability kABI",
+      "release_name": "zui12-4.19.125-60hz-tested-20260918",
+      "published_at": "2026-09-24T09:28:54Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.125-60hz-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 276,
+          "sha256": "342a65baea4e20f8438336a5e8d3ec2851f4a64421e8584230a36a48150b8c5c",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.125-60hz-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 151,
+          "sha256": "529103b325a2bb9dddd4aa74d955b953405c993d325dc26efc5a3536e6962867",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.125-60hz-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 275,
+          "sha256": "22d486b710b792c4a5204a2cd905ec116619f84ca2d3cb0193c3f7d479b9ae4d",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.125-60hz-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-4.19.125-60hz-tested-20260918-source.tar.gz",
+          "size_bytes": 183760681,
+          "sha256": "42f86d9acb483aaff740dd9f80d733b21c1d0f16e4ef4644fd521a938f10b94d",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.125-60hz-tested-20260918/zui12-4.19.125-60hz-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-4.19.136-60hz-tested-20260918",
+      "source_commit": "17dd80827d9d606c313191163a4343a156890ae7",
+      "first_parent": "d6d74da2b20309edce6a94683c11b54829fca352",
+      "single_commit_range": "d6d74da2b20309edce6a94683c11b54829fca352..17dd80827d9d606c313191163a4343a156890ae7",
+      "source_subject": "tb-j606f: preserve ZUI12 sock cgroup kABI",
+      "release_name": "zui12-4.19.136-60hz-tested-20260918",
+      "published_at": "2026-09-24T09:29:29Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.136-60hz-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 276,
+          "sha256": "4e83a592f67e7ca8e848fbc289331ee3b018e2307104c4717e444632a644c214",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.136-60hz-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 138,
+          "sha256": "86f098cc9f838ada620a5e38b9a1eddd79f080b73092f08acad1f60cef396a25",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.136-60hz-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 211,
+          "sha256": "44c990b8e3870b854654c19d01bdb1449feaa0c2ee00af53d259ec5c5442240d",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.136-60hz-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-4.19.136-60hz-tested-20260918-source.tar.gz",
+          "size_bytes": 183788970,
+          "sha256": "405c2add100e4f3e426996e26d2bf99bbf2f890c2aaa86227c21182717fd6ed2",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.136-60hz-tested-20260918/zui12-4.19.136-60hz-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-4.19.146-60hz-tested-20260918",
+      "source_commit": "04675e238cf7f15f0a279c80afba4cbcf18593d1",
+      "first_parent": "8e485bfec8b8ba42cddcf074d5a140660c3b20ce",
+      "single_commit_range": "8e485bfec8b8ba42cddcf074d5a140660c3b20ce..04675e238cf7f15f0a279c80afba4cbcf18593d1",
+      "source_subject": "Linux 4.19.146",
+      "release_name": "zui12-4.19.146-60hz-tested-20260918",
+      "published_at": "2026-09-24T09:30:07Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.146-60hz-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 276,
+          "sha256": "000143e7f994446d7d08d09572ae84382871e3757da2b81aada769dffe0018f6",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.146-60hz-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 111,
+          "sha256": "b7a5fc05687d6a93564d515e5d06501a5be175823ef91b5efeddac00d92ebfbb",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.146-60hz-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 177,
+          "sha256": "184ffa2c259e39429854183ef8ac892b85da210e25bd23a49323bc055b45b46a",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.146-60hz-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-4.19.146-60hz-tested-20260918-source.tar.gz",
+          "size_bytes": 183805349,
+          "sha256": "cf14581bcacd94593e80e85f683c05fc090a14649db51355d6e327c56f5f2ad5",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.146-60hz-tested-20260918/zui12-4.19.146-60hz-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-4.19.157-60hz-tested-20260918",
+      "source_commit": "75497879c4267c40192011e4ec2a928fb9c72827",
+      "first_parent": "e1fb6a1bbd4b2f6ccbf899098959215041ad8dee",
+      "single_commit_range": "e1fb6a1bbd4b2f6ccbf899098959215041ad8dee..75497879c4267c40192011e4ec2a928fb9c72827",
+      "source_subject": "Linux 4.19.157",
+      "release_name": "zui12-4.19.157-60hz-tested-20260918",
+      "published_at": "2026-09-24T09:30:47Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.157-60hz-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 276,
+          "sha256": "6b65a540cc138a71c7cfd3fb876ef7d427845d1d392c537b5e8c599ed43db4a7",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.157-60hz-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 111,
+          "sha256": "870aacd5c817351fc0d5e6e18ba895f737a3d25670f048bcffbcc9b39569968b",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.157-60hz-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 89,
+          "sha256": "43db3728e146ea5ad46ab2ed452f8c4e36099d2ea00a69b24b58065b083cbbb3",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.157-60hz-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-4.19.157-60hz-tested-20260918-source.tar.gz",
+          "size_bytes": 183855448,
+          "sha256": "ad6f95bdedb9071656b573d81436919c5cf78bb6a40d5e8f5afc17b4dadce234",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.157-60hz-tested-20260918/zui12-4.19.157-60hz-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-dwc3fix1-tested-20260918",
+      "source_commit": "075c3c4442c665ea7c64bb791c6e09e8a47af50e",
+      "first_parent": "75497879c4267c40192011e4ec2a928fb9c72827",
+      "single_commit_range": "75497879c4267c40192011e4ec2a928fb9c72827..075c3c4442c665ea7c64bb791c6e09e8a47af50e",
+      "source_subject": "usb: dwc3: harden cancelled request handling",
+      "release_name": "zui12-post157-dwc3fix1-tested-20260918",
+      "published_at": "2026-09-24T09:31:24Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-dwc3fix1-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 279,
+          "sha256": "e9b0ef88d7336842ab763cc0cafc5aa9c38be7e44770e0d2abbb27aa12bac7c5",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix1-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 144,
+          "sha256": "fdc9039ea03037d3342f278a7a7131517a2fd8ba930c2056c76ca1e48318dd98",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix1-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 184,
+          "sha256": "1457c5ee9843c4a654390204c03301d930f29fb4cbf68fae7bbcf0f4e8f1c528",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix1-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-dwc3fix1-tested-20260918-source.tar.gz",
+          "size_bytes": 183844575,
+          "sha256": "92fd58eb83b50161fe16587b60b15a09a7ec3f2bb282f07e634aa742182ec0ed",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix1-tested-20260918/zui12-post157-dwc3fix1-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-dwc3fix2-tested-20260918",
+      "source_commit": "7892720ae26e0434dfa0987ab1c5319f5eef8380",
+      "first_parent": "075c3c4442c665ea7c64bb791c6e09e8a47af50e",
+      "single_commit_range": "075c3c4442c665ea7c64bb791c6e09e8a47af50e..7892720ae26e0434dfa0987ab1c5319f5eef8380",
+      "source_subject": "usb: dwc3: harden ENDTRANSFER timeout recovery",
+      "release_name": "zui12-post157-dwc3fix2-tested-20260918",
+      "published_at": "2026-09-24T09:32:00Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-dwc3fix2-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 279,
+          "sha256": "0857ba9df5364dc33266242f10419c16e1af64dc1d9c58e6e76e1407c52cad78",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix2-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 146,
+          "sha256": "98f5cb7ec16aa99d040548ef3fe44552823d607a16a74691d3fbf661b40881ca",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix2-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 208,
+          "sha256": "81cd9b71e9cb66cc43c30d0d7c0779959ead047abc648dbee83594c21c1cba6f",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix2-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-dwc3fix2-tested-20260918-source.tar.gz",
+          "size_bytes": 183844177,
+          "sha256": "28df81eeb54fea32f6da2703d4ab6ec4376a66a8d4091f6cdb17afdecb37c8fb",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix2-tested-20260918/zui12-post157-dwc3fix2-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-dwc3fix3-tested-20260918",
+      "source_commit": "13eb6312b87e67bf78f1ee94ada2a53a473e1392",
+      "first_parent": "7892720ae26e0434dfa0987ab1c5319f5eef8380",
+      "single_commit_range": "7892720ae26e0434dfa0987ab1c5319f5eef8380..13eb6312b87e67bf78f1ee94ada2a53a473e1392",
+      "source_subject": "usb: dwc3: guard endpoint PM state",
+      "release_name": "zui12-post157-dwc3fix3-tested-20260918",
+      "published_at": "2026-09-24T09:32:34Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-dwc3fix3-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 279,
+          "sha256": "e63cdff2830f2f927f863d52296517183404546d35e69c3c0996f7f7276f12be",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix3-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 134,
+          "sha256": "4c20912cb4786cb93d1d5345b2e59587e697d87143f3ba0406b7194853821952",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix3-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 119,
+          "sha256": "7485afa4a373944e4990740f51541b9a3716a03fe6edde3a03fe5b920989d283",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix3-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-dwc3fix3-tested-20260918-source.tar.gz",
+          "size_bytes": 183857890,
+          "sha256": "5ca2c511c4bea5913de5ce1f7c9aaf885d14265b725243cea7d0fbfcf2d2b208",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix3-tested-20260918/zui12-post157-dwc3fix3-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-dwc3fix4-tested-20260918",
+      "source_commit": "038bdb03b8ce89b1e23c883f44e4c99f37b52591",
+      "first_parent": "13eb6312b87e67bf78f1ee94ada2a53a473e1392",
+      "single_commit_range": "13eb6312b87e67bf78f1ee94ada2a53a473e1392..038bdb03b8ce89b1e23c883f44e4c99f37b52591",
+      "source_subject": "usb: dwc3: fix control endpoint teardown",
+      "release_name": "zui12-post157-dwc3fix4-tested-20260918",
+      "published_at": "2026-09-24T09:33:08Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-dwc3fix4-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 279,
+          "sha256": "8be63e824b05e19e8dfa2c6801b9ce74504b88b67dc7bb6fbed4e269021ac590",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix4-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 140,
+          "sha256": "2e76139db99a7c52cef0cede53ecbb3152646e7c1f9d739061e0015cee24528e",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix4-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 132,
+          "sha256": "33fcb3aebcf736b4fcb70ac523fa146ba65b3aebce33811c4071c7c6ec8abdc7",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix4-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-dwc3fix4-tested-20260918-source.tar.gz",
+          "size_bytes": 183859661,
+          "sha256": "97f4c128bf8ac10e2511f6fcf06253352aaa14843c77ab566ec369b9aa8a7773",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix4-tested-20260918/zui12-post157-dwc3fix4-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-dwc3fix5-tested-20260918",
+      "source_commit": "ea2afcf79538d666c946b97f9a0be9515c7b42cd",
+      "first_parent": "038bdb03b8ce89b1e23c883f44e4c99f37b52591",
+      "single_commit_range": "038bdb03b8ce89b1e23c883f44e4c99f37b52591..ea2afcf79538d666c946b97f9a0be9515c7b42cd",
+      "source_subject": "usb: dwc3: decode endpoint command timeout correctly",
+      "release_name": "zui12-post157-dwc3fix5-tested-20260918",
+      "published_at": "2026-09-24T09:33:43Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-dwc3fix5-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 279,
+          "sha256": "574eae601f1c42ed4c4c411bb64a6e5f68b4fceb769185b29c705904f998227c",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix5-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 152,
+          "sha256": "8d73a65e9f15015d3fa4ba97c7115af9334a46265fe7e0d209da05f0a452c335",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix5-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 144,
+          "sha256": "05f99fe22a41a42e798bbc000c47246de05a00d9f3722c11a8ef6a206f04c25a",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix5-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-dwc3fix5-tested-20260918-source.tar.gz",
+          "size_bytes": 183846035,
+          "sha256": "f72479b0cffdb749f8146be4ddcc8dac9e3c6b502db6f3689e45a4ebbc665ccc",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix5-tested-20260918/zui12-post157-dwc3fix5-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-ufsfix1-tested-20260918",
+      "source_commit": "733c5aaa50d05315064612cc8c66257287194098",
+      "first_parent": "ea2afcf79538d666c946b97f9a0be9515c7b42cd",
+      "single_commit_range": "ea2afcf79538d666c946b97f9a0be9515c7b42cd..733c5aaa50d05315064612cc8c66257287194098",
+      "source_subject": "scsi: ufs: balance clock ungate request blocking",
+      "release_name": "zui12-post157-ufsfix1-tested-20260918",
+      "published_at": "2026-09-24T09:34:17Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-ufsfix1-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 278,
+          "sha256": "205ebfdc0b3cfc1697dadd7c639604a3c1836417eb9b5f229c1a858a19bb06be",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufsfix1-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 147,
+          "sha256": "2899ecb21637cf2439d7f964d9078b09f428acd675b082bb93c5b54fbd836118",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufsfix1-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 146,
+          "sha256": "8d251c497e57b2cc52e9024633ca8b6abc729fec99fd259003f6ffa24e9d8b7c",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufsfix1-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-ufsfix1-tested-20260918-source.tar.gz",
+          "size_bytes": 183851299,
+          "sha256": "316d28dc0ad880a9fbc9ca7d14c2237806fab21efe9359a5106b0a4a0b293044",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufsfix1-tested-20260918/zui12-post157-ufsfix1-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-ufsfix2-tested-20260918",
+      "source_commit": "a0f3e8b971857e28bb3827223861d40ade8a2a48",
+      "first_parent": "733c5aaa50d05315064612cc8c66257287194098",
+      "single_commit_range": "733c5aaa50d05315064612cc8c66257287194098..a0f3e8b971857e28bb3827223861d40ade8a2a48",
+      "source_subject": "scsi: ufs: close LRB completion race before gating",
+      "release_name": "zui12-post157-ufsfix2-tested-20260918",
+      "published_at": "2026-09-24T09:34:52Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-ufsfix2-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 278,
+          "sha256": "3cdd44d2b8f34e250741fb1bef0b74620baa5ab22f417bdf2dd600e03ccfb515",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufsfix2-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 149,
+          "sha256": "dd3d7826e567b0f9d309436730891e228fb3ddb47e0ebbc3c1be380abe6e6152",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufsfix2-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 161,
+          "sha256": "3de122ded08cb6a1e7675e26db3e32fb28feaf219ce1db73b5656dd53f76ad18",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufsfix2-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-ufsfix2-tested-20260918-source.tar.gz",
+          "size_bytes": 183818273,
+          "sha256": "c9d9a2027b2f779491202fbde962a94fd6f604526ae81929794d4fc79aa2f113",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufsfix2-tested-20260918/zui12-post157-ufsfix2-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-erofs1-tested-20260918",
+      "source_commit": "b8e305905acc8182bd2821842dfba4ccabd887d4",
+      "first_parent": "a0f3e8b971857e28bb3827223861d40ade8a2a48",
+      "single_commit_range": "a0f3e8b971857e28bb3827223861d40ade8a2a48..b8e305905acc8182bd2821842dfba4ccabd887d4",
+      "source_subject": "arm64: bengal: enable built-in EROFS support",
+      "release_name": "zui12-post157-erofs1-tested-20260918",
+      "published_at": "2026-09-24T09:35:48Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-erofs1-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 277,
+          "sha256": "b1ce71ddbb7a786652b76c333e0c579ac14157b57bf02cc21968c1c548ddacc9",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs1-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 142,
+          "sha256": "f02ae2ae8c9bb2655c94775ee55fa13ad9d7b22459df1fa8b2fa2463ebb5a234",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs1-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 212,
+          "sha256": "8241f402393f137dcb90b4b9e9d180dbac511e1832503fdf719925a384b27ff9",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs1-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-erofs1-tested-20260918-source.tar.gz",
+          "size_bytes": 183817635,
+          "sha256": "39d7d29506b3d557593a783fae8520a6095e48a07c2d01e500e123bc3ef4e961",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs1-tested-20260918/zui12-post157-erofs1-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-f2fs1-tested-20260918",
+      "source_commit": "3d943306af5e339a64928f35fa8a3d0f49a8e767",
+      "first_parent": "271aff299ebf0f57e7ca53313e9cf19458bb8ed3",
+      "single_commit_range": "271aff299ebf0f57e7ca53313e9cf19458bb8ed3..3d943306af5e339a64928f35fa8a3d0f49a8e767",
+      "source_subject": "f2fs: drop stale writeback retry label",
+      "release_name": "zui12-post157-f2fs1-tested-20260918",
+      "published_at": "2026-09-24T09:36:35Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs1-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 276,
+          "sha256": "c2905ebf3b8111a3a1b2f767e0fb18c2230f17f04b9093f824be763e717be760",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs1-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 135,
+          "sha256": "bbb049a904eb6b6e708d846597e2a328b05941f85e973da3aeba7978c2ed2d6e",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs1-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 102,
+          "sha256": "2d9f659dc0290e692cd040035a58596695382a5ad2326ce4bf9d7dd7bebef839",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs1-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-f2fs1-tested-20260918-source.tar.gz",
+          "size_bytes": 183842662,
+          "sha256": "f99603dd1d8ba3f4aa2f7b09c7481236ffce48e200000a06b4baf2798498c82a",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs1-tested-20260918/zui12-post157-f2fs1-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-f2fs2-tested-20260918",
+      "source_commit": "e15161550d4ddca3576e13d055680c3ca76667df",
+      "first_parent": "cb2cc4753925a7a13ee031eee047f48695876916",
+      "single_commit_range": "cb2cc4753925a7a13ee031eee047f48695876916..e15161550d4ddca3576e13d055680c3ca76667df",
+      "source_subject": "f2fs: use rwsem for GC serialization",
+      "release_name": "zui12-post157-f2fs2-tested-20260918",
+      "published_at": "2026-09-24T09:37:10Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs2-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 276,
+          "sha256": "942c8bffc21b26a226a6309294621bdeff6a007cf92fc1e7a8cec7960bf3ef39",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs2-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 133,
+          "sha256": "28282592c575c02fdda2fe5ac597e484a1bc8a5929c1a3002f79da2bae6f381c",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs2-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 277,
+          "sha256": "eeafeb8a040fb8b335bd42be44c6422ec1f485a57b89ea7ac04df094ddc07105",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs2-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-f2fs2-tested-20260918-source.tar.gz",
+          "size_bytes": 183843717,
+          "sha256": "f845f7f367ba7973f710b1ff2678a94346f404a2825829c7839e9c50054be0d5",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs2-tested-20260918/zui12-post157-f2fs2-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-f2fs3-tested-20260918",
+      "source_commit": "307231b4002e7e4701aecf956e956373814b7d96",
+      "first_parent": "8c12e60a83dcd2b910e8ea74ebee88a728e334e5",
+      "single_commit_range": "8c12e60a83dcd2b910e8ea74ebee88a728e334e5..307231b4002e7e4701aecf956e956373814b7d96",
+      "source_subject": "f2fs: allow post-read teardown during init failure",
+      "release_name": "zui12-post157-f2fs3-tested-20260918",
+      "published_at": "2026-09-24T09:37:45Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs3-tested-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 276,
+          "sha256": "e9729ed50bc301d2aa78685a7300767cc9dc16a563d1b4ef596711a6cc6126a3",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs3-tested-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 147,
+          "sha256": "c86fafa4fee35eb4c0012a1899741d1c6164e4c0807f52c75f59d937c3d4fab0",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs3-tested-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 131,
+          "sha256": "3362ea136f60f01c5bc298b2bf28e319abfa4f8d96963be3c8ca64fa28d1b053",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs3-tested-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-f2fs3-tested-20260918-source.tar.gz",
+          "size_bytes": 183818034,
+          "sha256": "12c483f903464db9002e0acc7001749a502de2e5c4ea1a77f57df344aa6e6b48",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs3-tested-20260918/zui12-post157-f2fs3-tested-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-f2fs-compression-core-off-build-20260918",
+      "source_commit": "d04f96a5e5e90757f006cd82c0ebdb8a364d0c9b",
+      "first_parent": "307231b4002e7e4701aecf956e956373814b7d96",
+      "single_commit_range": "307231b4002e7e4701aecf956e956373814b7d96..d04f96a5e5e90757f006cd82c0ebdb8a364d0c9b",
+      "source_subject": "f2fs: backport filesystem compression core",
+      "release_name": "zui12-post157-f2fs-compression-core-off-build-20260918",
+      "published_at": "2026-09-24T09:38:21Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs-compression-core-off-build-20260918",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 295,
+          "sha256": "9a36eb85407cf98654b9b101056342b58f65376a357858945278de60fc26b9f7",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compression-core-off-build-20260918/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 158,
+          "sha256": "806794b8cb0c35e62a1228db4ffecb54f3a42f27e35b7720252cee7806763d0b",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compression-core-off-build-20260918/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 856,
+          "sha256": "1db5c7338078a6c8616b7ea9aaba3f127146ce132fb82e59bc8833a1b098ed2c",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compression-core-off-build-20260918/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-f2fs-compression-core-off-build-20260918-source.tar.gz",
+          "size_bytes": 183903379,
+          "sha256": "296e437207df3e4c8ef7925bdda7e3b2bbb79ede6969edf16b85c7f130dc7e20",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compression-core-off-build-20260918/zui12-post157-f2fs-compression-core-off-build-20260918-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-f2fs-compress-source-tested-20260919",
+      "source_commit": "91909246ac5e657b24a32b8689a8b17dc13bb500",
+      "first_parent": "34d8f647aa14573118716dbf668380badd038bc9",
+      "single_commit_range": "34d8f647aa14573118716dbf668380badd038bc9..91909246ac5e657b24a32b8689a8b17dc13bb500",
+      "source_subject": "f2fs: guard compression-only merge helper",
+      "release_name": "zui12-post157-f2fs-compress-source-tested-20260919",
+      "published_at": "2026-09-24T09:38:58Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs-compress-source-tested-20260919",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 291,
+          "sha256": "daee0fc20ee53b2b3f5ff2047d981d1169b9e4b12fa76519e34f302513321c27",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-source-tested-20260919/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 153,
+          "sha256": "97720d68c3feec4e160b2a2feff4f505ebf89363ba4920ad5174d89a005a7bcc",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-source-tested-20260919/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 108,
+          "sha256": "029bfa9832a7f23b0ddbe44afd85e42b459d8c246595734709723531ef49b59b",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-source-tested-20260919/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-f2fs-compress-source-tested-20260919-source.tar.gz",
+          "size_bytes": 183876309,
+          "sha256": "939678dc90324f5f061e5f737261fca921b54c76a8b6b2ace35b812ffd82e203",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-source-tested-20260919/zui12-post157-f2fs-compress-source-tested-20260919-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919",
+      "source_commit": "7cc5ceaef55ca9ef2de65a880845b1857661b648",
+      "first_parent": "f2ce11ad5a08e3908434a5240725956f7e6cc658",
+      "single_commit_range": "f2ce11ad5a08e3908434a5240725956f7e6cc658..7cc5ceaef55ca9ef2de65a880845b1857661b648",
+      "source_subject": "f2fs: avoid post-read workqueue for normal clusters",
+      "release_name": "zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919",
+      "published_at": "2026-09-24T09:39:35Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 299,
+          "sha256": "01d23a94ce1a837721d81a4007adbc2ad2d67d005d811fc5421875316ce2770e",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 171,
+          "sha256": "9a7a196999a336038b40f6539babc570aa8f531c9e7365b3ff7af650a8e2547a",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 146,
+          "sha256": "8e55dd6b0e784daaf12eb3923c8be4e4d0c32367f096e2c1d762a084c3438c05",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919-source.tar.gz",
+          "size_bytes": 183892163,
+          "sha256": "58be949a27e54c3fe2695707cbe2624d81db91574295e77cb6a942aaa360336c",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919/zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919",
+      "source_commit": "dfcb1cd5d4728ea5d60fbf4ddcb0eb8dcdb3d6ce",
+      "first_parent": "db273310c0e0281953afe52c6ff439ea165051e2",
+      "single_commit_range": "db273310c0e0281953afe52c6ff439ea165051e2..dfcb1cd5d4728ea5d60fbf4ddcb0eb8dcdb3d6ce",
+      "source_subject": "f2fs: add modern data block address helpers",
+      "release_name": "zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919",
+      "published_at": "2026-09-24T09:40:09Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 299,
+          "sha256": "c66bc24866d90e42daca10d46213a681e4555c3f638666a0debac5bb154f4fd7",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 163,
+          "sha256": "b7147d737ce87201f98ba333c0bfbdac6477adf0afa8506d784cd1470f44b1b3",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 122,
+          "sha256": "bc125676887ba7e00fc72d5af16d5cf3053ad32559a3828103cb8621531a27e5",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919-source.tar.gz",
+          "size_bytes": 183903922,
+          "sha256": "ffd13ef2045b67130d57300bd6cc43a1abd9c87064fa1835d2c14a5f2fa20d75",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919/zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-fs-fixes3-zstd-tested-20260919",
+      "source_commit": "fb21dd98258d06cf9ca0d5c26fd07b1208163687",
+      "first_parent": "54226d7b7ec56c4238467fc017c253c266429e62",
+      "single_commit_range": "54226d7b7ec56c4238467fc017c253c266429e62..fb21dd98258d06cf9ca0d5c26fd07b1208163687",
+      "source_subject": "f2fs: add ZSTD compression backend",
+      "release_name": "zui12-post157-fs-fixes3-zstd-tested-20260919",
+      "published_at": "2026-09-24T09:40:58Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-fs-fixes3-zstd-tested-20260919",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 285,
+          "sha256": "4b5099fc7ec0472f3f0cf5db5e59c9b8593890ab97f75d9bbef427eedfcdc518",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-fs-fixes3-zstd-tested-20260919/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 140,
+          "sha256": "7af4fd8eca19e18f067735d1d2fd05f8f3aa37e439023426a4704480d6b19700",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-fs-fixes3-zstd-tested-20260919/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 329,
+          "sha256": "0d7296811d4cea8c45cf686ad4355877e4d9bf1269d613c561baaf8418d5c5d7",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-fs-fixes3-zstd-tested-20260919/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-fs-fixes3-zstd-tested-20260919-source.tar.gz",
+          "size_bytes": 183901540,
+          "sha256": "f258c929a5807468880b4bc1d5c7372b6682e004a56f5c780eb3ffd5a9675945",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-fs-fixes3-zstd-tested-20260919/zui12-post157-fs-fixes3-zstd-tested-20260919-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919",
+      "source_commit": "40963169bcb5a92ce63f71d0f06e3f8d2fa48088",
+      "first_parent": "801a2454c7820ea8c45a5c3aaac4e4abe348487e",
+      "single_commit_range": "801a2454c7820ea8c45a5c3aaac4e4abe348487e..40963169bcb5a92ce63f71d0f06e3f8d2fa48088",
+      "source_subject": "f2fs: avoid op-lock deadlock in compressed writeback",
+      "release_name": "zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919",
+      "published_at": "2026-09-24T09:41:32Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 299,
+          "sha256": "438743ebe96346bb28ec371861986469aab0f2180a7be4766b78a927ea11d913",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 172,
+          "sha256": "74fedd3bdf02f001c084a63bdac9bc33110008b35423f82c364e0969a51d4ce1",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 150,
+          "sha256": "605f43669971d346f9c69c71225f19ad0b6a9af1f824a7c0ff7d2cf615b77708",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919-source.tar.gz",
+          "size_bytes": 183906834,
+          "sha256": "5a6806473da194e524979f4d2eed921ef3af2c65dd71944506eda3bacd840f4d",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919/zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919",
+      "source_commit": "b16c916b2d9b65f8796eacaf25e27c71177e5e7f",
+      "first_parent": "5d8c948d20882b310de8cceea5946c3022245eef",
+      "single_commit_range": "5d8c948d20882b310de8cceea5946c3022245eef..b16c916b2d9b65f8796eacaf25e27c71177e5e7f",
+      "source_subject": "f2fs: avoid cp_rwsem recursion while flushing inline data",
+      "release_name": "zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919",
+      "published_at": "2026-09-24T09:42:07Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 299,
+          "sha256": "74ac66dbd0b8e57abd65947e972f858c96cbbfd30b0c9a95eb956c9c942444e5",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 177,
+          "sha256": "affad777e655e91c3af55d0fc76834243eda4ee8ede4c48fc182815e1c9d58f4",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 257,
+          "sha256": "c4ca6e884df6073f096bd435fbb94fbf88254503341650bc73eb1f8e7f6f2ee2",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919-source.tar.gz",
+          "size_bytes": 183895679,
+          "sha256": "fea410211d2cef1109d528bac9e84463ef0f1637ca57f6abd0cef37f78967ba9",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919/zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919",
+      "source_commit": "5295e4dfde99c6c5991d822747dcf6b97ad01b9c",
+      "first_parent": "1b587538a43d46efdc95fb19d8bcb0b5a0b52f23",
+      "single_commit_range": "1b587538a43d46efdc95fb19d8bcb0b5a0b52f23..5295e4dfde99c6c5991d822747dcf6b97ad01b9c",
+      "source_subject": "f2fs: serialize data allocation with checkpoint",
+      "release_name": "zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919",
+      "published_at": "2026-09-24T09:42:42Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 299,
+          "sha256": "15f992505d76a92f72694b0b1972a501bc759fb7602457f65ceb8dd6b2815464",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 167,
+          "sha256": "aba1c995622a4177843c3eda96ba9948cf31958be62b5b5cb3d16e72e43b21a4",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 127,
+          "sha256": "d9c824354ea28bfae868bcd8739b4f998dd15b44faac070801a0f28a7f7a48b5",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919-source.tar.gz",
+          "size_bytes": 183901880,
+          "sha256": "08bb8e43095c589e6c09ffa8dd669458de7523b57a2a525cd1ad57e5b6fb8232",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919/zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919",
+      "source_commit": "5c3c5c63f228774d5145af571ebc730c83ddec53",
+      "first_parent": "5295e4dfde99c6c5991d822747dcf6b97ad01b9c",
+      "single_commit_range": "5295e4dfde99c6c5991d822747dcf6b97ad01b9c..5c3c5c63f228774d5145af571ebc730c83ddec53",
+      "source_subject": "zsmalloc: make concurrent compaction accounting precise",
+      "release_name": "zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919",
+      "published_at": "2026-09-24T09:43:24Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 297,
+          "sha256": "bd61a22a92febdb4fa19f1b3a1e8e937c2d03e9d5e9af17381d8b42fa4cf3b50",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 173,
+          "sha256": "de81a75d340147e96a2ffe018d9dd0b936f018d9db0037c877a51d19e7ac73a7",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 169,
+          "sha256": "f7c994482796eebe3ccc67c46e1980aa0ca69dcb263decab121a579fbbfb794c",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919-source.tar.gz",
+          "size_bytes": 183904190,
+          "sha256": "88e8f527102dedbb1fda6fc448d30c6708f96cab5ad99d16bbe734a9b68a66fa",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919/zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-ufs-resume-fixes8-enabled-tested-20260919",
+      "source_commit": "dc22d91e70a2ddad32756cc85aa45acb919ed4f0",
+      "first_parent": "5c3c5c63f228774d5145af571ebc730c83ddec53",
+      "single_commit_range": "5c3c5c63f228774d5145af571ebc730c83ddec53..dc22d91e70a2ddad32756cc85aa45acb919ed4f0",
+      "source_subject": "scsi: ufs: tolerate resume race with error recovery",
+      "release_name": "zui12-post157-ufs-resume-fixes8-enabled-tested-20260919",
+      "published_at": "2026-09-24T09:43:59Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-ufs-resume-fixes8-enabled-tested-20260919",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 296,
+          "sha256": "5e84bdc18ba602062fecfc51348c37b1eb59d911c06073209e08daa46b8dc561",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufs-resume-fixes8-enabled-tested-20260919/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 168,
+          "sha256": "de6cdab1b93e39369b432b4b6e2e87852ff99fb00f475b247cc0135b35034eee",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufs-resume-fixes8-enabled-tested-20260919/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 167,
+          "sha256": "8539934e86706719cffb9f81e1b22b75479993773f5542078753b5d9449074c0",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufs-resume-fixes8-enabled-tested-20260919/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-ufs-resume-fixes8-enabled-tested-20260919-source.tar.gz",
+          "size_bytes": 183902821,
+          "sha256": "140bfbd70489df3ba67d1a53979505cfedb8ca8b98b00c35b7e9b0c796ce6d0d",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufs-resume-fixes8-enabled-tested-20260919/zui12-post157-ufs-resume-fixes8-enabled-tested-20260919-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-sched-walt-fixes9-enabled-tested-20260919",
+      "source_commit": "98c4683b7d5280ccfd90830f5743b7b8dc603ec3",
+      "first_parent": "96a215a8440118e1c09536906ebab34f6eda7847",
+      "single_commit_range": "96a215a8440118e1c09536906ebab34f6eda7847..98c4683b7d5280ccfd90830f5743b7b8dc603ec3",
+      "source_subject": "sched: walt: defer unsafe window-size rollover",
+      "release_name": "zui12-post157-sched-walt-fixes9-enabled-tested-20260919",
+      "published_at": "2026-09-24T09:44:34Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-sched-walt-fixes9-enabled-tested-20260919",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 296,
+          "sha256": "ad88cacee4a3b82245dc17796bf145ac42a9a2ccd8b1cbfdaafdbadbf0cdbdcd",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-sched-walt-fixes9-enabled-tested-20260919/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 163,
+          "sha256": "64ba5e8c9df73f193cba558e642e80ac79e57eda3cc0f8c00e01f6e1b014021e",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-sched-walt-fixes9-enabled-tested-20260919/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 142,
+          "sha256": "076deb3dcb1c8e0f804b69e77366a32ca08109a7cf5605228b3e532a89b30cab",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-sched-walt-fixes9-enabled-tested-20260919/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-sched-walt-fixes9-enabled-tested-20260919-source.tar.gz",
+          "size_bytes": 183909521,
+          "sha256": "e837d251c817199897a8601b671dfcb2fc583a5f58a7bb225b82e8321b955a40",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-sched-walt-fixes9-enabled-tested-20260919/zui12-post157-sched-walt-fixes9-enabled-tested-20260919-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919",
+      "source_commit": "e91beb08de332d5c5702ac7ac9a199a11a21d9aa",
+      "first_parent": "31a6bbc31033a8e0a2fe77352704facb425cde8e",
+      "single_commit_range": "31a6bbc31033a8e0a2fe77352704facb425cde8e..e91beb08de332d5c5702ac7ac9a199a11a21d9aa",
+      "source_subject": "scsi: ufs: validate descriptor parameter bounds",
+      "release_name": "zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919",
+      "published_at": "2026-09-24T09:45:12Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 301,
+          "sha256": "60b155e1b5ac2d60093a05ec32ee7ab17739489cb0baa1600ff81fcfa5532e31",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 169,
+          "sha256": "55b5141675667537eb8d4f309b9a76612a95df6630008fcd70ac81ee4c1a9f4b",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 158,
+          "sha256": "430fe53f49ed174f70250728fcc50c4cad651f1023e7b621b923da302d09480e",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919-source.tar.gz",
+          "size_bytes": 183928204,
+          "sha256": "2c6bbc3bbac15333b786d434d14f640ef0504280f83c7a299ce9f8ecda75e1dd",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919/zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-kgsl-fixes11-enabled-tested-20260919",
+      "source_commit": "f739eee2dcc3187dca6c112c3324c41f7b65a524",
+      "first_parent": "764ed0fda2f42480cf5885f4063af9d81e1a0a27",
+      "single_commit_range": "764ed0fda2f42480cf5885f4063af9d81e1a0a27..f739eee2dcc3187dca6c112c3324c41f7b65a524",
+      "source_subject": "msm: kgsl: preserve power control flags across recovery",
+      "release_name": "zui12-post157-kgsl-fixes11-enabled-tested-20260919",
+      "published_at": "2026-09-24T09:45:47Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-kgsl-fixes11-enabled-tested-20260919",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 291,
+          "sha256": "4df5721ec0e78f032e55f6084d39edeb2916261e9684c051769b031d462ec889",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-kgsl-fixes11-enabled-tested-20260919/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 167,
+          "sha256": "df7465addfbe2140f5b5f87d06a94cd1bcc43d1f1f06b116bd9e6e14344de822",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-kgsl-fixes11-enabled-tested-20260919/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 191,
+          "sha256": "6f14e58735d2a95630238051e4feef4ae7c701b1702c5f1b6e5295566b71d36c",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-kgsl-fixes11-enabled-tested-20260919/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-kgsl-fixes11-enabled-tested-20260919-source.tar.gz",
+          "size_bytes": 183899105,
+          "sha256": "65b47057ba5c2021a7186279b02cb61dfb9f5105b7653cff6793f1206a3f2835",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-kgsl-fixes11-enabled-tested-20260919/zui12-post157-kgsl-fixes11-enabled-tested-20260919-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-modernization-batch-tested-20260919",
+      "source_commit": "f739eee2dcc3187dca6c112c3324c41f7b65a524",
+      "first_parent": "764ed0fda2f42480cf5885f4063af9d81e1a0a27",
+      "single_commit_range": "764ed0fda2f42480cf5885f4063af9d81e1a0a27..f739eee2dcc3187dca6c112c3324c41f7b65a524",
+      "source_subject": "msm: kgsl: preserve power control flags across recovery",
+      "release_name": "zui12-post157-modernization-batch-tested-20260919",
+      "published_at": "2026-09-24T09:46:24Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-modernization-batch-tested-20260919",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 290,
+          "sha256": "073bd3f8b987e22f7751582e041c70777c8817126a11ebd0cd9d4e3c95ab492e",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-modernization-batch-tested-20260919/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 166,
+          "sha256": "ff0e93e0561ad22fa06c771a6463a38e2fe2592c787015f4ad964853545fa4a8",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-modernization-batch-tested-20260919/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 191,
+          "sha256": "6f14e58735d2a95630238051e4feef4ae7c701b1702c5f1b6e5295566b71d36c",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-modernization-batch-tested-20260919/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-modernization-batch-tested-20260919-source.tar.gz",
+          "size_bytes": 183881087,
+          "sha256": "0198da4bac6f3c905472070f7d87c2cdb967a7f5a6b1aaecf4ed03c7eeb45e44",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-modernization-batch-tested-20260919/zui12-post157-modernization-batch-tested-20260919-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-latency-tuning-tested-20260919",
+      "source_commit": "a46c5177abea98d8ce49b1db81faefb913360614",
+      "first_parent": "f739eee2dcc3187dca6c112c3324c41f7b65a524",
+      "single_commit_range": "f739eee2dcc3187dca6c112c3324c41f7b65a524..a46c5177abea98d8ce49b1db81faefb913360614",
+      "source_subject": "tune: reduce burst latency on TB-J606F",
+      "release_name": "zui12-post157-latency-tuning-tested-20260919",
+      "published_at": "2026-09-24T09:47:03Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-latency-tuning-tested-20260919",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 285,
+          "sha256": "11a18292b972a118fe9819c46f74ae657797e25dd7b3546245201cabe534213f",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-latency-tuning-tested-20260919/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 144,
+          "sha256": "96d72340cab4735578b9d7385df48c44bb7a9bd284adade8ade7fea97f6714f8",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-latency-tuning-tested-20260919/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 182,
+          "sha256": "9de51228850da2bfb3c046fd4f78db21442292447f2f48e8ac5712426f0cd547",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-latency-tuning-tested-20260919/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-latency-tuning-tested-20260919-source.tar.gz",
+          "size_bytes": 183880614,
+          "sha256": "dbb78adc1c45ad15316a3e505c0ecf5278cee433ee4de1fcb5234b0c25e426b8",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-latency-tuning-tested-20260919/zui12-post157-latency-tuning-tested-20260919-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-dt2w-gsi-tested-20260919",
+      "source_commit": "7f7e5bf3b3f524a65a1cbf4748a2f6f6d6776d9b",
+      "first_parent": "c3e343a9aa71a2e17c09fed5eaf50b08003cd981",
+      "single_commit_range": "c3e343a9aa71a2e17c09fed5eaf50b08003cd981..7f7e5bf3b3f524a65a1cbf4748a2f6f6d6776d9b",
+      "source_subject": "input: nt36xxxspi: defer panel PM transitions",
+      "release_name": "zui12-post157-dt2w-gsi-tested-20260919",
+      "published_at": "2026-09-24T09:47:40Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-dt2w-gsi-tested-20260919",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 279,
+          "sha256": "9083f0ff49f0546dd335acc20a92774d0efc6db02c1d172f68e59ab901f65012",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dt2w-gsi-tested-20260919/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 145,
+          "sha256": "c59fb9927df2e469984989545cc36fac6c20ddc600f68c0fc49562fd06a70d8f",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dt2w-gsi-tested-20260919/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 243,
+          "sha256": "a1d74343017db7c07b4ba5a10415f0509415e2c1346a0fa206e4d27ff41cebf2",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dt2w-gsi-tested-20260919/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-dt2w-gsi-tested-20260919-source.tar.gz",
+          "size_bytes": 183879956,
+          "sha256": "9002092f3f684e13dc614a329eb68034c3e40cedf23353068aa4812e807a7c47",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dt2w-gsi-tested-20260919/zui12-post157-dt2w-gsi-tested-20260919-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-kgsl-ringalloc-opt13-tested-20260919",
+      "source_commit": "7cd6df94c95c06daca3a1a80a70196111ca10750",
+      "first_parent": "7f7e5bf3b3f524a65a1cbf4748a2f6f6d6776d9b",
+      "single_commit_range": "7f7e5bf3b3f524a65a1cbf4748a2f6f6d6776d9b..7cd6df94c95c06daca3a1a80a70196111ca10750",
+      "source_subject": "msm: kgsl: use kvcalloc for ringbuffer submission",
+      "release_name": "zui12-post157-kgsl-ringalloc-opt13-tested-20260919",
+      "published_at": "2026-09-24T09:48:13Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-kgsl-ringalloc-opt13-tested-20260919",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 291,
+          "sha256": "80b55f0dee0b00d25ac97d9b814d31c4c09c6da31219d66f430360a4715df0ab",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-kgsl-ringalloc-opt13-tested-20260919/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 161,
+          "sha256": "a89287b639edd3aaa65a8f9c7c04890ded65d7d8953794f64055870466426d8d",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-kgsl-ringalloc-opt13-tested-20260919/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 155,
+          "sha256": "3c43b448313d53050880150f05f7bc3593be5f4e366151745f6e5fe6f0fa61e8",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-kgsl-ringalloc-opt13-tested-20260919/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-kgsl-ringalloc-opt13-tested-20260919-source.tar.gz",
+          "size_bytes": 183912929,
+          "sha256": "4cef82d9ba560fa3b95c9561b3cdf5743cc78025e976098f57e7e6feed0cf775",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-kgsl-ringalloc-opt13-tested-20260919/zui12-post157-kgsl-ringalloc-opt13-tested-20260919-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-eas-idle-opt14-known-good-20260922",
+      "source_commit": "a9f8072bcf54428cfe9362cf7232447eb1298cc8",
+      "first_parent": "7cd6df94c95c06daca3a1a80a70196111ca10750",
+      "single_commit_range": "7cd6df94c95c06daca3a1a80a70196111ca10750..a9f8072bcf54428cfe9362cf7232447eb1298cc8",
+      "source_subject": "sched: prefer shallow-idle CPU in EAS wake placement",
+      "release_name": "zui12-post157-eas-idle-opt14-known-good-20260922",
+      "published_at": "2026-09-24T09:48:49Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-eas-idle-opt14-known-good-20260922",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 289,
+          "sha256": "f06f2604eb1e4c30a0e002498d936a47f4ed1caad2becdc2aa1d80c18f932e58",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-eas-idle-opt14-known-good-20260922/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 162,
+          "sha256": "c620867c52b33072a3d3782367eb05c6460d3ea4ab9670259c39607dca3dd5bf",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-eas-idle-opt14-known-good-20260922/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 141,
+          "sha256": "b5b64381ee4f2a6a91d83af7479e07afeab61c7f3a945c4f7b5b3409d6961342",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-eas-idle-opt14-known-good-20260922/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-eas-idle-opt14-known-good-20260922-source.tar.gz",
+          "size_bytes": 183905696,
+          "sha256": "4549dfb386ae5aa02493f8c24863867af9a1f9c10d5342542bd5b1cf71605c5c",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-eas-idle-opt14-known-good-20260922/zui12-post157-eas-idle-opt14-known-good-20260922-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-gpu-oc15-980-failed-20260922",
+      "source_commit": "0d43e6f23a2af10b568584fb07579d9dc5954d45",
+      "first_parent": "e6e713a66299c24f1416cc74a3dec25689757ddd",
+      "single_commit_range": "e6e713a66299c24f1416cc74a3dec25689757ddd..0d43e6f23a2af10b568584fb07579d9dc5954d45",
+      "source_subject": "test: default Bengal GPU to OEM 980 MHz bin",
+      "release_name": "zui12-post157-gpu-oc15-980-failed-20260922",
+      "published_at": "2026-09-24T09:49:27Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-gpu-oc15-980-failed-20260922",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 283,
+          "sha256": "ff3930588bbdf2e9180b4ece44fad260f0b9dd2a30bad558b9feb572171abd60",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-gpu-oc15-980-failed-20260922/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 147,
+          "sha256": "45075c010ea8976f3f26df99f5db9c9cea1dec50271f8e84e1e1076524b1bff6",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-gpu-oc15-980-failed-20260922/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 134,
+          "sha256": "9a57500235ea97804ef60a4c5c8f56b7bc41ae417b74ba0f496de76383e72aa4",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-gpu-oc15-980-failed-20260922/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-gpu-oc15-980-failed-20260922-source.tar.gz",
+          "size_bytes": 183891032,
+          "sha256": "0a2cf9e6d16e4959853b490ecd276c45c6ba30080fdde5f87d7105cbd88ce1b4",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-gpu-oc15-980-failed-20260922/zui12-post157-gpu-oc15-980-failed-20260922-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-gpu-oc16-harness-built-20260922",
+      "source_commit": "68c534d08a1892b366a13f2ff7b3078aad45373e",
+      "first_parent": "a9f8072bcf54428cfe9362cf7232447eb1298cc8",
+      "single_commit_range": "a9f8072bcf54428cfe9362cf7232447eb1298cc8..68c534d08a1892b366a13f2ff7b3078aad45373e",
+      "source_subject": "debug: add GPU speed-bin boot override",
+      "release_name": "zui12-post157-gpu-oc16-harness-built-20260922",
+      "published_at": "2026-09-24T09:50:02Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-gpu-oc16-harness-built-20260922",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 286,
+          "sha256": "9c4420a010217d3d51a714004c573515d4b32c43d03dabbd1844912442944b0a",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-gpu-oc16-harness-built-20260922/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 145,
+          "sha256": "8427cb7f6a00075c099097425a4b648abdd3e64a4b256fc6f437c48d67170333",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-gpu-oc16-harness-built-20260922/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 136,
+          "sha256": "afd2f20f0cf685c4fe07fe9eac8ccf7503455e0b9d6636eca92aa1556a6c2bd7",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-gpu-oc16-harness-built-20260922/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-gpu-oc16-harness-built-20260922-source.tar.gz",
+          "size_bytes": 183902434,
+          "sha256": "67510201a4e825367776b5d15f21d1e4acaef5b1dd131670ae70baa92ad222c8",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-gpu-oc16-harness-built-20260922/zui12-post157-gpu-oc16-harness-built-20260922-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-gpu-oc17-native960-tested-20260922",
+      "source_commit": "c08047730bb95a9b7ed89a0a47618070d8ed63ba",
+      "first_parent": "a9f8072bcf54428cfe9362cf7232447eb1298cc8",
+      "single_commit_range": "a9f8072bcf54428cfe9362cf7232447eb1298cc8..c08047730bb95a9b7ed89a0a47618070d8ed63ba",
+      "source_subject": "gpu: add guarded TB-J606F 960 MHz opt-in",
+      "release_name": "zui12-post157-gpu-oc17-native960-tested-20260922",
+      "published_at": "2026-09-24T09:50:37Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-gpu-oc17-native960-tested-20260922",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 289,
+          "sha256": "11491c024cd49dd4effc0f68f7eca1badc912edd57e9cdae3792b14b4f2f3112",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-gpu-oc17-native960-tested-20260922/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 150,
+          "sha256": "b7c2f041a766afe2efb02902ebe38023c5a4c7953fbfae09ff2e780bf6381800",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-gpu-oc17-native960-tested-20260922/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 305,
+          "sha256": "d220edbf177d50ddf4855c557e8dd2f929b4f47b0b1f9089a1423b654d17a197",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-gpu-oc17-native960-tested-20260922/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-gpu-oc17-native960-tested-20260922-source.tar.gz",
+          "size_bytes": 183916719,
+          "sha256": "2b4fb047c69ec66bf2a8ad88b31d837dd9898cfaa0f58ce792eebc2f88ee22ad",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-gpu-oc17-native960-tested-20260922/zui12-post157-gpu-oc17-native960-tested-20260922-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-erofs-lineage23.2-built-20260922",
+      "source_commit": "5cf633864bedb3e9d05b36c692b1b0964cd262a9",
+      "first_parent": "c08047730bb95a9b7ed89a0a47618070d8ed63ba",
+      "single_commit_range": "c08047730bb95a9b7ed89a0a47618070d8ed63ba..5cf633864bedb3e9d05b36c692b1b0964cd262a9",
+      "source_subject": "erofs: backport modern compressed image support",
+      "release_name": "zui12-post157-erofs-lineage23.2-built-20260922",
+      "published_at": "2026-09-24T09:51:13Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-erofs-lineage23.2-built-20260922",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 287,
+          "sha256": "d4ccf9b8904b4af3c702744973fbadfbfd439ecebfc21b451d86507dcf8dd11d",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs-lineage23.2-built-20260922/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 155,
+          "sha256": "d61a09583e786177fbce13492c493b76599ef7433eceab0f31b66ae15a4924da",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs-lineage23.2-built-20260922/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 2765,
+          "sha256": "c841f1714d7029cc4f25fea3ae7a83a50e4bff08d8804a945b9a2cf5c971ed74",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs-lineage23.2-built-20260922/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-erofs-lineage23.2-built-20260922-source.tar.gz",
+          "size_bytes": 183894764,
+          "sha256": "041f048fd25c832c9ae7ed7471d7a459df42578d048f2feda75c4411dbcbe953",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs-lineage23.2-built-20260922/zui12-post157-erofs-lineage23.2-built-20260922-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-erofs-lineage23.2-tested-20260922",
+      "source_commit": "5cf633864bedb3e9d05b36c692b1b0964cd262a9",
+      "first_parent": "c08047730bb95a9b7ed89a0a47618070d8ed63ba",
+      "single_commit_range": "c08047730bb95a9b7ed89a0a47618070d8ed63ba..5cf633864bedb3e9d05b36c692b1b0964cd262a9",
+      "source_subject": "erofs: backport modern compressed image support",
+      "release_name": "zui12-post157-erofs-lineage23.2-tested-20260922",
+      "published_at": "2026-09-24T09:51:50Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-erofs-lineage23.2-tested-20260922",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 288,
+          "sha256": "72fa7ad5a25df88715ef4f1ae21321bcf85714343f540e19831c7541f51787eb",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs-lineage23.2-tested-20260922/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 156,
+          "sha256": "d31035bc026a16606ab5e83775dca14109de45cdf5d727d3f99651dfa90b3efe",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs-lineage23.2-tested-20260922/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 2772,
+          "sha256": "5351a8f04c12b926672e2a116e9397266bde76c26225d811b457efc1cb06a6e6",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs-lineage23.2-tested-20260922/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-erofs-lineage23.2-tested-20260922-source.tar.gz",
+          "size_bytes": 183893287,
+          "sha256": "1991fa7774baf3e995b4349b8874838ad4418cb5e172c9487b910ca511941d32",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs-lineage23.2-tested-20260922/zui12-post157-erofs-lineage23.2-tested-20260922-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "zui12-post157-erofs-lineage23.2-runtime-tested-20260922",
+      "source_commit": "5cf633864bedb3e9d05b36c692b1b0964cd262a9",
+      "first_parent": "c08047730bb95a9b7ed89a0a47618070d8ed63ba",
+      "single_commit_range": "c08047730bb95a9b7ed89a0a47618070d8ed63ba..5cf633864bedb3e9d05b36c692b1b0964cd262a9",
+      "source_subject": "erofs: backport modern compressed image support",
+      "release_name": "zui12-post157-erofs-lineage23.2-runtime-tested-20260922",
+      "published_at": "2026-09-24T09:52:27Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-erofs-lineage23.2-runtime-tested-20260922",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 296,
+          "sha256": "37cdf024e1dbad4b56587451404b3e77715c30fb2d2147b35178bdd6c1a15503",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs-lineage23.2-runtime-tested-20260922/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 164,
+          "sha256": "3a4f2d1cf2e6a6c29d5887bb8d022db5c1c827bcfca8832a9614ae56cce07232",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs-lineage23.2-runtime-tested-20260922/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 2760,
+          "sha256": "f0bdea7f1d2d749c4df40ba20303db2a29d74be638af45233f1d6d312bb042ff",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs-lineage23.2-runtime-tested-20260922/commit-stat.txt"
+        },
+        {
+          "name": "zui12-post157-erofs-lineage23.2-runtime-tested-20260922-source.tar.gz",
+          "size_bytes": 183902535,
+          "sha256": "fbbf71bc11576beb2700c76d4b993720b1debcf3f06f4970124942563742dab9",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs-lineage23.2-runtime-tested-20260922/zui12-post157-erofs-lineage23.2-runtime-tested-20260922-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "p11-zui14-adsp-fastrpc-sensors-tested-20260923",
+      "source_commit": "5f4e15db5c97c2c507935ac3cc52575efda00b07",
+      "first_parent": "0ce1f63a5877121ce8d755018df6cdff7b326c44",
+      "single_commit_range": "0ce1f63a5877121ce8d755018df6cdff7b326c44..5f4e15db5c97c2c507935ac3cc52575efda00b07",
+      "source_subject": "drivers: adapt ZUI14 FastRPC wakeup API to 4.19",
+      "release_name": "p11-zui14-adsp-fastrpc-sensors-tested-20260923",
+      "published_at": "2026-09-24T09:53:01Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/p11-zui14-adsp-fastrpc-sensors-tested-20260923",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 287,
+          "sha256": "13159878a819534cea375a73d83a6a5c1d1d4d123e441b8afa7812e676a84c88",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/p11-zui14-adsp-fastrpc-sensors-tested-20260923/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 155,
+          "sha256": "9931e7fa4828b55004d12092c78a9b7dde83ab1b52a041dc3560aa32e1902fd8",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/p11-zui14-adsp-fastrpc-sensors-tested-20260923/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 139,
+          "sha256": "03b2f126016270de66bc13f83d60c419b29afb410becc8561c8dc6df0b668566",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/p11-zui14-adsp-fastrpc-sensors-tested-20260923/commit-stat.txt"
+        },
+        {
+          "name": "p11-zui14-adsp-fastrpc-sensors-tested-20260923-source.tar.gz",
+          "size_bytes": 183899157,
+          "sha256": "bd46e4cc7ee7fad87826473ccf13c5d03f0ccd3a1abb2d52cec9e7e29800cffd",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/p11-zui14-adsp-fastrpc-sensors-tested-20260923/p11-zui14-adsp-fastrpc-sensors-tested-20260923-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "tbj606f-a16-zui14-kernel-stable-20260924",
+      "source_commit": "7124b9c09a48380a7b028104e17cac36b9b1a0af",
+      "first_parent": "58dd0257ffe542b8a0352955ea47c0e967b64948",
+      "single_commit_range": "58dd0257ffe542b8a0352955ea47c0e967b64948..7124b9c09a48380a7b028104e17cac36b9b1a0af",
+      "source_subject": "soc: qcom: add native ADSP loader for ZUI14 userspace",
+      "release_name": "tbj606f-a16-zui14-kernel-stable-20260924",
+      "published_at": "2026-09-24T09:53:38Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/tbj606f-a16-zui14-kernel-stable-20260924",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 281,
+          "sha256": "a3450b6c883e644db710f6c4a7809598bbb4ac4ad0713caa0ae8bb7bb14836c6",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-kernel-stable-20260924/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 155,
+          "sha256": "19306fb619480b0193cff671f955090f30882a86e993f15635cf54c959d503b2",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-kernel-stable-20260924/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 321,
+          "sha256": "23b473050e986aa9c11fa619ba1818c6f8bae6760d63213f09282249aa0f25e1",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-kernel-stable-20260924/commit-stat.txt"
+        },
+        {
+          "name": "tbj606f-a16-zui14-kernel-stable-20260924-source.tar.gz",
+          "size_bytes": 183846435,
+          "sha256": "a22b1ce54a9b694e9910937749a179e53354232026adff46341104a3424ad1a8",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-kernel-stable-20260924/tbj606f-a16-zui14-kernel-stable-20260924-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "tbj606f-a16-zui14-opensource-20260924",
+      "source_commit": "62d8b441b64013a9714736234390d216b9164195",
+      "first_parent": "107b260d047d2b173eedac754c8645db177c3844",
+      "single_commit_range": "107b260d047d2b173eedac754c8645db177c3844..62d8b441b64013a9714736234390d216b9164195",
+      "source_subject": "docs: update TB-J606F Android 16 ZUI14 status",
+      "release_name": "tbj606f-a16-zui14-opensource-20260924",
+      "published_at": "2026-09-24T09:54:12Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/tbj606f-a16-zui14-opensource-20260924",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 278,
+          "sha256": "63d9bc6dba15d9201f1d63c57b797577447c41143df58cb7cae5dacc672c6e38",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-opensource-20260924/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 144,
+          "sha256": "1924dd428c78e095be005f48b24160e3fd48731f2490787ce95b721e9a972b46",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-opensource-20260924/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 358,
+          "sha256": "7c4a46fc6af639553b089d31a74c972e46bc64e25a19f8b737cd5b39b9c2d758",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-opensource-20260924/commit-stat.txt"
+        },
+        {
+          "name": "tbj606f-a16-zui14-opensource-20260924-source.tar.gz",
+          "size_bytes": 183873358,
+          "sha256": "d1d50073e466b61c12cffdf31ca420b88b1f13759154ec596ec4b364172fc0bc",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-opensource-20260924/tbj606f-a16-zui14-opensource-20260924-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "tbj606f-a16-zui14-published-20260924",
+      "source_commit": "8ea948339a5c910e40ced880f338eeac279e4c1e",
+      "first_parent": "62d8b441b64013a9714736234390d216b9164195",
+      "single_commit_range": "62d8b441b64013a9714736234390d216b9164195..8ea948339a5c910e40ced880f338eeac279e4c1e",
+      "source_subject": "docs: index published TB-J606F development refs",
+      "release_name": "tbj606f-a16-zui14-published-20260924",
+      "published_at": "2026-09-24T09:54:48Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/tbj606f-a16-zui14-published-20260924",
+      "release_notes_sha256": "254f3028566ab88381bbb9d0302c65b7b59dcfd470a1e552e77582ca56aa3cb3",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 277,
+          "sha256": "658930697b22bfe8cff6c201c27a4944a916578d5bf1d7d0edfdf33b59338319",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-published-20260924/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 145,
+          "sha256": "c5a4b0b262a3328c02dab9dfa33516a90b27e8b19d297ac952a32fa236918487",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-published-20260924/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 271,
+          "sha256": "44be295e231eda350292ec3bbd66858c674d8f3fddcb2a29046dedd1249c167f",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-published-20260924/commit-stat.txt"
+        },
+        {
+          "name": "tbj606f-a16-zui14-published-20260924-source.tar.gz",
+          "size_bytes": 183859308,
+          "sha256": "634c2be0b73a0d5b132e2b9c9e5b44568f6e4c4d7157e5b63b73aa6faccf0b31",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-published-20260924/tbj606f-a16-zui14-published-20260924-source.tar.gz"
+        }
+      ]
+    },
+    {
+      "tag": "tbj606f-erofs-lz4-v183-20260924",
+      "source_commit": "3d93df7748a22962edc037670a0342246d7619a7",
+      "first_parent": "56ddb54d15fffe5708093957a84e15ad87fbfbb8",
+      "single_commit_range": "56ddb54d15fffe5708093957a84e15ad87fbfbb8..3d93df7748a22962edc037670a0342246d7619a7",
+      "source_subject": "lib: backport LZ4 v1.8.3 decompressor for EROFS",
+      "release_name": "TB-J606F EROFS LZ4 v1.8.3 source checkpoint",
+      "published_at": "2026-09-24T10:55:24Z",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/tbj606f-erofs-lz4-v183-20260924",
+      "release_notes_sha256": "32459cc3ae22bb38c3cd384f9a1d15e37103f37ba19c9994120071b03656c5ec",
+      "assets": [
+        {
+          "name": "SHA256SUMS",
+          "size_bytes": 346,
+          "sha256": "feb7d3bd177e3f6e8883f9657d6b47cf67c75dc1b53e680da48ad9dee05aa6f8",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-erofs-lz4-v183-20260924/SHA256SUMS"
+        },
+        {
+          "name": "VERSION.txt",
+          "size_bytes": 656,
+          "sha256": "9461a0cbb9deb30bb6590684b88917a58a7e5815dd84a8d66f07af455d35032d",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-erofs-lz4-v183-20260924/VERSION.txt"
+        },
+        {
+          "name": "commit-stat.txt",
+          "size_bytes": 319,
+          "sha256": "ba54c3aa8893d5097d7244008d306064a5bca661f4c3a78432b71014529d9194",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-erofs-lz4-v183-20260924/commit-stat.txt"
+        },
+        {
+          "name": "tbj606f-erofs-lz4-v183-source.tar.gz",
+          "size_bytes": 183824381,
+          "sha256": "26378c57495b17f9b44eb3f1c66742e3e5b96b741cffd8343a488bf099e1aa42",
+          "download_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-erofs-lz4-v183-20260924/tbj606f-erofs-lz4-v183-source.tar.gz"
+        }
+      ]
+    }
+  ]
+}

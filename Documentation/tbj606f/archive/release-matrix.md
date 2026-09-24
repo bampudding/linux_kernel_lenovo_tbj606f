@@ -61,3 +61,4 @@ Generated release map for legacy cleanup.
 | `tbj606f-a16-zui14-published-20260924` | `8ea948339a` | docs: index published TB-J606F development refs |
 | `tbj606f-a16-zui14-public-v1` | `3a5bd05145` | docs: fix published TB-J606F ref index |
 | `tbj606f-a16-zui14-public-v2` | `c067a36017` | docs: avoid self-pinning the published branch head |
+| `tbj606f-erofs-lz4-v183-20260924` | `3d93df7748` | lib: backport LZ4 v1.8.3 decompressor for EROFS; source milestone published 2026-09-24 |
