@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-only
 """Audit GitHub releases against local Git tags and the archived HDD inventory.
 
 Read-only for GitHub, HDD and source; outputs ONLY the named audit JSON/Markdown.
@@ -34,7 +35,7 @@ SPECIAL = {
 "tbj606f-a16-zui14-public-v1": "validated kernel/ABI payload; owner must supply and repack boot",
 "tbj606f-a16-zui14-public-v2": "installer/docs ONLY; get kernel payload from v1/v3",
 "tbj606f-a16-zui14-public-v3": "source-matched v1-identical kernel + helper bundle; no OEM images",
-"tbj606f-a16-zui14-public-v4": "non-proprietary flash kit; validated owner boot backup, hybrid vendor and GSI still required",
+"tbj606f-a16-zui14-public-v4": "single ZIP plus checksum, historic pre-reconstruction kit; owner input still required",
 }
 def git(*args):
     return subprocess.check_output(["git", *args], text=True).strip()
@@ -78,8 +79,11 @@ def main():
         if len(parts) > 2 and parts[0] == "releases":
             stage[parts[1]].append(f)
     rows, commit_aliases, missing = [], collections.defaultdict(list), []
+    # Intentionally preserve the pre-v5 publication window when v5 is live.
     for r in sorted(gh_releases(), key=lambda x:(x["published_at"],x["tag_name"])):
         tag = r["tag_name"]
+        if tag == "tbj606f-a16-zui14-public-v5":
+            continue
         if not re.fullmatch(r"[A-Za-z0-9_.-]+", tag):
             raise ValueError("unsafe release tag")
         commit = git("rev-parse", "--verify", f"refs/tags/{tag}^{{commit}}")
@@ -135,7 +139,11 @@ def main():
         symbols = [f["path"] for f in local if Path(f["path"]).name=="Module.symvers"]
         source = next((a for a in assets if a["name"].endswith("-source.tar.gz")),None)
         if tag.endswith("public-v4"):
-            cls="flash-kit-bundle"
+            expect={"tbj606f-a16-zui14-public-v4-flash-kit.zip",
+                    "tbj606f-a16-zui14-public-v4-SHA256SUMS.txt"}
+            if len(assets)!=2 or {a["name"] for a in assets}!=expect:
+                raise ValueError("v4 release assets differ from the verified two-file publication")
+            cls="single-flash-kit-zip-and-checksum"
         elif tag.endswith("public-v3"):
             cls="kernel-and-helper-bundle"
         elif tag.endswith("public-v1"):
@@ -176,6 +184,8 @@ def main():
         })
     if len(set(r["tag"] for r in rows)) != len(rows):
         raise ValueError("duplicate release tag")
+    if "tbj606f-a16-zui14-public-v4" not in {r["tag"] for r in rows}:
+        raise ValueError("pre-v5 audit requires published v4 two-asset release")
     types = collections.Counter(r["class"] for r in rows)
     source_local = sum(r["class"]=="source-and-metadata-only"
                        and r["hdd_exact_tag_complete_set"] for r in rows)
@@ -204,10 +214,15 @@ def main():
         "old_github_catalog_generated_utc":old["generated_utc"],
         "old_github_catalog_release_count":old["release_count"],
         "old_github_catalog_asset_count":old["asset_count"],
+        "audit_cutoff":"pre-v5 (v4 included; v4 historic 57-release snapshot unchanged)",
+        "zui12_stock_qfil_boot_sha256":"d4e86ef850d4109a8b2b7a87bec82dd2c60cc68a6f0e3709e7bec0f74ff982d8",
+        "stable_boot_sha256":"93f9e9518fc9a20691ab0b3579b0c628e23522674e827fc57b8867945aedd635",
+        "stable_boot_size_bytes":14286848,
+        "post_v4_source_to_stable_boot_reconstruction_proven":True,
         "summary":summary,"missing_sha256_assets":missing,
         "source_commit_alias_groups":[v for v in commit_aliases.values() if len(v)>1],
         "limits":[
-            "GitHub digests come from asset API metadata; no 250-asset redownload.",
+            "GitHub digests come from asset API metadata; not all assets were downloaded and rehashed.",
             "HDD manifest SHA256 records were generated previously, not rehashed now.",
             "Source tar/tag != exact rebuilt binary: toolchains, configs, signing keys and firmware matter.",
             "Historical tested names are not fresh device checks.",
@@ -227,6 +242,10 @@ def main():
            "All historical runtime classifications refer to archival claims, not new device tests.","",
            "| Release | Source commit | GitHub asset classification | Source SHA | Exact-tag HDD | Historical disposition |",
            "|---|---|---|---|---|---|"]
+    v4 = next(x for x in rows if x["tag"] == "tbj606f-a16-zui14-public-v4")
+    v4_assets = {a["name"]: a for a in v4["assets"]}
+    v4_zip = v4_assets["tbj606f-a16-zui14-public-v4-flash-kit.zip"]
+    v4_sum = v4_assets["tbj606f-a16-zui14-public-v4-SHA256SUMS.txt"]
     introduction = f"""
 ## Scope and exact counts
 
@@ -235,7 +254,7 @@ with {summary['github_asset_count']} downloadable asset records**. All {len(rows
 release tag names resolve locally, but they identify only **{len(commit_aliases)}
 distinct source commits**. GitHub supplies a SHA256 digest for all
 {summary['github_asset_count']} assets (missing: {len(missing)}). The API reports
-metadata and asset digests; this audit did not download and rehash 250 assets or
+metadata and asset digests; this audit did not download and rehash {summary["github_asset_count"]} assets or
 all approximately 180 MB source tarballs.
 
 - **{types['source-and-metadata-only']} source-and-metadata-only releases**:
@@ -249,10 +268,18 @@ all approximately 180 MB source tarballs.
 - **1 source-matched bundle (v3)**: the same validated v1 kernel bytes and
   compatibility module, plus boot/vendor reconstruction scripts and manifests.
   Published v3 installer and guide hashes match the v3 *Git tag* blobs.
-{("- **1 newer non-proprietary flash kit (v4)**: it packages installation helpers, but still needs the owner's validated hybrid boot template, GSI and proprietary hybrid vendor." if types["flash-kit-bundle"] else "")}
+{("- **1 v4 release with exactly 2 public assets**: the single non-proprietary deployment ZIP named " + chr(96) + "tbj606f-a16-zui14-public-v4-flash-kit.zip" + chr(96) + " and its external checksum file " + chr(96) + "tbj606f-a16-zui14-public-v4-SHA256SUMS.txt" + chr(96) + ". The ZIP includes validated kernel payload and helpers; it excludes proprietary OEM boot/vendor and the GSI." if types["single-flash-kit-zip-and-checksum"] else "")}
 - **0 GitHub releases with a ready-to-flash OEM boot.img, vendor.img or Android
   GSI**. An arm64 raw Image is a kernel payload; flashing it to boot_a
   would not constitute a valid repacked boot image.
+
+**Practical v4 downloads (historical pre-reconstructor package):**
+[one ZIP]({v4_zip['url']}) — {v4_zip['size_bytes']:,} bytes, SHA256
+{v4_zip['github_sha256']}; [its separate SHA256SUMS]({v4_sum['url']}) —
+{v4_sum['size_bytes']} bytes, SHA256 {v4_sum['github_sha256']}.
+This ZIP is not a ready-to-flash OEM partition. The 57-release pre-v4
+historical count remains a past snapshot; this separately regenerated
+**pre-v5 report** includes the two v4 downloads, giving 58/252.
 
 The older [GitHub catalog](github-release-catalog.json) was generated at
 {old['generated_utc']} with **{old['release_count']} releases and
@@ -268,7 +295,7 @@ filename containing tested proves that a matching, safe binary can be
 rebuilt or booted. All **{len(rows)}** tag-to-commit relationships were
 resolved against local annotated/lightweight Git refs. The independently
 uploaded tar.gz contents have **not** been extracted and compared against
-every Git tree, and all 250 asset payloads have **not** been rehashed
+every Git tree, and all {summary["github_asset_count"]} asset payloads have **not** been rehashed
 after download. Tag identity is not a device-test certificate.
 
 The [HDD manifest](hdd-artifact-manifest.json) (captured
@@ -308,9 +335,9 @@ GitHub has **{matches} release/asset digest records** whose SHA256 is found
 in the older HDD manifest; this count includes identical v1 and v3 asset bytes
 twice, not 20 unique independent backups. In particular, v1 and v3 have
 identical published Image, Image.gz, kernel.config, Module.symvers, System.map,
-p11_audio_compat.ko and TESTED-IMAGE-HASHES.txt SHA256. Only the v1/v3
-releases publish the tested kernel binary; neither gives the owner a
-complete proprietary OEM boot/vendor image or the separate Android GSI.
+p11_audio_compat.ko and TESTED-IMAGE-HASHES.txt SHA256. v1 and v3 publish
+the tested kernel as separate assets; v4 bundles the kernel in its ZIP.
+None distributes proprietary OEM boot/vendor images or the separate GSI.
 For the final hybrid, the saved HDD folder
 releases/p11-a16-zui14-hybrid-stable-20260924 contains:
 
@@ -324,17 +351,27 @@ releases/p11-a16-zui14-hybrid-stable-20260924 contains:
 
 The separate LineageOS 23.2 Android 16 EROFS GSI remains on the Mac, reported
 SHA256 26cde4242d9b92fb917b8235c4908e88c5fa6b60db1c56e0c53561db61d333bd.
-**Crucial boot-template reproducibility distinction:** the recorded original
-ZUI14 14.0.147 stock boot.img (SHA256
+**New direct source-to-stable-boot proof (post-v4):** original stock ZUI14
+14.0.147 boot.img (SHA256
 7356b6ac6a791c9508778aa76fe0fe381ca73eb225c7f10831799ed64f0e67d4)
-has a different DTB and ramdisk from the tested hybrid and repacking it did
-**not** yield the verified boot image. Repacking the owner's previously
-validated ZUI12-DTB/EROFS-ramdisk hybrid boot backup (SHA256
-93f9e9518fc9a20691ab0b3579b0c628e23522674e827fc57b8867945aedd635)
-with the v1 kernel Image reproduced that exact stable boot hash. There is
-**no verified original stock ZUI14 boot -> tested hybrid boot reconstruction
-recipe**. A first-time device owner lacking that private boot backup cannot
-claim an equivalent boot merely from a public source tarball, Image, or kit.
+has a different DTB/ramdisk and merely replacing its kernel does **not**
+yield the validated boot. The new
+[stable-boot reconstructor](../../../tools/tbj606f/reconstruct-stable-boot.py)
+reconstructs the EXACT 14,286,848-byte stable boot SHA256
+93f9e9518fc9a20691ab0b3579b0c628e23522674e827fc57b8867945aedd635
+from the owner's original **ZUI12 12.0.519 QFIL boot.img** SHA256
+d4e86ef850d4109a8b2b7a87bec82dd2c60cc68a6f0e3709e7bec0f74ff982d8
+and public Image SHA256
+af0b7b6b81c4f6ba3c5c2fbb044972a1bf502453ec19effa6d3664c094fdb2f8.
+It checks inputs, retains the verified ZUI12 DTB, derives the EROFS ramdisk,
+and checks exact finished boot SHA256. **The prior validated hybrid boot
+backup is no longer required** when those original owner-supplied ZUI12
+boot bytes and public Image are available. The old v4 ZIP was published
+before the new reconstructor, and its notes still describe the previous
+backup requirement; the post-v4 script must not be retrospectively claimed
+as part of the historic two-asset v4 publication. This new exact boot proof
+does not establish independent binary rebuilds for the 54 older source-only
+kernel releases or remove the vendor/GSI prerequisites.
 
 The owner must also obtain exact ZUI14 14.0.147 vendor input and ZUI12
 12.0.519 Wi-Fi/audio modules legally, reconstruct the hybrid and keep a
@@ -390,7 +427,7 @@ release notes for the stated scope.
         f"- Old catalog: {old['release_count']} releases / {old['asset_count']} assets at "
         f"{old['generated_utc']}, predating v3.",
         "", "Rebuild audit metadata with: "+t+"python3 tools/tbj606f/audit-releases.py"+t+".",
-        "No firmware, flash device, deletion, or kernel build is performed.",""])
+        "No firmware, flash device, deletion, or kernel build is performed. The post-v4 stable-boot reconstruction proof is reported from the validated reconstructor, not presented as a fresh device flash.",""])
     opts.markdown_output.write_text("\n".join(lines))
     print(json.dumps(summary,indent=2))
     print("alias groups:",out["source_commit_alias_groups"])

@@ -9,7 +9,8 @@ This file is the deletion checklist for legacy workspace cleanup.
 | `tbj606f-a16-zui14-public-v1` | Tested kernel binary bundle; kernel source checkpoint `7124b9c09a` | Android 16 EROFS + ZUI14 hybrid kernel, config and audio compatibility module |
 | `tbj606f-a16-zui14-public-v2` | Installer/documents attached to release; the v2 **tag predates `install.sh`** | Historical deployment-package checkpoint; use the later tagged source for a reproducible script checkout |
 | `tbj606f-a16-zui14-public-v3` | Source-matched installer, tested v1 kernel bytes and archive metadata | Historical complete tarball + components |
-| `tbj606f-a16-zui14-public-v4` | One ZIP with tested kernel, compatibility module, installer, repacking tools, checksum validator and user guide | Preferred non-proprietary flashing download |
+| `tbj606f-a16-zui14-public-v4` | One ZIP with tested kernel, compatibility module, installer, repacking tools, checksum validator and user guide | Historical ZIP requiring an already validated boot backup |
+| `tbj606f-a16-zui14-public-v5` | v4 flash ZIP plus stock ZUI12 12.0.519 boot → exact stable hybrid boot reconstruction | Preferred non-proprietary first-installation ZIP |
 
 ## Development lineage
 

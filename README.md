@@ -38,20 +38,22 @@ reproduction helpers on branch `opensource/tbj606f-a16-zui14`.
 
 ## Download / installation
 
-**[Download public v4 flash kit ZIP](https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/tbj606f-a16-zui14-public-v4)**.
-Download the single `tbj606f-a16-zui14-public-v4-flash-kit.zip`, extract it,
+**[Download public v5 flash kit ZIP](https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/tbj606f-a16-zui14-public-v5)**.
+Download the single `tbj606f-a16-zui14-public-v5-flash-kit.zip`, extract it,
 read `README-START-HERE.md`, and run `python3 verify-package.py`. This includes
 the validated kernel, compatibility module, installer, boot/vendor construction
 helpers, build ABI files and SHA256 manifest without requiring Git or a
 second kernel download.
 
 The ZIP does not redistribute Lenovo/Qualcomm proprietary boot/vendor images
-or the Android GSI. It requires an **owner-supplied validated boot backup**,
-not an unmodified stock ZUI14 boot.img: the final working boot uses a ZUI12
-DTB and EROFS-modified ramdisk. The validated boot backup SHA256 is
+or the Android GSI. For a first installation, provide your legally obtained
+**ZUI12 12.0.519 stock boot.img** (SHA256
+`d4e86ef850d4109a8b2b7a87bec82dd2c60cc68a6f0e3709e7bec0f74ff982d8`)
+and choose `--zui12-stock-boot`. Public v5 reconstructs the ZUI12 DTB and
+EROFS-modified ramdisk into the exact previously tested boot image SHA256
 `93f9e9518fc9a20691ab0b3579b0c628e23522674e827fc57b8867945aedd635`.
-A fully verified stock-OEM-to-stable boot reconstruction recipe is still
-missing. The installer refuses an unverified boot template by default.
+Pure ZUI14 stock boot is not a supported template. An already validated hybrid
+boot backup can also be supplied using `--stock-boot`.
 
 The original kernel binary release is [public v1](https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/tbj606f-a16-zui14-public-v1).
 See [installation instructions](Documentation/tbj606f/installation.md) and

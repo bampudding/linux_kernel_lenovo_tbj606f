@@ -21,6 +21,7 @@ MKBOOTIMG_DIR="$SELF_DIR"
 SERIAL=""
 GSI=""
 STOCK_BOOT=""
+ZUI12_STOCK_BOOT=""
 VENDOR_IMAGE=""
 ZUI14_VENDOR=""
 ZUI12_MODULES=""
@@ -37,7 +38,8 @@ OFFLINE=0
 usage() {
   cat <<'USAGE'
 Usage:
-  install.sh --serial SERIAL --stock-boot validated-boot-template.img \
+  install.sh --serial SERIAL \
+    [--zui12-stock-boot zui12-12.0.519-boot.img | --stock-boot validated-boot.img] \
     [--gsi system.img | --skip-system] \
     [--vendor-image hybrid-vendor.img |
      --zui14-vendor zui14-vendor.img --zui12-modules DIR | --skip-vendor] [options]
@@ -53,6 +55,8 @@ Options:
   --allow-other-vendor
   --release-tag TAG
   --offline          Require bundled Image and p11_audio_compat.ko (no network)
+  --zui12-stock-boot Use exact OEM ZUI12 12.0.519 boot to recreate validated boot
+  --stock-boot       Use an existing validated hybrid boot backup
 
 The script never wipes userdata. Every adb/fastboot command is scoped with
 -s SERIAL and non-TB-J606F/bengal devices are rejected.
@@ -67,6 +71,7 @@ while [ "$#" -gt 0 ]; do
     --serial) SERIAL=${2:?}; shift 2 ;;
     --gsi) GSI=${2:?}; shift 2 ;;
     --stock-boot) STOCK_BOOT=${2:?}; shift 2 ;;
+    --zui12-stock-boot) ZUI12_STOCK_BOOT=${2:?}; shift 2 ;;
     --vendor-image) VENDOR_IMAGE=${2:?}; shift 2 ;;
     --zui14-vendor) ZUI14_VENDOR=${2:?}; shift 2 ;;
     --zui12-modules) ZUI12_MODULES=${2:?}; shift 2 ;;
@@ -89,7 +94,14 @@ done
 if [ "$SKIP_SYSTEM" -eq 0 ]; then
   [ -f "$GSI" ] || die "--gsi file not found"
 fi
-[ -f "$STOCK_BOOT" ] || die "--stock-boot file not found"
+if [ -n "$STOCK_BOOT" ] && [ -n "$ZUI12_STOCK_BOOT" ]; then
+  die "choose --stock-boot OR --zui12-stock-boot"
+fi
+if [ -n "$ZUI12_STOCK_BOOT" ]; then
+  [ -f "$ZUI12_STOCK_BOOT" ] || die "--zui12-stock-boot file not found"
+else
+  [ -f "$STOCK_BOOT" ] || die "provide --zui12-stock-boot or --stock-boot"
+fi
 if [ "$SKIP_VENDOR" -eq 0 ]; then
   if [ -n "$VENDOR_IMAGE" ]; then
     [ -f "$VENDOR_IMAGE" ] || die "--vendor-image file not found"
@@ -146,7 +158,9 @@ note "validating local inputs"
 if [ "$SKIP_SYSTEM" -eq 0 ]; then
   check_hash "$GSI" "$EXPECTED_GSI_SHA256" "GSI" "$ALLOW_OTHER_GSI"
 fi
-check_hash "$STOCK_BOOT" "$EXPECTED_TEMPLATE_BOOT_SHA256" "validated ZUI12-DTB/EROFS boot template" "$ALLOW_OTHER_BOOT"
+if [ -n "$STOCK_BOOT" ]; then
+  check_hash "$STOCK_BOOT" "$EXPECTED_TEMPLATE_BOOT_SHA256" "validated ZUI12-DTB/EROFS boot template" "$ALLOW_OTHER_BOOT"
+fi
 
 download_asset() {
   name=$1 dest=$2
@@ -185,8 +199,17 @@ if [ "$SKIP_VENDOR" -eq 0 ]; then
 fi
 
 BOOT_IMAGE="$WORKDIR/boot-tbj606f-a16-zui14.img"
-note "repacking boot image"
-sh "$SELF_DIR/repack-boot.sh" "$STOCK_BOOT" "$KERNEL_IMAGE" "$BOOT_IMAGE" "$MKBOOTIMG_DIR"
+if [ -n "$ZUI12_STOCK_BOOT" ]; then
+  note "reconstructing validated boot from OEM ZUI12 12.0.519 boot"
+  python3 "$SELF_DIR/reconstruct-stable-boot.py" \
+    --zui12-boot "$ZUI12_STOCK_BOOT" --image "$KERNEL_IMAGE" --output "$BOOT_IMAGE"
+elif [ "$ALLOW_OTHER_BOOT" -eq 0 ]; then
+  note "using exact byte-verified hybrid boot backup"
+  cp "$STOCK_BOOT" "$BOOT_IMAGE"
+else
+  note "repacking unverified boot template (research override)"
+  sh "$SELF_DIR/repack-boot.sh" "$STOCK_BOOT" "$KERNEL_IMAGE" "$BOOT_IMAGE" "$MKBOOTIMG_DIR"
+fi
 BOOT_SHA=$(sha256_file "$BOOT_IMAGE")
 echo "$BOOT_SHA  $BOOT_IMAGE"
 if [ "$ALLOW_OTHER_BOOT" -eq 0 ] && [ "$BOOT_SHA" != "$EXPECTED_TESTED_BOOT_SHA256" ]; then

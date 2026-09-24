@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-only
 """Verify a locally extracted TB-J606F flash ZIP against bundled checksums."""
 import hashlib
 from pathlib import Path, PurePosixPath

@@ -2,14 +2,18 @@
 
 This page defines the supported, tested starting point for the Android
 16/ZUI14 hybrid and the inputs needed by `tools/tbj606f/install.sh`.
-For end users, download the single `tbj606f-a16-zui14-public-v4-flash-kit.zip`
-from the public-v4 GitHub Release, extract it, then follow `README-START-HERE.md`.
+For end users, download the single `tbj606f-a16-zui14-public-v5-flash-kit.zip`
+from the public-v5 GitHub Release, extract it, then follow `README-START-HERE.md`.
 The extracted installer uses the bundled tested kernel `Image` and
 `p11_audio_compat.ko` directly (no second download); in a source-only checkout
 it can download exactly those two pinned binaries from public v1. The hybrid
-vendor builder was added in the public-v2 lineage; public v4 is the unified
-non-proprietary flashing kit. Historical source-only releases are documented
-separately in `archive/release-reproducibility-audit.md`.
+vendor builder was added in the public-v2 lineage; public v5 is the unified
+non-proprietary flashing kit with exact ZUI12 OEM boot reconstruction. Historical source-only releases are documented
+separately in `archive/release-reproducibility-audit.md`. The ZIP can be
+recreated from this tag and the exact public-v1/v3 individual kernel assets
+using `python3 tools/tbj606f/make-flash-zip.py --kernel-assets /path/to/assets
+--output /path/to/tbj606f-a16-zui14-public-v5-flash-kit.zip`; the builder pins
+the tested Image/module checksums and produces a deterministic archive.
 
 ## Supported device
 
@@ -53,18 +57,31 @@ dtbo.img
 SHA256 b96a76f4ad1f80bfd9419433115a138d9e1e6fcd75384f2ffbd5aabaa15fd6b7
 ```
 
-The stock ZUI14 `boot.img` is a recorded provenance input but **must not** be
-passed directly as the validated boot template: its DTB and ramdisk differ from
-the stable ZUI12-DTB/EROFS-ramdisk hybrid. The installer requires the user's
-owner-provided validated boot backup (SHA256
-`93f9e9518fc9a20691ab0b3579b0c628e23522674e827fc57b8867945aedd635`)
-and replaces only its kernel. Repacking the exact stable backup with the
-published Image was independently reproduced byte-for-byte. The validated
-boot contains Lenovo content and is not distributed in the ZIP. No general
-original-stock-to-stable boot reconstruction recipe has yet been proven;
-therefore a first-time installer without the validated boot backup cannot
-claim to reproduce the tested boot from stock ZUI14 alone. `--allow-other-boot`
-is an unvalidated research override, not a supported installation method.
+The original ZUI14 `boot.img` is a provenance input but **must not** be used
+as the boot template: its DTB and ramdisk differ from the final hybrid. Public
+v5 provides `reconstruct-stable-boot.py` and the installer option
+`--zui12-stock-boot`: take the owner's exact **ZUI12 12.0.519 OEM boot.img**
+(SHA256 `d4e86ef850d4109a8b2b7a87bec82dd2c60cc68a6f0e3709e7bec0f74ff982d8`)
+and the released kernel Image, patch only the system fstab to EROFS, reconstruct
+the original tested ramdisk archive and kernel command line, and produce a
+byte-identical final hybrid boot (SHA256
+`93f9e9518fc9a20691ab0b3579b0c628e23522674e827fc57b8867945aedd635`).
+The complete boot image was independently regenerated from the archived ZUI12
+12.0.519 QFIL OEM image and the published v1 Image without using the tested
+boot as an input, and compared against the retained stable boot hash. The
+reconstructor refuses an unknown OEM boot/kernel and deletes any mismatched
+output. The stock ZUI12 image is supplied by the owner and is not distributed.
+
+Users with an existing validated stable hybrid boot backup can instead use
+`--stock-boot` (the original v4 path) with that same `93f9e951...` hash. When
+this byte-verified backup is selected, the installer uses its exact bytes
+without host-dependent re-compression. OEM ZUI12 boot reconstruction was tested
+on Fedora Linux; hosts with different gzip implementations may fail the
+expected-image hash check safely. On Mac, prepare the stable boot on Fedora,
+transfer only that owner-generated 14 MB boot to Mac, then pass it to
+`--stock-boot` while leaving the GSI at its original Mac path. The
+unmodified original ZUI14 boot with SHA256 `7356b6...` is not a supported
+boot input. `--allow-other-boot` remains an unvalidated research override.
 
 ### ZUI12 compatibility input
 
@@ -75,6 +92,10 @@ from this exact TB-J606F firmware family:
 TB-J606F_CN_WIFI_USER_Q00016.0_Q_ZUI_12.0.519_ST_210130.zip
 SHA256 db776ab8b7afe68467e0c853aafce3fb587a65f045dc33157b68a4a4e1547f62
 ```
+
+Extract `boot.img` as well as `/vendor/lib/modules` from this exact firmware.
+The original ZUI12 boot SHA256 must be
+`d4e86ef850d4109a8b2b7a87bec82dd2c60cc68a6f0e3709e7bec0f74ff982d8`.
 
 Do not substitute the ZUI14 `qca_cld3_wlan.ko` or ZUI14 audio DLKMs. They
 were not ABI-compatible with the stable custom kernel.
@@ -157,7 +178,7 @@ With a prepared hybrid vendor:
 ./install.sh --offline \
   --serial HA1E02DA \
   --gsi /path/to/LineageOS-23.2-20260524-GAPPS-EROFS-GSI.img \
-  --stock-boot /path/to/your-validated-boot-template.img \
+  --zui12-stock-boot /path/to/zui12-12.0.519/boot.img \
   --vendor-image /path/to/vendor-hybrid.img
 ```
 
@@ -167,18 +188,19 @@ Or, on Linux, build the hybrid vendor during the same run:
 ./install.sh --offline \
   --serial HA1E02DA \
   --gsi /path/to/LineageOS-23.2-20260524-GAPPS-EROFS-GSI.img \
-  --stock-boot /path/to/your-validated-boot-template.img \
+  --zui12-stock-boot /path/to/zui12-12.0.519/boot.img \
   --zui14-vendor /path/to/zui14-14.0.147/vendor.img \
   --zui12-modules /path/to/zui12-12.0.519/vendor/lib/modules
 ```
 
 When using the ZIP, run these commands from its extracted folder; in a source
 checkout use `./tools/tbj606f/install.sh` instead. Use `python3
-verify-package.py` in the extracted ZIP to verify all 16 bundled files, then
+verify-package.py` in the extracted ZIP to verify all 17 bundled files, then
 add `--dry-run` to the installation command to validate inputs and the
 connected device.
-It checks hashes, constructs the hybrid vendor when requested, repacks the boot
-image, and checks the connected Android device identity and vendor fingerprint.
+It checks hashes, constructs the hybrid vendor when requested, reproduces
+the exact tested hybrid boot from the owner-supplied ZUI12 OEM boot (or repacks
+an already validated boot backup), and checks the connected Android device identity and vendor fingerprint.
 It does not reboot the device or check bootloader unlock status, fastboot product,
 or partition capacities; these require entering fastboot/fastbootd in the normal
 installation flow. `--skip-system` omits the GSI argument, and `--skip-vendor`
@@ -187,7 +209,7 @@ installed. Use `--yes` for unattended flashing after verifying the command.
 
 The sequence is:
 
-1. validate firmware/GSI/release hashes and repack the tested boot image;
+1. validate firmware/GSI/release hashes and reconstruct the tested boot image;
 2. validate exact TB-J606F and ZUI14 14.0.147 vendor fingerprint over ADB;
 3. verify unlocked `bengal` bootloader;
 4. enter fastbootd and verify **both** logical partition sizes before any flash;
@@ -207,7 +229,7 @@ Have known-good firmware and a restore path available before installation.
 The script does not wipe userdata or perform logical partition resizing.
 
 The published `public-v1` Image/compatibility-module release used by the
-`public-v4` flash ZIP is pinned by
+`public-v5` flash ZIP is pinned by
 SHA256, along with the known-good GSI, validated boot template and hybrid vendor.
 `--allow-other-gsi`, `--allow-other-boot` and `--allow-other-vendor` bypass
 specific tested-image comparisons and make that combination unverified;

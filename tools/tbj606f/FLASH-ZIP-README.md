@@ -7,16 +7,18 @@
 ## 준비물 (ZIP에 포함되지 않음)
 
 - 언락된 TB-J606F, ADB 및 Fastboot 설치된 PC, USB 연결과 복구 가능한 원본 이미지.
-- 본인 기기/백업에서 확보한 **검증된 ZUI12 DTB + EROFS ramdisk 기반 boot**.
-  기준 SHA-256: `93f9e9518fc9a20691ab0b3579b0c628e23522674e827fc57b8867945aedd635`.
-  순정 ZUI14 `boot.img`는 호환 템플릿이 아니며 그대로 사용하면 검증된 boot가 생성되지 않습니다.
+- 본인 소유 **ZUI12 12.0.519 순정 `boot.img`** (권장):
+  SHA-256 `d4e86ef850d4109a8b2b7a87bec82dd2c60cc68a6f0e3709e7bec0f74ff982d8`.
+  ZIP의 재구성기가 이를 ZUI12 DTB + EROFS ramdisk 기반 검증된 boot로 바꿉니다.
+  기존 검증 boot 백업 SHA-256 `93f9e9518fc9a20691ab0b3579b0c628e23522674e827fc57b8867945aedd635`도
+  대안으로 사용할 수 있습니다. 순정 ZUI14 `boot.img`는 호환 템플릿이 아닙니다.
 - 해당 기기에 검증된 **ZUI14/ZUI12 hybrid `vendor.img`** 또는 Linux에서
   생성할 ZUI14 14.0.147 `vendor.img` + ZUI12 12.0.519 모듈 디렉터리.
 - LineageOS 23.2 Android 16 EROFS GSI (2026-05-24 빌드).
 
 원본 firmware, Qualcomm/Lenovo vendor, GSI 및 이미 구성된 hybrid vendor는
-라이선스와 크기 때문에 이 ZIP에 포함되지 않습니다. 일반 사용자가 최초로 설치하려면 검증된 템플릿/복구 경로를 별도로 준비해야 합니다.
-이 파일을 얻을 수 없는 상태에서 설치 성공을 보장하지 않습니다. 파일별 요구 SHA-256은
+라이선스와 크기 때문에 이 ZIP에 포함되지 않습니다. 첫 설치에는 소유한 ZUI12
+순정 boot와 ZUI14 vendor/ZUI12 모듈, 복구 경로를 준비하세요. 파일별 요구 SHA-256은
 `installation.md`와 `TESTED-IMAGE-HASHES.txt`에 기록되어 있습니다.
 
 ## 1. ZIP 검증
@@ -35,13 +37,22 @@ python3 verify-package.py
 bash ./install.sh --offline --dry-run \
   --serial HA1E02DA \
   --gsi /path/to/LineageOS-23.2-20260524-GAPPS-EROFS-GSI.img \
-  --stock-boot /path/to/your-validated-boot-template.img \
+  --zui12-stock-boot /path/to/zui12-12.0.519/boot.img \
   --vendor-image /path/to/your-verified-hybrid-vendor.img
 ```
 
 Linux에서 hybrid vendor를 직접 만들려면 `--vendor-image` 대신
 `--zui14-vendor /path/to/zui14/vendor.img --zui12-modules /path/to/zui12/vendor/lib/modules`
-옵션을 사용하세요. 전체 설명: `installation.md`.
+옵션을 사용하세요. 이미 검증된 hybrid boot 백업을 쓰려면
+`--zui12-stock-boot` 대신 `--stock-boot /path/to/validated-hybrid-boot.img`를
+사용하세요. 이미 검증된 boot 입력은 재압축하지 않고 검사 후 그대로 사용합니다.
+**ZUI12 원본 boot에서 새 boot 재생성은 Fedora Linux에서 검증됐습니다.**
+Mac에서 gzip 차이로 재구성 해시가 다르면 기기를 플래시하지 말고 ZIP과
+원본 ZUI12 boot를 Fedora에 두고 boot만 생성한 후 작은 검증 boot를 Mac으로
+옮겨 `--stock-boot`를 사용하세요. Mac에 있는 GSI는 이동하지 않습니다.
+`reconstruct-stable-boot.py`는 원본 ZUI12 boot/공개 Image로
+검증된 hybrid boot SHA-256 `93f9e951...`를 재현합니다. 전체 설명:
+`installation.md`.
 
 ## 3. 정상 검사 후 설치
 

@@ -1,22 +1,28 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-09-24T11:30:46.140172+00:00",
+  "generated_utc": "2026-09-24T11:38:56.609487+00:00",
   "repository": "bampudding/linux_kernel_lenovo_tbj606f",
   "source": "live GitHub asset API, local peeled tag commits, archived HDD SHA256 manifest",
   "hdd_manifest_generated_utc": "2026-09-24T10:54:07.334653+00:00",
   "old_github_catalog_generated_utc": "2026-09-24T10:57:21.628046+00:00",
   "old_github_catalog_release_count": 56,
   "old_github_catalog_asset_count": 229,
+  "audit_cutoff": "pre-v5 (v4 included; v4 historic 57-release snapshot unchanged)",
+  "zui12_stock_qfil_boot_sha256": "d4e86ef850d4109a8b2b7a87bec82dd2c60cc68a6f0e3709e7bec0f74ff982d8",
+  "stable_boot_sha256": "93f9e9518fc9a20691ab0b3579b0c628e23522674e827fc57b8867945aedd635",
+  "stable_boot_size_bytes": 14286848,
+  "post_v4_source_to_stable_boot_reconstruction_proven": true,
   "summary": {
-    "github_release_count": 57,
-    "github_asset_count": 250,
+    "github_release_count": 58,
+    "github_asset_count": 252,
     "missing_github_sha256_asset_count": 0,
-    "local_resolved_release_tag_count": 57,
-    "distinct_release_source_commit_count": 54,
+    "local_resolved_release_tag_count": 58,
+    "distinct_release_source_commit_count": 55,
     "asset_class_counts": {
       "installer-only": 1,
       "kernel-abi-bundle": 1,
       "kernel-and-helper-bundle": 1,
+      "single-flash-kit-zip-and-checksum": 1,
       "source-and-metadata-only": 54
     },
     "source_only_with_exact_hdd_image_boot_config_symvers": 37,
@@ -38,7 +44,7 @@
     ]
   ],
   "limits": [
-    "GitHub digests come from asset API metadata; no 250-asset redownload.",
+    "GitHub digests come from asset API metadata; not all assets were downloaded and rehashed.",
     "HDD manifest SHA256 records were generated previously, not rehashed now.",
     "Source tar/tag != exact rebuilt binary: toolchains, configs, signing keys and firmware matter.",
     "Historical tested names are not fresh device checks.",
@@ -3820,6 +3826,43 @@
       "hdd_exact_tag_complete_set": false,
       "hdd_validation_notes": [],
       "disposition": "source-matched v1-identical kernel + helper bundle; no OEM images",
+      "source_snapshot_proves_binary_reproduction": false,
+      "public_directly_flashable_oem_image": false
+    },
+    {
+      "tag": "tbj606f-a16-zui14-public-v4",
+      "source_commit": "4eeecc071ec2f8304ad5d6fec6cf5a4b483f312b",
+      "source_commit_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/commit/4eeecc071ec2f8304ad5d6fec6cf5a4b483f312b",
+      "release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/tbj606f-a16-zui14-public-v4",
+      "published_at": "2026-09-24T11:32:39Z",
+      "release_notes_sha256": "dbf5398acb994fd2890940cb73d4ffb5e0ce93debc0dcc85dd8b9f2d9b156fb4",
+      "class": "single-flash-kit-zip-and-checksum",
+      "source_tar_sha256": null,
+      "assets": [
+        {
+          "name": "tbj606f-a16-zui14-public-v4-SHA256SUMS.txt",
+          "size_bytes": 108,
+          "github_sha256": "d0f51d06b4b8365ebcd4ca8ddb9170e302c2ca586ff6967be3f2a0e75ddcda31",
+          "url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-public-v4/tbj606f-a16-zui14-public-v4-SHA256SUMS.txt",
+          "hdd_same_sha256_paths": []
+        },
+        {
+          "name": "tbj606f-a16-zui14-public-v4-flash-kit.zip",
+          "size_bytes": 25102179,
+          "github_sha256": "46b7c0a51bb4f49fb886f5d12036b33b4380c543fbe2d6453cfe5ad34e675e0b",
+          "url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-a16-zui14-public-v4/tbj606f-a16-zui14-public-v4-flash-kit.zip",
+          "hdd_same_sha256_paths": []
+        }
+      ],
+      "tag_source_blob_comparison": {},
+      "hdd_exact_tag_stage_files": [],
+      "hdd_image": [],
+      "hdd_boot": [],
+      "hdd_config": [],
+      "hdd_module_symvers": [],
+      "hdd_exact_tag_complete_set": false,
+      "hdd_validation_notes": [],
+      "disposition": "single ZIP plus checksum, historic pre-reconstruction kit; owner input still required",
       "source_snapshot_proves_binary_reproduction": false,
       "public_directly_flashable_oem_image": false
     }

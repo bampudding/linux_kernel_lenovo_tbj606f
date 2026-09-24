@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-only
 """Create a deterministic, verified end-user ZIP (no OEM firmware or GSI)."""
 import argparse
 import hashlib
@@ -15,7 +16,8 @@ EXPECTED = {
 BINARIES = ('Image', 'Image.gz', 'p11_audio_compat.ko', 'kernel.config',
             'Module.symvers', 'System.map', 'TESTED-IMAGE-HASHES.txt')
 SCRIPTS = ('install.sh', 'repack-boot.sh', 'make-hybrid-vendor.sh',
-           'mkbootimg.py', 'unpack_bootimg.py', 'gki/generate_gki_certificate.py')
+           'mkbootimg.py', 'unpack_bootimg.py', 'gki/generate_gki_certificate.py',
+           'reconstruct-stable-boot.py')
 
 
 def sha(content):
