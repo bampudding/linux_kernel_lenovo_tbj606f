@@ -4,7 +4,7 @@
 set -euo pipefail
 
 if (( $# != 3 && $# != 4 )); then
-  echo 'Usage: make-temp-sf-boot.sh STABLE_BOOT.img EXPERIMENTAL_RAW_Image OUTPUT_BOOT.img [--all-sf]' >&2
+  echo 'Usage: make-temp-sf-boot.sh STABLE_BOOT.img EXPERIMENTAL_RAW_Image OUTPUT_BOOT.img [--all-sf|--sf-and-composer]' >&2
   exit 2
 fi
 
@@ -14,8 +14,11 @@ output=$3
 self_dir=$(cd "$(dirname -- "$0")" && pwd)
 mode=1
 if (( $# == 4 )); then
-  [[ $4 == --all-sf ]] || { echo 'unknown experiment mode' >&2; exit 2; }
-  mode=2
+  case $4 in
+    --all-sf) mode=2 ;;
+    --sf-and-composer) mode=3 ;;
+    *) echo 'unknown experiment mode' >&2; exit 2 ;;
+  esac
 fi
 [[ -f $stable && -s $kernel ]] || { echo 'boot template/kernel missing' >&2; exit 1; }
 [[ ! -e $output ]] || { echo 'output already exists' >&2; exit 1; }

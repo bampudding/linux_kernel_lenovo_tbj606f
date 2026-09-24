@@ -72,6 +72,7 @@ DEFINE_STATIC_KEY_FALSE(cpusets_enabled_key);
  * SFMainPolicy and SFRenderEnginePolicy put these threads in the little-core
  * system-background cpuset. p11tune.sf_bigcpus=1 covers the main and
  * RenderEngine threads; mode 2 additionally covers all SF helper threads.
+ * Mode 3 also covers all threads of the Qualcomm composer service.
  * This is a boot-only experiment, disabled by default.
  */
 static unsigned int p11_sf_bigcpus __read_mostly;
@@ -80,7 +81,7 @@ static int __init p11_sf_bigcpus_setup(char *value)
 {
 	unsigned int mode;
 
-	if (kstrtouint(value, 0, &mode) || !mode || mode > 2)
+	if (kstrtouint(value, 0, &mode) || !mode || mode > 3)
 		return 0;
 
 	p11_sf_bigcpus = mode;
@@ -895,11 +896,17 @@ static bool p11_sf_cpuset_override(struct cpuset *cs, struct task_struct *p)
 {
 	char group_name[32];
 
-	if (!p11_sf_bigcpus || cs == &top_cpuset ||
-	    strcmp(p->group_leader->comm, "surfaceflinger") ||
-	    (p11_sf_bigcpus == 1 && p != p->group_leader &&
-	     strcmp(p->comm, "RenderEngine")))
+	if (!p11_sf_bigcpus || cs == &top_cpuset)
 		return false;
+
+	if (!strcmp(p->group_leader->comm, "surfaceflinger")) {
+		if (p11_sf_bigcpus == 1 && p != p->group_leader &&
+		    strcmp(p->comm, "RenderEngine"))
+			return false;
+	} else if (p11_sf_bigcpus != 3 ||
+		   strcmp(p->group_leader->comm, "composer-servic")) {
+		return false;
+	}
 
 	return cgroup_name(cs->css.cgroup, group_name,
 			   sizeof(group_name)) > 0 &&
