@@ -118,18 +118,31 @@ The archived original v5 SHA256 remained unchanged after image generation.
 
 ## Runtime validation (not yet done)
 
-The current device reported `ro.boot.flash.locked=1`,
-`ro.boot.vbmeta.device_state=locked`, `ro.debuggable=0`, and has no `su`.
-The adb shell cannot modify privileged cpusets or boot an unsigned image.
-**Neither candidate has been installed or benchmarked on the device.** Do not
-reboot to fastboot or attempt an unsigned flash while it is locked. Never
-modify `system_a`, wipe userdata, move the GSI from the Mac or modify other
-attached devices.
+The device reports `ro.boot.flash.locked=1`,
+`ro.boot.vbmeta.device_state=locked` inside Android and `ro.debuggable=0`,
+with no `su`. **These Android properties did not describe actual fastboot
+boot availability**: `fastboot -s "$MY_P11_SERIAL" getvar unlocked` returned
+`yes`, and serial-scoped `fastboot boot` of the exact stable boot image
+(SHA256 `93f9e9518fc9a20691ab0b3579b0c628e23522674e827fc57b8867945aedd635`)
+returned `Booting OKAY`; Android reached `sys.boot_completed=1` afterwards.
+The shell still cannot modify privileged cpusets, but temporary `boot.img`
+experiments are verified possible. **Neither vendor candidate has been
+installed or benchmarked on the device**, since fastboot boot accepts a
+boot image, not a vendor filesystem image. Never modify `system_a`, wipe
+userdata, move the GSI from the Mac or modify other attached devices.
 
 When the device is in a verified flash-capable, recoverable engineering state,
 keep the current working vendor backup and test one candidate at a time using
 the established project installation/rollback flow. Do not replace the stable
 release's verified hash with an experiment's hash.
+
+For the user's temporary-boot-only phase, the separate
+`perf/tbj606f-temporary-boot-sf-cpuset` branch adds a boot-commandline-gated
+kernel diagnostic that models the narrower SF-only cpuset test without
+modifying any flashed partition. This kernel exception is a diagnostic and
+must not become the production kernel or be confused with a tested vendor
+image. Resume vendor image validation only after an explicit change in the
+temporary-boot-only requirement.
 
 Run the benchmark **from the Mac**, with only the P11 serial:
 

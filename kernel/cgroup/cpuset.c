@@ -67,6 +67,26 @@
 DEFINE_STATIC_KEY_FALSE(cpusets_pre_enable_key);
 DEFINE_STATIC_KEY_FALSE(cpusets_enabled_key);
 
+/*
+ * TB-J606F temporary-boot diagnostic only. The Android 16 GSI's stock
+ * SFMainPolicy and SFRenderEnginePolicy put these threads in the little-core
+ * system-background cpuset. With p11tune.sf_bigcpus=1, test whether access
+ * to the full online CPU mask improves composition deadlines, without
+ * changing the installed system or vendor image. Disabled by default.
+ */
+static bool p11_sf_bigcpus __read_mostly;
+
+static int __init p11_sf_bigcpus_setup(char *value)
+{
+	if (kstrtobool(value, &p11_sf_bigcpus))
+		return 0;
+
+	pr_info("P11 cpuset experiment: SF big cores %s\n",
+		p11_sf_bigcpus ? "enabled" : "disabled");
+	return 1;
+}
+__setup("p11tune.sf_bigcpus=", p11_sf_bigcpus_setup);
+
 /* See "Frequency meter" comments, below. */
 
 struct fmeter {
@@ -869,10 +889,35 @@ void rebuild_sched_domains(void)
 	put_online_cpus();
 }
 
+static bool p11_sf_cpuset_override(struct cpuset *cs, struct task_struct *p)
+{
+	char group_name[32];
+
+	if (!p11_sf_bigcpus || cs == &top_cpuset ||
+	    strcmp(p->group_leader->comm, "surfaceflinger") ||
+	    (p != p->group_leader && strcmp(p->comm, "RenderEngine")))
+		return false;
+
+	return cgroup_name(cs->css.cgroup, group_name,
+			   sizeof(group_name)) > 0 &&
+	       !strcmp(group_name, "system-background");
+}
+
 static int update_cpus_allowed(struct cpuset *cs, struct task_struct *p,
 			       const struct cpumask *new_mask)
 {
 	int ret;
+
+	if (unlikely(p11_sf_cpuset_override(cs, p))) {
+		cpumask_t allowed;
+
+		/* Do not widen an affinity explicitly narrowed by userspace. */
+		cpumask_and(&allowed, top_cpuset.effective_cpus,
+			    &p->cpus_requested);
+		cpumask_and(&allowed, &allowed, cpu_active_mask);
+		if (!cpumask_empty(&allowed))
+			return set_cpus_allowed_ptr(p, &allowed);
+	}
 
 	if (cpumask_subset(&p->cpus_requested, cs->cpus_requested)) {
 		ret = set_cpus_allowed_ptr(p, &p->cpus_requested);
@@ -2466,10 +2511,18 @@ void __init cpuset_init_smp(void)
 void cpuset_cpus_allowed(struct task_struct *tsk, struct cpumask *pmask)
 {
 	unsigned long flags;
+	struct cpuset *cs;
 
 	spin_lock_irqsave(&callback_lock, flags);
 	rcu_read_lock();
-	guarantee_online_cpus(task_cs(tsk), pmask);
+	cs = task_cs(tsk);
+	if (unlikely(p11_sf_cpuset_override(cs, tsk))) {
+		cpumask_and(pmask, top_cpuset.effective_cpus, cpu_active_mask);
+		if (cpumask_empty(pmask))
+			guarantee_online_cpus(cs, pmask);
+	} else {
+		guarantee_online_cpus(cs, pmask);
+	}
 	rcu_read_unlock();
 	spin_unlock_irqrestore(&callback_lock, flags);
 }
