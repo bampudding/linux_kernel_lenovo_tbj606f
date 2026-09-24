@@ -72,6 +72,25 @@ Build the kernel on a fast local filesystem:
     export CROSS_DIR=/path/to/aarch64-linux-android-4.9/bin
     ./tools/tbj606f/build-kernel.sh
 
+The build helper starts from vendor/bengal-perf_defconfig and merges
+tools/tbj606f/configs/android16-zui14.config. A clean verification build
+reproduced the validated stable .config exactly:
+
+    36270e3c45eb9e663e71eef8579617f09ad25d7732d009d5d4c1ea96f55bf734
+
+It also reproduced the stable Module.symvers exactly:
+
+    dc7acfa28137adf12a3d7fae68ed0c9fe80a71a675abeada5653cb6344b37b13
+
+The raw Image is not expected to be byte-identical from a clean public build
+because CONFIG_MODULE_SIG_ALL generates a new build-local signing key and
+certificate. Those private build keys are deliberately not committed. Kernel
+config, exported symbol ABI, source, compiler family and release string are
+reproducible without publishing a private signing key.
+
+For release-forensics work, KBUILD_BUILD_VERSION, KBUILD_BUILD_TIMESTAMP,
+KBUILD_BUILD_USER and KBUILD_BUILD_HOST can also be set explicitly.
+
 Build the audio compatibility module against exactly the same output tree:
 
     export KERNEL_SRC=$PWD
@@ -79,15 +98,14 @@ Build the audio compatibility module against exactly the same output tree:
 
 Repack a known-good boot template while keeping its ramdisk and DTB unchanged:
 
-    ./tools/tbj606f/repack-boot.sh         stock-or-known-good-boot.img         "$KERNEL_OUT/arch/arm64/boot/Image"         boot-test.img         /path/to/mkbootimg
+    ./tools/tbj606f/repack-boot.sh stock-or-known-good-boot.img "$KERNEL_OUT/arch/arm64/boot/Image" boot-test.img /path/to/mkbootimg
 
-For the validated stable Image, the repacker reproduces the tested boot image
-byte-for-byte.
+The repacker itself is deterministic: when given the validated stable raw
+Image and boot template it reproduced the tested boot image byte-for-byte.
 
 Build a hybrid vendor image from firmware extracted by the device owner:
 
-    ./tools/tbj606f/make-hybrid-vendor.sh         zui14-vendor-base.img         /path/to/zui12/modules         tools/tbj606f/audio-compat/p11_audio_compat.ko         vendor-hybrid.img
-
+    ./tools/tbj606f/make-hybrid-vendor.sh zui14-vendor-base.img /path/to/zui12/modules tools/tbj606f/audio-compat/p11_audio_compat.ko vendor-hybrid.img
 ## Device testing
 
 Always scope Android tools to the intended device serial.
