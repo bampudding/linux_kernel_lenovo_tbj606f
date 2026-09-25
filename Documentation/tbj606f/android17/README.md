@@ -139,8 +139,10 @@ python3 "$W/tools/tbj606f/android17/preflight_gsi.py" \
 
 Preflight accepts raw ext4 and Android sparse images and is read-only;
 all sparse decoding happens temporarily on the HDD, not small `/root`.
-It rejects absent/wrong platform 30.0 mapping and notes system_ext,
-product, LLNDK/VNDK checks that may require other partition images.
+It requires SDK37 (Android17) by default, rejects Android16 controls
+unless explicitly run with `--require-sdk 36`, rejects absent/wrong
+platform 30.0 mapping and notes system_ext, product, LLNDK/VNDK checks
+that may require other partition images.
 The shipped Android16 control passes; malformed images are rejected.
 `preflight_gsi.py` does **not** claim that a mapping exists in an
 Android17 GSI not supplied for P11.

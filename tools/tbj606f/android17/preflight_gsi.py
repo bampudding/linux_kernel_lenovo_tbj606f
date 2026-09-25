@@ -62,6 +62,8 @@ def main():
                    help='P11 extracted vendor/etc, not another tablet')
     p.add_argument('--scratch-dir',required=True,type=Path,
                    help='HDD path for possible sparse -> raw decode')
+    p.add_argument('--require-sdk',type=int,default=37,
+                   help='Required GSI SDK (37=Android17, 36=Android16 control)')
     p.add_argument('--json-out',type=Path)
     args=p.parse_args()
     vendor=args.vendor_dir/'selinux/plat_sepolicy_vers.txt'
@@ -70,6 +72,9 @@ def main():
     policy=vendor.read_text(errors='replace').strip()
     if not re.fullmatch(r'\d+\.0',policy):
         p.error('Vendor SELinux policy version malformed: '+repr(policy))
+    manifest=args.vendor_dir/'vintf/manifest.xml'
+    if not manifest.is_file() or not re.search(r'<manifest[^>]+target-level="5"',manifest.read_text()):
+        p.error('Vendor directory is not the expected P11 ZUI14 FCM5 source')
     if not args.scratch_dir.is_dir():
         p.error('Preexisting scratch directory must be on HDD')
     result={'vendor_policy_abi':policy,'source_system_image':str(args.system_img),
@@ -102,6 +107,12 @@ def main():
                     if m:result['checks'][key][prop]=m.group(1).decode(errors='replace').strip()
     # These files may be served by separate product/system_ext images; never
     # assert correctness based on their absence from only system.img.
+    props=result['checks']['build_props']
+    if props.get('ro.build.version.sdk')!=str(args.require_sdk):
+        result['errors'].append(
+            f'Expected SDK {args.require_sdk}, found '
+            f'{props.get("ro.build.version.sdk", "missing")} in supplied system.img')
+    result['checks']['build_props']['expected_sdk']=args.require_sdk
     if not result['checks']['system_ext_30']['present'] or not result['checks']['product_30']['present']:
         result['warnings'].append('Check separately mounted system_ext/product policies and their '+policy+'.cil mapping when present')
     if not result['checks']['vndk_compat']['present']:
