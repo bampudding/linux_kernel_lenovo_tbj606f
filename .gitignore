@@ -138,3 +138,7 @@ kernel/configs/android-*.cfg
 
 # vendor device tree directories
 arch/arm64/boot/dts/vendor/
+
+# Python boot-image packaging helpers
+__pycache__/
+*.pyc
