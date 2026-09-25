@@ -114,6 +114,26 @@ The shipped Android16 control passes; malformed images are rejected.
 `preflight_gsi.py` does **not** claim that a mapping exists in an
 Android17 GSI not supplied for P11.
 
+## Existing LineageOS 16 combined-policy caveat, experimentally tested
+
+As a negative control, the **already-running P11 Android16** LineageOS
+system image was read via debugfs (no mounts or image edits) and
+`secilc -m -M true -G -c 31` was run with its platform policy, genuine
+30.0 mapping/compat CIL, system_ext CIL and the actual ZUI14 hybrid
+vendor's `plat_pub_versioned.cil` + `vendor_sepolicy.cil`. With
+neverallow checks **enabled**, this independent source-level recompilation
+failed due preexisting Lineage PHH `phhsu_daemon` broad `property_type`
+set rules and vendor exported property assignments. Its log is at
+`/root/HDD/user0/P11/android17-gsi-compat/a16-control-merge/secilc.log`
+(HDD only). The installed Android16 combination still boots, so the
+standalone test is not equivalent to its precompiled policy, build-time
+exemptions, or actual init's policy assembly. This is **not evidence
+of an Android17-specific regression**, nor permission to suppress
+neverallows in a replacement SELinux policy. A matching A17 build must
+be checked with the complete build policy, no arbitrary permissive
+or `-N` workaround. The control makes the acceptance criterion more
+precise than simply checking 30.0 mapping file presence.
+
 ## First flash-free checks once the image exists
 
 1. Verify the official ZIP SHA256 (not just the `.img` digest), file
