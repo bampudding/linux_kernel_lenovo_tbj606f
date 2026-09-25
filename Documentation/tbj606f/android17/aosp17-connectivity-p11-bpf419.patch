@@ -1,0 +1,37 @@
+diff --git a/bpf/loader/NetBpfLoad.cpp b/bpf/loader/NetBpfLoad.cpp
+index 7ba3247..ad2bef4 100644
+--- a/bpf/loader/NetBpfLoad.cpp
++++ b/bpf/loader/NetBpfLoad.cpp
+@@ -1566,16 +1566,30 @@ static int doLoad(char** argv, char * const envp[]) {
+         return 5;
+     }
+ 
++    // P11 legacy-BSP experiment ONLY, not a general relaxation of the
++    // Android 17 kernel contract. This does not fake the kernel release:
++    // actual eBPF program/helper/syscall feature failures must still abort.
++    // Enable only on the exact J606F Bengal launch-vendor with a fully
++    // updated 4.19.325 base, NEVER on other Qualcomm or 4.19.157 images.
++    const bool p11Legacy419 =
++            GetProperty("ro.product.vendor.device", "") == "J606F" &&
++            GetProperty("ro.board.platform", "") == "bengal" &&
++            GetIntProperty("ro.vendor.build.version.sdk", 0) == 30 &&
++            isKernelVersion(4, 19) && isAtLeastKernelVersion(4, 19, 325);
++    if (p11Legacy419) {
++        ALOGW("P11 A17 bring-up: kernel 4.19.325 legacy BSP; retain actual eBPF feature checks");
++    }
++
+     // 25Q2 bumps the kernel requirement up to 5.4
+     // see also: //system/netd/tests/kernel_test.cpp TestKernel54
+-    if (isAtLeast25Q2 && !isAtLeastKernelVersion(5, 4)) {
++    if (isAtLeast25Q2 && !isAtLeastKernelVersion(5, 4) && !p11Legacy419) {
+         ALOGE("Android 25Q2 requires kernel 5.4.");
+         return 6;
+     }
+ 
+     // 25Q4 bumps the kernel requirement up to 5.10
+     // see also: //system/netd/tests/kernel_test.cpp TestKernel510
+-    if (isAtLeast25Q4 && !isAtLeastKernelVersion(5, 10)) {
++    if (isAtLeast25Q4 && !isAtLeastKernelVersion(5, 10) && !p11Legacy419) {
+         ALOGE("Android 25Q4 requires kernel 5.10.");
+         return 7;
+     }
