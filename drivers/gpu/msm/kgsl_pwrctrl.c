@@ -32,6 +32,40 @@
 
 #define DEFAULT_BUS_P 25
 
+/*
+ * TB-J606F temporary-boot diagnostic only.  Native eFuse speed-bin 0xc8
+ * supports 950, 900, 820, 745, 600, 465 and 320 MHz.  This trial retains
+ * the stock 950 MHz ceiling and excludes 320 (or 320+465) MHz ONLY while
+ * GPU is active; it is disabled unless the explicit boot flag is present.
+ */
+static unsigned int p11_gpu_floor_mhz __read_mostly;
+static unsigned int p11_gpu_floor_index __read_mostly;
+
+static int __init p11_gpu_floor_setup(char *value)
+{
+	unsigned int mhz;
+
+	if (kstrtouint(value, 0, &mhz) || (mhz != 465 && mhz != 600))
+		return 0;
+
+	p11_gpu_floor_mhz = mhz;
+	pr_info("P11 GPU floor experiment requested: %u MHz\n", mhz);
+	return 1;
+}
+__setup("p11.f=", p11_gpu_floor_setup);
+
+static bool p11_gpu_verified_pwrlevels(struct kgsl_pwrctrl *pwr)
+{
+	return pwr->num_pwrlevels == 8 &&
+		pwr->pwrlevels[0].gpu_freq == 950000000U &&
+		pwr->pwrlevels[1].gpu_freq == 900000000U &&
+		pwr->pwrlevels[2].gpu_freq == 820000000U &&
+		pwr->pwrlevels[3].gpu_freq == 745000000U &&
+		pwr->pwrlevels[4].gpu_freq == 600000000U &&
+		pwr->pwrlevels[5].gpu_freq == 465000000U &&
+		pwr->pwrlevels[6].gpu_freq == 320000000U;
+}
+
 /* Order deeply matters here because reasons. New entries go on the end */
 static const char * const clocks[] = {
 	"src_clk",
@@ -179,6 +213,14 @@ static unsigned int _adjust_pwrlevel(struct kgsl_pwrctrl *pwr, int level,
 					pwr->thermal_pwrlevel_floor);
 	min_pwrlevel = max_t(unsigned int, min_pwrlevel,
 					pwr->thermal_pwrlevel);
+
+	/* Keep hardware thermal/user cap authoritative even during this trial. */
+	if (p11_gpu_floor_index) {
+		min_pwrlevel = min_t(unsigned int, min_pwrlevel,
+					p11_gpu_floor_index);
+		min_pwrlevel = max_t(unsigned int, min_pwrlevel,
+					max_pwrlevel);
+	}
 
 	switch (pwrc->type) {
 	case KGSL_CONSTRAINT_PWRLEVEL: {
@@ -2299,6 +2341,16 @@ int kgsl_pwrctrl_init(struct kgsl_device *device)
 
 		if (freq >= pwr->pwrlevels[i].gpu_freq)
 			pwr->pwrlevels[i].gpu_freq = freq;
+	}
+
+	if (p11_gpu_floor_mhz && device->id == KGSL_DEVICE_3D0) {
+		if (p11_gpu_verified_pwrlevels(pwr)) {
+			p11_gpu_floor_index = p11_gpu_floor_mhz == 465 ? 5 : 4;
+			pr_info("P11 GPU: verified native 950 MHz top; ACTIVE floor %u MHz (index %u)\n",
+				p11_gpu_floor_mhz, p11_gpu_floor_index);
+		} else {
+			pr_warn("P11 GPU: native-bin table mismatch; floor experiment disabled\n");
+		}
 	}
 
 	kgsl_pwrctrl_disable_unused_opp(device, &pdev->dev);
