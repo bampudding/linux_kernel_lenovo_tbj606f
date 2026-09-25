@@ -64,21 +64,24 @@ static void do_partner_resume_event(struct work_struct *work);
 
 static struct workqueue_struct *workqueue;
 
-/* A/B only: request a native 600MHz level on real busy GPU samples;
+/* A/B only: request native 600 or 950MHz on busy GPU samples;
  * unlike the old global p11.f floor this never changes KGSL/thermal limits.
  */
-static bool p11_gpu_busy600_requested;
-static bool p11_gpu_busy600_eligible;
+static unsigned int p11_gpu_busy_target;
+static bool p11_gpu_busy_eligible;
 
-static int __init p11_gpu_busy600_setup(char *str)
+static int __init p11_gpu_busy_setup(char *str)
 {
-	if (strcmp(str, "600"))
+	if (!strcmp(str, "600"))
+		p11_gpu_busy_target = 600;
+	else if (!strcmp(str, "950"))
+		p11_gpu_busy_target = 950;
+	else
 		return 0;
 
-	p11_gpu_busy600_requested = true;
 	return 1;
 }
-__setup("p11.gb=", p11_gpu_busy600_setup);
+__setup("p11.gb=", p11_gpu_busy_setup);
 
 /*
  * Returns GPU suspend time in millisecond.
@@ -438,17 +441,20 @@ static int tz_get_target_freq(struct devfreq *devfreq, unsigned long *freq)
 					&val, sizeof(val), priv);
 	}
 	/*
-	 * Only the verified native TB-J606F speed-bin frequencies are eligible.
-	 * TZ still evaluates every sample normally; on a sustained >=40%% busy
-	 * window (>=3ms real work), avoid returning 320/465MHz for the NEXT
-	 * UI batch. Do not alter idle, bounds, thermal or the 950MHz top.
+	 * Only verified native TB-J606F bins are eligible; on >=40% busy,
+	 * request 600MHz or native max950MHz for the next command batch.
+	 * Leave idle, thermal bounds and clock table unchanged.
 	 */
-	if (p11_gpu_busy600_eligible && priv->bin.busy_time >= 3000 &&
-		priv->bin.busy_time * 100 >= priv->bin.total_time * 40) {
+	if (p11_gpu_busy_eligible && priv->bin.total_time > 0 &&
+		priv->bin.busy_time >= 3000 &&
+		priv->bin.busy_time <= priv->bin.total_time &&
+		(u64)priv->bin.busy_time * 100 >=
+			(u64)priv->bin.total_time * 40) {
+		int target_level = p11_gpu_busy_target == 950 ? 0 : 4;
 		int predicted_level = level + val;
 
-		if (predicted_level > 4)
-			val = 4 - level;
+		if (predicted_level > target_level)
+			val = target_level - level;
 	}
 
 	priv->bin.total_time = 0;
@@ -516,7 +522,7 @@ static int tz_start(struct devfreq *devfreq)
 	partner_gpu_profile = gpu_profile;
 
 	/* Strictly opt in and check the whole 0xc8/native 7-bin GPU table. */
-	p11_gpu_busy600_eligible = p11_gpu_busy600_requested &&
+	p11_gpu_busy_eligible = p11_gpu_busy_target &&
 		devfreq->profile->max_state == 7 &&
 		devfreq->profile->freq_table[0] == 950000000UL &&
 		devfreq->profile->freq_table[1] == 900000000UL &&
@@ -525,9 +531,10 @@ static int tz_start(struct devfreq *devfreq)
 		devfreq->profile->freq_table[4] == 600000000UL &&
 		devfreq->profile->freq_table[5] == 465000000UL &&
 		devfreq->profile->freq_table[6] == 320000000UL;
-	if (p11_gpu_busy600_requested)
-		pr_info(TAG "p11: native GPU busy600 %s (governor+thermal intact)\n",
-			p11_gpu_busy600_eligible ? "enabled" : "rejected: table mismatch");
+	if (p11_gpu_busy_target)
+		pr_info(TAG "p11: native GPU busy%u %s (governor+thermal intact)\n",
+			p11_gpu_busy_target,
+			p11_gpu_busy_eligible ? "enabled" : "rejected: table mismatch");
 
 	priv = devfreq->data;
 	priv->nb.notifier_call = tz_notify;
