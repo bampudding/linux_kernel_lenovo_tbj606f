@@ -39,6 +39,19 @@ QS deadline misses to 15–19% but was restored; lowering the resolution is
 **not** the production fix. Original data: HDD
 `experiments/scroll-performance-20260924/boot-only/display-corruption-and-boost-20260924/README.md`.
 
+## Qualcomm vendor scroll hints (live config inspected, not activated)
+
+The installed ZUI14 hybrid vendor's `/vendor/etc/perf/perfboostsconfig.xml`
+has `bengal` vertical/horizontal scroll resource `0x00001080`, with GPU/CPU
+bandwidth and little/big CPU floor requests. This establishes that native
+vendor support is configured; it does **not** establish whether Android 16
+Quickstep icon dragging calls those Qualcomm scroll hints or whether this
+specific vendor performance HAL actually applies them on a physical finger
+movement. Do not duplicate the old 180 ms CPU-boost experiment based on
+this XML alone. Also the live `debug.egl.buffcount` currently reads `4`, but
+changing it without before/after gesture traces could trade latency for
+jank or complicate the separate rendering-corruption investigation.
+
 ## First discriminating test: manual physical gestures
 
 Mac attached to the **exact** TB-J606F serial, display already awake and
