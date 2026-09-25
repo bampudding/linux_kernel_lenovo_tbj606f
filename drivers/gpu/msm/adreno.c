@@ -43,6 +43,18 @@ static struct devfreq_msm_adreno_tz_data adreno_tz_data = {
 static const struct kgsl_functable adreno_functable;
 
 static unsigned int p11_gpu_top_freq;
+/* Opt-in, native-bin GPU wake-only trial: NO permanent minimum clock. */
+static bool p11_gpu_native_wake465;
+
+static int __init p11_gpu_wake_setup(char *str)
+{
+	if (strcmp(str, "465"))
+		return 0;
+
+	p11_gpu_native_wake465 = true;
+	return 1;
+}
+__setup("p11.gw=", p11_gpu_wake_setup);
 
 #define P11_GPU_NATIVE_SPEED_BIN 0xc8
 #define P11_GPU_NATIVE_TOP_FREQ 950000000U
@@ -1023,6 +1035,26 @@ static void adreno_of_get_initial_pwrlevel(struct adreno_device *adreno_dev,
 
 	if (init_level < 0 || init_level > pwr->num_pwrlevels)
 		init_level = 1;
+
+	/*
+	 * The archived TB-J606F 0xc8 DTB starts a sleeping GPU at 320MHz.
+	 * A strictly opt-in 465MHz WAKE level can shorten its first frame;
+	 * do not change min_pwrlevel, thermal bounds, governor or OPPs.
+	 * The governor is still allowed to return to 320MHz immediately.
+	 */
+	if (p11_gpu_native_wake465 &&
+		adreno_dev->speed_bin == P11_GPU_NATIVE_SPEED_BIN &&
+		pwr->num_pwrlevels == 8 && init_level == 6 &&
+		pwr->pwrlevels[0].gpu_freq == P11_GPU_NATIVE_TOP_FREQ &&
+		pwr->pwrlevels[5].gpu_freq == 465000000U &&
+		pwr->pwrlevels[6].gpu_freq == 320000000U) {
+		init_level = 5;
+		dev_info(device->dev,
+			"p11: verified native GPU wake 320 -> 465MHz (governor and thermal unchanged)\n");
+	} else if (p11_gpu_native_wake465) {
+		dev_warn(device->dev,
+			"p11: GPU wake465 skipped: native-bin/pwrlevels mismatch\n");
+	}
 
 	pwr->active_pwrlevel = init_level;
 	pwr->default_pwrlevel = init_level;
