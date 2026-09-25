@@ -44,7 +44,34 @@ SHA256s verified. It has **NOT** been built with a complete AOSP17
 Soong tree; an actual compiled system image and secilc/vendor policy
 merge are still necessary for final acceptance.
 
-## Source patch 2: P11-only Android17 BPF version gate
+## Source patch 2: restore Android 11-era VINTF FCM5 fragment
+
+Actual P11 ZUI14 hybrid vendor declares VINTF FCM target level **5**.
+The official Android17 `hardware/interfaces` compatibility-matrix source
+(tag `android-17.0.0_r1`, SHA
+`0162af698935100a590b7359581ac8b1b80693e5`) only packages FCM
+7/8 and 202404/202504/202604: it omits FCM5 and FCM6 present in
+this P11's booted Android16 Lineage GSI. The A17 `libvintf` source
+still recognizes FCM level 5 and combines any higher FCM matrices
+as optional fragments, but the source bundle's supported-version list
+is a separate concrete mismatch worth fixing.
+
+`aosp17-fcm5-p11.patch` restores the **byte-identical** 295-byte A16
+FCM5 compatibility matrix placeholder and the A17 Soong module/
+`SYSTEM_MATRIX_DEPS_A17` packaging. FCM5 was already formally
+deprecated in A16 and is a placeholder, **not** a complete historical
+HAL contract or permission to suppress VINTF incompatibilities.
+The missing FCM6 kernel-config map is not blindly recreated because its
+build dependencies were removed; full target-level5 device VINTF
+compatibility still requires generated Android17 framework matrices
+and the actual P11 device manifest to be checked together.
+
+`verify_fcm5_source.py` confirms target5, byte-identical upstream A16
+snapshot and exactly one A17 Soong module/packaging entry. A17 source
+commit `8ef0c22e3cbd902f376aae2af7b3f03a54ca4d5f`, based on
+`0162af698935100a590b7359581ac8b1b80693e5`.
+
+## Source patch 3: P11-only Android17 BPF version gate
 
 **Critical newly confirmed independent blocker**: AOSP17
 `packages/modules/Connectivity/bpf/loader/NetBpfLoad.cpp` tag
@@ -100,6 +127,10 @@ python3 "$W/tools/tbj606f/android17/verify_compat30_source.py" \
   --a17-sepolicy "$R/system-sepolicy" --p11-vendor-etc "$V"
 python3 "$W/tools/tbj606f/android17/verify_bpf_guard.py" \
   --connectivity-source "$R/aosp17-connectivity"
+python3 "$W/tools/tbj606f/android17/verify_fcm5_source.py" \
+  --a17-hardware-interfaces "$R/hardware-interfaces" \
+  --a16-hardware-interfaces "$R/hardware-interfaces-a16" \
+  --p11-vendor-etc "$V"
 # When an Android17 ARM64 GSI system.img exists in P11's HDD directory:
 python3 "$W/tools/tbj606f/android17/preflight_gsi.py" \
   --vendor-dir "$V" --scratch-dir "$R" \

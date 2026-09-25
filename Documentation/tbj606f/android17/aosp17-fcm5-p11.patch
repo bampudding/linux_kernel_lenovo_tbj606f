@@ -1,0 +1,44 @@
+diff --git a/compatibility_matrices/Android.bp b/compatibility_matrices/Android.bp
+index e34fdca..4faaa72 100644
+--- a/compatibility_matrices/Android.bp
++++ b/compatibility_matrices/Android.bp
+@@ -43,6 +43,9 @@ SYSTEM_MATRIX_DEPS_A18 = [
+ 
+ // These are the FCMs that are still supported during QPRs
+ SYSTEM_MATRIX_DEPS_A17 = [
++    // P11 legacy Android11 vendor (manifest target-level=5): restore
++    // the archived A16/R placeholder that A17 dropped by default.
++    "framework_compatibility_matrix.5.xml",
+     "framework_compatibility_matrix.7.xml",
+     "framework_compatibility_matrix.8.xml",
+     "framework_compatibility_matrix.202404.xml",
+@@ -79,7 +82,15 @@ phony {
+     }),
+ }
+ 
+-////////////////////////////////////////////
++////////////// Legacy FCM5 compatibility module; source is the exact Android16 AOSP
++// 5.xml placeholder. Intentionally no dropped 5.4 kernel config module.
++vintf_compatibility_matrix {
++    name: "framework_compatibility_matrix.5.xml",
++    stem: "compatibility_matrix.5.xml",
++    srcs: ["compatibility_matrix.5.xml"],
++}
++
++////////////////////////////////
+ // AUTO GENERATED MODULES
+ // DO NOT ADD MORE MODULES BELOW THIS LINE
+ ////////////////////////////////////////////
+diff --git a/compatibility_matrices/compatibility_matrix.5.xml b/compatibility_matrices/compatibility_matrix.5.xml
+new file mode 100644
+index 0000000..d01a6ea
+--- /dev/null
++++ b/compatibility_matrices/compatibility_matrix.5.xml
+@@ -0,0 +1,7 @@
++<compatibility-matrix version="1.0" type="framework" level="5">
++  <!--
++    Android R FCM has been deprecated, but this file is kept
++    to help manage the android11-5.4 kernel config requirements as that
++    kernel version is not being deprecated with the R FCM.
++    -->
++</compatibility-matrix>
