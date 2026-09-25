@@ -1,0 +1,2770 @@
+{
+  "schema_version": 1,
+  "observed_utc": "2026-09-25T00:10:12.711735+00:00",
+  "source_repo": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f",
+  "historical_release_audit_snapshot": "release-reproducibility-audit.json",
+  "tagged_hdd_complete_stages": 37,
+  "supplementary_tagged_package_bytes": 464614385,
+  "supplementary_tagged_assets": [
+    {
+      "tag": "zui12-audiofix-baseline-20260917",
+      "archive_name": "tbj606f-legacy-kernel-zui12-audiofix-baseline-20260917.tar.gz",
+      "source_commit": "12dbd275a7bc3c0d2d80ed95a036ad2035e2f9a6",
+      "sha256": "e70b3e4052cb9d6d5ff7d76ba1417b2275d81d535b455027ea269fa3e13ec6d6",
+      "bytes": 12457733,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-audiofix-baseline-20260917/Image",
+          "bytes": 30601728,
+          "sha256": "6454998052b267c2ca36ce577da781ad330ea47476c8859e9c50a72783178d38",
+          "mtime_ns": 1789639567174114700,
+          "inode": 33563921
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-audiofix-baseline-20260917/Module.symvers",
+          "bytes": 633454,
+          "sha256": "b8feef4d00b3234235d3258c028e568fe8e3283ed81bc8757d19919e859b749f",
+          "mtime_ns": 1789639567178114556,
+          "inode": 33563922
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-audiofix-baseline-20260917/kernel.config",
+          "bytes": 148497,
+          "sha256": "136b0d91d5fd2bbf0aa0814a180a288ecdefb2387fafe2f9fc9bbec24f5d2962",
+          "mtime_ns": 1789639567178114556,
+          "inode": 33563926
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-audiofix-baseline-20260917",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-audiofix-baseline-20260917/tbj606f-legacy-kernel-zui12-audiofix-baseline-20260917.tar.gz",
+      "published_asset_id": 587104144
+    },
+    {
+      "tag": "zui12-4.19.96-60hz-tested-20260917",
+      "archive_name": "tbj606f-legacy-kernel-zui12-4.19.96-60hz-tested-20260917.tar.gz",
+      "source_commit": "14549a61ace84b751acbdb8009194b369368e3ce",
+      "sha256": "63160510aa2d854f9add761cd6456948db9be28dff6c5b54d9864f28a236e650",
+      "bytes": 12466151,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-4.19.96-60hz-tested-20260917/Image",
+          "bytes": 30667264,
+          "sha256": "08537fde3f5c3ead6ddcfca31f67f197187faea8d58dafb940523dd12359716a",
+          "mtime_ns": 1789649900106580015,
+          "inode": 33563900
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-4.19.96-60hz-tested-20260917/Module.symvers",
+          "bytes": 633454,
+          "sha256": "0f7e1b1d3fedc74d50b3bba9bb95de0ae9d7316e6ca74032d1dcfd52f9731006",
+          "mtime_ns": 1789649900106580015,
+          "inode": 33563901
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-4.19.96-60hz-tested-20260917/config",
+          "bytes": 148497,
+          "sha256": "fdc514b6a9e808b9924b4d60b17abc975f90804670de54255b72e2724aed9299",
+          "mtime_ns": 1789649900106580015,
+          "inode": 33563904
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.96-60hz-tested-20260917",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.96-60hz-tested-20260917/tbj606f-legacy-kernel-zui12-4.19.96-60hz-tested-20260917.tar.gz",
+      "published_asset_id": 587104302
+    },
+    {
+      "tag": "zui12-4.19.97-60hz-tested-20260917",
+      "archive_name": "tbj606f-legacy-kernel-zui12-4.19.97-60hz-tested-20260917.tar.gz",
+      "source_commit": "de0feabe14d023ff8aa2e55d908b586b5f189f12",
+      "sha256": "cb23340d7efe277c7d67bde8ae688b75e2f4f70833f436c8348e8849fc9216c0",
+      "bytes": 12459123,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-4.19.97-60hz-tested-20260917/Image",
+          "bytes": 30601728,
+          "sha256": "06abd986b623f9ff8d762960f71f81e00f5cef06c2104afdbb768522d2716e5b",
+          "mtime_ns": 1789649900526564953,
+          "inode": 33563905
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-4.19.97-60hz-tested-20260917/Module.symvers",
+          "bytes": 633515,
+          "sha256": "5cc2b8f2c4d2ca2a5a6b47c24729e4f2fb49c80d3a9961285c0d0dbed8fef032",
+          "mtime_ns": 1789649900530564810,
+          "inode": 33563906
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-4.19.97-60hz-tested-20260917/config",
+          "bytes": 148497,
+          "sha256": "21a4933324e465610b8cfaaf87d8712477ee90ee079af23d0ca365fcf8b27d6d",
+          "mtime_ns": 1789649900530564810,
+          "inode": 33563909
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.97-60hz-tested-20260917",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.97-60hz-tested-20260917/tbj606f-legacy-kernel-zui12-4.19.97-60hz-tested-20260917.tar.gz",
+      "published_asset_id": 587104448
+    },
+    {
+      "tag": "zui12-4.19.98-60hz-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-4.19.98-60hz-tested-20260918.tar.gz",
+      "source_commit": "bd81c2a9c117b6a7874ffe1209cde1a030a19e5a",
+      "sha256": "f58982b7bf1cf410f55743d59178316046f6174d46148084fdde139dfa257fee",
+      "bytes": 12464253,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-4.19.98-60hz-tested-20260918/Image",
+          "bytes": 30601728,
+          "sha256": "be4b8645821a487ecc3d7615a0b66da138febd08cf31474f8480c1a0260140d9",
+          "mtime_ns": 1789658241680767144,
+          "inode": 33563910
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-4.19.98-60hz-tested-20260918/Module.symvers",
+          "bytes": 633515,
+          "sha256": "5cc2b8f2c4d2ca2a5a6b47c24729e4f2fb49c80d3a9961285c0d0dbed8fef032",
+          "mtime_ns": 1789658241680767144,
+          "inode": 33563911
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-4.19.98-60hz-tested-20260918/config",
+          "bytes": 148497,
+          "sha256": "a09a6bec0106c6ad6acfb8c3c179570d81d096682664f27aed204a8f2e6bcbe1",
+          "mtime_ns": 1789658241680767144,
+          "inode": 33563914
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.98-60hz-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.98-60hz-tested-20260918/tbj606f-legacy-kernel-zui12-4.19.98-60hz-tested-20260918.tar.gz",
+      "published_asset_id": 587104611
+    },
+    {
+      "tag": "zui12-4.19.99-60hz-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-4.19.99-60hz-tested-20260918.tar.gz",
+      "source_commit": "d8ef0fccc767ff012069c4aa06a48b4ad853a773",
+      "sha256": "587ca5dd4577e837717fb2d8d84871666904c5ce736cd260fa52f15cc60e59d8",
+      "bytes": 12464260,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-4.19.99-60hz-tested-20260918/Image",
+          "bytes": 30601728,
+          "sha256": "08e42fb82c8bc606b23c817d3bb1f24168a7681686e831da553732a69d54bbc2",
+          "mtime_ns": 1789659030851710400,
+          "inode": 33563915
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-4.19.99-60hz-tested-20260918/Module.symvers",
+          "bytes": 633504,
+          "sha256": "33dbe9a8b5b05ee9f05174161ded120bfeb8d3c52f88dbfdb20814b0e559a7dd",
+          "mtime_ns": 1789659030855710252,
+          "inode": 33563916
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-4.19.99-60hz-tested-20260918/config",
+          "bytes": 148497,
+          "sha256": "9b63423ae9b3cc87a51658ec7e17e24e82eba574880b8245365768692305ccce",
+          "mtime_ns": 1789659030855710252,
+          "inode": 33563919
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.99-60hz-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.99-60hz-tested-20260918/tbj606f-legacy-kernel-zui12-4.19.99-60hz-tested-20260918.tar.gz",
+      "published_asset_id": 587104712
+    },
+    {
+      "tag": "zui12-4.19.110-60hz-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-4.19.110-60hz-tested-20260918.tar.gz",
+      "source_commit": "b326cd634ecebef98e55613a84599d256cb780fb",
+      "sha256": "4a7b2714eccf8062d5b78a3d4a95c454ac33d75666890ea99149ffc541fabbe1",
+      "bytes": 12472371,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-4.19.110-60hz-tested-20260918/Image",
+          "bytes": 30667264,
+          "sha256": "f9e5051ed8b7bfd7e5b11f63bd3b1d7adb57bd4e2ae736986a1f2b507487e8da",
+          "mtime_ns": 1789694760460126176,
+          "inode": 33563852
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-4.19.110-60hz-tested-20260918/Module.symvers",
+          "bytes": 633515,
+          "sha256": "b7f41b1884af4ec559e03ded1b2641f89956fac9ae298712e9ca90f90f266fc5",
+          "mtime_ns": 1789694760464126031,
+          "inode": 33563853
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-4.19.110-60hz-tested-20260918/kernel.config",
+          "bytes": 148498,
+          "sha256": "12446abd688c409a44b7f73b96b58a164a6c39b37c29ac112ee9ba2b0649ba5f",
+          "mtime_ns": 1789694760460126176,
+          "inode": 33563856
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.110-60hz-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.110-60hz-tested-20260918/tbj606f-legacy-kernel-zui12-4.19.110-60hz-tested-20260918.tar.gz",
+      "published_asset_id": 587104822
+    },
+    {
+      "tag": "zui12-4.19.113-60hz-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-4.19.113-60hz-tested-20260918.tar.gz",
+      "source_commit": "0e89886e70b419d0fa0355ff62cc0c50efbf0e8c",
+      "sha256": "4744fb4ebdb54584d8788c95de36aa2b0b0acf22fd43eeb2ec30261437752468",
+      "bytes": 12472397,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-4.19.113-60hz-tested-20260918/Image",
+          "bytes": 30667264,
+          "sha256": "90e42ba06b95cee97cc625174e7225801b94e0291f9c16921059b976c13a26ae",
+          "mtime_ns": 1789696523100957076,
+          "inode": 33563857
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-4.19.113-60hz-tested-20260918/Module.symvers",
+          "bytes": 633515,
+          "sha256": "b7f41b1884af4ec559e03ded1b2641f89956fac9ae298712e9ca90f90f266fc5",
+          "mtime_ns": 1789696523107071288,
+          "inode": 33563858
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-4.19.113-60hz-tested-20260918/kernel.config",
+          "bytes": 148498,
+          "sha256": "cad419fde0b5c7af5fbb19c34b637bed463e1f8c802c1497a5ca99dce05e854c",
+          "mtime_ns": 1789696523100957076,
+          "inode": 33563861
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.113-60hz-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.113-60hz-tested-20260918/tbj606f-legacy-kernel-zui12-4.19.113-60hz-tested-20260918.tar.gz",
+      "published_asset_id": 587104899
+    },
+    {
+      "tag": "zui12-4.19.125-60hz-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-4.19.125-60hz-tested-20260918.tar.gz",
+      "source_commit": "e5deb7416032b68cb0c1a9cd6b3279985c53d128",
+      "sha256": "11a36d49f4d874f7444ab016548f3c3e1cdd5e7e2d38d4b945c84cab8398c1fb",
+      "bytes": 12473970,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-4.19.125-60hz-tested-20260918/Image",
+          "bytes": 30667264,
+          "sha256": "f39d3d4b0ec23dff15d6da0550e7f3940556ac93838f1d9be0467f388bd2a100",
+          "mtime_ns": 1789704406132136905,
+          "inode": 33563863
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-4.19.125-60hz-tested-20260918/Module.symvers",
+          "bytes": 633618,
+          "sha256": "7fa7dd8d87e192ecfab1436ea049dc194c7fb98cc1a515dd2315d27acc5ede58",
+          "mtime_ns": 1789704406136136765,
+          "inode": 33563865
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-4.19.125-60hz-tested-20260918/kernel.config",
+          "bytes": 148529,
+          "sha256": "36945b08d7eede0f9396410dc013bfaeca2f89e230f393435322a66d9007779d",
+          "mtime_ns": 1789704406136136765,
+          "inode": 33563870
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.125-60hz-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.125-60hz-tested-20260918/tbj606f-legacy-kernel-zui12-4.19.125-60hz-tested-20260918.tar.gz",
+      "published_asset_id": 587105035
+    },
+    {
+      "tag": "zui12-4.19.136-60hz-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-4.19.136-60hz-tested-20260918.tar.gz",
+      "source_commit": "17dd80827d9d606c313191163a4343a156890ae7",
+      "sha256": "95212ff5bf5d761163bde53ea3ffc7b73eac14b2e1c760f207cfd14435f06e9f",
+      "bytes": 12491235,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-4.19.136-60hz-tested-20260918/Image",
+          "bytes": 30667264,
+          "sha256": "88294697211afd0d2c64532ed5f2671e430b00a9bcd97fe358225bdfefe871bc",
+          "mtime_ns": 1789717084569372171,
+          "inode": 33563873
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-4.19.136-60hz-tested-20260918/Module.symvers",
+          "bytes": 633853,
+          "sha256": "3699bc37157dbfbe3578388cca46f9e4b76374573a202049d0a6f639c29b2f48",
+          "mtime_ns": 1789717084573372028,
+          "inode": 33563875
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-4.19.136-60hz-tested-20260918/kernel.config",
+          "bytes": 148529,
+          "sha256": "5b7887b354a2a47c05683f9c23ab55f167bce6954531d0a2497e2ce04295b101",
+          "mtime_ns": 1789717084573372028,
+          "inode": 33563880
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.136-60hz-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.136-60hz-tested-20260918/tbj606f-legacy-kernel-zui12-4.19.136-60hz-tested-20260918.tar.gz",
+      "published_asset_id": 587105147
+    },
+    {
+      "tag": "zui12-4.19.146-60hz-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-4.19.146-60hz-tested-20260918.tar.gz",
+      "source_commit": "04675e238cf7f15f0a279c80afba4cbcf18593d1",
+      "sha256": "8cdfbc4e0545e4ecad7593a118c7e237e53112a965f356d88271b99a9bd8bab7",
+      "bytes": 12499599,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-4.19.146-60hz-tested-20260918/Image",
+          "bytes": 30669312,
+          "sha256": "9b172d6578660b8c23ff0bc3a32235e464472b85488a8d3b1f8506b8310ef235",
+          "mtime_ns": 1789720401697540032,
+          "inode": 33563884
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-4.19.146-60hz-tested-20260918/Module.symvers",
+          "bytes": 637986,
+          "sha256": "cb18b9db0a0b0c0b31cc5b14e7cdd40cfe298dd5960bfffc2e04c882643e440e",
+          "mtime_ns": 1789720401697540032,
+          "inode": 33563886
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-4.19.146-60hz-tested-20260918/kernel.config",
+          "bytes": 148529,
+          "sha256": "ca12019705455242a2fb54527654547837862a8e7c428bd3c82de3688dd1bf6f",
+          "mtime_ns": 1789720401697540032,
+          "inode": 33563892
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.146-60hz-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.146-60hz-tested-20260918/tbj606f-legacy-kernel-zui12-4.19.146-60hz-tested-20260918.tar.gz",
+      "published_asset_id": 587105313
+    },
+    {
+      "tag": "zui12-4.19.157-60hz-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-4.19.157-60hz-tested-20260918.tar.gz",
+      "source_commit": "75497879c4267c40192011e4ec2a928fb9c72827",
+      "sha256": "dc7bd0f709fd423d87ab9c1dd546eeff66259c23aceddec5f32e99bd1b98f496",
+      "bytes": 12509004,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-4.19.157-60hz-tested-20260918/Image",
+          "bytes": 30669312,
+          "sha256": "1a0b4f8d34b83c7288cdfb5eb594c865d85abfb34f33d689f7e5b5d31447d739",
+          "mtime_ns": 1789725471847617640,
+          "inode": 33563895
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-4.19.157-60hz-tested-20260918/Module.symvers",
+          "bytes": 638080,
+          "sha256": "20477d7e0172c644705db1b044da772acbcc899e99737d15cce2500078ce80f4",
+          "mtime_ns": 1789725471847617640,
+          "inode": 33563896
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-4.19.157-60hz-tested-20260918/config",
+          "bytes": 148529,
+          "sha256": "25b7686c195b6620cfddabb1ae0607453eb114e921c46b43f3151bce174befb4",
+          "mtime_ns": 1789725471847617640,
+          "inode": 33563899
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-4.19.157-60hz-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-4.19.157-60hz-tested-20260918/tbj606f-legacy-kernel-zui12-4.19.157-60hz-tested-20260918.tar.gz",
+      "published_asset_id": 587105411
+    },
+    {
+      "tag": "zui12-post157-dwc3fix1-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-dwc3fix1-tested-20260918.tar.gz",
+      "source_commit": "075c3c4442c665ea7c64bb791c6e09e8a47af50e",
+      "sha256": "7e28242839a892050bfaf45b01a254bebff9ad520ad22a0eb2de9aacf51d0459",
+      "bytes": 12507815,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-dwc3fix1-tested-20260918/Image",
+          "bytes": 30669312,
+          "sha256": "6b0ebea58ab214f21b9327b0df627c01e082d93f03e65a9c2a8af7a522102b15",
+          "mtime_ns": 1789727876537510673,
+          "inode": 33563939
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-dwc3fix1-tested-20260918/Module.symvers",
+          "bytes": 638080,
+          "sha256": "20477d7e0172c644705db1b044da772acbcc899e99737d15cce2500078ce80f4",
+          "mtime_ns": 1789727876541510530,
+          "inode": 33563940
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-dwc3fix1-tested-20260918/config",
+          "bytes": 148529,
+          "sha256": "25b7686c195b6620cfddabb1ae0607453eb114e921c46b43f3151bce174befb4",
+          "mtime_ns": 1789727876537510673,
+          "inode": 33563943
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-dwc3fix1-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix1-tested-20260918/tbj606f-legacy-kernel-zui12-post157-dwc3fix1-tested-20260918.tar.gz",
+      "published_asset_id": 587105514
+    },
+    {
+      "tag": "zui12-post157-dwc3fix2-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-dwc3fix2-tested-20260918.tar.gz",
+      "source_commit": "7892720ae26e0434dfa0987ab1c5319f5eef8380",
+      "sha256": "dc595971c847b41c9cd08930d66b54e183844e98a8365b935a917d3e736beb0f",
+      "bytes": 12507759,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-dwc3fix2-tested-20260918/Image",
+          "bytes": 30669312,
+          "sha256": "11519402c561b2ca8fa6f60e81eb37047d04303ade3a06815bd80c55c5740e6e",
+          "mtime_ns": 1789728455396762608,
+          "inode": 33563944
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-dwc3fix2-tested-20260918/Module.symvers",
+          "bytes": 638080,
+          "sha256": "20477d7e0172c644705db1b044da772acbcc899e99737d15cce2500078ce80f4",
+          "mtime_ns": 1789728455400762464,
+          "inode": 33563945
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-dwc3fix2-tested-20260918/config",
+          "bytes": 148529,
+          "sha256": "25b7686c195b6620cfddabb1ae0607453eb114e921c46b43f3151bce174befb4",
+          "mtime_ns": 1789728455400762464,
+          "inode": 33563948
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-dwc3fix2-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix2-tested-20260918/tbj606f-legacy-kernel-zui12-post157-dwc3fix2-tested-20260918.tar.gz",
+      "published_asset_id": 587105657
+    },
+    {
+      "tag": "zui12-post157-dwc3fix3-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-dwc3fix3-tested-20260918.tar.gz",
+      "source_commit": "13eb6312b87e67bf78f1ee94ada2a53a473e1392",
+      "sha256": "a63694958da6d6a5e66d3bb4b106263fbfbb80127bdf161a027d543d63783b48",
+      "bytes": 12508549,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-dwc3fix3-tested-20260918/Image",
+          "bytes": 30669312,
+          "sha256": "3a2392e2da8db68b38e8dda51e36d2528fa71dcf5f3029bfd66c74cebe9d2cb0",
+          "mtime_ns": 1789729130264580056,
+          "inode": 33563949
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-dwc3fix3-tested-20260918/Module.symvers",
+          "bytes": 638080,
+          "sha256": "20477d7e0172c644705db1b044da772acbcc899e99737d15cce2500078ce80f4",
+          "mtime_ns": 1789729130268579913,
+          "inode": 33563950
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-dwc3fix3-tested-20260918/config",
+          "bytes": 148529,
+          "sha256": "25b7686c195b6620cfddabb1ae0607453eb114e921c46b43f3151bce174befb4",
+          "mtime_ns": 1789729130264580056,
+          "inode": 33563953
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-dwc3fix3-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix3-tested-20260918/tbj606f-legacy-kernel-zui12-post157-dwc3fix3-tested-20260918.tar.gz",
+      "published_asset_id": 587105778
+    },
+    {
+      "tag": "zui12-post157-dwc3fix4-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-dwc3fix4-tested-20260918.tar.gz",
+      "source_commit": "038bdb03b8ce89b1e23c883f44e4c99f37b52591",
+      "sha256": "64c5f4170870b2b6d637e2dc021b81bee8c6b16fb04579a53af2217909ab1495",
+      "bytes": 12509126,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-dwc3fix4-tested-20260918/Image",
+          "bytes": 30669312,
+          "sha256": "7b58e9bcbc70233458fecdd53dbe446148fd31ab63deb8cc92c0bbcf387baf34",
+          "mtime_ns": 1789729720667412993,
+          "inode": 33563954
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-dwc3fix4-tested-20260918/Module.symvers",
+          "bytes": 638080,
+          "sha256": "20477d7e0172c644705db1b044da772acbcc899e99737d15cce2500078ce80f4",
+          "mtime_ns": 1789729720671412850,
+          "inode": 33563955
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-dwc3fix4-tested-20260918/config",
+          "bytes": 148529,
+          "sha256": "25b7686c195b6620cfddabb1ae0607453eb114e921c46b43f3151bce174befb4",
+          "mtime_ns": 1789729720667412993,
+          "inode": 33563958
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-dwc3fix4-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix4-tested-20260918/tbj606f-legacy-kernel-zui12-post157-dwc3fix4-tested-20260918.tar.gz",
+      "published_asset_id": 587105895
+    },
+    {
+      "tag": "zui12-post157-dwc3fix5-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-dwc3fix5-tested-20260918.tar.gz",
+      "source_commit": "ea2afcf79538d666c946b97f9a0be9515c7b42cd",
+      "sha256": "b766a947e1da6c62675a5aac7b3522bb4c3fa8e34bb2a81828e201421e273894",
+      "bytes": 12507798,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-dwc3fix5-tested-20260918/Image",
+          "bytes": 30669312,
+          "sha256": "49ab09b8b0043e450358c96412815d27b2ffa13f804cfd8fe6de6e139400a6a5",
+          "mtime_ns": 1789730324381765556,
+          "inode": 33563959
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-dwc3fix5-tested-20260918/Module.symvers",
+          "bytes": 638080,
+          "sha256": "20477d7e0172c644705db1b044da772acbcc899e99737d15cce2500078ce80f4",
+          "mtime_ns": 1789730324381765556,
+          "inode": 33563960
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-dwc3fix5-tested-20260918/config",
+          "bytes": 148529,
+          "sha256": "25b7686c195b6620cfddabb1ae0607453eb114e921c46b43f3151bce174befb4",
+          "mtime_ns": 1789730324381765556,
+          "inode": 33563963
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-dwc3fix5-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dwc3fix5-tested-20260918/tbj606f-legacy-kernel-zui12-post157-dwc3fix5-tested-20260918.tar.gz",
+      "published_asset_id": 587106044
+    },
+    {
+      "tag": "zui12-post157-ufsfix1-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-ufsfix1-tested-20260918.tar.gz",
+      "source_commit": "733c5aaa50d05315064612cc8c66257287194098",
+      "sha256": "f8471fcc662189df4d58732063c1e77436ec5bf7bd8991301a1cec182deee917",
+      "bytes": 12508534,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-ufsfix1-tested-20260918/Image",
+          "bytes": 30669312,
+          "sha256": "9b9339b54b6d8d7d738be0d8ac4586a9049fad5eaa7ec06d3b4d1ee92895e069",
+          "mtime_ns": 1789731152352423323,
+          "inode": 33564106
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-ufsfix1-tested-20260918/Module.symvers",
+          "bytes": 638080,
+          "sha256": "20477d7e0172c644705db1b044da772acbcc899e99737d15cce2500078ce80f4",
+          "mtime_ns": 1789731152352423323,
+          "inode": 33564107
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-ufsfix1-tested-20260918/config",
+          "bytes": 148529,
+          "sha256": "25b7686c195b6620cfddabb1ae0607453eb114e921c46b43f3151bce174befb4",
+          "mtime_ns": 1789731152352423323,
+          "inode": 33564110
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-ufsfix1-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufsfix1-tested-20260918/tbj606f-legacy-kernel-zui12-post157-ufsfix1-tested-20260918.tar.gz",
+      "published_asset_id": 587106207
+    },
+    {
+      "tag": "zui12-post157-ufsfix2-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-ufsfix2-tested-20260918.tar.gz",
+      "source_commit": "a0f3e8b971857e28bb3827223861d40ade8a2a48",
+      "sha256": "fae66a778dbefb1d240cb5f8913c9d691cf67c91fedba60045c955a59a85b05c",
+      "bytes": 12508225,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-ufsfix2-tested-20260918/Image",
+          "bytes": 30669312,
+          "sha256": "dceda9f6a08410501d2e7c16dba62e637d5ed9a6bdf2369cb737b868da39fe6e",
+          "mtime_ns": 1789731885258276565,
+          "inode": 33564111
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-ufsfix2-tested-20260918/Module.symvers",
+          "bytes": 638080,
+          "sha256": "20477d7e0172c644705db1b044da772acbcc899e99737d15cce2500078ce80f4",
+          "mtime_ns": 1789731885262276423,
+          "inode": 33564112
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-ufsfix2-tested-20260918/config",
+          "bytes": 148529,
+          "sha256": "25b7686c195b6620cfddabb1ae0607453eb114e921c46b43f3151bce174befb4",
+          "mtime_ns": 1789731885258276565,
+          "inode": 33564115
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-ufsfix2-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufsfix2-tested-20260918/tbj606f-legacy-kernel-zui12-post157-ufsfix2-tested-20260918.tar.gz",
+      "published_asset_id": 587106410
+    },
+    {
+      "tag": "zui12-post157-erofs1-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-erofs1-tested-20260918.tar.gz",
+      "source_commit": "b8e305905acc8182bd2821842dfba4ccabd887d4",
+      "sha256": "fc23b0f101501047b6f16bcc07ff8bdf8db929e8f7925045a49b9d6c6e80b0ba",
+      "bytes": 12530842,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-erofs1-tested-20260918/Image",
+          "bytes": 30804480,
+          "sha256": "107064968655e999532a7ec6604de292db9868b0cce8377d250dbef49d1ea076",
+          "mtime_ns": 1789732452597999972,
+          "inode": 33563970
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-erofs1-tested-20260918/Module.symvers",
+          "bytes": 638080,
+          "sha256": "20477d7e0172c644705db1b044da772acbcc899e99737d15cce2500078ce80f4",
+          "mtime_ns": 1789732452601999829,
+          "inode": 33563971
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-erofs1-tested-20260918/config",
+          "bytes": 148903,
+          "sha256": "27f3880bee2d198faaf12672836f69b811c4fdb7b005a3b8c537f42f163ac691",
+          "mtime_ns": 1789732452597999972,
+          "inode": 33563974
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-erofs1-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-erofs1-tested-20260918/tbj606f-legacy-kernel-zui12-post157-erofs1-tested-20260918.tar.gz",
+      "published_asset_id": 587106564
+    },
+    {
+      "tag": "zui12-post157-f2fs1-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-f2fs1-tested-20260918.tar.gz",
+      "source_commit": "3d943306af5e339a64928f35fa8a3d0f49a8e767",
+      "sha256": "2663514deb1e9764238fe9e0f7e61d5781d4068b3d25d9fdd7e22951afdfe077",
+      "bytes": 12530959,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs1-tested-20260918/Image",
+          "bytes": 30804480,
+          "sha256": "f7507f7057df0d5fbeca224df08987d986e900ae8c53e91ff09a101a9f440b59",
+          "mtime_ns": 1789733884634746731,
+          "inode": 33564013
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs1-tested-20260918/Module.symvers",
+          "bytes": 638080,
+          "sha256": "20477d7e0172c644705db1b044da772acbcc899e99737d15cce2500078ce80f4",
+          "mtime_ns": 1789733884638746587,
+          "inode": 33564014
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs1-tested-20260918/config",
+          "bytes": 148903,
+          "sha256": "27f3880bee2d198faaf12672836f69b811c4fdb7b005a3b8c537f42f163ac691",
+          "mtime_ns": 1789733884638746587,
+          "inode": 33564017
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs1-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs1-tested-20260918/tbj606f-legacy-kernel-zui12-post157-f2fs1-tested-20260918.tar.gz",
+      "published_asset_id": 587106693
+    },
+    {
+      "tag": "zui12-post157-f2fs2-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-f2fs2-tested-20260918.tar.gz",
+      "source_commit": "e15161550d4ddca3576e13d055680c3ca76667df",
+      "sha256": "e18fabe82678b98b887c7593a255137d1a4f677bebf563a96be3a4bd603484b2",
+      "bytes": 12530946,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs2-tested-20260918/Image",
+          "bytes": 30804480,
+          "sha256": "5704ce664e722412ccad6704cefc3adba6a2b3d21592f955d63c1b0950110041",
+          "mtime_ns": 1789734529299644941,
+          "inode": 33564019
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs2-tested-20260918/Module.symvers",
+          "bytes": 638080,
+          "sha256": "20477d7e0172c644705db1b044da772acbcc899e99737d15cce2500078ce80f4",
+          "mtime_ns": 1789734529299644941,
+          "inode": 33564020
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs2-tested-20260918/config",
+          "bytes": 148903,
+          "sha256": "27f3880bee2d198faaf12672836f69b811c4fdb7b005a3b8c537f42f163ac691",
+          "mtime_ns": 1789734529299644941,
+          "inode": 33564023
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs2-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs2-tested-20260918/tbj606f-legacy-kernel-zui12-post157-f2fs2-tested-20260918.tar.gz",
+      "published_asset_id": 587106849
+    },
+    {
+      "tag": "zui12-post157-f2fs3-tested-20260918",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-f2fs3-tested-20260918.tar.gz",
+      "source_commit": "307231b4002e7e4701aecf956e956373814b7d96",
+      "sha256": "23c4bee0be2e1e6e3897da4a2c810ea59e8307ac00e6114398ebdfb64c1b27ae",
+      "bytes": 12532253,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs3-tested-20260918/Image",
+          "bytes": 30870016,
+          "sha256": "5c989fbaaee4d157fa6302deeb76cc651acbf04be30f53868d9655622c938e84",
+          "mtime_ns": 1789735723540678642,
+          "inode": 33564025
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs3-tested-20260918/Module.symvers",
+          "bytes": 638080,
+          "sha256": "20477d7e0172c644705db1b044da772acbcc899e99737d15cce2500078ce80f4",
+          "mtime_ns": 1789735723540678642,
+          "inode": 33564026
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs3-tested-20260918/config",
+          "bytes": 148903,
+          "sha256": "27f3880bee2d198faaf12672836f69b811c4fdb7b005a3b8c537f42f163ac691",
+          "mtime_ns": 1789735723540678642,
+          "inode": 33564029
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs3-tested-20260918",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs3-tested-20260918/tbj606f-legacy-kernel-zui12-post157-f2fs3-tested-20260918.tar.gz",
+      "published_asset_id": 587107010
+    },
+    {
+      "tag": "zui12-post157-f2fs-compress-source-tested-20260919",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-f2fs-compress-source-tested-20260919.tar.gz",
+      "source_commit": "91909246ac5e657b24a32b8689a8b17dc13bb500",
+      "sha256": "3ffdd5776bc36b2f40e14b571b16ed1ad5efcd25c21108667d257479f511aab0",
+      "bytes": 12533915,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-source-tested-20260919/Image",
+          "bytes": 30806528,
+          "sha256": "5798bf5b922fceba4a909947d3e426f1958dcfac8b16a3b2c516a5b5c39787d7",
+          "mtime_ns": 1789779715472801593,
+          "inode": 33564006
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-source-tested-20260919/Module.symvers",
+          "bytes": 638080,
+          "sha256": "20477d7e0172c644705db1b044da772acbcc899e99737d15cce2500078ce80f4",
+          "mtime_ns": 1789779715476801451,
+          "inode": 33564007
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-source-tested-20260919/config",
+          "bytes": 148943,
+          "sha256": "22875a51f53d8b7e216956ae58b5af2951012ed7884b171ae4e08c15a8923e4f",
+          "mtime_ns": 1789779715476801451,
+          "inode": 33564011
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs-compress-source-tested-20260919",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-source-tested-20260919/tbj606f-legacy-kernel-zui12-post157-f2fs-compress-source-tested-20260919.tar.gz",
+      "published_asset_id": 587107136
+    },
+    {
+      "tag": "zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919.tar.gz",
+      "source_commit": "7cc5ceaef55ca9ef2de65a880845b1857661b648",
+      "sha256": "9f688b4c266e62d591d10779abf3b65b290d911209fccb85939220f4813d0574",
+      "bytes": 12556961,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919/Image",
+          "bytes": 30872064,
+          "sha256": "9d47b76a972e560b57990ff064a773ed1324e569efce0681ef4d17839f0ca61b",
+          "mtime_ns": 1789781220550530420,
+          "inode": 33563976
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919/Module.symvers",
+          "bytes": 638862,
+          "sha256": "7ac0dcf68fdc0c9e1e316222aed345713f66bc0f64b4dc3b3d368bdb3e832742",
+          "mtime_ns": 1789781220550530420,
+          "inode": 33563977
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919/config",
+          "bytes": 149020,
+          "sha256": "fb5ddb09b47c801290a15b1bdb38ecb5af9ccc48312e7a86c21f1d16495bc1ae",
+          "mtime_ns": 1789781220550530420,
+          "inode": 33563981
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919/tbj606f-legacy-kernel-zui12-post157-f2fs-compress-fixes1-enabled-tested-20260919.tar.gz",
+      "published_asset_id": 587107234
+    },
+    {
+      "tag": "zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919.tar.gz",
+      "source_commit": "dfcb1cd5d4728ea5d60fbf4ddcb0eb8dcdb3d6ce",
+      "sha256": "1aba9dcc858f3fe7e63fd6933fa9c6512c2229861ae25167914bedc893a9b0fe",
+      "bytes": 12560530,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919/Image",
+          "bytes": 30872064,
+          "sha256": "1002cd662e3ff41d15146171c6dcec1aa950b0c0fcc248dd821a9b94dafc1778",
+          "mtime_ns": 1789782484280924252,
+          "inode": 33563982
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919/Module.symvers",
+          "bytes": 638862,
+          "sha256": "7ac0dcf68fdc0c9e1e316222aed345713f66bc0f64b4dc3b3d368bdb3e832742",
+          "mtime_ns": 1789782484284924109,
+          "inode": 33563983
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919/config",
+          "bytes": 149020,
+          "sha256": "fb5ddb09b47c801290a15b1bdb38ecb5af9ccc48312e7a86c21f1d16495bc1ae",
+          "mtime_ns": 1789782484284924109,
+          "inode": 33563987
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919/tbj606f-legacy-kernel-zui12-post157-f2fs-compress-fixes2-enabled-tested-20260919.tar.gz",
+      "published_asset_id": 587107390
+    },
+    {
+      "tag": "zui12-post157-fs-fixes3-zstd-tested-20260919",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-fs-fixes3-zstd-tested-20260919.tar.gz",
+      "source_commit": "fb21dd98258d06cf9ca0d5c26fd07b1208163687",
+      "sha256": "c79b1efbbb4a1fa0c1eb4b7ac643804dd0e141bd8aeeb031fe915fd9a89b3465",
+      "bytes": 12670368,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-fs-fixes3-zstd-tested-20260919/Image",
+          "bytes": 31068672,
+          "sha256": "ca33da26340b3faa39001c0142f9e525be261a97b77aadb1ea33fb41e5893dba",
+          "mtime_ns": 1789783435202547631,
+          "inode": 33564030
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-fs-fixes3-zstd-tested-20260919/Module.symvers",
+          "bytes": 642619,
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "mtime_ns": 1789783435206547486,
+          "inode": 33564031
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-fs-fixes3-zstd-tested-20260919/config",
+          "bytes": 149106,
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "mtime_ns": 1789783435202547631,
+          "inode": 33564035
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-fs-fixes3-zstd-tested-20260919",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-fs-fixes3-zstd-tested-20260919/tbj606f-legacy-kernel-zui12-post157-fs-fixes3-zstd-tested-20260919.tar.gz",
+      "published_asset_id": 587107527
+    },
+    {
+      "tag": "zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919.tar.gz",
+      "source_commit": "40963169bcb5a92ce63f71d0f06e3f8d2fa48088",
+      "sha256": "28dd4d2b27c7252e22340a70628652f45c11aefce0dc3d9744022608de28fdbb",
+      "bytes": 12668003,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919/Image",
+          "bytes": 31003136,
+          "sha256": "16a6462b8c5a43318dd35d5457a52191116be85ee8cec5e8265ff61ce61668ab",
+          "mtime_ns": 1789786220686952504,
+          "inode": 33563988
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919/Module.symvers",
+          "bytes": 642619,
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "mtime_ns": 1789786220686952504,
+          "inode": 33563989
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919/config",
+          "bytes": 149106,
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "mtime_ns": 1789786220686952504,
+          "inode": 33563993
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919/tbj606f-legacy-kernel-zui12-post157-f2fs-compress-fixes4-enabled-tested-20260919.tar.gz",
+      "published_asset_id": 587107640
+    },
+    {
+      "tag": "zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919.tar.gz",
+      "source_commit": "b16c916b2d9b65f8796eacaf25e27c71177e5e7f",
+      "sha256": "a1f5f93d386e1589d1d0f06cbc3b0f686ddd06a1cf89de2f518108511dcd5f13",
+      "bytes": 12671923,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919/Image",
+          "bytes": 31134208,
+          "sha256": "5a2bb621afb29847cab7a256ef4b9e4010c508862d405c1239917cf9b3477fec",
+          "mtime_ns": 1789787533371636537,
+          "inode": 33563994
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919/Module.symvers",
+          "bytes": 642619,
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "mtime_ns": 1789787533375636393,
+          "inode": 33563995
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919/config",
+          "bytes": 149106,
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "mtime_ns": 1789787533375636393,
+          "inode": 33563999
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919/tbj606f-legacy-kernel-zui12-post157-f2fs-compress-fixes5-enabled-tested-20260919.tar.gz",
+      "published_asset_id": 587107756
+    },
+    {
+      "tag": "zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919.tar.gz",
+      "source_commit": "5295e4dfde99c6c5991d822747dcf6b97ad01b9c",
+      "sha256": "5b0c19f027f5f3a361aa85d0b6deb8e53d98710c224c4cc1f0b41dd697867851",
+      "bytes": 12671659,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919/Image",
+          "bytes": 31134208,
+          "sha256": "b6c2f04cbe946851f4ef1692fbfd90c6f028d321a26a9279272b0935d4395229",
+          "mtime_ns": 1789788559710672137,
+          "inode": 33564000
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919/Module.symvers",
+          "bytes": 642619,
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "mtime_ns": 1789788559714671993,
+          "inode": 33564001
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919/config",
+          "bytes": 149106,
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "mtime_ns": 1789788559710672137,
+          "inode": 33564005
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919/tbj606f-legacy-kernel-zui12-post157-f2fs-compress-fixes6-enabled-tested-20260919.tar.gz",
+      "published_asset_id": 587107874
+    },
+    {
+      "tag": "zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919.tar.gz",
+      "source_commit": "5c3c5c63f228774d5145af571ebc730c83ddec53",
+      "sha256": "c12bbc65ebe478c81bf275576c316423228cbd14eeed6ec4dfb1cc14f26c31b9",
+      "bytes": 12671417,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919/Image",
+          "bytes": 31068672,
+          "sha256": "29136e256660a2090c79c7759a140a517072448dada748e7069a52fb7ac869de",
+          "mtime_ns": 1789790254774177377,
+          "inode": 33564061
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919/Module.symvers",
+          "bytes": 642619,
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "mtime_ns": 1789790254778177237,
+          "inode": 33564062
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919/config",
+          "bytes": 149106,
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "mtime_ns": 1789790254778177237,
+          "inode": 33564066
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919/tbj606f-legacy-kernel-zui12-post157-mm-zsmalloc-fixes7-enabled-tested-20260919.tar.gz",
+      "published_asset_id": 587107950
+    },
+    {
+      "tag": "zui12-post157-ufs-resume-fixes8-enabled-tested-20260919",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-ufs-resume-fixes8-enabled-tested-20260919.tar.gz",
+      "source_commit": "dc22d91e70a2ddad32756cc85aa45acb919ed4f0",
+      "sha256": "166f6bd05e683c96b74db122aa797640adf0f6e35b455a7af8acb32b32204c08",
+      "bytes": 12671550,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-ufs-resume-fixes8-enabled-tested-20260919/Image",
+          "bytes": 31134208,
+          "sha256": "2d58d7bb425a8bc4ed2e856da1370d6e627d4daacf3a8757146c63185713aee4",
+          "mtime_ns": 1789791093464354213,
+          "inode": 33564073
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-ufs-resume-fixes8-enabled-tested-20260919/Module.symvers",
+          "bytes": 642619,
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "mtime_ns": 1789791093468354070,
+          "inode": 33564074
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-ufs-resume-fixes8-enabled-tested-20260919/config",
+          "bytes": 149106,
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "mtime_ns": 1789791093468354070,
+          "inode": 33564099
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-ufs-resume-fixes8-enabled-tested-20260919",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufs-resume-fixes8-enabled-tested-20260919/tbj606f-legacy-kernel-zui12-post157-ufs-resume-fixes8-enabled-tested-20260919.tar.gz",
+      "published_asset_id": 587108044
+    },
+    {
+      "tag": "zui12-post157-sched-walt-fixes9-enabled-tested-20260919",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-sched-walt-fixes9-enabled-tested-20260919.tar.gz",
+      "source_commit": "98c4683b7d5280ccfd90830f5743b7b8dc603ec3",
+      "sha256": "862b4927903f0c66ff0d75be3088ed80f2134bee753f0787755de0fe74e3f699",
+      "bytes": 12669862,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-sched-walt-fixes9-enabled-tested-20260919/Image",
+          "bytes": 31068672,
+          "sha256": "b726d9e4d5864dd6d63ce9062ca450decdc077905ca17b99e8d5f7462cc6ab65",
+          "mtime_ns": 1789794475792689381,
+          "inode": 33564067
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-sched-walt-fixes9-enabled-tested-20260919/Module.symvers",
+          "bytes": 642619,
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "mtime_ns": 1789794475792689381,
+          "inode": 33564068
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-sched-walt-fixes9-enabled-tested-20260919/config",
+          "bytes": 149106,
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "mtime_ns": 1789794475792689381,
+          "inode": 33564072
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-sched-walt-fixes9-enabled-tested-20260919",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-sched-walt-fixes9-enabled-tested-20260919/tbj606f-legacy-kernel-zui12-post157-sched-walt-fixes9-enabled-tested-20260919.tar.gz",
+      "published_asset_id": 587108242
+    },
+    {
+      "tag": "zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919.tar.gz",
+      "source_commit": "e91beb08de332d5c5702ac7ac9a199a11a21d9aa",
+      "sha256": "23896e2c8af0a575343242e821c4a410db3aaf8cad469e79bf4ee82401e860d8",
+      "bytes": 12670619,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919/Image",
+          "bytes": 31068672,
+          "sha256": "f1f6f824ceef8f2183b2ce98c8fa80523ca7e83402fa12326bcdbc15e5a56d78",
+          "mtime_ns": 1789795102346389772,
+          "inode": 33564100
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919/Module.symvers",
+          "bytes": 642619,
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "mtime_ns": 1789795102346389772,
+          "inode": 33564101
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919/config",
+          "bytes": 149106,
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "mtime_ns": 1789795102346389772,
+          "inode": 33564105
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919/tbj606f-legacy-kernel-zui12-post157-ufs-sysfs-desc-fixes10-enabled-tested-20260919.tar.gz",
+      "published_asset_id": 587108310
+    },
+    {
+      "tag": "zui12-post157-kgsl-fixes11-enabled-tested-20260919",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-kgsl-fixes11-enabled-tested-20260919.tar.gz",
+      "source_commit": "f739eee2dcc3187dca6c112c3324c41f7b65a524",
+      "sha256": "e57f4ca3469ecf2fb6907609339341b7e94d4a709c6dc0ae7a52c3ef07981cc8",
+      "bytes": 12670317,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-kgsl-fixes11-enabled-tested-20260919/Image",
+          "bytes": 31068672,
+          "sha256": "0b5e53e479ed3688b2e966b30064571175184ee1f540d977f57bc2abb909cbd0",
+          "mtime_ns": 1789796331173923453,
+          "inode": 33564041
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-kgsl-fixes11-enabled-tested-20260919/Module.symvers",
+          "bytes": 642619,
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "mtime_ns": 1789796331177923306,
+          "inode": 33564042
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-kgsl-fixes11-enabled-tested-20260919/config",
+          "bytes": 149106,
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "mtime_ns": 1789796331173923453,
+          "inode": 33564048
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-kgsl-fixes11-enabled-tested-20260919",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-kgsl-fixes11-enabled-tested-20260919/tbj606f-legacy-kernel-zui12-post157-kgsl-fixes11-enabled-tested-20260919.tar.gz",
+      "published_asset_id": 587108449
+    },
+    {
+      "tag": "zui12-post157-latency-tuning-tested-20260919",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-latency-tuning-tested-20260919.tar.gz",
+      "source_commit": "a46c5177abea98d8ce49b1db81faefb913360614",
+      "sha256": "dce6f09f72fcbba4ed72ffeb7e40064b695fa1e81ae0b47c7c968d470f49174f",
+      "bytes": 12671138,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-latency-tuning-tested-20260919/Image",
+          "bytes": 31134208,
+          "sha256": "c524f2f042cb6444a3b1abc49cfc4c89ed05068630bebcb80037033935ec823b",
+          "mtime_ns": 1789810506596473199,
+          "inode": 33564055
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-latency-tuning-tested-20260919/Module.symvers",
+          "bytes": 642619,
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "mtime_ns": 1789810506596473199,
+          "inode": 33564056
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-latency-tuning-tested-20260919/config",
+          "bytes": 149106,
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "mtime_ns": 1789810506596473199,
+          "inode": 33564060
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-latency-tuning-tested-20260919",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-latency-tuning-tested-20260919/tbj606f-legacy-kernel-zui12-post157-latency-tuning-tested-20260919.tar.gz",
+      "published_asset_id": 587108581
+    },
+    {
+      "tag": "zui12-post157-dt2w-gsi-tested-20260919",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-dt2w-gsi-tested-20260919.tar.gz",
+      "source_commit": "7f7e5bf3b3f524a65a1cbf4748a2f6f6d6776d9b",
+      "sha256": "c2efe44e1eeecfe1edb2332ecc8fa7fce48c4e3c67ff2e5f7329349c51677869",
+      "bytes": 12671647,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-dt2w-gsi-tested-20260919/Image",
+          "bytes": 31068672,
+          "sha256": "69cbcd1fa038c07fb50b83df2a18d5ae58bcde42afa321951a6612b2687f27c7",
+          "mtime_ns": 1789814413726012811,
+          "inode": 33563933
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-dt2w-gsi-tested-20260919/Module.symvers",
+          "bytes": 642619,
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "mtime_ns": 1789814413730012670,
+          "inode": 33563934
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-dt2w-gsi-tested-20260919/config",
+          "bytes": 149106,
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "mtime_ns": 1789814413730012670,
+          "inode": 33563938
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-dt2w-gsi-tested-20260919",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-dt2w-gsi-tested-20260919/tbj606f-legacy-kernel-zui12-post157-dt2w-gsi-tested-20260919.tar.gz",
+      "published_asset_id": 587108700
+    },
+    {
+      "tag": "zui12-post157-kgsl-ringalloc-opt13-tested-20260919",
+      "archive_name": "tbj606f-legacy-kernel-zui12-post157-kgsl-ringalloc-opt13-tested-20260919.tar.gz",
+      "source_commit": "7cd6df94c95c06daca3a1a80a70196111ca10750",
+      "sha256": "20dc919b049564c0dc214d3f16c0fcf731790d0e94da57faae6fc9883d09c08f",
+      "bytes": 12671574,
+      "hdd_inputs": [
+        {
+          "file": "Image",
+          "hdd_original_relative_path": "releases/zui12-post157-kgsl-ringalloc-opt13-tested-20260919/Image",
+          "bytes": 31068672,
+          "sha256": "fa71f681089e6882049cc2241e39f967d37e02abba0432db23a37076eecf0d75",
+          "mtime_ns": 1789817185667455820,
+          "inode": 33564049
+        },
+        {
+          "file": "Module.symvers",
+          "hdd_original_relative_path": "releases/zui12-post157-kgsl-ringalloc-opt13-tested-20260919/Module.symvers",
+          "bytes": 642619,
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "mtime_ns": 1789817185671455678,
+          "inode": 33564050
+        },
+        {
+          "file": "kernel.config",
+          "hdd_original_relative_path": "releases/zui12-post157-kgsl-ringalloc-opt13-tested-20260919/config",
+          "bytes": 149106,
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "mtime_ns": 1789817185667455820,
+          "inode": 33564054
+        }
+      ],
+      "github_release": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/zui12-post157-kgsl-ringalloc-opt13-tested-20260919",
+      "status": "verified_published",
+      "github_asset": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/zui12-post157-kgsl-ringalloc-opt13-tested-20260919/tbj606f-legacy-kernel-zui12-post157-kgsl-ringalloc-opt13-tested-20260919.tar.gz",
+      "published_asset_id": 587108826
+    }
+  ],
+  "archive_release_tag": "tbj606f-legacy-gpl-stages-20260925",
+  "archive_release_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/tag/tbj606f-legacy-gpl-stages-20260925",
+  "historic_hdd_untagged_groups": 63,
+  "historical_unmatched_archives_published": 47,
+  "historical_unmatched_groups_without_public_gpl_archive": 16,
+  "archived_group_bytes": 584981838,
+  "archived_untagged_groups": [
+    {
+      "group": "releases/p11-debug-gnu-postbasic-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-postbasic-20260916.tar.gz",
+      "size": 16022203,
+      "sha256": "421f6ce157be3c5a512c65e5828f483360bb50ba3e7efec1423e4b343ede741a",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-postbasic-20260916/Image",
+          "sha256": "86388e3431b01b42bca4c8e1acd17ea20ef36d74e0a8717ec5b48ca476754e1f",
+          "bytes": 34290176,
+          "mtime_ns": 1789520172311682318,
+          "inode": 33563590
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-postbasic-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-prerest-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-prerest-20260916.tar.gz",
+      "size": 16021831,
+      "sha256": "0b586a3cb35bcc440b16e512ca41b30a4a80dfd4b228a1eaa5c7c30f90557a73",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-prerest-20260916/Image",
+          "sha256": "f93ebfb8a764763abe15627fa5e9c810bd0b3a8f346d81aa2e62bff1cdb4d1eb",
+          "bytes": 34290176,
+          "mtime_ns": 1789519972403043422,
+          "inode": 33563597
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-prerest-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-initrd-after-overwrite-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-initrd-after-overwrite-20260916.tar.gz",
+      "size": 16021888,
+      "sha256": "24bd48a923397a5cb4a0bdbf7225329505325ce5a0433a8410f8007211173aab",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-initrd-after-overwrite-20260916/Image",
+          "sha256": "d7332c7a933a79eddcd92d3b3639b7ae0f42ec8f0ad428f58bd79b70b012f606",
+          "bytes": 34290176,
+          "mtime_ns": 1789533712833992574,
+          "inode": 33563604
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-initrd-after-overwrite-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-initrd-after-setuparch-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-initrd-after-setuparch-20260916.tar.gz",
+      "size": 16021954,
+      "sha256": "71cb91fcc3e3b35feadb8fd593f91ce04ab97f464442b041500b6d543088e095",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-initrd-after-setuparch-20260916/Image",
+          "sha256": "5d0f7fb277db230f8cb26d379bed10bf0d309046eb062402da2e19d15e1ce726",
+          "bytes": 34290176,
+          "mtime_ns": 1789533708326148678,
+          "inode": 33563611
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-initrd-after-setuparch-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-initrd-after-setuparch-stocksize-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-initrd-after-setuparch-stocksize-20260916.tar.gz",
+      "size": 16021951,
+      "sha256": "ec95a20c0a94211220dd8b16cd5a590e7956ec227c139440dcb33d75670c0674",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-initrd-after-setuparch-stocksize-20260916/Image",
+          "sha256": "64496046df6ce6230f084c75af33479d38041fcaf1a795b654f7775174863fb9",
+          "bytes": 34290176,
+          "mtime_ns": 1789534127475414028,
+          "inode": 33563614
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-initrd-after-setuparch-stocksize-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-initrd-present-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-initrd-present-20260916.tar.gz",
+      "size": 16021863,
+      "sha256": "f184b9c28714a8c83add37131c91ce80a76a6816025bbad4860a55b627b5530c",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-initrd-present-20260916/Image",
+          "sha256": "f45eccc5fa23c371ba4e3ed4f6d40ca5636936ee9539d8a207b3d23f337fd14e",
+          "bytes": 34290176,
+          "mtime_ns": 1789529198091408026,
+          "inode": 33563617
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-initrd-present-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-initrd-seen-before-memblock-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-initrd-seen-before-memblock-20260916.tar.gz",
+      "size": 16021750,
+      "sha256": "9cf52955fd0c52edde9679d20d118898b998af5f448b86d870e3926c7c7d1b32",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-initrd-seen-before-memblock-20260916/Image",
+          "sha256": "2d0210b1c3cd7ae0b766852c065e7259c23f99c9431042bc8f40c161f8404edb",
+          "bytes": 34290176,
+          "mtime_ns": 1789533986388415151,
+          "inode": 33563619
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-initrd-seen-before-memblock-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-initrd-setuparch-exactlayout-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-initrd-setuparch-exactlayout-20260916.tar.gz",
+      "size": 16021959,
+      "sha256": "59cd5d66e7009e777d714333db9d9a0273dadd32c9ba85854b541dfee6fc90f4",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-initrd-setuparch-exactlayout-20260916/Image",
+          "sha256": "5d0f7fb277db230f8cb26d379bed10bf0d309046eb062402da2e19d15e1ce726",
+          "bytes": 34290176,
+          "mtime_ns": 1789534697942961485,
+          "inode": 33563622
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-initrd-setuparch-exactlayout-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-initrd-unpack-ok-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-initrd-unpack-ok-20260916.tar.gz",
+      "size": 16021838,
+      "sha256": "a72456038230ba7bc3e6b39edfc4164610e048eacb6310dbf972f2638946fd20",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-initrd-unpack-ok-20260916/Image",
+          "sha256": "f52d11a512a5a693e9d7d5ed466857191b307dcbfb2310945ffa5bf6d46c088a",
+          "bytes": 34290176,
+          "mtime_ns": 1789529203379179844,
+          "inode": 33563624
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-initrd-unpack-ok-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-marker-console-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-marker-console-20260916.tar.gz",
+      "size": 16021838,
+      "sha256": "e8a5039dbf6256dbf86cde4e0aa47f1ce150b9f13c4a4fada38d8cbc5e72a611",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-marker-console-20260916/Image",
+          "sha256": "97a9da3055c5f2e05ea7bab83d5a9f33df38a7358ef29a63c7eaf7fa66a183b2",
+          "bytes": 34290176,
+          "mtime_ns": 1789525271449382816,
+          "inode": 33563626
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-marker-console-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-marker-earlytrace-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-marker-earlytrace-20260916.tar.gz",
+      "size": 16021846,
+      "sha256": "c196adc4cb17b3a136d914ee80bd631f987b5a8f4f8965ef5d5ecf74c9202e7d",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-marker-earlytrace-20260916/Image",
+          "sha256": "3967804186bbe3b8c512d468164a11ea04fea5ada0eac09fc574596dd4bf4350",
+          "bytes": 34290176,
+          "mtime_ns": 1789525099727586223,
+          "inode": 33563628
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-marker-earlytrace-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-marker-percpu-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-marker-percpu-20260916.tar.gz",
+      "size": 16021838,
+      "sha256": "dd8c76765ca323b14d2244ad136d537f0913d9eb003799e06e84e8040bf525a7",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-marker-percpu-20260916/Image",
+          "sha256": "1c7ae2d02bfd8006d07ca9a0bf2dacb21679d5e3bae6ed6bd258f2342a1c924b",
+          "bytes": 34290176,
+          "mtime_ns": 1789524954896818368,
+          "inode": 33563630
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-marker-percpu-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-marker-postbasic-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-marker-postbasic-20260916.tar.gz",
+      "size": 16021854,
+      "sha256": "72b5c2657a6fb5edb3451b00c689a0040dda9e146a52ff83fdfca247ec399fa0",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-marker-postbasic-20260916/Image",
+          "sha256": "a7be6e5e1a93e1c9ba3162dcfd5ed1d2d8a76b2c4a9c89fe94da05adc4f6b7f7",
+          "bytes": 34290176,
+          "mtime_ns": 1789525964016462525,
+          "inode": 33563632
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-marker-postbasic-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-marker-postintegrity-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-marker-postintegrity-20260916.tar.gz",
+      "size": 16021860,
+      "sha256": "9090ba8a062ca3552c477c844bc79a908b8d82d031c5ce13c1dd955308c05fd8",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-marker-postintegrity-20260916/Image",
+          "sha256": "3a61e24746f3c29853bb52f35bca8ea5fe70de481b2be2ee6128f4544509608a",
+          "bytes": 34290176,
+          "mtime_ns": 1789528787735334619,
+          "inode": 33563634
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-marker-postintegrity-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-marker-prebasic-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-marker-prebasic-20260916.tar.gz",
+      "size": 16021862,
+      "sha256": "d8770c9180e8661f859f70fe7951e024a8c2265d91e1e71a0d73b30db764a8fe",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-marker-prebasic-20260916/Image",
+          "sha256": "fb720d32fa53cf2bbfa41c0bcf54bd51731873928460292ad2c650e8dee064da",
+          "bytes": 34290176,
+          "mtime_ns": 1789525816261770951,
+          "inode": 33563642
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-marker-prebasic-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-marker-restinit-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-marker-restinit-20260916.tar.gz",
+      "size": 16021842,
+      "sha256": "77064fa672fc2e87923758feda3a165cc97f8a6770cad97de14dc5b393dc3c42",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-marker-restinit-20260916/Image",
+          "sha256": "0a8b784dc1d30d5e44a8b1c401bb6e8c2345b2ff1a582aacce6de9a482673037",
+          "bytes": 34290176,
+          "mtime_ns": 1789525438175372285,
+          "inode": 33563652
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-marker-restinit-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-marker-schedsmp-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-marker-schedsmp-20260916.tar.gz",
+      "size": 16021861,
+      "sha256": "82705a55e4e3872f55ef7774c2be3c94621c3683486f9bb4c5a75045322e337d",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-marker-schedsmp-20260916/Image",
+          "sha256": "ec98b4bb140f5cd4b8de7bae83719b91906b105d1ab271c9bdfe7372719b0715",
+          "bytes": 34290176,
+          "mtime_ns": 1789525622156749789,
+          "inode": 33563654
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-marker-schedsmp-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-skip-initramfs-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-skip-initramfs-20260916.tar.gz",
+      "size": 16021875,
+      "sha256": "bac89ded83fae8ad8bb30ff63bfb807d3731c4741e07e348a7b1bc6ec59a5a94",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-skip-initramfs-20260916/Image",
+          "sha256": "b9ac982ebacc38f813b99d028cbe341ca742714c0b9d842fec1e443ad3862f40",
+          "bytes": 34290176,
+          "mtime_ns": 1789529518462016248,
+          "inode": 33563656
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-skip-initramfs-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-gnu-ssp-stocksize-markers-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-gnu-ssp-stocksize-markers-20260916.tar.gz",
+      "size": 16022000,
+      "sha256": "1a4493fc7ccea56cc1f86b4c123eba9c2182f16c98facc8b172f23daa5ef63a7",
+      "files": [
+        {
+          "path": "Image-initvisible",
+          "original_hdd_path": "releases/p11-debug-gnu-ssp-stocksize-markers-20260916/Image-initvisible",
+          "sha256": "0ab302364a68f52335e6e018735197e59e5636353d7a50e98be11e5a80d97c6e",
+          "bytes": 34290176,
+          "mtime_ns": 1789537960599153307,
+          "inode": 33563658
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-gnu-ssp-stocksize-markers-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-nostack-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-nostack-20260916.tar.gz",
+      "size": 16035391,
+      "sha256": "d08259639718ed63f9c64f31f8f0b7978b40c7402978f0949732200aafb9346a",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-nostack-20260916/Image",
+          "sha256": "b71879f210a03bedbfc9fab5dfcccc77242dfe845d243182c8ed5c0bbb66714f",
+          "bytes": 33634816,
+          "mtime_ns": 1789522330400321644,
+          "inode": 33563659
+        },
+        {
+          "path": "Module.symvers",
+          "original_hdd_path": "releases/p11-debug-nostack-20260916/Module.symvers",
+          "sha256": "ce7afbda709e0f1d6b069542f09296e092fe395df9f236ebce23d1bebf90f15a",
+          "bytes": 642058,
+          "mtime_ns": 1789522330404321497,
+          "inode": 33563660
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "releases/p11-debug-nostack-20260916/config",
+          "sha256": "babe93719a4802d30ab6affe5fd65f6281c40d359d0ab2c8d6340ced33e39cf0",
+          "bytes": 151676,
+          "mtime_ns": 1789522330404321497,
+          "inode": 33563664
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-nostack-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-debug-nostack-marker-percpu-20260916",
+      "archive": "tbj606f-old-releases-p11-debug-nostack-marker-percpu-20260916.tar.gz",
+      "size": 15858698,
+      "sha256": "d8a1584da432b418d29922c4ec903f31a6ab487d8a14939ee7b8dbfbd204b7e1",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-debug-nostack-marker-percpu-20260916/Image",
+          "sha256": "ca18fa9c4b9269e2fdbe1c98ca9ac7b7008298200f85b8fc7e8247d77bf030ea",
+          "bytes": 33634816,
+          "mtime_ns": 1789522741133222039,
+          "inode": 33563669
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "releases/p11-debug-nostack-marker-percpu-20260916/config",
+          "sha256": "babe93719a4802d30ab6affe5fd65f6281c40d359d0ab2c8d6340ced33e39cf0",
+          "bytes": 151676,
+          "mtime_ns": 1789522741133222039,
+          "inode": 33563675
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-debug-nostack-marker-percpu-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-experiments-20260915",
+      "archive": "tbj606f-old-releases-p11-experiments-20260915.tar.gz",
+      "size": 1787,
+      "sha256": "80170443512a2cebd8415bc6d66ac3555029432b0789481fa620fd0b82795ce1",
+      "files": [
+        {
+          "path": "patch-apatch-0133.sh",
+          "original_hdd_path": "releases/p11-experiments-20260915/patch-apatch-0133.sh",
+          "sha256": "447e75f406acefc709d035ad823790373a4440c264f0da53f0cd7dbbcb923991",
+          "bytes": 1396,
+          "mtime_ns": 1789453069733876673,
+          "inode": 33563678
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-experiments-20260915.tar.gz"
+    },
+    {
+      "group": "releases/p11-manual-stocklayout-20260916",
+      "archive": null,
+      "status": "no_redistributable_files_found",
+      "warning": "Only images/logs/OEM or unselected files; original HDD contents must remain."
+    },
+    {
+      "group": "releases/p11-stock-exactlayout-control-20260916",
+      "archive": "tbj606f-old-releases-p11-stock-exactlayout-control-20260916.tar.gz",
+      "size": 16028146,
+      "sha256": "0c78a8d477e132c6f85661e4e7f35ab3b873f577889835013bea0f15bb43677e",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-stock-exactlayout-control-20260916/Image",
+          "sha256": "ee7abe442478a918681835ae8147b1529539a3ceb505fbf69bef0e1cb1cd1ac3",
+          "bytes": 35002848,
+          "mtime_ns": 1789534677535697172,
+          "inode": 33563693
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-stock-exactlayout-control-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-stock-kptools-roundtrip-20260916",
+      "archive": null,
+      "status": "no_redistributable_files_found",
+      "warning": "Only images/logs/OEM or unselected files; original HDD contents must remain."
+    },
+    {
+      "group": "releases/p11-test-tools-20260915",
+      "archive": "tbj606f-old-releases-p11-test-tools-20260915.tar.gz",
+      "size": 2818,
+      "sha256": "358735c8491f69e11284f653fb5335303f8c0980c452dac2791d907a73a78b86",
+      "files": [
+        {
+          "path": "mac-fetch-fastboot.sh",
+          "original_hdd_path": "releases/p11-test-tools-20260915/mac-fetch-fastboot.sh",
+          "sha256": "cd364aa6dc781139659672624ff83e6fe718d1d934b34c0d0f2c2f4d6c8097dc",
+          "bytes": 1632,
+          "mtime_ns": 1789453190221448720,
+          "inode": 33563699
+        },
+        {
+          "path": "p11-sched-profile.sh",
+          "original_hdd_path": "releases/p11-test-tools-20260915/p11-sched-profile.sh",
+          "sha256": "2c922b27ce978885905ba2bd33f853d73032a5a346e184c1fb6093e303f17584",
+          "bytes": 1217,
+          "mtime_ns": 1789453189405478705,
+          "inode": 33563700
+        },
+        {
+          "path": "p11-snapshot.sh",
+          "original_hdd_path": "releases/p11-test-tools-20260915/p11-snapshot.sh",
+          "sha256": "b7acdd3ea74709c2f8af03c57275b90e6aadb0e41d284de4647cbf9862b59541",
+          "bytes": 1144,
+          "mtime_ns": 1789453189805464006,
+          "inode": 33563701
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-test-tools-20260915.tar.gz"
+    },
+    {
+      "group": "releases/p11-zui12-julian-dev-repro-20260917",
+      "archive": "tbj606f-old-releases-p11-zui12-julian-dev-repro-20260917.tar.gz",
+      "size": 12200203,
+      "sha256": "460ce70a7633c1654fabd3442a1271a615b1c281e019f74c0aed19079d6977c4",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-zui12-julian-dev-repro-20260917/Image",
+          "sha256": "5651c7e2b14f7645400ec9e97abb19f1fb023d9b26165f322f9ceab93b832177",
+          "bytes": 30497280,
+          "mtime_ns": 1789624919313714608,
+          "inode": 33563702
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-zui12-julian-dev-repro-20260917.tar.gz"
+    },
+    {
+      "group": "releases/p11-zui12-julian-recoverytest-20260917",
+      "archive": "tbj606f-old-releases-p11-zui12-julian-recoverytest-20260917.tar.gz",
+      "size": 12252251,
+      "sha256": "aacd376e7686ad99f91e41c5e45f157a347e91b6565dca3be926242cc1243f95",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-zui12-julian-recoverytest-20260917/Image",
+          "sha256": "ace17bae810cc79315ca432b1b485811f9650adf81b7e8c306c11fc271573ccc",
+          "bytes": 30497280,
+          "mtime_ns": 1789631463957625958,
+          "inode": 33563713
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "releases/p11-zui12-julian-recoverytest-20260917/config",
+          "sha256": "ace5bd78ec9ba5503269cebdfc6b244fb6ae1c8c965428a90118685a29e8373f",
+          "bytes": 148486,
+          "mtime_ns": 1789631463957625958,
+          "inode": 33563714
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-zui12-julian-recoverytest-20260917.tar.gz"
+    },
+    {
+      "group": "releases/p11-zui12-julian-stockhybrid-20260917",
+      "archive": "tbj606f-old-releases-p11-zui12-julian-stockhybrid-20260917.tar.gz",
+      "size": 12252254,
+      "sha256": "e3a23f3d45d9707b6d1765c1c3850b2358eadb39edf0bd408edbf2ffb767fa06",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-zui12-julian-stockhybrid-20260917/Image",
+          "sha256": "ace17bae810cc79315ca432b1b485811f9650adf81b7e8c306c11fc271573ccc",
+          "bytes": 30497280,
+          "mtime_ns": 1789631371880960392,
+          "inode": 33563716
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "releases/p11-zui12-julian-stockhybrid-20260917/config",
+          "sha256": "ace5bd78ec9ba5503269cebdfc6b244fb6ae1c8c965428a90118685a29e8373f",
+          "bytes": 148486,
+          "mtime_ns": 1789631371880960392,
+          "inode": 33563719
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-zui12-julian-stockhybrid-20260917.tar.gz"
+    },
+    {
+      "group": "releases/p11-zui14-abi-refined-20260915",
+      "archive": "tbj606f-old-releases-p11-zui14-abi-refined-20260915.tar.gz",
+      "size": 19326108,
+      "sha256": "673fca007c51d9bcb07e3dd59ccc4211bfdde4a77145f9518da0fdf32ad311f6",
+      "files": [
+        {
+          "path": "0001-zui14-reconstructed-baseline.patch",
+          "original_hdd_path": "releases/p11-zui14-abi-refined-20260915/0001-zui14-reconstructed-baseline.patch",
+          "sha256": "6b25d4f639bfc4987fb29def614e23829db3c5374f8c7ac2f7e27b1276cf518f",
+          "bytes": 17762150,
+          "mtime_ns": 1789461011996680616,
+          "inode": 33563720
+        },
+        {
+          "path": "0002-zui14-abi-refinements.patch",
+          "original_hdd_path": "releases/p11-zui14-abi-refined-20260915/0002-zui14-abi-refinements.patch",
+          "sha256": "6767f399b2d99290e57dfe1ac22ce36e7f2d6375c24565925f9aeaaa5e83e294",
+          "bytes": 88468,
+          "mtime_ns": 1789461012052678616,
+          "inode": 33563721
+        },
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-zui14-abi-refined-20260915/Image",
+          "sha256": "32341d74bc055f9f6e88c62389b34d2563c1f6fd358693654208155d188ba198",
+          "bytes": 34159104,
+          "mtime_ns": 1789461011732690042,
+          "inode": 33563723
+        },
+        {
+          "path": "Module.symvers",
+          "original_hdd_path": "releases/p11-zui14-abi-refined-20260915/Module.symvers",
+          "sha256": "98b65fa4e5bc8aa2c4d66110b6fd77c772631b087b5af998705733e8183777b4",
+          "bytes": 642159,
+          "mtime_ns": 1789461011736689899,
+          "inode": 33563725
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "releases/p11-zui14-abi-refined-20260915/config",
+          "sha256": "18825e0eb927a03ab9195c3e1bd949796e8f7738be0253a37c1d5d9de4cbe07d",
+          "bytes": 151664,
+          "mtime_ns": 1789461011736689899,
+          "inode": 33563730
+        },
+        {
+          "path": "mac-fetch-fastboot.sh",
+          "original_hdd_path": "releases/p11-zui14-abi-refined-20260915/mac-fetch-fastboot.sh",
+          "sha256": "cd364aa6dc781139659672624ff83e6fe718d1d934b34c0d0f2c2f4d6c8097dc",
+          "bytes": 1632,
+          "mtime_ns": 1789461126708581961,
+          "inode": 33563731
+        },
+        {
+          "path": "p11-sched-profile.sh",
+          "original_hdd_path": "releases/p11-zui14-abi-refined-20260915/p11-sched-profile.sh",
+          "sha256": "2c922b27ce978885905ba2bd33f853d73032a5a346e184c1fb6093e303f17584",
+          "bytes": 1217,
+          "mtime_ns": 1789461126708581961,
+          "inode": 33563732
+        },
+        {
+          "path": "p11-snapshot.sh",
+          "original_hdd_path": "releases/p11-zui14-abi-refined-20260915/p11-snapshot.sh",
+          "sha256": "b7acdd3ea74709c2f8af03c57275b90e6aadb0e41d284de4647cbf9862b59541",
+          "bytes": 1144,
+          "mtime_ns": 1789461126712581819,
+          "inode": 33563733
+        },
+        {
+          "path": "patch-apatch-0133.sh",
+          "original_hdd_path": "releases/p11-zui14-abi-refined-20260915/patch-apatch-0133.sh",
+          "sha256": "447e75f406acefc709d035ad823790373a4440c264f0da53f0cd7dbbcb923991",
+          "bytes": 1396,
+          "mtime_ns": 1789461011740689756,
+          "inode": 33563734
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-zui14-abi-refined-20260915.tar.gz"
+    },
+    {
+      "group": "releases/p11-zui14-gnu-ssp-camera-dbmdx-test-20260916",
+      "archive": "tbj606f-old-releases-p11-zui14-gnu-ssp-camera-dbmdx-test-20260916.tar.gz",
+      "size": 16020324,
+      "sha256": "00b7c2f617df899f7493ab78e6143b14efae7d748f3279a7cb5694fe9cdfedf9",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-zui14-gnu-ssp-camera-dbmdx-test-20260916/Image",
+          "sha256": "c153b55e7cef85e0a1357643813cf9a1358845a3cad556b0b7650865d5f5e499",
+          "bytes": 34290176,
+          "mtime_ns": 1789550160965616961,
+          "inode": 33563739
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-zui14-gnu-ssp-camera-dbmdx-test-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-zui14-gnu-ssp-forced-initrd-20260916",
+      "archive": "tbj606f-old-releases-p11-zui14-gnu-ssp-forced-initrd-20260916.tar.gz",
+      "size": 16022228,
+      "sha256": "817fbb71f1c78f170c46db51bfa1e431f81fad0c7894a3c379a1a5e61dc88341",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-zui14-gnu-ssp-forced-initrd-20260916/Image",
+          "sha256": "08da092d843f30e51f1cc9a481399fa9502c8ec584e7f6052b862846f6585a7b",
+          "bytes": 34290176,
+          "mtime_ns": 1789536375370974625,
+          "inode": 33563742
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-zui14-gnu-ssp-forced-initrd-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-zui14-gnu-ssp-stock-imagesize-test-20260916",
+      "archive": "tbj606f-old-releases-p11-zui14-gnu-ssp-stock-imagesize-test-20260916.tar.gz",
+      "size": 16022235,
+      "sha256": "1d891a43cf6032e7213163b49b4dba766108791e3bb9c9bfb0298adb81dc87a1",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-zui14-gnu-ssp-stock-imagesize-test-20260916/Image",
+          "sha256": "08da092d843f30e51f1cc9a481399fa9502c8ec584e7f6052b862846f6585a7b",
+          "bytes": 34290176,
+          "mtime_ns": 1789534859584430032,
+          "inode": 33563744
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-zui14-gnu-ssp-stock-imagesize-test-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-zui14-gnu-ssp-stockfootprint-test-20260916",
+      "archive": "tbj606f-old-releases-p11-zui14-gnu-ssp-stockfootprint-test-20260916.tar.gz",
+      "size": 16021826,
+      "sha256": "7df943ac73bff23f24adae878b2542c040ce700aebacef38a3798bdfc0d7f122",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-zui14-gnu-ssp-stockfootprint-test-20260916/Image",
+          "sha256": "cdb5c025cd437c3cfcec6e05087ba543f6b7e5ee7de65cc72deb57ff6e938bdb",
+          "bytes": 34290176,
+          "mtime_ns": 1789538711831259114,
+          "inode": 33563746
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-zui14-gnu-ssp-stockfootprint-test-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-zui14-gnu-ssp-test-20260916",
+      "archive": "tbj606f-old-releases-p11-zui14-gnu-ssp-test-20260916.tar.gz",
+      "size": 16234468,
+      "sha256": "68f00d3b30725b0d6b62b52a16deddd21c2626887b5a16dd7ff5c7ac503676cc",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-zui14-gnu-ssp-test-20260916/Image",
+          "sha256": "86388e3431b01b42bca4c8e1acd17ea20ef36d74e0a8717ec5b48ca476754e1f",
+          "bytes": 34290176,
+          "mtime_ns": 1789522928358339202,
+          "inode": 33563752
+        },
+        {
+          "path": "Module.symvers",
+          "original_hdd_path": "releases/p11-zui14-gnu-ssp-test-20260916/Module.symvers",
+          "sha256": "98b65fa4e5bc8aa2c4d66110b6fd77c772631b087b5af998705733e8183777b4",
+          "bytes": 642159,
+          "mtime_ns": 1789522928358339202,
+          "inode": 33563753
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "releases/p11-zui14-gnu-ssp-test-20260916/config",
+          "sha256": "80452ec284ff45c4c2a732e6e4ab5896b27a1aacc9f4e865390eba0405a1a239",
+          "bytes": 151696,
+          "mtime_ns": 1789522928358339202,
+          "inode": 33563757
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-zui14-gnu-ssp-test-20260916.tar.gz"
+    },
+    {
+      "group": "releases/p11-zui14-reconstructed-baseline-20260915",
+      "archive": "tbj606f-old-releases-p11-zui14-reconstructed-baseline-20260915.tar.gz",
+      "size": 19302838,
+      "sha256": "2dbdcb6f76bab8fe1951be1b095876f9aa7c1302664ccac173b587d2acce38c8",
+      "files": [
+        {
+          "path": "0001-zui14-reconstructed-baseline.patch",
+          "original_hdd_path": "releases/p11-zui14-reconstructed-baseline-20260915/0001-zui14-reconstructed-baseline.patch",
+          "sha256": "6b25d4f639bfc4987fb29def614e23829db3c5374f8c7ac2f7e27b1276cf518f",
+          "bytes": 17762150,
+          "mtime_ns": 1789451490424181015,
+          "inode": 33563761
+        },
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/p11-zui14-reconstructed-baseline-20260915/Image",
+          "sha256": "70dc3d9f22b9291450afead94abe1d9dcf036dc1db4655809b7aead46e963074",
+          "bytes": 34224640,
+          "mtime_ns": 1789451360717036517,
+          "inode": 33563762
+        },
+        {
+          "path": "Module.symvers",
+          "original_hdd_path": "releases/p11-zui14-reconstructed-baseline-20260915/Module.symvers",
+          "sha256": "f8f88cff057037168c0dbae28a139a1dab8b2fca5a6c6786338033ce65251410",
+          "bytes": 642159,
+          "mtime_ns": 1789451360717036517,
+          "inode": 33563764
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "releases/p11-zui14-reconstructed-baseline-20260915/config",
+          "sha256": "18825e0eb927a03ab9195c3e1bd949796e8f7738be0253a37c1d5d9de4cbe07d",
+          "bytes": 151664,
+          "mtime_ns": 1789451360717036517,
+          "inode": 33563767
+        },
+        {
+          "path": "patch-apatch-0133.sh",
+          "original_hdd_path": "releases/p11-zui14-reconstructed-baseline-20260915/patch-apatch-0133.sh",
+          "sha256": "447e75f406acefc709d035ad823790373a4440c264f0da53f0cd7dbbcb923991",
+          "bytes": 1396,
+          "mtime_ns": 1789453069981867558,
+          "inode": 33563768
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-p11-zui14-reconstructed-baseline-20260915.tar.gz"
+    },
+    {
+      "group": "releases/zui12-4.19.101-kabi-20260918",
+      "archive": "tbj606f-old-releases-zui12-4.19.101-kabi-20260918.tar.gz",
+      "size": 12467723,
+      "sha256": "e4754a9db2a4858e5f5ad3ac99c0b85ce91fbae768754c858b75e1aa26010f88",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/zui12-4.19.101-kabi-20260918/Image",
+          "sha256": "349a8bf6b9ec76bdec94d859a68151c5dbac14773ec2f2cfc9d54f3717310909",
+          "bytes": 30667264,
+          "mtime_ns": 1789661137411341833,
+          "inode": 33563844
+        },
+        {
+          "path": "Module.symvers",
+          "original_hdd_path": "releases/zui12-4.19.101-kabi-20260918/Module.symvers",
+          "sha256": "33dbe9a8b5b05ee9f05174161ded120bfeb8d3c52f88dbfdb20814b0e559a7dd",
+          "bytes": 633504,
+          "mtime_ns": 1789661137411341833,
+          "inode": 33563850
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "releases/zui12-4.19.101-kabi-20260918/config",
+          "sha256": "58978281b46d4e6082a3c5afcfc943d04dc8b8e5662bc5ff01b137b29c2716c8",
+          "bytes": 148498,
+          "mtime_ns": 1789661137411341833,
+          "inode": 33563851
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-zui12-4.19.101-kabi-20260918.tar.gz"
+    },
+    {
+      "group": "releases/zui12-final-pre-next-kernel-20260920",
+      "archive": null,
+      "status": "no_redistributable_files_found",
+      "warning": "Only images/logs/OEM or unselected files; original HDD contents must remain."
+    },
+    {
+      "group": "releases/zui12-post157-dt2w-gsi-on-candidate-20260919",
+      "archive": "tbj606f-old-releases-zui12-post157-dt2w-gsi-on-candidate-20260919.tar.gz",
+      "size": 12671392,
+      "sha256": "aca460ac94d4f926ead7b6928c24726b3574bef329972082977dfb35ba7028e1",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/zui12-post157-dt2w-gsi-on-candidate-20260919/Image",
+          "sha256": "80ab6b69aec6026e7895679b1c0747c16cda96ad0c5d17b53632074797f04c81",
+          "bytes": 31068672,
+          "mtime_ns": 1789812752020826258,
+          "inode": 33563928
+        },
+        {
+          "path": "Module.symvers",
+          "original_hdd_path": "releases/zui12-post157-dt2w-gsi-on-candidate-20260919/Module.symvers",
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "bytes": 642619,
+          "mtime_ns": 1789812752024826116,
+          "inode": 33563929
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "releases/zui12-post157-dt2w-gsi-on-candidate-20260919/config",
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "bytes": 149106,
+          "mtime_ns": 1789812752024826116,
+          "inode": 33563932
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-zui12-post157-dt2w-gsi-on-candidate-20260919.tar.gz"
+    },
+    {
+      "group": "releases/zui12-post157-eas-idle-opt14-candidate-20260919",
+      "archive": "tbj606f-old-releases-zui12-post157-eas-idle-opt14-candidate-20260919.tar.gz",
+      "size": 12669042,
+      "sha256": "42ec5bef8805c70beacb31e5dec27a8d10a2965ca8468b339baa6bcf7bc3a099",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/zui12-post157-eas-idle-opt14-candidate-20260919/Image",
+          "sha256": "b8269765f1c7a3d60a85aa8029fa6f9a562a384bb6f4311f4cd78c7b80b64d55",
+          "bytes": 31068672,
+          "mtime_ns": 1789818843475840974,
+          "inode": 33563964
+        },
+        {
+          "path": "Module.symvers",
+          "original_hdd_path": "releases/zui12-post157-eas-idle-opt14-candidate-20260919/Module.symvers",
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "bytes": 642619,
+          "mtime_ns": 1789818843479840828,
+          "inode": 33563965
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "releases/zui12-post157-eas-idle-opt14-candidate-20260919/config",
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "bytes": 149106,
+          "mtime_ns": 1789818843475840974,
+          "inode": 33563968
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-zui12-post157-eas-idle-opt14-candidate-20260919.tar.gz"
+    },
+    {
+      "group": "releases/zui12-post157-gpu-oc15-980-candidate-20260919",
+      "archive": "tbj606f-old-releases-zui12-post157-gpu-oc15-980-candidate-20260919.tar.gz",
+      "size": 12671393,
+      "sha256": "e4587bf788d7d8d76c326e5fc164057ac911fc4e3b21bfa5b9abf0d7141d2f2a",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/zui12-post157-gpu-oc15-980-candidate-20260919/Image",
+          "sha256": "8b0223ff4207d6f4ec47fc6b0009923d9f5973e85749a24397ad0af542fc72a7",
+          "bytes": 31134208,
+          "mtime_ns": 1789821891195116933,
+          "inode": 33564036
+        },
+        {
+          "path": "Module.symvers",
+          "original_hdd_path": "releases/zui12-post157-gpu-oc15-980-candidate-20260919/Module.symvers",
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "bytes": 642619,
+          "mtime_ns": 1789821891199116791,
+          "inode": 33564037
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "releases/zui12-post157-gpu-oc15-980-candidate-20260919/config",
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "bytes": 149106,
+          "mtime_ns": 1789821891199116791,
+          "inode": 33564040
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-zui12-post157-gpu-oc15-980-candidate-20260919.tar.gz"
+    },
+    {
+      "group": "releases/zui12-tune-inputboost-80ms-candidate-20260919",
+      "archive": "tbj606f-old-releases-zui12-tune-inputboost-80ms-candidate-20260919.tar.gz",
+      "size": 12669099,
+      "sha256": "ec003ad0ba1acb7c62e928160d5ac617a5ca83619b8cb284ffb7705e93afb0a9",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/zui12-tune-inputboost-80ms-candidate-20260919/Image",
+          "sha256": "4e32f6559c8d6bb8b8fccdc1a547eb6a2add3dae0fe9b9976dd97424e2fb2481",
+          "bytes": 31068672,
+          "mtime_ns": 1789797614091477071,
+          "inode": 33564116
+        },
+        {
+          "path": "Module.symvers",
+          "original_hdd_path": "releases/zui12-tune-inputboost-80ms-candidate-20260919/Module.symvers",
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "bytes": 642619,
+          "mtime_ns": 1789797614095476927,
+          "inode": 33564117
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "releases/zui12-tune-inputboost-80ms-candidate-20260919/config",
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "bytes": 149106,
+          "mtime_ns": 1789797614091477071,
+          "inode": 33564120
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-zui12-tune-inputboost-80ms-candidate-20260919.tar.gz"
+    },
+    {
+      "group": "releases/zui12-tuning-harness-candidate-20260919",
+      "archive": "tbj606f-old-releases-zui12-tuning-harness-candidate-20260919.tar.gz",
+      "size": 12669026,
+      "sha256": "3bdd2385c0eaa1a6387f38c3f17b4ed90b72b8c3baec21650f4bec13b05ef786",
+      "files": [
+        {
+          "path": "Image",
+          "original_hdd_path": "releases/zui12-tuning-harness-candidate-20260919/Image",
+          "sha256": "fc6023d375f4b19e3a7929ef606fe76111a7dd3b66d9defa4d30eb81803877cf",
+          "bytes": 31068672,
+          "mtime_ns": 1789798333342285398,
+          "inode": 33564121
+        },
+        {
+          "path": "Module.symvers",
+          "original_hdd_path": "releases/zui12-tuning-harness-candidate-20260919/Module.symvers",
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "bytes": 642619,
+          "mtime_ns": 1789798333366284563,
+          "inode": 33564122
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "releases/zui12-tuning-harness-candidate-20260919/config",
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "bytes": 149106,
+          "mtime_ns": 1789798333366284563,
+          "inode": 33564130
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-releases-zui12-tuning-harness-candidate-20260919.tar.gz"
+    },
+    {
+      "group": "experiments/corectl-delay-20260919",
+      "archive": "tbj606f-old-experiments-corectl-delay-20260919.tar.gz",
+      "size": 212942,
+      "sha256": "014992fc8d433bc750a4930686e0deb560f8b20361167e7c3526f2aa4ec8b97e",
+      "files": [
+        {
+          "path": "Module.symvers",
+          "original_hdd_path": "experiments/corectl-delay-20260919/Module.symvers",
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "bytes": 642619,
+          "mtime_ns": 1789804705200034231,
+          "inode": 34349619
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "experiments/corectl-delay-20260919/config",
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "bytes": 149106,
+          "mtime_ns": 1789804705196034374,
+          "inode": 34349624
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-experiments-corectl-delay-20260919.tar.gz"
+    },
+    {
+      "group": "experiments/custom-recovery-20260922",
+      "archive": "tbj606f-old-experiments-custom-recovery-20260922.tar.gz",
+      "size": 4028,
+      "sha256": "02fc4c342841cb8165fff9bc5bd261cf00310691dcfdac87191883f36f44b574",
+      "files": [
+        {
+          "path": "build_p11diag_fallback.py",
+          "original_hdd_path": "experiments/custom-recovery-20260922/build_p11diag_fallback.py",
+          "sha256": "3502e1718d2d2b118cfce72647f511c5367787c8244287bc8a60666563d29e5f",
+          "bytes": 1389,
+          "mtime_ns": 1790091006075184036,
+          "inode": 34497327
+        },
+        {
+          "path": "build_p11diag_v5.py",
+          "original_hdd_path": "experiments/custom-recovery-20260922/build_p11diag_v5.py",
+          "sha256": "1b331788d24916d0b97b0c12de0311850baa6a0c3f5d457f4ad1a7cf805e57f1",
+          "bytes": 1361,
+          "mtime_ns": 1790086875093364345,
+          "inode": 34497299
+        },
+        {
+          "path": "build_p11diag_v6.py",
+          "original_hdd_path": "experiments/custom-recovery-20260922/build_p11diag_v6.py",
+          "sha256": "91266ac23bb4b5508263a6e829da994622e489b323e5f6b6c96b6cbccaeb01a5",
+          "bytes": 1697,
+          "mtime_ns": 1790091005951188284,
+          "inode": 34497326
+        },
+        {
+          "path": "p11diag_v5.sh",
+          "original_hdd_path": "experiments/custom-recovery-20260922/p11diag_v5.sh",
+          "sha256": "878251a116786ff9a9b5f7cdd7f811922e4b824717505e3ebf0b8dec39d475a6",
+          "bytes": 1884,
+          "mtime_ns": 1790086875033366634,
+          "inode": 34497298
+        },
+        {
+          "path": "p11diag_v6.sh",
+          "original_hdd_path": "experiments/custom-recovery-20260922/p11diag_v6.sh",
+          "sha256": "6c5128ab24e1c6468b2f0e15cc3e7d2093b427f93c0cae03a1a29d8cf7209fe0",
+          "bytes": 3044,
+          "mtime_ns": 1790091005911189655,
+          "inode": 34497325
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-experiments-custom-recovery-20260922.tar.gz"
+    },
+    {
+      "group": "experiments/erofs-lineage23.2-20260922",
+      "archive": "tbj606f-old-experiments-erofs-lineage23.2-20260922.tar.gz",
+      "size": 307853,
+      "sha256": "6e69b083253d1f54dc94b48282d71a0ca9c613cf89cbb2dc40271b0e7bb85fdd",
+      "files": [
+        {
+          "path": "Module.symvers",
+          "original_hdd_path": "experiments/erofs-lineage23.2-20260922/Module.symvers",
+          "sha256": "01e5ec08bdd6221238dd8ac206125ac7b7dd64d771ddeadef43c34d15224eaaa",
+          "bytes": 638714,
+          "mtime_ns": 1790067549685558484,
+          "inode": 34495479
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "experiments/erofs-lineage23.2-20260922/config",
+          "sha256": "2b9e15c701e7039c7a5ef913e36b3af055d3b1249afd75e35b1fec324932e712",
+          "bytes": 148894,
+          "mtime_ns": 1790067548477601772,
+          "inode": 34495478
+        },
+        {
+          "path": "diag-20260923/build_p11diag_fallback.py",
+          "original_hdd_path": "experiments/erofs-lineage23.2-20260922/diag-20260923/build_p11diag_fallback.py",
+          "sha256": "3502e1718d2d2b118cfce72647f511c5367787c8244287bc8a60666563d29e5f",
+          "bytes": 1389,
+          "mtime_ns": 1790090997259485927,
+          "inode": 34497309
+        },
+        {
+          "path": "diag-20260923/build_p11diag_v6.py",
+          "original_hdd_path": "experiments/erofs-lineage23.2-20260922/diag-20260923/build_p11diag_v6.py",
+          "sha256": "91266ac23bb4b5508263a6e829da994622e489b323e5f6b6c96b6cbccaeb01a5",
+          "bytes": 1697,
+          "mtime_ns": 1790090997303484422,
+          "inode": 34497310
+        },
+        {
+          "path": "diag-20260923/inplacefix-20260923-134820/source-inplacefix.patch",
+          "original_hdd_path": "experiments/erofs-lineage23.2-20260922/diag-20260923/inplacefix-20260923-134820/source-inplacefix.patch",
+          "sha256": "84943f9e822d04545b8ce16c6acee23a8b2f97d4d2495f3d1c5fd31b6620c2f8",
+          "bytes": 3063,
+          "mtime_ns": 1790138900345382584,
+          "inode": 36569106
+        },
+        {
+          "path": "diag-20260923/kernel/v54compat.patch",
+          "original_hdd_path": "experiments/erofs-lineage23.2-20260922/diag-20260923/kernel/v54compat.patch",
+          "sha256": "fbab598ae7da35f8a22b1b83223ecc3db9578a47036f5874e20860a6bc6d11c8",
+          "bytes": 38129,
+          "mtime_ns": 1790090997423480314,
+          "inode": 34497313
+        },
+        {
+          "path": "diag-20260923/noinplace-20260923-130524/source-commit-d8df671ab.patch",
+          "original_hdd_path": "experiments/erofs-lineage23.2-20260922/diag-20260923/noinplace-20260923-130524/source-commit-d8df671ab.patch",
+          "sha256": "d81a581b163c374fe4e2b842cbc36e309d9bf31bc8ab03fbabb772e79f1eb567",
+          "bytes": 1326,
+          "mtime_ns": 1790136325087940137,
+          "inode": 36572176
+        },
+        {
+          "path": "diag-20260923/p11diag_v6.sh",
+          "original_hdd_path": "experiments/erofs-lineage23.2-20260922/diag-20260923/p11diag_v6.sh",
+          "sha256": "6c5128ab24e1c6468b2f0e15cc3e7d2093b427f93c0cae03a1a29d8cf7209fe0",
+          "bytes": 3044,
+          "mtime_ns": 1790091003331278028,
+          "inode": 34497322
+        },
+        {
+          "path": "diag-20260923/p11diag_v7.sh",
+          "original_hdd_path": "experiments/erofs-lineage23.2-20260922/diag-20260923/p11diag_v7.sh",
+          "sha256": "b0a7f9ddd28031869eb0a52beff294cb65c93ac50a6b3538aa37b64e52d8dc24",
+          "bytes": 4664,
+          "mtime_ns": 1790125481904990976,
+          "inode": 34497334
+        },
+        {
+          "path": "source.patch",
+          "original_hdd_path": "experiments/erofs-lineage23.2-20260922/source.patch",
+          "sha256": "849c1aae040f80c873451babaf8679e110a3fbea92ad455fdcf578aae18899e5",
+          "bytes": 314240,
+          "mtime_ns": 1790067654029819680,
+          "inode": 34495482
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-experiments-erofs-lineage23.2-20260922.tar.gz"
+    },
+    {
+      "group": "experiments/gpu-oc15-failure-20260922",
+      "archive": "tbj606f-old-experiments-gpu-oc15-failure-20260922.tar.gz",
+      "size": 2787,
+      "sha256": "f28efaa16fa02f99c655f182d326844805d91c88f49bf4462a3309e2a278b519",
+      "files": [
+        {
+          "path": "P11-GPU-OC15-series.patch",
+          "original_hdd_path": "experiments/gpu-oc15-failure-20260922/P11-GPU-OC15-series.patch",
+          "sha256": "720229fe3ba3bddf2ddb39dfdc7e526752891fbe307ad12864852a13f06ac003",
+          "bytes": 4446,
+          "mtime_ns": 1790050272137350063,
+          "inode": 34495259
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-experiments-gpu-oc15-failure-20260922.tar.gz"
+    },
+    {
+      "group": "experiments/gpu-oc16-harness-20260922",
+      "archive": "tbj606f-old-experiments-gpu-oc16-harness-20260922.tar.gz",
+      "size": 212896,
+      "sha256": "86224b5d0e8c3b0325844c21dead2db9d850aa7a43aaac8ca32cd64596d95b2c",
+      "files": [
+        {
+          "path": "Module.symvers",
+          "original_hdd_path": "experiments/gpu-oc16-harness-20260922/Module.symvers",
+          "sha256": "01e5ec08bdd6221238dd8ac206125ac7b7dd64d771ddeadef43c34d15224eaaa",
+          "bytes": 638714,
+          "mtime_ns": 1790052064280923234,
+          "inode": 34495270
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "experiments/gpu-oc16-harness-20260922/config",
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "bytes": 149106,
+          "mtime_ns": 1790052064100929665,
+          "inode": 34495269
+        },
+        {
+          "path": "source.patch",
+          "original_hdd_path": "experiments/gpu-oc16-harness-20260922/source.patch",
+          "sha256": "4d2e337c7cd00e2b129b8c3df16f57e7c2bba5f5fce0c32791712e68f0fcb4a0",
+          "bytes": 1898,
+          "mtime_ns": 1790052063992933525,
+          "inode": 34495268
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-experiments-gpu-oc16-harness-20260922.tar.gz"
+    },
+    {
+      "group": "experiments/gpu-oc17-native960-final-20260922",
+      "archive": "tbj606f-old-experiments-gpu-oc17-native960-final-20260922.tar.gz",
+      "size": 213225,
+      "sha256": "8f7ef518225a966003d467a11d42347c78c57efe5e6a043c2283c13fee0c0232",
+      "files": [
+        {
+          "path": "Module.symvers",
+          "original_hdd_path": "experiments/gpu-oc17-native960-final-20260922/Module.symvers",
+          "sha256": "01e5ec08bdd6221238dd8ac206125ac7b7dd64d771ddeadef43c34d15224eaaa",
+          "bytes": 638714,
+          "mtime_ns": 1790064312357108728,
+          "inode": 34495433
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "experiments/gpu-oc17-native960-final-20260922/config",
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "bytes": 149106,
+          "mtime_ns": 1790064310329179416,
+          "inode": 34495432
+        },
+        {
+          "path": "source.patch",
+          "original_hdd_path": "experiments/gpu-oc17-native960-final-20260922/source.patch",
+          "sha256": "ce4a8cb94bab1d1b15a4a1477bfed6ccde0b57c52d21111f3e0b79afd0541a7d",
+          "bytes": 3519,
+          "mtime_ns": 1790064313881055603,
+          "inode": 34495435
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-experiments-gpu-oc17-native960-final-20260922.tar.gz"
+    },
+    {
+      "group": "experiments/input-boost-80ms-20260919",
+      "archive": null,
+      "status": "no_redistributable_files_found",
+      "warning": "Only images/logs/OEM or unselected files; original HDD contents must remain."
+    },
+    {
+      "group": "experiments/j606f-recovery-dev-20260922",
+      "archive": null,
+      "status": "no_redistributable_files_found",
+      "warning": "Only images/logs/OEM or unselected files; original HDD contents must remain."
+    },
+    {
+      "group": "experiments/p11-final-verify-20260923",
+      "archive": null,
+      "status": "no_redistributable_files_found",
+      "warning": "Only images/logs/OEM or unselected files; original HDD contents must remain."
+    },
+    {
+      "group": "experiments/tuning-harness-20260919",
+      "archive": "tbj606f-old-experiments-tuning-harness-20260919.tar.gz",
+      "size": 212944,
+      "sha256": "aee11f45e42466afa0c9e8142bfa10cab05736b3c72293e979430591354ea4fa",
+      "files": [
+        {
+          "path": "Module.symvers",
+          "original_hdd_path": "experiments/tuning-harness-20260919/Module.symvers",
+          "sha256": "d26c9000021497490fa1f67da332249fe79a4f50bc9a3dee50fa51133c6a50b7",
+          "bytes": 642619,
+          "mtime_ns": 1789800088280058495,
+          "inode": 34349627
+        },
+        {
+          "path": "config",
+          "original_hdd_path": "experiments/tuning-harness-20260919/config",
+          "sha256": "eb3ad832840c9c39f1f25cd5ece3bf22eee08572dd3288500798460accf498b1",
+          "bytes": 149106,
+          "mtime_ns": 1789800088276058639,
+          "inode": 34349639
+        }
+      ],
+      "status": "verified_published",
+      "github_url": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f/releases/download/tbj606f-legacy-gpl-stages-20260925/tbj606f-old-experiments-tuning-harness-20260919.tar.gz"
+    },
+    {
+      "group": "experiments/tuning-harness-59130bbed",
+      "archive": null,
+      "status": "no_redistributable_files_found",
+      "warning": "Only images/logs/OEM or unselected files; original HDD contents must remain."
+    },
+    {
+      "group": "experiments/tuning-harness-8960a3a1",
+      "archive": null,
+      "status": "no_redistributable_files_found",
+      "warning": "Only images/logs/OEM or unselected files; original HDD contents must remain."
+    },
+    {
+      "group": "experiments/vndk29-product-20260923",
+      "archive": null,
+      "status": "no_redistributable_files_found",
+      "warning": "Only images/logs/OEM or unselected files; original HDD contents must remain."
+    },
+    {
+      "group": "experiments/vndk29-vendor-20260923",
+      "archive": null,
+      "status": "no_redistributable_files_found",
+      "warning": "Only images/logs/OEM or unselected files; original HDD contents must remain."
+    },
+    {
+      "group": "experiments/zui14-adsp-loader-stable-20260924",
+      "archive": null,
+      "status": "no_redistributable_files_found",
+      "warning": "Only images/logs/OEM or unselected files; original HDD contents must remain."
+    },
+    {
+      "group": "experiments/zui14-fastrpc-kernel-20260923",
+      "archive": null,
+      "status": "no_redistributable_files_found",
+      "warning": "Only images/logs/OEM or unselected files; original HDD contents must remain."
+    },
+    {
+      "group": "experiments/zui14-fastrpc-runtime-20260924",
+      "archive": null,
+      "status": "no_redistributable_files_found",
+      "warning": "Only images/logs/OEM or unselected files; original HDD contents must remain."
+    },
+    {
+      "group": "experiments/zui14-stable-kernel-20260923",
+      "archive": null,
+      "status": "no_redistributable_files_found",
+      "warning": "Only images/logs/OEM or unselected files; original HDD contents must remain."
+    },
+    {
+      "group": "experiments/zui14-vendor-hybrid-20260923",
+      "archive": null,
+      "status": "no_redistributable_files_found",
+      "warning": "Only images/logs/OEM or unselected files; original HDD contents must remain."
+    },
+    {
+      "group": "experiments/zui14-vendor-hybrid-20260924",
+      "archive": null,
+      "status": "no_redistributable_files_found",
+      "warning": "Only images/logs/OEM or unselected files; original HDD contents must remain."
+    }
+  ],
+  "remote_branches_observed": 65,
+  "remote_tags_observed": 62,
+  "recovered_hdd_legacy_source_branch": "archive/lineage19.1-baseline-20260914",
+  "recovered_hdd_legacy_source_commit": "23f0307a69093cf287335a09ef88d73870e9120a",
+  "excluded_latest_current_performance_paths": [
+    "/root/p11-kernel-lab/research/tbj606f-scroll-perf",
+    "/root/HDD/user0/P11/experiments/scroll-performance-20260924"
+  ],
+  "unpublished_local_perf_diagnostic_branches_intentionally_excluded": [
+    "perf/tbj606f-native-gpu-cap-diagnostic",
+    "perf/tbj606f-native-gpu-floor-diagnostic",
+    "perf/tbj606f-panel-esd-boot-diagnostic"
+  ],
+  "not_backed_up_or_not_proven_safe_for_HDD_deletion": [
+    "OEM/third-party boot.img, vendor, recovery and firmware, historic hybrid vendor",
+    "build archives and toolchains outside manifest",
+    "historical diagnostic and runtime logs",
+    "22 loose historical boot images in HDD releases root",
+    "historical debug boots in 44 untagged release dirs and 20 experiment dirs",
+    "any current performance measurement/source/build inputs"
+  ],
+  "original_HDD_freed_bytes": 0,
+  "original_HDD_deletions": [],
+  "reproducibility_limitation": "All 37 tagged assets match original saved binaries, but not all 37 clean builds or boots were retested; 47 unmatched archive groups have no safely attributable source commit.",
+  "rightsholder_limitation": "Public archives deliberately exclude Lenovo proprietary firmware/ramdisk, hybrid vendor, stock boots, GSI and user/device diagnostic logs."
+}

@@ -62,6 +62,18 @@ public-v1 bundle; direct-parent copies and GitHub's published tar remain.
 The earlier inventories remain historical pre-cleanup snapshots.
 Current scroll-performance work and all other old material were untouched.
 
+## Public legacy source and kernel preservation (2026-09-25)
+
+See [verified 84 archive asset inventory](legacy-remote-preservation-20260925.md)
+and [per-file SHA256 JSON](legacy-remote-preservation-20260925.json).
+Source-only historic GitHub tags with HDD kernel stages have supplementary
+kernel/config/ABI archives; loose old folder GPL components have a distinct
+archival release. The old lineage19.1 source HEAD has a recovered GitHub
+branch. Latest scroll-performance work and the current build environment were
+excluded. OEM boot/vendor, old diagnostics, and large incomplete HDD archive
+trees remain unbacked-up in a fully independent failure domain, so this is
+**not authority to erase the old HDD**.
+
 ## Cleanup gate
 
 No deletion of `experiments/` or `releases/` is authorized by these inventories.
