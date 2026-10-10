@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "scope": "historical build-archive/20260923; excludes current perf and build environment",
+  "source_repo": "https://github.com/bampudding/linux_kernel_lenovo_tbj606f",
+  "rows": [
+    {
+      "hdd_build_folder": "lineage4132-zui14config-abi-probe",
+      "saved_config_sha256": "327e1058f125a88f19c928a14c9e252b77425c5433959090d7cba392bd11fde8",
+      "saved_image_sha256": "ccc58ba8d6bd076dcca3bf590d79779f5d8aba033804717fd729902a34038e33",
+      "saved_vmlinux_sha256": "ae2c474a9303926138d42a7a6b39ef39e7604bb635fca37585a28a7b670079f4",
+      "candidate_git_branches": [],
+      "branch_attribution": "UNKNOWN",
+      "clean_rebuild_verified": false,
+      "toolchain_identity": "UNKNOWN_FOR_THIS_HISTORICAL_BUILD",
+      "recipe": "git checkout <candidate commit>; mkdir -p /separate/ssd/out; cp <archived-.config> /separate/ssd/out/.config; PATH=<clang-bin>:<cross-bin>:$PATH make O=/separate/ssd/out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-android- CLANG_TRIPLE=aarch64-linux-gnu- olddefconfig Image dtbs; exact toolchain and source identity still require verification",
+      "warning": "Name similarity alone does not prove this branch built these bytes; no claim of bit-for-bit reproduction."
+    },
+    {
+      "hdd_build_folder": "p11diag-recovery-lz4-v15",
+      "saved_config_sha256": "36270e3c45eb9e663e71eef8579617f09ad25d7732d009d5d4c1ea96f55bf734",
+      "saved_image_sha256": "26f39d3f46da2d0340ec7dfe47210108d417ccd5a19279a0639da26c36ad2d20",
+      "saved_vmlinux_sha256": "b20bfcaee9d281638b07498f11e22fc31aa9d3464afd21abd1587f33a3ddcc5e",
+      "candidate_git_branches": [],
+      "branch_attribution": "UNKNOWN",
+      "clean_rebuild_verified": false,
+      "toolchain_identity": "UNKNOWN_FOR_THIS_HISTORICAL_BUILD",
+      "recipe": "git checkout <candidate commit>; mkdir -p /separate/ssd/out; cp <archived-.config> /separate/ssd/out/.config; PATH=<clang-bin>:<cross-bin>:$PATH make O=/separate/ssd/out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-android- CLANG_TRIPLE=aarch64-linux-gnu- olddefconfig Image dtbs; exact toolchain and source identity still require verification",
+      "warning": "Name similarity alone does not prove this branch built these bytes; no claim of bit-for-bit reproduction."
+    },
+    {
+      "hdd_build_folder": "zui12-post157-erofs-lineage23.2-final",
+      "saved_config_sha256": "2b9e15c701e7039c7a5ef913e36b3af055d3b1249afd75e35b1fec324932e712",
+      "saved_image_sha256": "01fe53ffd7727c9f5233d6b16672bb263f29cb28cbb89af347903963daeb8db5",
+      "saved_vmlinux_sha256": "e9fe3d9614003daddfc19cfc3e6d18e0c5bd4d4100db5616d91ac2bf7a781e60",
+      "candidate_git_branches": [],
+      "branch_attribution": "UNKNOWN",
+      "clean_rebuild_verified": false,
+      "toolchain_identity": "UNKNOWN_FOR_THIS_HISTORICAL_BUILD",
+      "recipe": "git checkout <candidate commit>; mkdir -p /separate/ssd/out; cp <archived-.config> /separate/ssd/out/.config; PATH=<clang-bin>:<cross-bin>:$PATH make O=/separate/ssd/out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-android- CLANG_TRIPLE=aarch64-linux-gnu- olddefconfig Image dtbs; exact toolchain and source identity still require verification",
+      "warning": "Name similarity alone does not prove this branch built these bytes; no claim of bit-for-bit reproduction."
+    },
+    {
+      "hdd_build_folder": "zui12-post157-erofs-lz4-inplacefix-test1",
+      "saved_config_sha256": "36270e3c45eb9e663e71eef8579617f09ad25d7732d009d5d4c1ea96f55bf734",
+      "saved_image_sha256": "b6cd2f1153b2639fb0af5c3f0d431a0e5c16d256ffc2c564fa0b11a4b99fc502",
+      "saved_vmlinux_sha256": "bd784ffeba6cd21bdcd844f563212281c58cce6694c82378e9a5f6657b86490a",
+      "candidate_git_branches": [
+        "p11/zui12-post157-erofs-lz4-inplacefix"
+      ],
+      "branch_attribution": "NAME_MATCH_ONLY_NOT_BUILD_VERIFIED",
+      "clean_rebuild_verified": false,
+      "toolchain_identity": "UNKNOWN_FOR_THIS_HISTORICAL_BUILD",
+      "recipe": "git checkout <candidate commit>; mkdir -p /separate/ssd/out; cp <archived-.config> /separate/ssd/out/.config; PATH=<clang-bin>:<cross-bin>:$PATH make O=/separate/ssd/out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-android- CLANG_TRIPLE=aarch64-linux-gnu- olddefconfig Image dtbs; exact toolchain and source identity still require verification",
+      "warning": "Name similarity alone does not prove this branch built these bytes; no claim of bit-for-bit reproduction.",
+      "candidate_commits": {
+        "p11/zui12-post157-erofs-lz4-inplacefix": "58dd0257ffe542b8a0352955ea47c0e967b64948"
+      }
+    },
+    {
+      "hdd_build_folder": "zui12-post157-erofs-lz4-inplacefix-zui14-fastrpc1",
+      "saved_config_sha256": "36270e3c45eb9e663e71eef8579617f09ad25d7732d009d5d4c1ea96f55bf734",
+      "saved_image_sha256": "98a22293626ef04955e84aae406922237da4e269bc61ab15185ba77a7102ce9f",
+      "saved_vmlinux_sha256": "d16b321ac19bec22e1218e7e44c8d748dbf44e05b7c538450c9b6832a1c36090",
+      "candidate_git_branches": [
+        "p11/zui12-post157-erofs-lz4-inplacefix-zui14-fastrpc1"
+      ],
+      "branch_attribution": "NAME_MATCH_ONLY_NOT_BUILD_VERIFIED",
+      "clean_rebuild_verified": false,
+      "toolchain_identity": "UNKNOWN_FOR_THIS_HISTORICAL_BUILD",
+      "recipe": "git checkout <candidate commit>; mkdir -p /separate/ssd/out; cp <archived-.config> /separate/ssd/out/.config; PATH=<clang-bin>:<cross-bin>:$PATH make O=/separate/ssd/out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-android- CLANG_TRIPLE=aarch64-linux-gnu- olddefconfig Image dtbs; exact toolchain and source identity still require verification",
+      "warning": "Name similarity alone does not prove this branch built these bytes; no claim of bit-for-bit reproduction.",
+      "candidate_commits": {
+        "p11/zui12-post157-erofs-lz4-inplacefix-zui14-fastrpc1": "6dfb4057662f8f83c9eac3667a2672fb7e1a2b19"
+      }
+    },
+    {
+      "hdd_build_folder": "zui12-post157-erofs-lz4-v183-noinplace-test1",
+      "saved_config_sha256": "36270e3c45eb9e663e71eef8579617f09ad25d7732d009d5d4c1ea96f55bf734",
+      "saved_image_sha256": "de527c108f4c17e94b0343db597adb3ca5ec6300f93a46ad58e953ee72a543fb",
+      "saved_vmlinux_sha256": "0d6b73a0c3ccd00baf93df896a1744345769f27a8324045f44c9916e59303939",
+      "candidate_git_branches": [
+        "p11/zui12-post157-erofs-lz4-v183-noinplace"
+      ],
+      "branch_attribution": "NAME_MATCH_ONLY_NOT_BUILD_VERIFIED",
+      "clean_rebuild_verified": false,
+      "toolchain_identity": "UNKNOWN_FOR_THIS_HISTORICAL_BUILD",
+      "recipe": "git checkout <candidate commit>; mkdir -p /separate/ssd/out; cp <archived-.config> /separate/ssd/out/.config; PATH=<clang-bin>:<cross-bin>:$PATH make O=/separate/ssd/out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-android- CLANG_TRIPLE=aarch64-linux-gnu- olddefconfig Image dtbs; exact toolchain and source identity still require verification",
+      "warning": "Name similarity alone does not prove this branch built these bytes; no claim of bit-for-bit reproduction.",
+      "candidate_commits": {
+        "p11/zui12-post157-erofs-lz4-v183-noinplace": "d8df671ab614e1ce9d42be19a46eb900918308fc"
+      }
+    },
+    {
+      "hdd_build_folder": "zui12-post157-erofs-lz4-v183-test1",
+      "saved_config_sha256": "36270e3c45eb9e663e71eef8579617f09ad25d7732d009d5d4c1ea96f55bf734",
+      "saved_image_sha256": "136de6457013244e50ac1ef62a1d17eec8d4bf395f796cadb4310aa3ab46b36d",
+      "saved_vmlinux_sha256": "45d8bbb2fccea0cc46e99d2fc4369f65ff1d166f106639c38070e0fc2be406db",
+      "candidate_git_branches": [
+        "p11/zui12-post157-erofs-lz4-v183"
+      ],
+      "branch_attribution": "NAME_MATCH_ONLY_NOT_BUILD_VERIFIED",
+      "clean_rebuild_verified": false,
+      "toolchain_identity": "UNKNOWN_FOR_THIS_HISTORICAL_BUILD",
+      "recipe": "git checkout <candidate commit>; mkdir -p /separate/ssd/out; cp <archived-.config> /separate/ssd/out/.config; PATH=<clang-bin>:<cross-bin>:$PATH make O=/separate/ssd/out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-android- CLANG_TRIPLE=aarch64-linux-gnu- olddefconfig Image dtbs; exact toolchain and source identity still require verification",
+      "warning": "Name similarity alone does not prove this branch built these bytes; no claim of bit-for-bit reproduction.",
+      "candidate_commits": {
+        "p11/zui12-post157-erofs-lz4-v183": "3d93df7748a22962edc037670a0342246d7619a7"
+      }
+    },
+    {
+      "hdd_build_folder": "zui12-post157-erofs-v54compat-diag2",
+      "saved_config_sha256": "36270e3c45eb9e663e71eef8579617f09ad25d7732d009d5d4c1ea96f55bf734",
+      "saved_image_sha256": "156bd70818b2b922f7fd6db105a60eb4a328bf08ad7348067f80b64c3ac736d7",
+      "saved_vmlinux_sha256": "6cf16050fcd295395716c4ed3d1837f24528c7483c4ad708dc59d33886f69df7",
+      "candidate_git_branches": [
+        "p11/zui12-post157-erofs-v54compat"
+      ],
+      "branch_attribution": "NAME_MATCH_ONLY_NOT_BUILD_VERIFIED",
+      "clean_rebuild_verified": false,
+      "toolchain_identity": "UNKNOWN_FOR_THIS_HISTORICAL_BUILD",
+      "recipe": "git checkout <candidate commit>; mkdir -p /separate/ssd/out; cp <archived-.config> /separate/ssd/out/.config; PATH=<clang-bin>:<cross-bin>:$PATH make O=/separate/ssd/out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-android- CLANG_TRIPLE=aarch64-linux-gnu- olddefconfig Image dtbs; exact toolchain and source identity still require verification",
+      "warning": "Name similarity alone does not prove this branch built these bytes; no claim of bit-for-bit reproduction.",
+      "candidate_commits": {
+        "p11/zui12-post157-erofs-v54compat": "56ddb54d15fffe5708093957a84e15ad87fbfbb8"
+      }
+    },
+    {
+      "hdd_build_folder": "zui12-post157-erofs-z14-adsp-loader1",
+      "saved_config_sha256": "36270e3c45eb9e663e71eef8579617f09ad25d7732d009d5d4c1ea96f55bf734",
+      "saved_image_sha256": "a5a696ce390800007e8ee5885ab11de92b9de94728dc86bb434ede8807b981c2",
+      "saved_vmlinux_sha256": "5481cafd8d4ac4aea8a41ccf313667818e6a0d64fb1c96c37ee520fa858fecb0",
+      "candidate_git_branches": [],
+      "branch_attribution": "UNKNOWN",
+      "clean_rebuild_verified": false,
+      "toolchain_identity": "UNKNOWN_FOR_THIS_HISTORICAL_BUILD",
+      "recipe": "git checkout <candidate commit>; mkdir -p /separate/ssd/out; cp <archived-.config> /separate/ssd/out/.config; PATH=<clang-bin>:<cross-bin>:$PATH make O=/separate/ssd/out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-android- CLANG_TRIPLE=aarch64-linux-gnu- olddefconfig Image dtbs; exact toolchain and source identity still require verification",
+      "warning": "Name similarity alone does not prove this branch built these bytes; no claim of bit-for-bit reproduction."
+    },
+    {
+      "hdd_build_folder": "zui12-post157-erofs-z14-fastrpc-backport-test",
+      "saved_config_sha256": "36270e3c45eb9e663e71eef8579617f09ad25d7732d009d5d4c1ea96f55bf734",
+      "saved_image_sha256": "af0b7b6b81c4f6ba3c5c2fbb044972a1bf502453ec19effa6d3664c094fdb2f8",
+      "saved_vmlinux_sha256": "5628b7abd4b46375545fb3f3ac534519b55219ba985209f1a37f54fcc72dbe5a",
+      "candidate_git_branches": [],
+      "branch_attribution": "UNKNOWN",
+      "clean_rebuild_verified": false,
+      "toolchain_identity": "UNKNOWN_FOR_THIS_HISTORICAL_BUILD",
+      "recipe": "git checkout <candidate commit>; mkdir -p /separate/ssd/out; cp <archived-.config> /separate/ssd/out/.config; PATH=<clang-bin>:<cross-bin>:$PATH make O=/separate/ssd/out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-android- CLANG_TRIPLE=aarch64-linux-gnu- olddefconfig Image dtbs; exact toolchain and source identity still require verification",
+      "warning": "Name similarity alone does not prove this branch built these bytes; no claim of bit-for-bit reproduction."
+    },
+    {
+      "hdd_build_folder": "zui12-post157-erofs-z14-fastrpc-clean",
+      "saved_config_sha256": "36270e3c45eb9e663e71eef8579617f09ad25d7732d009d5d4c1ea96f55bf734",
+      "saved_image_sha256": "8c24bb1f9ee50267dd062c0ce6e901e5265824950814ea00929ba59b51cec947",
+      "saved_vmlinux_sha256": "8f507c08dbc33b23ead5c79cad6eed2e9d5ab0c91094b81fd2c128cfc70004ff",
+      "candidate_git_branches": [],
+      "branch_attribution": "UNKNOWN",
+      "clean_rebuild_verified": false,
+      "toolchain_identity": "UNKNOWN_FOR_THIS_HISTORICAL_BUILD",
+      "recipe": "git checkout <candidate commit>; mkdir -p /separate/ssd/out; cp <archived-.config> /separate/ssd/out/.config; PATH=<clang-bin>:<cross-bin>:$PATH make O=/separate/ssd/out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-android- CLANG_TRIPLE=aarch64-linux-gnu- olddefconfig Image dtbs; exact toolchain and source identity still require verification",
+      "warning": "Name similarity alone does not prove this branch built these bytes; no claim of bit-for-bit reproduction."
+    },
+    {
+      "hdd_build_folder": "zui12-post157-erofs-z14-fastrpc-kabi1",
+      "saved_config_sha256": "36270e3c45eb9e663e71eef8579617f09ad25d7732d009d5d4c1ea96f55bf734",
+      "saved_image_sha256": "e914ec331cb0ed11e93e7a6535de3709940bb69bc44e27e6a20aabe3f36bd1d1",
+      "saved_vmlinux_sha256": "a48edbc66792988186509c60839a313a223c6db6e15ed4a377421e882abf88a9",
+      "candidate_git_branches": [
+        "p11/zui12-post157-erofs-z14-fastrpc-kabi1"
+      ],
+      "branch_attribution": "NAME_MATCH_ONLY_NOT_BUILD_VERIFIED",
+      "clean_rebuild_verified": false,
+      "toolchain_identity": "UNKNOWN_FOR_THIS_HISTORICAL_BUILD",
+      "recipe": "git checkout <candidate commit>; mkdir -p /separate/ssd/out; cp <archived-.config> /separate/ssd/out/.config; PATH=<clang-bin>:<cross-bin>:$PATH make O=/separate/ssd/out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-android- CLANG_TRIPLE=aarch64-linux-gnu- olddefconfig Image dtbs; exact toolchain and source identity still require verification",
+      "warning": "Name similarity alone does not prove this branch built these bytes; no claim of bit-for-bit reproduction.",
+      "candidate_commits": {
+        "p11/zui12-post157-erofs-z14-fastrpc-kabi1": "d3b58d64ee411c5b2c6d734effec1b4fd9839a6b"
+      }
+    },
+    {
+      "hdd_build_folder": "zui12-post157-erofs-z14-glink1",
+      "saved_config_sha256": "36270e3c45eb9e663e71eef8579617f09ad25d7732d009d5d4c1ea96f55bf734",
+      "saved_image_sha256": "96564637fb353831ecbedef1bc7f9c895049331f1ce04407baa4235e2694102c",
+      "saved_vmlinux_sha256": "1fac0f39c5d939ba0608d7911657b5fb1dbbe0ae3a9d7961d6423a5a3f6399a1",
+      "candidate_git_branches": [
+        "p11/zui12-post157-erofs-z14-glink1"
+      ],
+      "branch_attribution": "NAME_MATCH_ONLY_NOT_BUILD_VERIFIED",
+      "clean_rebuild_verified": false,
+      "toolchain_identity": "UNKNOWN_FOR_THIS_HISTORICAL_BUILD",
+      "recipe": "git checkout <candidate commit>; mkdir -p /separate/ssd/out; cp <archived-.config> /separate/ssd/out/.config; PATH=<clang-bin>:<cross-bin>:$PATH make O=/separate/ssd/out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-android- CLANG_TRIPLE=aarch64-linux-gnu- olddefconfig Image dtbs; exact toolchain and source identity still require verification",
+      "warning": "Name similarity alone does not prove this branch built these bytes; no claim of bit-for-bit reproduction.",
+      "candidate_commits": {
+        "p11/zui12-post157-erofs-z14-glink1": "ee298d4abcf73fadb51b95e29277dcd472a60a80"
+      }
+    },
+    {
+      "hdd_build_folder": "zui12-source-zui14config-abi-probe",
+      "saved_config_sha256": "17f5b7132606e193fccd9b4a74d2a0f76b2e03b1b8dd0f19ca81c00c37034399",
+      "saved_image_sha256": "46a4b89d387f57836f7a84a7fd9e1ec88bc8682b1e2b6d4986e9189434624062",
+      "saved_vmlinux_sha256": "ba79be911142f013c4b8b5c74d726f9af76965149e3528395614b28ed4a07811",
+      "candidate_git_branches": [],
+      "branch_attribution": "UNKNOWN",
+      "clean_rebuild_verified": false,
+      "toolchain_identity": "UNKNOWN_FOR_THIS_HISTORICAL_BUILD",
+      "recipe": "git checkout <candidate commit>; mkdir -p /separate/ssd/out; cp <archived-.config> /separate/ssd/out/.config; PATH=<clang-bin>:<cross-bin>:$PATH make O=/separate/ssd/out ARCH=arm64 CC=clang CROSS_COMPILE=aarch64-linux-android- CLANG_TRIPLE=aarch64-linux-gnu- olddefconfig Image dtbs; exact toolchain and source identity still require verification",
+      "warning": "Name similarity alone does not prove this branch built these bytes; no claim of bit-for-bit reproduction."
+    }
+  ]
+}
